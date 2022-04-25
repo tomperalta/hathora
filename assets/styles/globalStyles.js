@@ -2,7 +2,7 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
-  * {
-    all: unset;
+  body {
+    font-family: "Open Sans";
   }
 `

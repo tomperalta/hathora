@@ -3,7 +3,7 @@ import GlobalStyles from "assets/styles/globalStyles"
 const PrimaryLayout = ({ children }) => (
 	<>
 		<GlobalStyles />
-		{children}
+		<main>{children}</main>
 	</>
 )
 
