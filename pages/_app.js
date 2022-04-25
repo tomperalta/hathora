@@ -1,5 +1,9 @@
-function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />
-}
+// Layout
+import PrimaryLayout from "layouts/layout-primary"
 
-export default MyApp
+const App = ({ Component, pageProps }) => (
+	<PrimaryLayout>
+		<Component {...pageProps} />
+	</PrimaryLayout>
+)
+export default App
