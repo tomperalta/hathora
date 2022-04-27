@@ -1,4 +1,7 @@
+import React from "react"
+
 // Libraries
+import PropTypes from "prop-types"
 import Head from "next/head"
 
 // Site's Metadata
@@ -24,6 +27,16 @@ const SEO = (props) => {
 			<meta name="description" value={seo.description} />
 		</Head>
 	)
+}
+
+SEO.propTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
+}
+
+SEO.defaultProps = {
+	title: null,
+	description: null,
 }
 
 export default SEO

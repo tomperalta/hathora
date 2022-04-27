@@ -1,5 +1,10 @@
+import React from "react"
+
 // Layout
 import PrimaryLayout from "layouts/layout-primary"
+
+// Libraries
+import PropTypes from "prop-types"
 
 // Styles
 import "assets/styles/reset.css"
@@ -10,4 +15,10 @@ const MyApp = ({ Component, pageProps }) => (
 		<Component {...pageProps} />
 	</PrimaryLayout>
 )
+
+MyApp.propTypes = {
+	Component: PropTypes.func.isRequired,
+	pageProps: PropTypes.shape({}).isRequired,
+}
+
 export default MyApp
