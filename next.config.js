@@ -8,6 +8,7 @@ const nextConfig = {
 		includePaths: [path.join(__dirname, "assets/styles")],
 	},
 	webpack: (config, { dev }) => {
+		// ESLINT on `dev` mode:start
 		if (dev) {
 			config.module.rules.push({
 				test: /\.(j|t)sx?$/,
@@ -16,6 +17,14 @@ const nextConfig = {
 
 			config.plugins.push(new ESLintPlugin())
 		}
+		// ESLINT on `dev` mode:end
+
+		// SVG loader:start
+		config.module.rules.push({
+			test: /\.svg$/,
+			use: ["@svgr/webpack", "url-loader"],
+		})
+		// SVG loader:end
 
 		return config
 	},
