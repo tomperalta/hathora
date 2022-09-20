@@ -3,6 +3,6 @@ import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
   body {
-    font-family: "Open Sans";
+    font-family: "Space Grotesk", sans-serif;
   }
 `
