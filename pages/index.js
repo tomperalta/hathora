@@ -9,7 +9,7 @@ import SEO from "components/seo"
 const Home = () => (
 	<>
 		<SEO title="Indicius | NextJS Project Starter" />
-		<h1>Hello, world!</h1>
+		<h1 className="heading--l">Hello, world!</h1>
 	</>
 )
 

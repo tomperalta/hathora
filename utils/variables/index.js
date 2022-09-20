@@ -13,18 +13,18 @@ export const colors = {
 	// Insert your variables here
 	white: "#FFFFFF",
 	black: "#000",
-  green__500: "#02FE57",
-  green__400: "#66B9A0",
-  purple__600: "#7132A6",
-  purple__500: "#AF64EE",
-  purple__400: "#B399EA",
-  purple__300: "#DACAFC",
-  grey__700: "#5E5E7D",
-  grey__600: "#191927",
-  grey__500: "#5E5E7D",
-  grey__400: "#8585A6",
-  grey__300: "#B8B8CF",
-  grey__200: "#E6E6F2"
+	green__500: "#02FE57",
+	green__400: "#66B9A0",
+	purple__600: "#7132A6",
+	purple__500: "#AF64EE",
+	purple__400: "#B399EA",
+	purple__300: "#DACAFC",
+	grey__700: "#5E5E7D",
+	grey__600: "#191927",
+	grey__500: "#5E5E7D",
+	grey__400: "#8585A6",
+	grey__300: "#B8B8CF",
+	grey__200: "#E6E6F2",
 }
 // Colors:end
 
