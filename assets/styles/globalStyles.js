@@ -7,6 +7,8 @@ import breakpoint from "utils/breakpoints/"
 export default createGlobalStyle`
   body {
     font-family: "Space Grotesk", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.4em;
 
     .heading--s {
       font-size: 1.5rem;
