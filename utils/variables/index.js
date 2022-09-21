@@ -19,7 +19,7 @@ export const colors = {
 	purple__500: "#AF64EE",
 	purple__400: "#B399EA",
 	purple__300: "#DACAFC",
-	grey__700: "#5E5E7D",
+	grey__700: "#0E0E1B",
 	grey__600: "#191927",
 	grey__500: "#5E5E7D",
 	grey__400: "#8585A6",

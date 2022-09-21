@@ -3,9 +3,12 @@ import { createGlobalStyle } from "styled-components"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
 
 export default createGlobalStyle`
   body {
+    background-color: ${colors.grey__700};
+    color: ${colors.grey__200};
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.25rem;
     line-height: 1.4em;
