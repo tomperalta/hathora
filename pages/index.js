@@ -13,8 +13,16 @@ import Button from "components/button"
 const Home = () => (
 	<>
 		<SEO title="Indicius | NextJS Project Starter" />
-		<h1 className="heading--l">Hello, world!</h1>
-		<Button>Fill Button</Button>
+		<div
+			style={{
+				height: "100vh",
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+			}}
+		>
+			<Button theme="gradient">Fill Button</Button>
+		</div>
 	</>
 )
 

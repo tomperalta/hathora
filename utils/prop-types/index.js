@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 export const ButtonProps = {
-	theme: PropTypes.oneOf(["fill", "outline", "borderless"]),
+	theme: PropTypes.oneOf(["fill", "gradient", "outline", "borderless"]),
 	type: PropTypes.oneOf(["link", "button"]),
 	href: PropTypes.string,
 	external: PropTypes.bool,

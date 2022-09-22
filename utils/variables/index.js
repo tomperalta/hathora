@@ -28,6 +28,13 @@ export const colors = {
 }
 // Colors:end
 
+// Gradients:start
+export const gradients = {
+	primary:
+		"radial-gradient(63.48% 541.55% at 53.19% 58.93%, #A03EF7 0%, #8962D9 30.64%, #2AFC61 100%)",
+}
+// Gradients:end
+
 // Font Weights:start
 export const weights = {
 	400: "400",

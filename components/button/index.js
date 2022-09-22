@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 
 // Libraries
 import Link from "next/link"
@@ -12,8 +12,6 @@ import { ButtonProps } from "utils/prop-types"
 // import IconShadowDetailsTurquoise from "assets/icons/components/button/icon-shadow-details--turquoise.svg"
 
 export const ButtonStyles = css`
-	display: inline-flex;
-	align-items: center;
 	padding: 16px 40px;
 	font-size: 1rem;
 	font-weight: 700;
@@ -39,6 +37,56 @@ export const ButtonStyles = css`
 			&:disabled {
 				background-color: ${colors.grey__400};
 				color: ${colors.grey__600};
+			}
+		`}
+
+	${(props) =>
+		props.theme === "gradient" &&
+		css`
+			position: relative;
+			color: ${colors.grey__700};
+			overflow: hidden;
+
+			&::before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: ${colors.green__500};
+				z-index: -1;
+			}
+
+			&::after {
+				// --size: 0;
+				// --y: 0;
+				// --x: 0;
+				content: "";
+				width: 200%;
+				height: 200%;
+				top: var(--y);
+				left: var(--x);
+				position: absolute;
+				background: radial-gradient(
+					63.48% 541.55% at 53.19% 58.93%,
+					#a03ef7 0%,
+					#8962d9 30.64%,
+					#2afc61 100%
+				);
+				transition: all 0.3s ease;
+				border-radius: 45px;
+				transform: translate(-50%, -50%);
+				transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+				opacity: 0;
+				z-index: -1;
+			}
+
+			&:hover {
+				&::after {
+					// --size: 200%;
+					opacity: 1;
+				}
 			}
 		`}
 
@@ -77,7 +125,12 @@ export const ButtonStyles = css`
 			}
 		`}
 
-  svg {
+  span {
+		position: relative;
+		z-index: 5;
+	}
+
+	svg {
 		margin-left: 8px;
 	}
 `
@@ -94,8 +147,26 @@ const StyledButtonLink = styled.a`
 `
 
 const Button = (props) => {
+	// Props
 	const { theme, type, to, external, disabled, children, className, onClick } =
 		props
+
+	// Hooks
+	const ref = useRef()
+
+	useEffect(() => {
+		if (theme === "gradient" && ref.current) {
+			ref.current.addEventListener("mousemove", (event) => {
+				const { pageX, pageY, target } = event
+
+				const x = pageX - target.offsetLeft
+				const y = pageY - target.offsetTop
+
+				target.style.setProperty("--x", `${x}px`)
+				target.style.setProperty("--y", `${y}px`)
+			})
+		}
+	})
 
 	/**
 	 * Returns a <button type="button"></button>
@@ -103,6 +174,7 @@ const Button = (props) => {
 	if (type === "button") {
 		return (
 			<StyledButton
+				ref={ref}
 				theme={theme}
 				type="button"
 				className={className}
@@ -120,6 +192,7 @@ const Button = (props) => {
 	if (type === "submit") {
 		return (
 			<StyledButton
+				ref={ref}
 				theme={theme}
 				type="submit"
 				className={className}
@@ -137,7 +210,12 @@ const Button = (props) => {
 	if (!external) {
 		return (
 			<Link href={to} passHref>
-				<StyledButtonLink theme={theme} className={className} onClick={onClick}>
+				<StyledButtonLink
+					ref={ref}
+					theme={theme}
+					className={className}
+					onClick={onClick}
+				>
 					{children}
 				</StyledButtonLink>
 			</Link>
@@ -149,6 +227,7 @@ const Button = (props) => {
 	 */
 	return (
 		<StyledButtonLink
+			ref={ref}
 			className={className}
 			theme={theme}
 			href={to}
