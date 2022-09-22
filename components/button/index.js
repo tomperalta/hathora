@@ -69,10 +69,9 @@ export const ButtonStyles = css`
 				left: var(--x);
 				position: absolute;
 				background: radial-gradient(
-					63.48% 541.55% at 53.19% 58.93%,
-					#a03ef7 0%,
-					#8962d9 30.64%,
-					#2afc61 100%
+					circle,
+					rgba(160, 62, 247, 1) 0%,
+					rgba(42, 252, 97, 1) 97%
 				);
 				transition: all 0.3s ease;
 				border-radius: 45px;

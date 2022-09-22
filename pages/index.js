@@ -21,7 +21,7 @@ const Home = () => (
 				justifyContent: "center",
 			}}
 		>
-			<Button theme="gradient">Fill Button</Button>
+			<Button theme="gradient">Request a demo</Button>
 		</div>
 	</>
 )
