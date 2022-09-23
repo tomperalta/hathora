@@ -12,16 +12,21 @@ import Button from "components/button"
 
 // Icons
 import { ReactComponent as IconHero } from "assets/icons/home/icon-hero.svg"
+import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledHero = styled.section`
 	min-height: 100vh;
 	position: relative;
 	display: flex;
 	align-items: center;
-	padding: 60px 0;
+	padding: 96px 0 60px 0;
 
 	.hero__buttons {
-		margin-top: 56px;
+		margin-top: 32px;
+
+		${breakpoint.medium`
+      margin-top: 56px;
+    `}
 
 		button {
 			margin-bottom: 32px;
@@ -68,6 +73,10 @@ const Hero = () => (
 							Build, launch, and scale multiplayer games seamlessly
 						</h1>
 
+						<div className="d-flex d-md-none my-2">
+							<IconHero />
+						</div>
+
 						<p className="text--l">
 							Hathora’s platform takes care of backend so
 							<br />
@@ -84,13 +93,14 @@ const Hero = () => (
 								theme="borderless"
 							>
 								Read our docs
+								<IconArrow />
 							</Button>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="hero__icon">
+			<div className="hero__icon d-none d-md-block">
 				<IconHero />
 			</div>
 		</Container>

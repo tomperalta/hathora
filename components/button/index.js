@@ -12,6 +12,8 @@ import { ButtonProps } from "utils/prop-types"
 // import IconShadowDetailsTurquoise from "assets/icons/components/button/icon-shadow-details--turquoise.svg"
 
 export const ButtonStyles = css`
+	display: inline-flex;
+	align-items: center;
 	padding: 16px 40px;
 	font-size: 1rem;
 	font-weight: 700;
