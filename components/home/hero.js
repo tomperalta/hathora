@@ -41,14 +41,13 @@ const StyledHero = styled.section`
 		max-width: 670px;
 		width: 100%;
 		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
 
 		${breakpoint.medium`
       position: absolute;
-      top: 0;
+      top: calc(((100vh - 670px) / 2) + 64px);
       right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
       margin: auto;
     `}
 
@@ -73,7 +72,7 @@ const Hero = () => (
 							Build, launch, and scale multiplayer games seamlessly
 						</h1>
 
-						<div className="d-flex d-md-none my-2">
+						<div className="hero__icon my-2 my-md-0">
 							<IconHero />
 						</div>
 
@@ -98,10 +97,6 @@ const Hero = () => (
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div className="hero__icon d-none d-md-block">
-				<IconHero />
 			</div>
 		</Container>
 	</StyledHero>
