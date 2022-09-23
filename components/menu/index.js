@@ -214,7 +214,7 @@ const Menu = () => {
 		},
 		{
 			label: "Blog",
-			url: "/blog",
+			url: "https://blog.hathora.dev/",
 			external: true,
 		},
 	]
@@ -301,7 +301,7 @@ const Menu = () => {
 								</Link>
 							) : (
 								<a
-									href="/"
+									href={item.url}
 									className="menu__link"
 									target="_blank"
 									rel="noopener noreferrer"
