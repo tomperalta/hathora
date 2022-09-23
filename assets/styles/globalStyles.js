@@ -61,7 +61,17 @@ export default createGlobalStyle`
     }
 
     a {
+      color: inherit;
+      display: inline-block;
       text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    button {
+      font: inherit;
+      background: 0;
+      border: 0;
+      color: inherit;
     }
 
     svg {
