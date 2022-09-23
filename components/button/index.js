@@ -114,6 +114,7 @@ export const ButtonStyles = css`
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			border-radius: 0;
+			border-bottom: 1px solid transparent;
 
 			&:hover {
 				border-bottom: 1px solid ${colors.green__500};

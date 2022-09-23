@@ -59,5 +59,15 @@ export default createGlobalStyle`
       font-size: 1.5rem;
       line-height: 1.33em;
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
   }
 `
