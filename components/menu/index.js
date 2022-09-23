@@ -29,6 +29,7 @@ const StyledMenu = styled.nav`
 
 	${breakpoint.medium`
     padding: 32px 0;
+    overflow: visible;
   `}
 
 	.menu__content {
@@ -54,6 +55,23 @@ const StyledMenu = styled.nav`
 			${breakpoint.medium`
         margin: 0 24px 0 0;
       `}
+
+			&--has-sub-menu {
+				&.active {
+					.menu__link {
+						color: ${colors.purple__500};
+
+						svg {
+							transform: rotate(180deg);
+						}
+					}
+
+					.menu__sub-menu {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
 		}
 
 		.menu__link {
@@ -79,6 +97,37 @@ const StyledMenu = styled.nav`
 			position: absolute;
 			opacity: 0;
 			visibility: hidden;
+
+			${breakpoint.medium`
+        width: 200px;
+        padding: 16px 0;
+        background-color: ${colors.grey__700};
+        border-radius: 8px;
+        box-shadow: 0px 134px 124px rgba(0, 0, 0, 0.25);
+        z-index: 9001;
+      `}
+
+			ul {
+				display: flex;
+				flex-direction: column;
+			}
+
+			li {
+				${breakpoint.medium`
+          padding: 8px 24px;
+        `}
+			}
+
+			a {
+				width: 100%;
+				font-size: 1rem;
+				font-weight: 500;
+				line-height: 1.5em;
+
+				&:hover {
+					color: ${colors.purple__500};
+				}
+			}
 		}
 	}
 
@@ -205,7 +254,14 @@ const Menu = () => {
 
 				<ul className="menu__content">
 					{navigationData.map((item) => (
-						<li className="menu__item" key={item.label}>
+						<li
+							className={
+								item.links
+									? "menu__item menu__item--has-sub-menu"
+									: "menu__item"
+							}
+							key={item.label}
+						>
 							{item.links ? (
 								<>
 									<button
@@ -219,21 +275,23 @@ const Menu = () => {
 
 									<div className="menu__sub-menu">
 										<ul>
-											{item.links.map((link) =>
-												!link.external ? (
-													<Link href={link.url}>
-														<a>{link.label}</a>
-													</Link>
-												) : (
-													<a
-														href={link.url}
-														target="_blank"
-														rel="noopener noreferrer"
-													>
-														{link.label}
-													</a>
-												)
-											)}
+											{item.links.map((link) => (
+												<li key={link.label}>
+													{!link.external ? (
+														<Link href={link.url}>
+															<a>{link.label}</a>
+														</Link>
+													) : (
+														<a
+															href={link.url}
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															{link.label}
+														</a>
+													)}
+												</li>
+											))}
 										</ul>
 									</div>
 								</>

@@ -72,6 +72,7 @@ export default createGlobalStyle`
       background: 0;
       border: 0;
       color: inherit;
+      cursor: pointer;
     }
 
     svg {
