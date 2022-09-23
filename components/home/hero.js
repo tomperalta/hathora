@@ -77,9 +77,8 @@ const Hero = () => (
 						</div>
 
 						<p className="text--l">
-							Hathora’s platform takes care of backend so
-							<br />
-							you can focus on your game.
+							Hathora’s platform takes care of backend so you can focus on your
+							game.
 						</p>
 
 						<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
