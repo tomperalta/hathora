@@ -66,7 +66,7 @@ const Hero = () => (
 	<StyledHero>
 		<Container>
 			<div className="row justify-content-center justify-content-md-start">
-				<div className="col-12 col-sm-8">
+				<div className="col-12 col-sm-8 col-md-6">
 					<div className="text-sm-center text-md-start">
 						<h1 className="heading--l mb-4">
 							Build, launch, and scale multiplayer games seamlessly
