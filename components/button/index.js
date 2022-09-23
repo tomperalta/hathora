@@ -109,14 +109,31 @@ export const ButtonStyles = css`
   ${(props) =>
 		props.theme === "borderless" &&
 		css`
+			position: relative;
 			padding: 0;
 			color: ${colors.grey__200};
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			border-radius: 0;
 
+			&::before {
+				content: "";
+				width: 0;
+				height: 1px;
+				display: inline-block;
+				position: absolute;
+				top: calc(100% + 4px);
+				right: 0;
+				left: 0;
+				margin: auto;
+				background-color: ${colors.green__500};
+				transition: all 0.2s ease;
+			}
+
 			&:hover {
-				border-bottom: 1px solid ${colors.green__500};
+				&::before {
+					width: 100%;
+				}
 			}
 
 			&:disabled {
