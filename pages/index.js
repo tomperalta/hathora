@@ -12,7 +12,7 @@ import Button from "components/button"
 
 const Home = () => (
 	<>
-		<SEO title="Indicius | NextJS Project Starter" />
+		<SEO />
 		<div
 			style={{
 				height: "100vh",

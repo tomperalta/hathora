@@ -1,6 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		defaultTitle: "Purple Bunny",
-		defaultDescription: "Lorem ipsum",
+		defaultTitle: "Hathora",
+		defaultDescription:
+			"If you're reading this message it means we need a SEO description",
 	},
 }
