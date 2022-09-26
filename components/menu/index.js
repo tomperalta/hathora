@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // Libraries
 import styled, { css } from "styled-components"
@@ -25,13 +25,21 @@ const StyledMenu = styled.nav`
 	top: 0;
 	right: 0;
 	left: 0;
-	padding: 24px 0;
+	// padding: 24px 0;
 	box-sizing: border-box;
 	z-index: 9999;
 
 	${breakpoint.medium`
-    padding: 32px 0;
+    // padding: 32px 0;
   `}
+
+	${Container} {
+		margin: 24px 0;
+
+		${breakpoint.medium`
+      margin: 32px 0;
+    `}
+	}
 
 	.menu__logo {
 		svg {
@@ -273,6 +281,23 @@ const Menu = () => {
 	 * State
 	 */
 	const [active, setActive] = useState(false)
+
+	/**
+	 * Hooks
+	 */
+
+	/**
+	 * Locks window scroll if `active`
+	 */
+	useEffect(() => {
+		if (active) {
+			document.querySelector("html").classList.add("no-scroll")
+			document.querySelector("body").classList.add("no-scroll")
+		} else {
+			document.querySelector("html").classList.remove("no-scroll")
+			document.querySelector("body").classList.remove("no-scroll")
+		}
+	}, [active])
 
 	/**
 	 * Data
