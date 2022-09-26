@@ -177,6 +177,7 @@ const StyledMenu = styled.nav`
 			color: ${colors.grey__400};
 			font-size: 1.25rem;
 			line-height: 1.4em;
+			transition: all 0.2s ease;
 
 			${breakpoint.medium`
         font-size: 1rem;
@@ -202,6 +203,11 @@ const StyledMenu = styled.nav`
 
 			svg {
 				margin-left: 8px;
+				transition: all 0.2s ease;
+
+				* {
+					transition: all 0.2s ease;
+				}
 			}
 		}
 
