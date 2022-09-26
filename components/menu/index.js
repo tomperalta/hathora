@@ -73,11 +73,23 @@ const StyledMenu = styled.nav`
 
 			&--has-sub-menu {
 				&.active {
-					.menu__link {
-						color: ${colors.purple__500};
+					& > .menu__link {
+						color: ${colors.green__500};
 
-						svg {
+						.svg {
 							transform: rotate(180deg);
+
+							&.svg--stroke {
+								* {
+									stroke: ${colors.green__500};
+								}
+							}
+
+							&.svg--fill {
+								* {
+									fill: ${colors.green__500};
+								}
+							}
 						}
 					}
 
@@ -100,7 +112,19 @@ const StyledMenu = styled.nav`
 
 			&:focus-visible,
 			&:hover {
-				color: ${colors.purple__500};
+				color: ${colors.green__500};
+
+				.svg--stroke {
+					* {
+						stroke: ${colors.green__500};
+					}
+				}
+
+				.svg--fill {
+					* {
+						fill: ${colors.green__500};
+					}
+				}
 			}
 
 			svg {
@@ -131,17 +155,6 @@ const StyledMenu = styled.nav`
 				${breakpoint.medium`
           padding: 8px 24px;
         `}
-			}
-
-			a {
-				width: 100%;
-				font-size: 1rem;
-				font-weight: 500;
-				line-height: 1.5em;
-
-				&:hover {
-					color: ${colors.purple__500};
-				}
 			}
 		}
 	}
@@ -284,7 +297,7 @@ const Menu = () => {
 											onClick={toggleSubMenu}
 										>
 											{item.label}
-											<IconCaretDown />
+											<IconCaretDown className="svg svg--fill" />
 										</button>
 
 										<div className="menu__sub-menu">
@@ -293,10 +306,11 @@ const Menu = () => {
 													<li key={link.label}>
 														{!link.external ? (
 															<Link href={link.url}>
-																<a>{link.label}</a>
+																<a className="menu__link">{link.label}</a>
 															</Link>
 														) : (
 															<a
+																className="menu__link"
 																href={link.url}
 																target="_blank"
 																rel="noopener noreferrer"
@@ -321,7 +335,7 @@ const Menu = () => {
 										rel="noopener noreferrer"
 									>
 										{item.label}
-										<IconArrowExternal />
+										<IconArrowExternal className="svg svg--stroke" />
 									</a>
 								)}
 							</li>
