@@ -38,7 +38,7 @@ const StyledHero = styled.section`
 	}
 
 	.hero__icon {
-		max-width: 670px;
+		max-width: 671px;
 		width: 100%;
 		aspect-ratio: 1;
 		display: flex;
@@ -46,7 +46,7 @@ const StyledHero = styled.section`
 
 		${breakpoint.medium`
       position: absolute;
-      top: calc(((100vh - 670px) / 2) + 64px);
+      top: calc((100vh - 671px) / 2);
       right: 0;
       margin: auto;
     `}
@@ -82,7 +82,7 @@ const Hero = () => (
 						</p>
 
 						<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
-							<Button theme="gradient">Request a Demo</Button>
+							<Button theme="gradient">Sign up</Button>
 
 							<Button
 								type="link"
