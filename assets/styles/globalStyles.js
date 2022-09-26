@@ -7,11 +7,13 @@ import { colors } from "utils/variables"
 
 export default createGlobalStyle`
   body {
+    width: 100vw;
     background-color: ${colors.grey__700};
     color: ${colors.grey__200};
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.25rem;
     line-height: 1.4em;
+    overflow: hidden;
 
     .heading--s {
       font-size: 1.5rem;
@@ -68,6 +70,8 @@ export default createGlobalStyle`
     }
 
     button {
+      padding: 0;
+      margin: 0;
       font: inherit;
       background: 0;
       border: 0;
