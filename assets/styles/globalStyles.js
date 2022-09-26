@@ -84,6 +84,7 @@ export default createGlobalStyle`
     }
 
     input {
+      -webkit-appearance: none;
       padding: 0;
       margin: 0;
       background: 0;
