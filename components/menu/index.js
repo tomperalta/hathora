@@ -245,6 +245,10 @@ const StyledMenu = styled.nav`
 				font-size: 1rem;
 				font-weight: 600;
 				line-height: 1.5em;
+
+				${breakpoint.medium`
+          color: ${colors.grey__200};
+        `}
 			}
 		}
 	}
