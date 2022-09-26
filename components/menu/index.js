@@ -32,6 +32,17 @@ const StyledMenu = styled.nav`
     overflow: visible;
   `}
 
+	.menu__logo {
+		width: auto;
+		height: 24px;
+
+		svg {
+			${breakpoint.medium`
+        height: 40px;
+      `}
+		}
+	}
+
 	.menu__content {
 		position: absolute;
 		display: flex;
@@ -50,6 +61,10 @@ const StyledMenu = styled.nav`
 
 			&:last-child {
 				margin: 0;
+
+				${breakpoint.medium`
+          margin-right: 24px;
+        `}
 			}
 
 			${breakpoint.medium`
@@ -151,11 +166,9 @@ const StyledMenu = styled.nav`
 		}
 
 		.sign-up {
-			@media screen and (max-width: 1023px) {
-				font-size: 0.875rem;
-				line-height: 1.42em;
-				padding: 6px 16px;
-			}
+			font-size: 0.875rem;
+			line-height: 1.42em;
+			padding: 6px 16px;
 		}
 	}
 `
@@ -252,83 +265,85 @@ const Menu = () => {
 					</a>
 				</Link>
 
-				<ul className="menu__content">
-					{navigationData.map((item) => (
-						<li
-							className={
-								item.links
-									? "menu__item menu__item--has-sub-menu"
-									: "menu__item"
-							}
-							key={item.label}
-						>
-							{item.links ? (
-								<>
-									<button
-										type="button"
+				<div className="d-flex align-items-center">
+					<ul className="menu__content">
+						{navigationData.map((item) => (
+							<li
+								className={
+									item.links
+										? "menu__item menu__item--has-sub-menu"
+										: "menu__item"
+								}
+								key={item.label}
+							>
+								{item.links ? (
+									<>
+										<button
+											type="button"
+											className="menu__link"
+											onClick={toggleSubMenu}
+										>
+											{item.label}
+											<IconCaretDown />
+										</button>
+
+										<div className="menu__sub-menu">
+											<ul>
+												{item.links.map((link) => (
+													<li key={link.label}>
+														{!link.external ? (
+															<Link href={link.url}>
+																<a>{link.label}</a>
+															</Link>
+														) : (
+															<a
+																href={link.url}
+																target="_blank"
+																rel="noopener noreferrer"
+															>
+																{link.label}
+															</a>
+														)}
+													</li>
+												))}
+											</ul>
+										</div>
+									</>
+								) : !item.external ? (
+									<Link href={item.url}>
+										<a className="menu__link">{item.label}</a>
+									</Link>
+								) : (
+									<a
+										href={item.url}
 										className="menu__link"
-										onClick={toggleSubMenu}
+										target="_blank"
+										rel="noopener noreferrer"
 									>
 										{item.label}
-										<IconCaretDown />
-									</button>
+										<IconArrowExternal />
+									</a>
+								)}
+							</li>
+						))}
+					</ul>
 
-									<div className="menu__sub-menu">
-										<ul>
-											{item.links.map((link) => (
-												<li key={link.label}>
-													{!link.external ? (
-														<Link href={link.url}>
-															<a>{link.label}</a>
-														</Link>
-													) : (
-														<a
-															href={link.url}
-															target="_blank"
-															rel="noopener noreferrer"
-														>
-															{link.label}
-														</a>
-													)}
-												</li>
-											))}
-										</ul>
-									</div>
-								</>
-							) : !item.external ? (
-								<Link href={item.url}>
-									<a className="menu__link">{item.label}</a>
-								</Link>
-							) : (
-								<a
-									href={item.url}
-									className="menu__link"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{item.label}
-									<IconArrowExternal />
-								</a>
-							)}
-						</li>
-					))}
-				</ul>
+					<div className="menu__toggler d-flex align-items-center">
+						<Button
+							type="link"
+							href="/sign-up"
+							theme="outline"
+							className="sign-up me-3 me-md-0"
+							onClick={toggleMenu}
+						>
+							Sign Up
+						</Button>
 
-				<div className="menu__toggler d-flex align-items-center">
-					<Button
-						type="link"
-						href="/sign-up"
-						theme="outline"
-						className="sign-up me-3 me-md-0"
-						onClick={toggleMenu}
-					>
-						Sign Up
-					</Button>
-
-					<div className="toggler d-md-none">
-						<span />
-						<span />
-						<span />
+						<div className="toggler d-md-none">
+							<span />
+							<span />
+							<span />
+						</div>
 					</div>
 				</div>
 			</Container>

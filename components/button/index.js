@@ -19,6 +19,7 @@ export const ButtonStyles = css`
 	font-weight: 700;
 	line-height: 1.5em;
 	letter-spacing: 0.02em;
+	white-space: nowrap;
 	border-radius: 45px;
 	cursor: pointer;
 
