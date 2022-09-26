@@ -107,6 +107,7 @@ const NewsletterForm = () => {
 					value={email}
 					placeholder="Your email here"
 					onChange={handleChange}
+					autoComplete="off"
 				/>
 
 				<button
