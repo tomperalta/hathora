@@ -34,10 +34,10 @@ const StyledMenu = styled.nav`
   `}
 
 	${Container} {
-		margin: 24px 0;
+		margin: 24px auto;
 
 		${breakpoint.medium`
-      margin: 32px 0;
+      margin: 32px auto;
     `}
 	}
 
