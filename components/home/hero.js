@@ -69,7 +69,7 @@ const Hero = () => (
 				<div className="col-12 col-sm-8 col-md-6">
 					<div className="text-sm-center text-md-start">
 						<h1 className="heading--l mb-4">
-							Build, launch, and scale multiplayer games seamlessly
+							Serverless cloud platform for multiplayer games
 						</h1>
 
 						<div className="hero__icon my-2 my-md-0">
@@ -77,9 +77,8 @@ const Hero = () => (
 						</div>
 
 						<p className="text--l">
-							Hathora’s platform takes care of backend so
-							<br />
-							you can focus on your game.
+							Seamlessly build, launch, and scale server authoritative game
+							backends
 						</p>
 
 						<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
