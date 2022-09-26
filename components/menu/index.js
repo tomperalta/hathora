@@ -287,10 +287,6 @@ const Menu = () => {
 	const [active, setActive] = useState(false)
 
 	/**
-	 * Hooks
-	 */
-
-	/**
 	 * Locks window scroll if `active`
 	 */
 	useEffect(() => {
@@ -302,6 +298,25 @@ const Menu = () => {
 			document.querySelector("body").classList.remove("no-scroll")
 		}
 	}, [active])
+
+	/**
+	 * Closes sidebar if the user clicks in the overlay
+	 */
+	useEffect(() => {
+		const handleOverlayClick = (event) => {
+			const { target } = event
+
+			if (target.id === "menuOverlay" && active) {
+				setActive(false)
+			}
+		}
+
+		const menuOverlay = document.querySelector("#menuOverlay")
+
+		menuOverlay.addEventListener("click", handleOverlayClick)
+
+		return () => menuOverlay.removeEventListener("click", handleOverlayClick)
+	})
 
 	/**
 	 * Data
@@ -386,7 +401,7 @@ const Menu = () => {
 				</Link>
 
 				<div className="d-flex align-items-center flex-shrink-0">
-					<div className="menu__content">
+					<div id="menuOverlay" className="menu__content">
 						<div className="content">
 							<div className="content__header d-flex d-md-none align-items-center justify-content-between">
 								<IconLogo className="logo" />
