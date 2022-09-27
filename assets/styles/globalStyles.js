@@ -7,6 +7,10 @@ import helpers from "utils/helpers"
 import { colors } from "utils/variables"
 
 export default createGlobalStyle`
+  .no-scroll {
+    overflow: hidden !important;
+  }
+  
   body {
     background-color: ${colors.grey__700};
     color: ${colors.grey__200};

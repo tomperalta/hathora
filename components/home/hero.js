@@ -3,6 +3,10 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
+// Redux
+import { useDispatch } from "react-redux"
+import { openSignUpModal } from "redux/slices/sign-up-modal"
+
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -62,43 +66,56 @@ const StyledHero = styled.section`
 	}
 `
 
-const Hero = () => (
-	<StyledHero>
-		<Container>
-			<div className="row justify-content-center justify-content-md-start">
-				<div className="col-12 col-sm-8 col-md-6">
-					<div className="text-sm-center text-md-start">
-						<h1 className="heading--l mb-4">
-							Serverless cloud platform for multiplayer games
-						</h1>
+const Hero = () => {
+	/**
+	 * Hooks
+	 */
+	const dispatch = useDispatch()
 
-						<div className="hero__icon my-2 my-md-0">
-							<IconHero />
-						</div>
+	return (
+		<StyledHero>
+			<Container>
+				<div className="row justify-content-center justify-content-md-start">
+					<div className="col-12 col-sm-8 col-md-6">
+						<div className="text-sm-center text-md-start">
+							<h1 className="heading--l mb-4">
+								Serverless cloud platform for multiplayer games
+							</h1>
 
-						<p className="text--l">
-							Seamlessly build, launch, and scale server authoritative game
-							backends
-						</p>
+							<div className="hero__icon my-2 my-md-0">
+								<IconHero />
+							</div>
 
-						<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
-							<Button theme="gradient">Sign up</Button>
+							<p className="text--l">
+								Seamlessly build, launch, and scale server authoritative game
+								backends
+							</p>
 
-							<Button
-								type="link"
-								href="https://docs.hathora.dev/#/"
-								external
-								theme="borderless"
-							>
-								Read our docs
-								<IconArrow />
-							</Button>
+							<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
+								<Button
+									type="button"
+									theme="gradient"
+									onClick={() => dispatch(openSignUpModal())}
+								>
+									Sign Up
+								</Button>
+
+								<Button
+									type="link"
+									href="https://docs.hathora.dev/#/"
+									external
+									theme="borderless"
+								>
+									Read our docs
+									<IconArrow />
+								</Button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</Container>
-	</StyledHero>
-)
+			</Container>
+		</StyledHero>
+	)
+}
 
 export default Hero
