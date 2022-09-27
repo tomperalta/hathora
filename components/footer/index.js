@@ -94,11 +94,13 @@ const Footer = () => {
 			links: [
 				{
 					label: "Docs",
-					url: "/docs",
+					url: "https://docs.hathora.dev/#/",
+					external: true,
 				},
 				{
 					label: "Blog",
-					url: "/blog",
+					url: "https://blog.hathora.dev/",
+					external: true,
 				},
 			],
 		},
