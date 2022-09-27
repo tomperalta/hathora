@@ -10,6 +10,7 @@ import { closeSignUpModal } from "redux/slices/sign-up-modal"
 // Utils
 import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
+import { validateEmail } from "utils/functions"
 
 // Components
 import Container from "components/container/"
@@ -74,13 +75,12 @@ const SignUpModal = () => {
 		email: true,
 		company: true,
 	})
+	const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
 	/**
 	 * Hooks
 	 */
 	const dispatch = useDispatch()
-
-	console.log(formFields, setFormFields, formValidation, setFormValidation)
 
 	/**
 	 * Closes modal
@@ -130,11 +130,38 @@ const SignUpModal = () => {
 	}
 
 	/**
+	 * Updates `formValidation` state with
+	 * the validation of each field of the form
+	 */
+	const validateForm = () => {
+		const _formValidation = formValidation
+
+		Object.keys(_formValidation).forEach((key) => {
+			if (key === "email") {
+				_formValidation[key] =
+					formFields[key] !== "" && validateEmail(formFields[key])
+			} else {
+				_formValidation[key] = formFields[key] !== ""
+			}
+		})
+
+		setFormValidation({ ...formValidation, ..._formValidation })
+	}
+
+	const formIsValid = () => !Object.values(formValidation).includes(false)
+
+	/**
 	 * Handles form submit
 	 * @param {*} event
 	 */
 	const handleSubmit = (event) => {
 		event.preventDefault()
+
+		validateForm()
+
+		if (formIsValid()) {
+			setShowSuccessMessage(true)
+		}
 	}
 
 	return (
@@ -145,77 +172,91 @@ const SignUpModal = () => {
 						Sign up to try our private beta
 					</p>
 
-					<p className="text--xs color--grey__400 font-weight--500">
-						Leave us your email and we'll contact you ASAP to get set up.
-					</p>
+					{!showSuccessMessage ? (
+						<>
+							<p className="text--xs color--grey__400 font-weight--500">
+								Leave us your email and we'll contact you ASAP to get set up.
+							</p>
+							<Form className="mt-5" onSubmit={handleSubmit}>
+								<div className="form__input">
+									{!formValidation.name && (
+										<p className="form__message form__message--error">
+											Please enter your name
+										</p>
+									)}
+									<input
+										type="text"
+										name="name"
+										placeholder="Your name here"
+										onChange={handleInputChange}
+									/>
+								</div>
 
-					<Form className="mt-5" onSubmit={handleSubmit}>
-						<div className="form__input">
-							{!formValidation.name && (
-								<p className="form__message form__message--error">
-									Please enter your name
-								</p>
-							)}
-							<input
-								type="text"
-								name="name"
-								placeholder="Your name here"
-								onChange={handleInputChange}
-							/>
-						</div>
+								<div className="form__input">
+									{!formValidation.name && (
+										<p className="form__message form__message--error">
+											Please enter your email
+										</p>
+									)}
+									<input
+										type="email"
+										name="email"
+										placeholder="Your email here"
+										onChange={handleInputChange}
+									/>
+								</div>
 
-						<div className="form__input">
-							{!formValidation.name && (
-								<p className="form__message form__message--error">
-									Please enter your email
-								</p>
-							)}
-							<input
-								type="email"
-								name="email"
-								placeholder="Your email here"
-								onChange={handleInputChange}
-							/>
-						</div>
+								<div className="form__input">
+									{!formValidation.name && (
+										<p className="form__message form__message--error">
+											Please enter your company name
+										</p>
+									)}
+									<input
+										type="text"
+										name="company"
+										placeholder="Your company name here"
+										onChange={handleInputChange}
+									/>
+								</div>
 
-						<div className="form__input">
-							{!formValidation.name && (
-								<p className="form__message form__message--error">
-									Please enter your company name
-								</p>
-							)}
-							<input
-								type="text"
-								name="company"
-								placeholder="Your company name here"
-								onChange={handleInputChange}
-							/>
-						</div>
+								<div className="mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
+									<Button
+										type="submit"
+										theme="gradient"
+										className="mb-3 mb-sm-0"
+										onClick={handleSubmit}
+										disabled={
+											Object.values(formFields).includes("") ||
+											Object.values(formValidation).includes(false)
+										}
+									>
+										Sign Up
+									</Button>
 
-						<div className="mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
-							<Button
-								type="submit"
-								theme="gradient"
-								className="mb-3 mb-sm-0"
-								onClick={handleSubmit}
-								disabled={
-									Object.values(formFields).includes("") ||
-									Object.values(formValidation).includes(false)
-								}
-							>
-								Sign Up
+									<Button
+										type="button"
+										theme="outline"
+										className="mb-3 mb-sm-0 me-sm-2"
+										onClick={() => dispatch(closeSignUpModal())}
+									>
+										Cancel
+									</Button>
+								</div>
+							</Form>
+						</>
+					) : (
+						<>
+							<p className="text--xs mb-4 color--green__500 font-weight--500">
+								Thanks for signing-up! We'll get in touch with you ASAP to set
+								you up.
+							</p>
+
+							<Button type="button" theme="gradient" onClick={closeModal}>
+								Ok, got it
 							</Button>
-
-							<Button
-								type="button"
-								theme="outline"
-								className="mb-3 mb-sm-0 me-sm-2"
-								onClick={() => dispatch(closeSignUpModal())}
-							>
-								Cancel
-							</Button>
-						</div>
-					</Form>
+						</>
+					)}
 				</div>
 			</Container>
 		</StyledSignUpModal>

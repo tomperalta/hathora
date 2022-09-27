@@ -3,8 +3,6 @@ import React from "react"
 // Data
 import { socialMediaLinks } from "settings"
 
-console.log(socialMediaLinks)
-
 const SocialMedia = () => (
 	<ul className="d-flex align-items-center">
 		{socialMediaLinks.map((link) => (
