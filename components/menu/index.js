@@ -5,6 +5,10 @@ import styled, { css } from "styled-components"
 import Link from "next/link"
 import { transparentize } from "polished"
 
+// Redux
+import { useDispatch } from "react-redux"
+import { openSignUpModal } from "redux/slices/sign-up-modal"
+
 // Components
 import Container from "components/container/"
 import Button from "components/button"
@@ -296,6 +300,11 @@ const Menu = () => {
 	const [active, setActive] = useState(false)
 
 	/**
+	 * Hooks
+	 */
+	const dispatch = useDispatch()
+
+	/**
 	 * Locks window scroll if `active`
 	 */
 	useEffect(() => {
@@ -494,6 +503,7 @@ const Menu = () => {
 							href="/sign-up"
 							theme="outline"
 							className="sign-up me-3 me-md-0"
+							onClick={() => dispatch(openSignUpModal())}
 						>
 							Sign Up
 						</Button>

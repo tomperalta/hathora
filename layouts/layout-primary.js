@@ -8,14 +8,16 @@ import GlobalStyles from "assets/styles/globalStyles"
 
 // Components
 import Menu from "components/menu"
-import Footer from "components/footer"
+// import Footer from "components/footer"
+import SignUpModal from "components/sign-up-modal"
 
 const PrimaryLayout = ({ children }) => (
 	<>
 		<GlobalStyles />
 		<Menu />
 		<main>{children}</main>
-		<Footer />
+		{/* <Footer /> */}
+		<SignUpModal />
 	</>
 )
 

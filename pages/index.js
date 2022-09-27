@@ -7,7 +7,7 @@ import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
 
 // Sections
-import Hero from "components/home/hero"
+// import Hero from "components/home/hero"
 
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
@@ -15,7 +15,7 @@ import Hero from "components/home/hero"
 const Home = () => (
 	<>
 		<SEO title="Indicius | NextJS Project Starter" />
-		<Hero />
+		{/* <Hero /> */}
 	</>
 )
 

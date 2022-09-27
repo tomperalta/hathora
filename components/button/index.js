@@ -21,7 +21,9 @@ export const ButtonStyles = css`
 	letter-spacing: 0.02em;
 	white-space: nowrap;
 	border-radius: 45px;
+	white-space: nowrap;
 	cursor: pointer;
+	z-index: 10;
 
 	&:disabled {
 		pointer-events: none;
@@ -58,6 +60,7 @@ export const ButtonStyles = css`
 				top: 0;
 				left: 0;
 				background-color: ${colors.green__500};
+				transition: all 0.2s ease;
 				z-index: -1;
 			}
 
@@ -88,6 +91,12 @@ export const ButtonStyles = css`
 				&::after {
 					// --size: 200%;
 					opacity: 1;
+				}
+			}
+
+			&:disabled {
+				&::before {
+					background-color: ${colors.grey__400};
 				}
 			}
 		`}
