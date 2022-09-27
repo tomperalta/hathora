@@ -56,6 +56,7 @@ const StyledHero = styled.section`
     `}
 
 		${breakpoint.extraLarge`
+      top: calc(((100vh - 671px) / 2) + 32px);
       right: calc((100vw - 1440px) / 2);
     `}
 
