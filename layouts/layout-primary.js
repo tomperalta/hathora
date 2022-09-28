@@ -7,15 +7,14 @@ import PropTypes from "prop-types"
 import GlobalStyles from "assets/styles/globalStyles"
 
 // Components
-// import Menu from "components/menu"
-// import Footer from "components/footer"
+import Menu from "components/menu"
 import SignUpModal from "components/sign-up-modal"
 import Footer from "components/footer"
 
 const PrimaryLayout = ({ children }) => (
 	<>
 		<GlobalStyles />
-		{/* <Menu /> */}
+		<Menu />
 		<main>{children}</main>
 		<Footer />
 		<SignUpModal />
