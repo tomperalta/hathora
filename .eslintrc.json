@@ -37,6 +37,15 @@
 		"no-shadow": "off",
 		"no-console": 0,
 		"no-underscore-dangle": "off",
-		"no-restricted-syntax": "off"
+		"no-restricted-syntax": "off",
+		"jsx-a11y/anchor-is-valid": [
+			"error",
+			{
+				"components": ["Link"],
+				"specialLink": ["hrefLeft", "hrefRight"],
+				"aspects": ["invalidHref", "preferButton"]
+			}
+		],
+		"no-nested-ternary": "off"
 	}
 }

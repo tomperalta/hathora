@@ -1,7 +1,40 @@
-module.exports = {
-	siteMetadata: {
-		defaultTitle: "Hathora",
-		defaultDescription:
-			"If you're reading this message it means we need a SEO description",
-	},
+// Icons
+import { ReactComponent as IconDiscord } from "assets/icons/social-media/icon-discord.svg"
+import { ReactComponent as IconGitHub } from "assets/icons/social-media/icon-github.svg"
+import { ReactComponent as IconTwitter } from "assets/icons/social-media/icon-twitter.svg"
+import { ReactComponent as IconYouTube } from "assets/icons/social-media/icon-youtube.svg"
+import { ReactComponent as IconLinkedIn } from "assets/icons/social-media/icon-linkedin.svg"
+
+export const siteMetadata = {
+	defaultTitle: "Hathora",
+	defaultDescription:
+		"If you're reading this message it means we need a SEO description",
 }
+
+export const socialMediaLinks = [
+	{
+		title: "Discord",
+		url: "discord.gg/6nVdeCBffR",
+		icon: IconDiscord,
+	},
+	{
+		title: "GitHub",
+		url: "github.com/hathora/hathora",
+		icon: IconGitHub,
+	},
+	{
+		title: "Twitter",
+		url: "https://twitter.com/HathoraDev",
+		icon: IconTwitter,
+	},
+	{
+		title: "YouTube",
+		url: "discord.gg/6nVdeCBffR",
+		icon: IconYouTube,
+	},
+	{
+		title: "LinkedIn",
+		url: "https://www.linkedin.com/company/hathora/",
+		icon: IconLinkedIn,
+	},
+]

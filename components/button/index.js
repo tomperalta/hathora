@@ -12,13 +12,17 @@ import { ButtonProps } from "utils/prop-types"
 // import IconShadowDetailsTurquoise from "assets/icons/components/button/icon-shadow-details--turquoise.svg"
 
 export const ButtonStyles = css`
+	display: inline-flex;
+	align-items: center;
 	padding: 16px 40px;
 	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1.5em;
 	letter-spacing: 0.02em;
 	border-radius: 45px;
+	white-space: nowrap;
 	cursor: pointer;
+	z-index: 10;
 
 	&:disabled {
 		pointer-events: none;
@@ -55,6 +59,7 @@ export const ButtonStyles = css`
 				top: 0;
 				left: 0;
 				background-color: ${colors.green__500};
+				transition: all 0.2s ease;
 				z-index: -1;
 			}
 
@@ -87,6 +92,12 @@ export const ButtonStyles = css`
 					opacity: 1;
 				}
 			}
+
+			&:disabled {
+				&::before {
+					background-color: ${colors.grey__400};
+				}
+			}
 		`}
 
 	${(props) =>
@@ -109,14 +120,32 @@ export const ButtonStyles = css`
   ${(props) =>
 		props.theme === "borderless" &&
 		css`
+			position: relative;
 			padding: 0;
 			color: ${colors.grey__200};
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			border-radius: 0;
+			border-bottom: 1px solid transparent;
+
+			&::before {
+				content: "";
+				width: 0;
+				height: 1px;
+				display: inline-block;
+				position: absolute;
+				top: calc(100% + 4px);
+				right: 0;
+				left: 0;
+				margin: auto;
+				background-color: ${colors.green__500};
+				transition: all 0.2s ease;
+			}
 
 			&:hover {
-				border-bottom: 1px solid ${colors.green__500};
+				&::before {
+					width: 100%;
+				}
 			}
 
 			&:disabled {
