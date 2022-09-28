@@ -78,6 +78,24 @@ const StyledDeploy = styled.section`
 			}
 		}
 	}
+
+	.step__icons {
+		aspect-ratio: 1;
+		position: relative;
+
+		.icon {
+			position: absolute;
+			top: 0;
+			transform: scale(0.95);
+			opacity: 0;
+			transition: all 0.2s ease;
+
+			&.active {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+	}
 `
 
 /**
@@ -156,14 +174,22 @@ const Deploy = () => {
 	return (
 		<StyledDeploy>
 			<Container>
-				<div className="row align-items-center justify-content-center">
+				<div className="row justify-content-center">
 					<div className="deploy__heading col-12 col-md-8">
 						<h2 className="heading--m dotted-separator text-center font-weigth--500">
 							Get your game online in just a few simple steps
 						</h2>
 					</div>
 
-					<div className="col-md-7">{steps[activeStep]?.icon}</div>
+					<div className="col-md-7">
+						<div className="step__icons">
+							{steps.map((step, index) => (
+								<div className={`icon ${index === activeStep && "active"}`}>
+									{step.icon}
+								</div>
+							))}
+						</div>
+					</div>
 
 					<div className="col-md-5">
 						{steps.map((step, index) => (
