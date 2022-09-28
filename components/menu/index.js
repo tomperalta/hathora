@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 // Libraries
 import styled, { css } from "styled-components"
@@ -308,6 +308,7 @@ const Menu = () => {
 	 * Hooks
 	 */
 	const dispatch = useDispatch()
+	const ref = useRef()
 
 	/**
 	 * Locks window scroll if `active`
@@ -340,6 +341,26 @@ const Menu = () => {
 
 		return () => menuOverlay.removeEventListener("click", handleOverlayClick)
 	})
+
+	/**
+	 * Closes submenu if clicks outside the menu
+	 */
+	useEffect(() => {
+		const handleClick = (event) => {
+			const { target } = event
+			const openSubMenu = document.querySelector(
+				".menu__item.menu__item--has-sub-menu.active"
+			)
+
+			if (ref.current && !ref.current.contains(target)) {
+				openSubMenu?.classList.remove("active")
+			}
+		}
+
+		document.addEventListener("click", handleClick)
+
+		return () => document.removeEventListener("click", handleClick)
+	}, [])
 
 	/**
 	 * Data
@@ -417,7 +438,7 @@ const Menu = () => {
 	}
 
 	return (
-		<StyledMenu active={active}>
+		<StyledMenu ref={ref} active={active}>
 			<Container className="d-flex align-items-center justify-content-between">
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">
