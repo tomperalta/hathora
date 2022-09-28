@@ -6,6 +6,9 @@ import breakpoint from "utils/breakpoints/"
 import helpers from "utils/helpers"
 import { colors } from "utils/variables"
 
+// Icons
+import IconDottedSeparator from "assets/icons/icon-dotted-separator.svg"
+
 export default createGlobalStyle`
   .no-scroll {
     overflow: hidden;
@@ -75,6 +78,21 @@ export default createGlobalStyle`
       ${breakpoint.medium`
         font-size: 1.5rem;
       `}
+    }
+
+    .dotted-separator {
+      &::before {
+        content: '';
+        max-width: 500px;
+        width: 100%;
+        height: 4px;
+        display: block;
+        margin-bottom: 24px;
+        background-image: url('${IconDottedSeparator}');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center;
+      }
     }
 
     a {
