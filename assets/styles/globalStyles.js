@@ -27,7 +27,7 @@ export default createGlobalStyle`
     overflow-x: hidden;
 
     .heading--s {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       line-height: 1.33em;
 
       ${breakpoint.medium`
@@ -36,7 +36,7 @@ export default createGlobalStyle`
     }
 
     .heading--m {
-      font-size: 2rem;
+      font-size: 1.5rem;
       line-height: 1.4em;
 
       ${breakpoint.medium`
@@ -45,7 +45,7 @@ export default createGlobalStyle`
     }
 
     .heading--l {
-      font-size: 3rem;
+      font-size: 2rem;
       line-height: 1.4em;
 
       ${breakpoint.medium`
@@ -69,8 +69,12 @@ export default createGlobalStyle`
     }
 
     .text--l {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       line-height: 1.33em;
+
+      ${breakpoint.medium`
+        font-size: 1.5rem;
+      `}
     }
 
     a {
