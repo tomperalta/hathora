@@ -425,8 +425,13 @@ const Menu = () => {
 	 */
 	const toggleSubMenu = (event) => {
 		const { target } = event
-
 		const parentElement = target.closest(".menu__item.menu__item--has-sub-menu")
+		const openSubMenus = document.querySelectorAll(
+			".menu__item.menu__item--has-sub-menu.active"
+		)
+
+		// Closes all other open sub-menus
+		openSubMenus.forEach((subMenu) => subMenu.classList.remove("active"))
 
 		if (parentElement) {
 			if (!parentElement.classList.contains("active")) {
