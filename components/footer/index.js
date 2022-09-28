@@ -3,6 +3,7 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 import Link from "next/link"
+import { transparentize } from "polished"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -37,8 +38,21 @@ const StyledFooter = styled.footer`
 				margin-right: 0;
 			}
 
+			${breakpoint.medium`
+        margin-right: 24px;
+      `}
+
 			a {
 				display: flex;
+			}
+
+			svg {
+				&:hover {
+					* {
+						stroke: ${transparentize(0.75, colors.green__500)};
+						stroke-width: 4px;
+					}
+				}
 			}
 		}
 	}
@@ -94,11 +108,13 @@ const Footer = () => {
 			links: [
 				{
 					label: "Docs",
-					url: "/docs",
+					url: "https://docs.hathora.dev/#/",
+					external: true,
 				},
 				{
 					label: "Blog",
-					url: "/blog",
+					url: "https://blog.hathora.dev/",
+					external: true,
 				},
 			],
 		},
@@ -177,7 +193,7 @@ const Footer = () => {
 							<NewsletterForm />
 						</div>
 
-						<div className="footer__social-media d-none d-md-block">
+						<div className="footer__social-media mt-5 mb-0 d-none d-md-block">
 							<SocialMedia />
 						</div>
 
