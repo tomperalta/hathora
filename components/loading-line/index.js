@@ -3,7 +3,7 @@ import styled, { css, keyframes } from "styled-components"
 
 const Animation = keyframes`
   from {
-    transform: translateX(-10%);
+    transform: translateX(-50%);
   }
 
   to {
