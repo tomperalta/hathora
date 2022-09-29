@@ -19,6 +19,7 @@ import Button from "components/button"
 
 // Icons
 import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
+import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
 
 const StyledSignUpModal = styled.div`
 	position: fixed;
@@ -55,7 +56,7 @@ const StyledSignUpModal = styled.div`
 		padding-top: 150px;
 
 		${breakpoint.small`
-      width: 322px;
+      width: 330px;
       position: relative;
       padding: 48px 32px 32px 32px;
       margin: 0 auto;
@@ -196,12 +197,12 @@ const SignUpModal = () => {
 						<IconClose />
 					</button>
 
-					<p className="text--l mb-2 font-weight--600">
-						Sign up to try our private beta
-					</p>
-
 					{!showSuccessMessage ? (
 						<>
+							<p className="text--l mb-2 font-weight--600">
+								Sign up to try our private beta
+							</p>
+
 							<p className="text--xs color--grey__400 font-weight--500">
 								Leave us your email and we'll contact you ASAP to get set up.
 							</p>
@@ -274,16 +275,23 @@ const SignUpModal = () => {
 							</Form>
 						</>
 					) : (
-						<>
-							<p className="text--xs mb-4 color--green__500 font-weight--500">
-								Thanks for signing-up! We'll get in touch with you ASAP to set
-								you up.
+						<div className="text-center">
+							<div className="mb-3">
+								<IconCheck />
+							</div>
+
+							<p className="text--l mb-2 color--purple__500 font-weight--600">
+								Thanks for signing-up!
+							</p>
+
+							<p className="text--s mb-4">
+								We’ll get in touch with you ASAP to set you up.
 							</p>
 
 							<Button type="button" theme="gradient" onClick={closeModal}>
 								Ok, got it
 							</Button>
-						</>
+						</div>
 					)}
 				</div>
 			</Container>
