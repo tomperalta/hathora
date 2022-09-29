@@ -17,7 +17,7 @@ import SeemlessDeploymentImage from "../../assets/images/home/seemless-deploymen
 import SelfHosteableImage from "../../assets/images/home/self-hosteable.png"
 
 const StyledOurPlatform = styled.section`
-	padding: 300px 0px 150px 0px;
+	padding: 150px 0px;
 
 	.items {
 		padding-top: 120px;
@@ -31,10 +31,6 @@ const StyledOurPlatform = styled.section`
 			&:last-child {
 				margin-bottom: 0px;
 			}
-		}
-
-		&:last-child {
-			margin-bottom: 0px;
 		}
 	}
 `
@@ -75,10 +71,10 @@ const OurPlatform = () => {
 								<div className="item col-12" key={item.title}>
 									<div className="">
 										<div className="row align-items-center justify-content-center">
-											<div className="image col-12 col-md-4 text-center">
+											<div className="col-12 col-md-4 text-center">
 												<Image src={item.image} alt="" />
 											</div>
-											<div className="content col-12 col-md-5">
+											<div className="col-12 col-md-5">
 												<div className="row">
 													<div className="col-12 col-sm-10">
 														<h2 className="color--green__500 mb-2">
