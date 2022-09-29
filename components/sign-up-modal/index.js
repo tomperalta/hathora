@@ -17,6 +17,9 @@ import Container from "components/container/"
 import Form from "components/form"
 import Button from "components/button"
 
+// Icons
+import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
+
 const StyledSignUpModal = styled.div`
 	position: fixed;
 	top: 0;
@@ -36,10 +39,25 @@ const StyledSignUpModal = styled.div`
     background-color: rgba(0, 0, 0, 0.65);
   `}
 
-	.sign-up__form {
+	.modal__close {
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		display: inline-flex;
+
 		${breakpoint.small`
-      width: 304px;
-      padding: 32px 28px;
+      top: 24px;
+      right: 24px;
+    `}
+	}
+
+	.sign-up__form {
+		padding-top: 150px;
+
+		${breakpoint.small`
+      width: 322px;
+      position: relative;
+      padding: 48px 32px 32px 32px;
       margin: 0 auto;
       border-radius: 16px;
       background-color: ${colors.grey__700};
@@ -53,8 +71,10 @@ const StyledSignUpModal = styled.div`
 			}
 		}
 
-		button {
-			padding: 12px 32px !important;
+		.form__buttons {
+			button {
+				padding: 12px 32px !important;
+			}
 		}
 	}
 `
@@ -168,6 +188,14 @@ const SignUpModal = () => {
 		<StyledSignUpModal visible={visible}>
 			<Container>
 				<div className="sign-up__form">
+					<button
+						type="button"
+						className="modal__close"
+						onClick={() => closeModal()}
+					>
+						<IconClose />
+					</button>
+
 					<p className="text--l mb-2 font-weight--600">
 						Sign up to try our private beta
 					</p>
@@ -220,7 +248,7 @@ const SignUpModal = () => {
 									/>
 								</div>
 
-								<div className="mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
+								<div className="form__buttons mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
 									<Button
 										type="submit"
 										theme="gradient"
