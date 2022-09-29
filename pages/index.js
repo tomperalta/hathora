@@ -5,6 +5,7 @@ import LayoutPrimary from "layouts/layout-primary"
 
 // Components
 import SEO from "components/seo"
+import OurPlatform from "components/home/our-platform"
 
 // Sections
 import Hero from "components/home/hero"
@@ -16,6 +17,7 @@ const Home = () => (
 	<>
 		<SEO />
 		<Hero />
+		<OurPlatform />
 	</>
 )
 

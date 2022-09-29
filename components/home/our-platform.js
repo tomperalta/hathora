@@ -1,0 +1,106 @@
+import React from "react"
+
+// Libraries
+import styled from "styled-components"
+import Image from "next/image"
+
+// Utils
+// import { colors } from "utils/variables"
+import breakpoints from "utils/breakpoints"
+
+// Layout
+import Container from "components/container"
+
+// Images
+import OptimizedImage from "../../assets/images/home/optimized.png"
+import SeemlessDeploymentImage from "../../assets/images/home/seemless-deployment.png"
+import SelfHosteableImage from "../../assets/images/home/self-hosteable.png"
+
+const StyledOurPlatform = styled.section`
+	padding: 300px 0px 150px 0px;
+
+	.items {
+		padding-top: 120px;
+		.item {
+			margin-bottom: 82px;
+
+			${breakpoints.medium`
+            margin-bottom: 150px;
+            `}
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+`
+
+const OurPlatform = () => {
+	const data = [
+		{
+			title: "IT’S FAST",
+			subtitle: "Optimized Edge Compute",
+			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
+			image: OptimizedImage,
+		},
+		{
+			title: "IT’S SIMPLE",
+			subtitle: "Seamless Deployment and Operation",
+			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
+			image: SeemlessDeploymentImage,
+		},
+		{
+			title: "IT’S OPEN",
+			subtitle: "Self-Hostable Infrastructure",
+			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
+			image: SelfHosteableImage,
+		},
+	]
+	return (
+		<StyledOurPlatform>
+			<Container>
+				<div className="row justify-content-center">
+					<div className="col-7">
+						<h2 className="heading--m dotted-separator">
+							Our platform is built with game developers in mind
+						</h2>
+					</div>
+					<div className="row">
+						<div className="items">
+							{data.map((item) => (
+								<div className="item col-12" key={item.title}>
+									<div className="">
+										<div className="row align-items-center justify-content-center">
+											<div className="image col-12 col-md-4 text-center">
+												<Image src={item.image} alt="" />
+											</div>
+											<div className="content col-12 col-md-5">
+												<div className="row">
+													<div className="col-12 col-sm-10">
+														<h2 className="color--green__500 mb-2">
+															{item.title}
+														</h2>
+														<h2 className="text--l font-weight-600 mb-2">
+															{item.subtitle}
+														</h2>
+														<p className="text--s">{item.text}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</Container>
+		</StyledOurPlatform>
+	)
+}
+
+export default OurPlatform
