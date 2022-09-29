@@ -8,6 +8,7 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/home/hero"
+import Clients from "components/home/clients"
 
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
@@ -16,6 +17,7 @@ const Home = () => (
 	<>
 		<SEO />
 		<Hero />
+		<Clients />
 	</>
 )
 
