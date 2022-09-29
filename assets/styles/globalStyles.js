@@ -8,15 +8,23 @@ import { colors } from "utils/variables"
 
 export default createGlobalStyle`
   .no-scroll {
-    overflow: hidden !important;
+    overflow: hidden;
   }
-  
+
+  html {
+    height: -webkit-fill-available;
+  }
+
   body {
+    width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     background-color: ${colors.grey__700};
     color: ${colors.grey__200};
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", sans-serif !important;
     font-size: 1.25rem;
     line-height: 1.4em;
+    overflow-x: hidden;
 
     .heading--s {
       font-size: 1.25rem;
@@ -78,6 +86,8 @@ export default createGlobalStyle`
     }
 
     button {
+      padding: 0;
+      margin: 0;
       font: inherit;
       background: 0;
       border: 0;

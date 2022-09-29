@@ -17,6 +17,10 @@ import Container from "components/container/"
 import Form from "components/form"
 import Button from "components/button"
 
+// Icons
+import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
+import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
+
 const StyledSignUpModal = styled.div`
 	position: fixed;
 	top: 0;
@@ -36,10 +40,25 @@ const StyledSignUpModal = styled.div`
     background-color: rgba(0, 0, 0, 0.65);
   `}
 
-	.sign-up__form {
+	.modal__close {
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		display: inline-flex;
+
 		${breakpoint.small`
-      width: 304px;
-      padding: 32px 28px;
+      top: 24px;
+      right: 24px;
+    `}
+	}
+
+	.sign-up__form {
+		padding-top: 150px;
+
+		${breakpoint.small`
+      width: 330px;
+      position: relative;
+      padding: 48px 32px 32px 32px;
       margin: 0 auto;
       border-radius: 16px;
       background-color: ${colors.grey__700};
@@ -53,8 +72,10 @@ const StyledSignUpModal = styled.div`
 			}
 		}
 
-		button {
-			padding: 12px 32px !important;
+		.form__buttons {
+			button {
+				padding: 12px 32px !important;
+			}
 		}
 	}
 `
@@ -168,12 +189,20 @@ const SignUpModal = () => {
 		<StyledSignUpModal visible={visible}>
 			<Container>
 				<div className="sign-up__form">
-					<p className="text--l mb-2 font-weight--600">
-						Sign up to try our private beta
-					</p>
+					<button
+						type="button"
+						className="modal__close"
+						onClick={() => closeModal()}
+					>
+						<IconClose />
+					</button>
 
 					{!showSuccessMessage ? (
 						<>
+							<p className="text--l mb-2 font-weight--600">
+								Sign up to try our private beta
+							</p>
+
 							<p className="text--xs color--grey__400 font-weight--500">
 								Leave us your email and we'll contact you ASAP to get set up.
 							</p>
@@ -220,7 +249,7 @@ const SignUpModal = () => {
 									/>
 								</div>
 
-								<div className="mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
+								<div className="form__buttons mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
 									<Button
 										type="submit"
 										theme="gradient"
@@ -246,16 +275,23 @@ const SignUpModal = () => {
 							</Form>
 						</>
 					) : (
-						<>
-							<p className="text--xs mb-4 color--green__500 font-weight--500">
-								Thanks for signing-up! We'll get in touch with you ASAP to set
-								you up.
+						<div className="text-center">
+							<div className="mb-3">
+								<IconCheck />
+							</div>
+
+							<p className="text--l mb-2 color--purple__500 font-weight--600">
+								Thanks for signing-up!
+							</p>
+
+							<p className="text--s mb-4">
+								We’ll get in touch with you ASAP to set you up.
 							</p>
 
 							<Button type="button" theme="gradient" onClick={closeModal}>
 								Ok, got it
 							</Button>
-						</>
+						</div>
 					)}
 				</div>
 			</Container>
