@@ -6,6 +6,7 @@ import styled from "styled-components"
 // Icons
 import { ReactComponent as Check } from "assets/icons/check-circle.svg"
 import { ReactComponent as Trust } from "assets/icons/home/features-icon.svg"
+import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -13,6 +14,7 @@ import { colors } from "utils/variables"
 
 // Components
 import Container from "components/container/"
+import Button from "components/button"
 
 const StyledFeatures = styled.section`
 	padding: 24px 0 140px 0;
@@ -29,7 +31,7 @@ const StyledFeatures = styled.section`
     `}
 	}
 
-	.card {
+	.feature {
 		padding: 24px;
 		box-shadow: 0px 100px 100px rgba(0, 0, 0, 0.3);
 		border-radius: 16px;
@@ -45,7 +47,7 @@ const StyledFeatures = styled.section`
       }
     `}
 
-		svg {
+		.icon {
 			margin-bottom: 16px;
 			${breakpoint.large`
         margin-bottom: 0;
@@ -67,8 +69,8 @@ const Features = () => (
 			</div>
 			<div className="row">
 				<div className="col-12 col-md-5">
-					<div className="card">
-						<Check />
+					<div className="feature">
+						<Check className="icon" />
 						<p className="text--s paragraph">
 							<span className="font-weight--700">
 								Direct contact and customer support
@@ -78,8 +80,8 @@ const Features = () => (
 						</p>
 					</div>
 
-					<div className="card">
-						<Check />
+					<div className="feature">
+						<Check className="icon" />
 						<p className="text--s paragraph">
 							<span className="font-weight--700">
 								Built by a team of infrastructure experts
@@ -88,14 +90,25 @@ const Features = () => (
 						</p>
 					</div>
 
-					<div className="card">
-						<Check />
-						<p className="text--s paragraph">
-							<span className="font-weight--700">
-								Trusted by a community of gamers
-							</span>{" "}
-							and studios that have launched successful games using Hathora.
-						</p>
+					<div className="feature">
+						<Check className="icon" />
+						<div>
+							<p className="text--s paragraph mb-1">
+								<span className="font-weight--700">
+									Trusted by a community of gamers
+								</span>{" "}
+								and studios that have launched successful games using Hathora.
+							</p>
+							<Button
+								type="link"
+								href="https://docs.hathora.dev/#/"
+								external
+								theme="borderless"
+							>
+								SEE WHAT THEY HAVE TO SAY
+								<IconArrow />
+							</Button>
+						</div>
 					</div>
 				</div>
 				<div className="col-12 col-md-7 p-0 text-center text-md-end text-lg-center">
