@@ -9,6 +9,7 @@ import breakpoint from "utils/breakpoints/"
 // Components
 import Container from "components/container/"
 import DeploySlideshow from "./components/deploy-slideshow"
+import DeployCarousel from "./components/deploy-carousel"
 
 const StyledDeploy = styled.section`
 	padding: 60px 0;
@@ -31,6 +32,10 @@ const Deploy = () => (
 						Get your game online in just a few simple steps
 					</h2>
 				</div>
+			</div>
+
+			<div className="d-md-none">
+				<DeployCarousel />
 			</div>
 
 			<div className="d-none d-md-block">

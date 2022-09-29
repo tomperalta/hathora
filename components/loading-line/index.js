@@ -1,7 +1,7 @@
 // Libraries
 import styled, { css, keyframes } from "styled-components"
 
-const Animation = keyframes`
+export const Animation = keyframes`
   from {
     transform: translateX(-50%);
   }
