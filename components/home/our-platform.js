@@ -114,10 +114,10 @@ const OurPlatform = () => {
 											<div className="content col-12 col-md-5">
 												<div className="row">
 													<div className="col-12 col-sm-10">
-														<h2 className="color--green__500 mb-2">
+														<h2 className="text--xs color--green__500 mb-2">
 															{item.title}
 														</h2>
-														<h2 className="text--l font-weight-600 mb-2">
+														<h2 className="text--m font-weight-600 mb-2">
 															{item.subtitle}
 														</h2>
 														<p className="text--s">{item.text}</p>
