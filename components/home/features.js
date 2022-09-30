@@ -61,13 +61,13 @@ const Features = () => (
 	<StyledFeatures>
 		<Container>
 			<div className="row justify-content-center text-center">
-				<div className="col-12 col-md-7">
+				<div className="col-12 col-md-7 dotted-separator ">
 					<h1 className="heading--m title">
 						You can trust us to keep your game up and running{" "}
 					</h1>
 				</div>
 			</div>
-			<div className="row">
+			<div className="row p-0">
 				<div className="col-12 col-md-5">
 					<div className="feature">
 						<Check className="icon" />
@@ -111,7 +111,7 @@ const Features = () => (
 						</div>
 					</div>
 				</div>
-				<div className="col-12 col-md-7 p-0 text-center text-md-end text-lg-center">
+				<div className="col-12 col-md-5 p-0 text-center text-md-end text-lg-center">
 					<Trust />
 				</div>
 			</div>

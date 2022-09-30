@@ -92,6 +92,7 @@ export default createGlobalStyle`
         background-repeat: no-repeat;
         background-size: auto 100%;
         background-position: center;
+
       }
     }
 
