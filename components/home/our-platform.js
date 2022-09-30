@@ -30,8 +30,45 @@ const StyledOurPlatform = styled.section`
 
 			&:last-child {
 				margin-bottom: 0px;
-			}
+			}      
+            
+            &:nth-child(odd) {
+                ${breakpoints.medium`
+                .content {
+                  order: 1;
+                }
+                .image {
+                    order: 0;
+                }
+              `}
+              }
+        
+              &:nth-child(even) {
+                ${breakpoints.medium`
+                .image {
+                  order: 1;
+                }
+                .content {
+                    order: 0;
+                }
+              `}
+              }
+
+            .content {
+              order: 1;
+            }
+      
+            .image {
+                margin-bottom: 82px;
+                order: 0;
+
+                ${breakpoints.medium`
+                margin-bottom: 0px;
+                `}
+    \        }
+        }
 		}
+    
 	}
 `
 
@@ -71,10 +108,10 @@ const OurPlatform = () => {
 								<div className="item col-12" key={item.title}>
 									<div className="">
 										<div className="row align-items-center justify-content-center">
-											<div className="col-12 col-md-4 text-center">
+											<div className="image col-12 col-md-4 text-center">
 												<Image src={item.image} alt="" />
 											</div>
-											<div className="col-12 col-md-5">
+											<div className="content col-12 col-md-5">
 												<div className="row">
 													<div className="col-12 col-sm-10">
 														<h2 className="color--green__500 mb-2">
