@@ -2,7 +2,6 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
-import Image from "next/image"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -12,15 +11,24 @@ import breakpoints from "utils/breakpoints"
 import Container from "components/container"
 
 // Images
-import OptimizedImage from "../../assets/images/home/optimized.png"
-import SeemlessDeploymentImage from "../../assets/images/home/seemless-deployment.png"
-import SelfHosteableImage from "../../assets/images/home/self-hosteable.png"
+import { ReactComponent as OptimizedImage } from "../../assets/images/home/optimized.svg"
+import { ReactComponent as SeemlessDeploymentImage } from "../../assets/images/home/seemless-deployment.svg"
+import { ReactComponent as SelfHosteableImage } from "../../assets/images/home/self-hosteable.svg"
 
 const StyledOurPlatform = styled.section`
+	padding: 104px 0px;
+
+	${breakpoints.medium`
 	padding: 150px 0px;
+	`}
 
 	.items {
-		padding-top: 120px;
+		margin-top: 72px;
+
+		${breakpoints.medium`
+		margin-top: 120px;
+		`}
+
 		.item {
 			margin-bottom: 82px;
 
@@ -59,7 +67,7 @@ const StyledOurPlatform = styled.section`
             }
       
             .image {
-                margin-bottom: 82px;
+                margin-bottom: 32px;
                 order: 0;
 
                 ${breakpoints.medium`
@@ -78,26 +86,26 @@ const OurPlatform = () => {
 			title: "IT’S FAST",
 			subtitle: "Optimized Edge Compute",
 			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
-			image: OptimizedImage,
+			image: <OptimizedImage />,
 		},
 		{
 			title: "IT’S SIMPLE",
 			subtitle: "Seamless Deployment and Operation",
 			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
-			image: SeemlessDeploymentImage,
+			image: <SeemlessDeploymentImage />,
 		},
 		{
 			title: "IT’S OPEN",
 			subtitle: "Self-Hostable Infrastructure",
 			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
-			image: SelfHosteableImage,
+			image: <SelfHosteableImage />,
 		},
 	]
 	return (
 		<StyledOurPlatform>
 			<Container>
 				<div className="row justify-content-center">
-					<div className="col-7">
+					<div className="col-12 col-md-7">
 						<h2 className="heading--m dotted-separator">
 							Our platform is built with game developers in mind
 						</h2>
@@ -109,19 +117,17 @@ const OurPlatform = () => {
 									<div className="">
 										<div className="row align-items-center justify-content-center">
 											<div className="image col-12 col-md-4 text-center">
-												<Image src={item.image} alt="" />
+												{item.image}
 											</div>
 											<div className="content col-12 col-md-5">
 												<div className="row">
-													<div className="col-12 col-sm-10">
-														<h2 className="text--xs color--green__500 mb-2">
-															{item.title}
-														</h2>
-														<h2 className="text--m font-weight-600 mb-2">
-															{item.subtitle}
-														</h2>
-														<p className="text--s">{item.text}</p>
-													</div>
+													<h2 className="text--xs color--green__500 mb-2">
+														{item.title}
+													</h2>
+													<h2 className="text--m font-weight-600 mb-2">
+														{item.subtitle}
+													</h2>
+													<p className="text--s">{item.text}</p>
 												</div>
 											</div>
 										</div>
