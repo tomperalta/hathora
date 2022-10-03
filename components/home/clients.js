@@ -80,7 +80,7 @@ const Clients = () => (
 	<StyledClients>
 		<Container>
 			<div className="row justify-content-center">
-				<h1 className="heading--m col-12 col-md-7 text-center">
+				<h1 className="heading--m dotted-separator col-12 col-md-7 text-center">
 					Integrated with the game engines you know and love
 				</h1>
 
