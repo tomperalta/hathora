@@ -28,28 +28,31 @@ export default createGlobalStyle`
 
     .heading--s {
       font-size: 1.25rem;
-      line-height: 1.33em;
+      line-height: 1.75rem;
 
       ${breakpoint.medium`
         font-size: 2rem;
+        line-height: 2.75rem;
       `}
     }
 
     .heading--m {
       font-size: 1.5rem;
-      line-height: 1.4em;
+      line-height: 2rem;
 
       ${breakpoint.medium`
         font-size: 3rem;
+        line-height: 4rem;
       `}
     }
 
     .heading--l {
       font-size: 2rem;
-      line-height: 1.4em;
+      line-height: 2.75rem;
 
       ${breakpoint.medium`
         font-size: 3.5rem;
+        line-height: 4.5rem;
       `}
     }
 
