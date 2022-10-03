@@ -106,7 +106,7 @@ const OurPlatform = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-7">
-						<h2 className="heading--m dotted-separator">
+						<h2 className="heading--m dotted-separator text-center">
 							Our platform is built with game developers in mind
 						</h2>
 					</div>
