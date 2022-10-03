@@ -81,7 +81,7 @@ const Clients = () => (
 		<Container>
 			<div className="row justify-content-center">
 				<div className="col-12 col-md-7 text-center">
-					<h1 className="heading--m">
+					<h1 className="heading--m dotted-separator">
 						Integrated with the game engines you know and love
 					</h1>
 				</div>
