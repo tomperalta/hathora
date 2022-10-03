@@ -177,8 +177,16 @@ const StyledButtonLink = styled.a`
 
 const Button = (props) => {
 	// Props
-	const { theme, type, to, external, disabled, children, className, onClick } =
-		props
+	const {
+		theme,
+		type,
+		href,
+		external,
+		disabled,
+		children,
+		className,
+		onClick,
+	} = props
 
 	// Hooks
 	const ref = useRef()
@@ -195,7 +203,7 @@ const Button = (props) => {
 				target.style.setProperty("--y", `${y}px`)
 			})
 		}
-	})
+	}, [])
 
 	/**
 	 * Returns a <button type="button"></button>
@@ -238,7 +246,7 @@ const Button = (props) => {
 	 */
 	if (!external) {
 		return (
-			<Link href={to} passHref>
+			<Link href={href} passHref>
 				<StyledButtonLink
 					ref={ref}
 					theme={theme}
@@ -259,7 +267,7 @@ const Button = (props) => {
 			ref={ref}
 			className={className}
 			theme={theme}
-			href={to}
+			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
 			onClick={onClick}
@@ -274,7 +282,7 @@ Button.propTypes = ButtonProps
 Button.defaultProps = {
 	theme: "fill",
 	type: "button",
-	to: "/",
+	href: "/",
 	external: false,
 	disabled: false,
 	className: null,
