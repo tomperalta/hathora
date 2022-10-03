@@ -33,7 +33,7 @@ const StyledHero = styled.section`
     `}
 
 		button {
-			margin-bottom: 32px;
+			margin-bottom: 24px;
 
 			${breakpoint.medium`
         margin: 0 32px 0 0;
