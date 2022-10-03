@@ -52,6 +52,7 @@ export const ButtonStyles = css`
 			color: ${colors.grey__700};
 			overflow: hidden;
 
+			// 👇🏻 esto hace de background
 			&::before {
 				content: "";
 				width: 100%;
@@ -64,6 +65,8 @@ export const ButtonStyles = css`
 				z-index: -1;
 			}
 
+			// 👇🏻 esto es el gradient que se va a mover
+			// dinámicamente en base a las variables de CSS "x" e "y"
 			&::after {
 				// --size: 0;
 				// --y: 0;
@@ -87,9 +90,9 @@ export const ButtonStyles = css`
 				z-index: -1;
 			}
 
+			// 👇🏻 acá mostramos el gradient en hover
 			&:hover {
 				&::after {
-					// --size: 200%;
 					opacity: 1;
 				}
 			}
