@@ -17,7 +17,7 @@ import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
 
 const StyledClients = styled.section`
-	padding: 24px 0 140px 0;
+	padding: 24px 0 120px 0;
 
 	${breakpoint.medium`
     padding: 24px 0 200px 0;
@@ -80,9 +80,11 @@ const Clients = () => (
 	<StyledClients>
 		<Container>
 			<div className="row justify-content-center">
-				<h1 className="heading--m col-12 col-md-7 text-center">
-					Integrated with the game engines you know and love
-				</h1>
+				<div className="col-12 col-md-7 text-center">
+					<h1 className="heading--m">
+						Integrated with the game engines you know and love
+					</h1>
+				</div>
 
 				<div className="col-12 col-sm-6 col-md-8 col-lg-7">
 					<div className="clients">
