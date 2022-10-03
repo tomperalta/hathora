@@ -31,7 +31,7 @@ export const ButtonStyles = css`
 
 	${(props) =>
 		props.theme === "fill" &&
-		css`
+		`
 			background-color: ${colors.green__500};
 			color: ${colors.grey__700};
 
@@ -47,7 +47,7 @@ export const ButtonStyles = css`
 
 	${(props) =>
 		props.theme === "gradient" &&
-		css`
+		`
 			position: relative;
 			color: ${colors.grey__700};
 			overflow: hidden;
@@ -84,6 +84,7 @@ export const ButtonStyles = css`
 				transform: translate(-50%, -50%);
 				transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
 				opacity: 0;
+        will-change: width, height, opacity;
 				z-index: -1;
 			}
 
@@ -103,7 +104,7 @@ export const ButtonStyles = css`
 
 	${(props) =>
 		props.theme === "outline" &&
-		css`
+		`
 			border: 1px solid ${colors.green__500};
 			color: ${colors.green__500};
 
@@ -120,7 +121,7 @@ export const ButtonStyles = css`
 
   ${(props) =>
 		props.theme === "borderless" &&
-		css`
+		`
 			position: relative;
 			padding: 0;
 			color: ${colors.grey__200};
@@ -177,25 +178,44 @@ const StyledButtonLink = styled.a`
 
 const Button = (props) => {
 	// Props
-	const { theme, type, to, external, disabled, children, className, onClick } =
-		props
+	const {
+		theme,
+		type,
+		href,
+		external,
+		disabled,
+		children,
+		className,
+		onClick,
+	} = props
 
 	// Hooks
 	const ref = useRef()
 
 	useEffect(() => {
-		if (theme === "gradient" && ref.current) {
-			ref.current.addEventListener("mousemove", (event) => {
-				const { pageX, pageY, target } = event
+		const handleMouseMove = (event) => {
+			const { pageX, pageY, target } = event
 
-				const x = pageX - target.offsetLeft
-				const y = pageY - target.offsetTop
+			const x = pageX - target.offsetLeft
+			const y = pageY - target.offsetTop
 
-				target.style.setProperty("--x", `${x}px`)
-				target.style.setProperty("--y", `${y}px`)
-			})
+			target.style.setProperty("--x", `${x}px`)
+			target.style.setProperty("--y", `${y}px`)
 		}
-	})
+
+		document
+			.querySelectorAll('[data-theme="gradient"]')
+			.forEach((button) =>
+				button.addEventListener("mousemove", handleMouseMove, { passive: true })
+			)
+
+		return () =>
+			document
+				.querySelectorAll('[data-theme="gradient"]')
+				.forEach((button) =>
+					button.removeEventListener("mousemove", handleMouseMove)
+				)
+	}, [])
 
 	/**
 	 * Returns a <button type="button"></button>
@@ -205,6 +225,7 @@ const Button = (props) => {
 			<StyledButton
 				ref={ref}
 				theme={theme}
+				data-theme={theme}
 				type="button"
 				className={className}
 				disabled={disabled}
@@ -238,7 +259,7 @@ const Button = (props) => {
 	 */
 	if (!external) {
 		return (
-			<Link href={to} passHref>
+			<Link href={href} passHref>
 				<StyledButtonLink
 					ref={ref}
 					theme={theme}
@@ -259,7 +280,7 @@ const Button = (props) => {
 			ref={ref}
 			className={className}
 			theme={theme}
-			href={to}
+			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
 			onClick={onClick}
@@ -274,7 +295,7 @@ Button.propTypes = ButtonProps
 Button.defaultProps = {
 	theme: "fill",
 	type: "button",
-	to: "/",
+	href: "/",
 	external: false,
 	disabled: false,
 	className: null,
