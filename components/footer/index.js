@@ -18,13 +18,16 @@ import NewsletterForm from "components/newsletter-form"
 import { ReactComponent as IconLogo } from "assets/icons/icon-logo.svg"
 
 const StyledFooter = styled.footer`
+	position: relative;
 	padding: 48px 0;
 
 	${breakpoint.medium`
-    padding: 96px 0 40px 0;
+    padding: 96px 0 32px 0;
   `}
 
 	.footer__logo {
+		width: 160px;
+		display: inline-flex;
 		margin-bottom: 32px;
 	}
 
@@ -80,6 +83,26 @@ const StyledFooter = styled.footer`
 
 		${breakpoint.medium`
       margin-top: 96px;
+    `}
+	}
+
+	.footer__shadow {
+		width: 250px;
+		height: 250px;
+		position: absolute;
+		right: -125px;
+		bottom: -125px;
+		border-radius: 50%;
+		background: #af64ee;
+		mix-blend-mode: hard-light;
+		opacity: 0.4;
+		filter: blur(70.6396px);
+		transform: matrix(-0.86, -0.49, 0.51, -0.87, 0, 0);
+		z-index: -1;
+
+		${breakpoint.medium`
+      right: auto;
+      left: -125px;
     `}
 	}
 `
@@ -185,7 +208,7 @@ const Footer = () => {
 					</div>
 
 					<div className="col-12 col-md-4">
-						<p className="text--s mb-4 font-weight--700">
+						<p className="text--s mb-3 font-weight--700">
 							Sign up to receive our latest updates
 						</p>
 
@@ -209,6 +232,8 @@ const Footer = () => {
 					</div>
 				</div>
 			</Container>
+
+			<div className="footer__shadow" />
 		</StyledFooter>
 	)
 }

@@ -74,15 +74,45 @@ const NewsletterForm = () => {
 	/**
 	 * Handles form's submission
 	 */
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault()
 
 		if (validateEmail(email)) {
 			setLoading(true)
-			setTimeout(() => {
-				setSuccessMessage("Thanks for subscribing!")
-				setLoading(false)
-			}, 2000)
+
+			const payload = {
+				fields: [
+					{
+						name: "email",
+						value: email,
+					},
+				],
+				context: {
+					pageUri: window.location.href,
+				},
+			}
+
+			const response = await fetch(
+				"https://api.hsforms.com/submissions/v3/integration/submit/22776178/7408a889-1071-48c0-ace4-4426113225d2",
+				{
+					method: "POST",
+					mode: "cors",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(payload),
+				}
+			)
+				.then((response) => response)
+				.catch(() => setErrorMessage("Something went wrong. Please try again."))
+
+			if (response.status === 200) {
+				setSuccessMessage("Thanks for subsribing!")
+			} else {
+				setErrorMessage("Something went wrong. Please try again.")
+			}
+
+			setLoading(false)
 		} else {
 			setErrorMessage("Please enter a valid email address")
 		}
