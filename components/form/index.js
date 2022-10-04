@@ -43,10 +43,9 @@ const Form = styled.form`
 		line-height: 1.42em;
 		border-bottom: 1px solid ${colors.purple__500};
 
-		&:focus {
-			&::placeholder {
-				color: ${colors.grey__200};
-			}
+		&::placeholder {
+			color: ${colors.grey__400};
+			opacity: 1;
 		}
 	}
 `
