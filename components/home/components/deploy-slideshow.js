@@ -38,7 +38,7 @@ const StyledDeploySlideshow = styled.div`
 			}
 
 			.step__loading-line {
-				opacity: 1;
+				background-color: ${colors.purple__500};
 			}
 		}
 
@@ -57,9 +57,9 @@ const StyledDeploySlideshow = styled.div`
 		.step__loading-line {
 			width: 100%;
 			height: 2px;
-			background-color: ${colors.purple__500};
+			background-color: ${colors.grey__600};
 			margin-top: 32px;
-			opacity: 0;
+			transition: all 0.2s ease;
 			overflow: hidden;
 
 			.loading-line {
