@@ -208,7 +208,7 @@ const Footer = () => {
 					</div>
 
 					<div className="col-12 col-md-4">
-						<p className="text--s mb-4 font-weight--700">
+						<p className="text--s mb-3 font-weight--700">
 							Sign up to receive our latest updates
 						</p>
 
