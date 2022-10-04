@@ -292,8 +292,13 @@ const StyledMenu = styled.nav`
 
 		.sign-up {
 			font-size: 0.875rem;
-			line-height: 1.42em;
+			line-height: 1.25rem;
 			padding: 6px 16px;
+
+			${breakpoint.medium`
+        font-size: 1rem;
+        line-height: 1.5rem;
+      `}
 		}
 	}
 `
