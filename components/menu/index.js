@@ -211,7 +211,7 @@ const StyledMenu = styled.nav`
 			}
 
 			svg {
-				margin-left: 8px;
+				margin-left: 4px;
 				transition: all 0.2s ease;
 
 				* {
