@@ -49,7 +49,12 @@ const StyledMenu = styled.nav`
 		svg {
 			width: auto;
 			height: 24px;
+
 			${breakpoint.medium`
+        height: 32px;
+      `}
+
+			${breakpoint.large`
         height: 40px;
       `}
 		}
