@@ -18,6 +18,8 @@ import LoadingLine, { Animation } from "components/loading-line"
 import IconStep1 from "assets/icons/home/deploy/icon-step-1.svg"
 import IconStep2 from "assets/icons/home/deploy/icon-step-2.svg"
 import IconStep3 from "assets/icons/home/deploy/icon-step-3.svg"
+import IconStep4 from "assets/icons/home/deploy/icon-step-4.svg"
+import IconStep5 from "assets/icons/home/deploy/icon-step-5.svg"
 import Image from "next/image"
 
 const StyledDeployCarousel = styled.div`
@@ -143,7 +145,7 @@ const steps = [
 		),
 	},
 	{
-		icon: IconStep3,
+		icon: IconStep4,
 		description: (
 			<span>
 				<span className="font-weight--700">Ship changes</span> with no downtime
@@ -152,7 +154,7 @@ const steps = [
 		),
 	},
 	{
-		icon: IconStep3,
+		icon: IconStep5,
 		description: (
 			<span>
 				<span className="font-weight--700">Track usage</span> and system metrics

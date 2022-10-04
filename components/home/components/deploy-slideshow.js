@@ -13,6 +13,8 @@ import LoadingLine from "components/loading-line"
 import { ReactComponent as IconStep1 } from "assets/icons/home/deploy/icon-step-1.svg"
 import { ReactComponent as IconStep2 } from "assets/icons/home/deploy/icon-step-2.svg"
 import { ReactComponent as IconStep3 } from "assets/icons/home/deploy/icon-step-3.svg"
+import { ReactComponent as IconStep4 } from "assets/icons/home/deploy/icon-step-4.svg"
+import { ReactComponent as IconStep5 } from "assets/icons/home/deploy/icon-step-5.svg"
 
 const StyledDeploySlideshow = styled.div`
 	.step {
@@ -113,7 +115,7 @@ const steps = [
 		),
 	},
 	{
-		icon: <IconStep3 />,
+		icon: <IconStep4 />,
 		description: (
 			<span>
 				<span className="font-weight--700">Ship changes</span> with no downtime
@@ -122,7 +124,7 @@ const steps = [
 		),
 	},
 	{
-		icon: <IconStep3 />,
+		icon: <IconStep5 />,
 		description: (
 			<span>
 				<span className="font-weight--700">Track usage</span> and system metrics
