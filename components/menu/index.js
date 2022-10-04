@@ -29,27 +29,23 @@ const StyledMenu = styled.nav`
 	top: 0;
 	right: 0;
 	left: 0;
-	// padding: 24px 0;
 	box-sizing: border-box;
 	z-index: 9999;
 
-	${breakpoint.medium`
-    // padding: 32px 0;
-  `}
-
 	${Container} {
-		margin: 24px auto;
-
-		${breakpoint.medium`
-      margin: 32px auto;
-    `}
+		margin: 32px auto;
 	}
 
 	.menu__logo {
 		svg {
 			width: auto;
 			height: 24px;
+
 			${breakpoint.medium`
+        height: 32px;
+      `}
+
+			${breakpoint.large`
         height: 40px;
       `}
 		}
@@ -58,17 +54,18 @@ const StyledMenu = styled.nav`
 	.menu__content {
 		width: 100vw;
 		height: 100vh;
-		height: -webkit-fill-available;
+		// height: -webkit-fill-available;
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		display: flex;
+		// padding: 32px 0;
 		background-color: ${transparentize(0.35, colors.grey__700)};
 		opacity: 0;
 		visibility: hidden;
 		transition: all 0.2s ease;
-		overflow: hidden;
+		overflow-y: auto;
 		z-index: 9999;
 
 		${(props) =>
@@ -93,7 +90,7 @@ const StyledMenu = styled.nav`
 			max-width: 296px;
 			width: 88.22vw;
 			height: 100%;
-			padding: 24px 28px 24px 48px;
+			padding: 32px 28px 32px 48px;
 			margin-left: auto;
 			background-color: ${colors.grey__700};
 			transform: translateX(100%);
@@ -211,7 +208,7 @@ const StyledMenu = styled.nav`
 			}
 
 			svg {
-				margin-left: 8px;
+				margin-left: 4px;
 				transition: all 0.2s ease;
 
 				* {
@@ -292,8 +289,13 @@ const StyledMenu = styled.nav`
 
 		.sign-up {
 			font-size: 0.875rem;
-			line-height: 1.42em;
+			line-height: 1.25rem;
 			padding: 6px 16px;
+
+			${breakpoint.medium`
+        font-size: 1rem;
+        line-height: 1.5rem;
+      `}
 		}
 	}
 `
@@ -348,6 +350,7 @@ const Menu = () => {
 	useEffect(() => {
 		const handleClick = (event) => {
 			const { target } = event
+
 			const openSubMenu = document.querySelector(
 				".menu__item.menu__item--has-sub-menu.active"
 			)
@@ -426,12 +429,6 @@ const Menu = () => {
 	const toggleSubMenu = (event) => {
 		const { target } = event
 		const parentElement = target.closest(".menu__item.menu__item--has-sub-menu")
-		const openSubMenus = document.querySelectorAll(
-			".menu__item.menu__item--has-sub-menu.active"
-		)
-
-		// Closes all other open sub-menus
-		openSubMenus.forEach((subMenu) => subMenu.classList.remove("active"))
 
 		if (parentElement) {
 			if (!parentElement.classList.contains("active")) {
@@ -440,6 +437,15 @@ const Menu = () => {
 				parentElement.classList.remove("active")
 			}
 		}
+
+		// Closes all other open sub-menus
+		const openSubMenus = document.querySelectorAll(
+			".menu__item.menu__item--has-sub-menu.active"
+		)
+		openSubMenus.forEach(
+			(subMenu) =>
+				subMenu !== parentElement && subMenu.classList.remove("active")
+		)
 	}
 
 	return (

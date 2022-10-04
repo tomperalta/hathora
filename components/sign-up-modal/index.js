@@ -22,21 +22,24 @@ import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
 import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
 
 const StyledSignUpModal = styled.div`
+	height: 100vh;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	padding: 32px 0;
 	background-color: ${colors.grey__700};
 	opacity: ${(props) => (props.visible ? "1" : "0")};
 	visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+	overflow-y: auto;
 	z-index: 9999;
 	transition: all 0.2s ease;
 
 	${breakpoint.medium`
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.65);
   `}
 
@@ -58,7 +61,7 @@ const StyledSignUpModal = styled.div`
 		${breakpoint.small`
       width: 330px;
       position: relative;
-      padding: 48px 32px 32px 32px;
+      padding: 48px 28px 32px 28px;
       margin: 0 auto;
       border-radius: 16px;
       background-color: ${colors.grey__700};
@@ -203,7 +206,7 @@ const SignUpModal = () => {
 								Sign up to try our private beta
 							</p>
 
-							<p className="text--xs color--grey__400 font-weight--500">
+							<p className="text--s color--grey__400 font-weight--500">
 								Leave us your email and we'll contact you ASAP to get set up.
 							</p>
 							<Form className="mt-5" onSubmit={handleSubmit}>
@@ -249,7 +252,7 @@ const SignUpModal = () => {
 									/>
 								</div>
 
-								<div className="form__buttons mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center">
+								<div className="form__buttons mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center justify-content-sm-center">
 									<Button
 										type="submit"
 										theme="gradient"
