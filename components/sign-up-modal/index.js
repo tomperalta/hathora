@@ -29,7 +29,6 @@ const StyledSignUpModal = styled.div`
 	bottom: 0;
 	left: 0;
 	display: flex;
-	// align-items: center;
 	justify-content: center;
 	padding: 32px 0;
 	background-color: ${colors.grey__700};
@@ -40,6 +39,7 @@ const StyledSignUpModal = styled.div`
 	transition: all 0.2s ease;
 
 	${breakpoint.medium`
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.65);
   `}
 
