@@ -29,20 +29,11 @@ const StyledMenu = styled.nav`
 	top: 0;
 	right: 0;
 	left: 0;
-	// padding: 24px 0;
 	box-sizing: border-box;
 	z-index: 9999;
 
-	${breakpoint.medium`
-    // padding: 32px 0;
-  `}
-
 	${Container} {
-		margin: 24px auto;
-
-		${breakpoint.medium`
-      margin: 32px auto;
-    `}
+		margin: 32px auto;
 	}
 
 	.menu__logo {
@@ -63,7 +54,7 @@ const StyledMenu = styled.nav`
 	.menu__content {
 		width: 100vw;
 		height: 100vh;
-		height: -webkit-fill-available;
+		// height: -webkit-fill-available;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -98,7 +89,7 @@ const StyledMenu = styled.nav`
 			max-width: 296px;
 			width: 88.22vw;
 			height: 100%;
-			padding: 24px 28px 24px 48px;
+			padding: 32px 28px 32px 48px;
 			margin-left: auto;
 			background-color: ${colors.grey__700};
 			transform: translateX(100%);
