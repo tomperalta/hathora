@@ -21,7 +21,7 @@ const StyledFooter = styled.footer`
 	padding: 48px 0;
 
 	${breakpoint.medium`
-    padding: 96px 0 40px 0;
+    padding: 96px 0 32px 0;
   `}
 
 	.footer__logo {
