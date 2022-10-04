@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 // Libraries
 import styled from "styled-components"
@@ -137,6 +137,12 @@ const DeploySlideshow = () => {
 	 */
 	const [activeStep, setActiveStep] = useState(0)
 	const [timeout, setTheTimeout] = useState(null)
+	const [visible, setVisible] = useState(false)
+
+	/**
+	 * Hooks
+	 */
+	const ref = useRef()
 
 	const goToNextStep = () => {
 		setActiveStep(steps[activeStep + 1] ? activeStep + 1 : 0)
@@ -152,6 +158,23 @@ const DeploySlideshow = () => {
 	}
 
 	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setVisible(true)
+					}
+				})
+			},
+			{
+				threshold: 0.2,
+			}
+		)
+
+		observer.observe(ref.current)
+	}, [])
+
+	useEffect(() => {
 		resetTimeout()
 	}, [])
 
@@ -160,7 +183,7 @@ const DeploySlideshow = () => {
 	}, [activeStep])
 
 	return (
-		<StyledDeploySlideshow className="row justify-content-center">
+		<StyledDeploySlideshow ref={ref} className="row justify-content-center">
 			<div className="col-md-7">
 				<div className="step__icons">
 					{steps.map((step, index) => (
@@ -188,7 +211,7 @@ const DeploySlideshow = () => {
 							<LoadingLine
 								duration="5s"
 								visible={index === activeStep}
-								play={index === activeStep}
+								play={visible && index === activeStep}
 								className="loading-line"
 							/>
 						</div>
