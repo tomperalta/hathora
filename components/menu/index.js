@@ -60,11 +60,12 @@ const StyledMenu = styled.nav`
 		right: 0;
 		bottom: 0;
 		display: flex;
+		// padding: 32px 0;
 		background-color: ${transparentize(0.35, colors.grey__700)};
 		opacity: 0;
 		visibility: hidden;
 		transition: all 0.2s ease;
-		overflow: hidden;
+		overflow-y: auto;
 		z-index: 9999;
 
 		${(props) =>
