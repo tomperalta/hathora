@@ -25,8 +25,8 @@ const SEO = (props) => {
 		<Head>
 			<title>{seo.title}</title>
 			<meta name="description" value={seo.description} />
-			<link rel="shortcut icon" href="/favicon.png" />
 			<meta property="og:title" content={seo.title} />
+			<link rel="shortcut icon" href="/favicon.png" />
 			<meta property="og:image" content={seo.image} />
 		</Head>
 	)
