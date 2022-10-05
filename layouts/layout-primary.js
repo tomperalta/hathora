@@ -15,7 +15,7 @@ import Footer from "components/footer"
 const PrimaryLayout = ({ children }) => {
 	useEffect(() => {
 		AOS.init({
-			duration: 200,
+			duration: 400,
 			once: true,
 		})
 	}, [])

@@ -58,18 +58,26 @@ const StyledFeatures = styled.section`
 `
 
 const Features = () => (
-	<StyledFeatures>
+	<StyledFeatures className="home__features">
 		<Container>
 			<div className="row justify-content-center text-center">
-				<div className="col-12 col-md-7 dotted-separator ">
-					<h1 className="heading--m title">
+				<div className="col-12 col-md-7">
+					<h1
+						className="heading--m title dotted-separator"
+						data-aos="fade-in"
+						data-aos-anchor=".home__features"
+					>
 						You can trust us to keep your game up and running{" "}
 					</h1>
 				</div>
 			</div>
 			<div className="row justify-content-center">
 				<div className="col-12 col-md-5">
-					<div className="feature">
+					<div
+						className="feature"
+						data-aos="fade-up"
+						data-aos-anchor=".home__features"
+					>
 						<Check className="icon" />
 						<p className="text--s paragraph">
 							<span className="font-weight--700">
@@ -80,7 +88,12 @@ const Features = () => (
 						</p>
 					</div>
 
-					<div className="feature">
+					<div
+						className="feature"
+						data-aos="fade-up"
+						data-aos-anchor=".home__features"
+						data-aos-delay="250"
+					>
 						<Check className="icon" />
 						<p className="text--s paragraph">
 							<span className="font-weight--700">
@@ -90,7 +103,12 @@ const Features = () => (
 						</p>
 					</div>
 
-					<div className="feature">
+					<div
+						className="feature"
+						data-aos="fade-up"
+						data-aos-anchor=".home__features"
+						data-aos-delay="500"
+					>
 						<Check className="icon" />
 						<div>
 							<p className="text--s paragraph mb-1">
@@ -111,7 +129,11 @@ const Features = () => (
 						</div>
 					</div>
 				</div>
-				<div className="col-12 col-md-5 p-0 text-center text-md-end text-lg-center">
+				<div
+					className="col-12 col-md-5 p-0 text-center text-md-end text-lg-center"
+					data-aos="fade-in"
+					data-aos-anchor=".home__features"
+				>
 					<Trust />
 				</div>
 			</div>
