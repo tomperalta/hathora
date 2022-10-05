@@ -90,7 +90,9 @@ export default createGlobalStyle`
         width: 100%;
         height: 4px;
         display: block;
+        margin-right: auto;
         margin-bottom: 24px;
+        margin-left: auto;
         background-image: url('${IconDottedSeparator}');
         background-repeat: no-repeat;
         background-size: auto 100%;

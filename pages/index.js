@@ -10,6 +10,7 @@ import SEO from "components/seo"
 import Hero from "components/home/hero"
 import OurPlatform from "components/home/our-platform"
 import Features from "components/home/features"
+import Deploy from "components/home/deploy"
 
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
@@ -20,6 +21,7 @@ const Home = () => (
 		<Hero />
 		<OurPlatform />
 		<Features />
+		<Deploy />
 	</>
 )
 
