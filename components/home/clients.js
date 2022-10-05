@@ -77,30 +77,58 @@ const StyledClients = styled.section`
 `
 
 const Clients = () => (
-	<StyledClients>
+	<StyledClients className="home__clients">
 		<Container>
 			<div className="row justify-content-center">
 				<div className="col-12 col-md-7 text-center">
-					<h1 className="heading--m dotted-separator">
+					<h1
+						className="heading--m dotted-separator"
+						data-aos="fade-in"
+						data-aos-anchor=".home__clients"
+					>
 						Integrated with the game engines you know and love
 					</h1>
 				</div>
 
 				<div className="col-12 col-sm-6 col-md-8 col-lg-7">
 					<div className="clients">
-						<div className="client client--phaser">
+						<div
+							className="client client--phaser"
+							data-aos="fade-in"
+							data-aos-delay="250"
+						>
 							<Phaser />
 						</div>
-						<div className="client client--unity">
+						<div
+							className="client client--unity"
+							data-aos="fade-in"
+							data-aos-anchor="home__clients"
+							data-aos-delay="500"
+						>
 							<Unity />
 						</div>
-						<div className="client client--hathora">
+						<div
+							className="client client--hathora"
+							data-aos="fade-in"
+							data-aos-anchor="home__clients"
+							data-aos-delay="750"
+						>
 							<Hathora />
 						</div>
-						<div className="client client--godot">
+						<div
+							className="client client--godot"
+							data-aos="fade-in"
+							data-aos-anchor="home__clients"
+							data-aos-delay="1000"
+						>
 							<Godot />
 						</div>
-						<div className="client client--unreal">
+						<div
+							className="client client--unreal"
+							data-aos="fade-in"
+							data-aos-anchor="home__clients"
+							data-aos-delay="1250"
+						>
 							<Unreal />
 						</div>
 					</div>
