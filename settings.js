@@ -6,9 +6,9 @@ import { ReactComponent as IconYouTube } from "assets/icons/social-media/icon-yo
 import { ReactComponent as IconLinkedIn } from "assets/icons/social-media/icon-linkedin.svg"
 
 export const siteMetadata = {
-	defaultTitle: "Hathora",
+	defaultTitle: "Hathora | Serverless Cloud Platform for Multiplayer Games",
 	defaultDescription:
-		"If you're reading this message it means we need a SEO description",
+		"Seamlessly deploy, scale, and manage server-authoritative game backends globally on our edge network. Our optimized network minimizes latency and improves players’ experience.",
 }
 
 export const socialMediaLinks = [
