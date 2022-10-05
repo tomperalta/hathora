@@ -20,6 +20,7 @@ import { ReactComponent as IconLogo } from "assets/icons/icon-logo.svg"
 const StyledFooter = styled.footer`
 	position: relative;
 	padding: 48px 0;
+	overflow: hidden;
 
 	${breakpoint.medium`
     padding: 96px 0 32px 0;

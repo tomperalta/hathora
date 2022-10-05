@@ -29,6 +29,14 @@ export default createGlobalStyle`
     line-height: 1.4em;
     overflow-x: hidden;
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-weight: 400;
+    }
+
     .heading--s {
       font-size: 1.25rem;
       line-height: 1.75rem;
