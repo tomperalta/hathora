@@ -81,6 +81,7 @@ const Hero = () => {
 	 * Animation options
 	 */
 	const animationOptions = {
+		loop: true,
 		animationData: HeroAnimation,
 	}
 
