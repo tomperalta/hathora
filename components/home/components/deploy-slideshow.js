@@ -185,9 +185,16 @@ const DeploySlideshow = () => {
 	}, [activeStep])
 
 	return (
-		<StyledDeploySlideshow ref={ref} className="row justify-content-center">
+		<StyledDeploySlideshow
+			ref={ref}
+			className="deploy__slideshow row justify-content-center"
+		>
 			<div className="col-md-7">
-				<div className="step__icons">
+				<div
+					className="step__icons"
+					data-aos="zoom-in"
+					data-aos-anchor=".deploy__slideshow"
+				>
 					{steps.map((step, index) => (
 						<div className={`icon ${index === activeStep && "active"}`}>
 							{step.icon}
@@ -196,7 +203,11 @@ const DeploySlideshow = () => {
 				</div>
 			</div>
 
-			<div className="col-md-5">
+			<div
+				className="col-md-5"
+				data-aos="fade-in"
+				data-aos-anchor=".deploy__slideshow"
+			>
 				{steps.map((step, index) => (
 					<button
 						type="button"
