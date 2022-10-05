@@ -450,7 +450,12 @@ const Menu = () => {
 
 	return (
 		<StyledMenu ref={ref} active={active}>
-			<Container className="d-flex align-items-center justify-content-between">
+			<Container
+				className="d-flex align-items-center justify-content-between"
+				data-aos="fade-down"
+				data-aos-duration="400"
+				data-aos-delay="400"
+			>
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">
 						<IconLogo />
