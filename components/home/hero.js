@@ -97,7 +97,7 @@ const Hero = () => {
 
 							<div className="hero__icon my-2 my-md-0">
 								{/* <IconHero /> */}
-								<Lottie options={animationOptions} />
+								<Lottie options={animationOptions} isClickToPauseDisabled />
 							</div>
 
 							<p className="text--l">
