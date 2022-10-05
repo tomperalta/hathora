@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Lottie from "react-lottie"
 
 // Redux
 import { useDispatch } from "react-redux"
@@ -14,8 +15,11 @@ import breakpoint from "utils/breakpoints/"
 import Container from "components/container/"
 import Button from "components/button"
 
+// Animations
+import HeroAnimation from "assets/animations/home/hero-animation.json"
+
 // Icons
-import { ReactComponent as IconHero } from "assets/icons/home/icon-hero.svg"
+// import { ReactComponent as IconHero } from "assets/icons/home/icon-hero.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledHero = styled.section`
@@ -73,6 +77,14 @@ const Hero = () => {
 	 */
 	const dispatch = useDispatch()
 
+	/**
+	 * Animation options
+	 */
+	const animationOptions = {
+		loop: true,
+		animationData: HeroAnimation,
+	}
+
 	return (
 		<StyledHero>
 			<Container>
@@ -84,7 +96,8 @@ const Hero = () => {
 							</h1>
 
 							<div className="hero__icon my-2 my-md-0">
-								<IconHero />
+								{/* <IconHero /> */}
+								<Lottie options={animationOptions} />
 							</div>
 
 							<p className="text--l">
