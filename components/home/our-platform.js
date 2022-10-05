@@ -102,18 +102,28 @@ const OurPlatform = () => {
 		},
 	]
 	return (
-		<StyledOurPlatform>
+		<StyledOurPlatform className="home__our-platform" data-aos-offset="400">
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-7">
-						<h2 className="heading--m dotted-separator text-center">
+						<h2
+							className="heading--m dotted-separator text-center"
+							data-aos="fade-in"
+							data-anchor=".home__our-platform"
+						>
 							Our platform is built with game developers in mind
 						</h2>
 					</div>
 					<div className="row">
 						<div className="items">
-							{data.map((item) => (
-								<div className="item col-12" key={item.title}>
+							{data.map((item, index) => (
+								<div
+									className="item col-12"
+									key={item.title}
+									data-aos="fade-up"
+									data-aos-anchor=".home__our-platform"
+									data-aos-delay={250 * index}
+								>
 									<div className="">
 										<div className="row align-items-center justify-content-center">
 											<div className="image col-12 col-md-4 text-center">
