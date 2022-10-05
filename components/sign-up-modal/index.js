@@ -99,6 +99,7 @@ const SignUpModal = () => {
 		email: true,
 		company: true,
 	})
+	const [loading, setLoading] = useState(false)
 	const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
 	/**
@@ -178,13 +179,54 @@ const SignUpModal = () => {
 	 * Handles form submit
 	 * @param {*} event
 	 */
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault()
 
 		validateForm()
 
 		if (formIsValid()) {
-			setShowSuccessMessage(true)
+			setLoading(true)
+
+			const payload = {
+				fields: [
+					{
+						name: "firstname",
+						value: formFields.name,
+					},
+					{
+						name: "company",
+						value: formFields.company,
+					},
+					{
+						name: "email",
+						value: formFields.email,
+					},
+				],
+				context: {
+					pageUri: window.location.href,
+				},
+			}
+
+			const response = await fetch(
+				"https://api.hsforms.com/submissions/v3/integration/submit/22776178/f4778110-22bf-4a88-845b-7327379e2a94",
+				{
+					method: "POST",
+					mode: "cors",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(payload),
+				}
+			).then((response) => response)
+			// .catch(() => setErrorMessage("Something went wrong. Please try again."))
+
+			if (response.status === 200) {
+				setShowSuccessMessage(true)
+			} else {
+				console.log(response)
+			}
+
+			setLoading(false)
 		}
 	}
 
@@ -259,11 +301,12 @@ const SignUpModal = () => {
 										className="mb-3 mb-sm-0"
 										onClick={handleSubmit}
 										disabled={
+											loading ||
 											Object.values(formFields).includes("") ||
 											Object.values(formValidation).includes(false)
 										}
 									>
-										Sign Up
+										{!loading ? "Sign Up" : "Loading"}
 									</Button>
 
 									<Button
