@@ -9,6 +9,7 @@ export const siteMetadata = {
 	defaultTitle: "Hathora | Serverless Cloud Platform for Multiplayer Games",
 	defaultDescription:
 		"Seamlessly deploy, scale, and manage server-authoritative game backends globally on our edge network. Our optimized network minimizes latency and improves players’ experience.",
+	defaultImage: "/open-graph.png",
 }
 
 export const socialMediaLinks = [
