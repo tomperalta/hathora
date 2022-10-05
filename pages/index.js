@@ -1,7 +1,13 @@
 import React from "react"
 
+// Libraries
+import styled from "styled-components"
+
 // Layout
 import LayoutPrimary from "layouts/layout-primary"
+
+// Utils
+import breakpoint from "utils/breakpoints/"
 
 // Components
 import SEO from "components/seo"
@@ -16,15 +22,25 @@ import Clients from "components/home/clients"
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
+const StyledHome = styled.main`
+	> section {
+		padding: 96px 0;
+
+		${breakpoint.medium`
+      padding: 100px 0;
+    `}
+	}
+`
+
 const Home = () => (
-	<>
+	<StyledHome>
 		<SEO />
 		<Hero />
 		<OurPlatform />
 		<Features />
 		<Deploy />
 		<Clients />
-	</>
+	</StyledHome>
 )
 
 export default Home
