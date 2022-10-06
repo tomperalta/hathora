@@ -93,19 +93,19 @@ const StyledOurPlatform = styled.section`
 const OurPlatform = () => {
 	const data = [
 		{
-			title: "IT’S FAST",
+			title: "FAST",
 			subtitle: "Optimized Edge Compute",
 			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
 			animation: Animation1,
 		},
 		{
-			title: "IT’S SIMPLE",
+			title: "SIMPLE",
 			subtitle: "Seamless Deployment and Operation",
 			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
 			animation: Animation2,
 		},
 		{
-			title: "IT’S OPEN",
+			title: "OPEN",
 			subtitle: "Self-Hostable Infrastructure",
 			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
 			animation: Animation3,
