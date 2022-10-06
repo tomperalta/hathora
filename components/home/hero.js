@@ -91,13 +91,7 @@ const Hero = () => {
 				<div className="row justify-content-center justify-content-md-start">
 					<div className="col-12 col-sm-8 col-md-6">
 						<div className="text-sm-center text-md-start">
-							<h1
-								className="heading--l font-weight--500 mb-4"
-								data-aos="fade-in"
-								data-aos-anchor=".home__hero"
-								data-aos-duration="400"
-								data-aos-delay="250"
-							>
+							<h1 className="heading--l font-weight--500 mb-4">
 								Serverless cloud platform for multiplayer games
 							</h1>
 
@@ -110,24 +104,12 @@ const Hero = () => {
 								<Lottie options={animationOptions} isClickToPauseDisabled />
 							</div>
 
-							<p
-								className="text--l"
-								data-aos="fade-in"
-								data-aos-anchor=".home__hero"
-								data-aos-delay="250"
-								data-aos-duration="400"
-							>
+							<p className="text--l">
 								Seamlessly build, launch, and scale server authoritative game
 								backends
 							</p>
 
-							<div
-								className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start"
-								data-aos="fade-in"
-								data-aos-anchor=".home__hero"
-								data-aos-delay="250"
-								data-aos-duration="400"
-							>
+							<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
 								<Button
 									type="button"
 									theme="gradient"

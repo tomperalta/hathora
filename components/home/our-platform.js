@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Lottie from "react-lottie"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -10,10 +11,15 @@ import breakpoints from "utils/breakpoints"
 // Layout
 import Container from "components/container"
 
-// Images
-import { ReactComponent as OptimizedImage } from "../../assets/images/home/optimized.svg"
-import { ReactComponent as SeemlessDeploymentImage } from "../../assets/images/home/seemless-deployment.svg"
-import { ReactComponent as SelfHosteableImage } from "../../assets/images/home/self-hosteable.svg"
+// Animations
+import Animation1 from "assets/animations/home/our-platform/our-platform-animation-1.json"
+import Animation2 from "assets/animations/home/our-platform/our-platform-animation-2.json"
+import Animation3 from "assets/animations/home/our-platform/our-platform-animation-3.json"
+
+// // Images
+// import { ReactComponent as OptimizedImage } from "../../assets/images/home/optimized.svg"
+// import { ReactComponent as SeemlessDeploymentImage } from "../../assets/images/home/seemless-deployment.svg"
+// import { ReactComponent as SelfHosteableImage } from "../../assets/images/home/self-hosteable.svg"
 
 const StyledOurPlatform = styled.section`
 	padding: 104px 0px;
@@ -90,21 +96,22 @@ const OurPlatform = () => {
 			title: "IT’S FAST",
 			subtitle: "Optimized Edge Compute",
 			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
-			image: <OptimizedImage />,
+			animation: Animation1,
 		},
 		{
 			title: "IT’S SIMPLE",
 			subtitle: "Seamless Deployment and Operation",
 			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
-			image: <SeemlessDeploymentImage />,
+			animation: Animation2,
 		},
 		{
 			title: "IT’S OPEN",
 			subtitle: "Self-Hostable Infrastructure",
 			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
-			image: <SelfHosteableImage />,
+			animation: Animation3,
 		},
 	]
+
 	return (
 		<StyledOurPlatform className="home__our-platform" data-aos-offset="400">
 			<Container>
@@ -130,7 +137,15 @@ const OurPlatform = () => {
 								>
 									<div className="">
 										<div className="row align-items-center justify-content-center">
-											<div className="image col-12 col-md-4">{item.image}</div>
+											<div className="image col-12 col-md-4">
+												<Lottie
+													options={{
+														loop: true,
+														animationData: item.animation,
+													}}
+												/>
+											</div>
+
 											<div className="content col-12 col-md-5">
 												<div className="row">
 													<h2 className="text--xs color--green__500 font-weight--700 mb-2">

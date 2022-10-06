@@ -199,6 +199,8 @@ const Button = (props) => {
 		const handleMouseMove = (event) => {
 			const { pageX, pageY, target } = event
 
+			// console.log(target.offsetTop, target.offsetLeft)
+
 			const x = pageX - target.offsetLeft
 			const y = pageY - target.offsetTop
 
