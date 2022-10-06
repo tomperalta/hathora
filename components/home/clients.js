@@ -38,7 +38,7 @@ const StyledClients = styled.section`
 		.client {
 			width: 50%;
 			text-align: center;
-			margin-bottom: 60px;
+			margin-bottom: 39px;
 
 			${breakpoint.small`
         width: auto;
@@ -58,9 +58,13 @@ const StyledClients = styled.section`
 				${breakpoint.medium`
           width: 215px;
           height: 28px;
-          margin-right: 0;
+          margin-right: 27px;
           margin-left: 64px;
         `}
+
+				${breakpoint.large`
+					margin-right: 0;
+				`}
 			}
 
 			&.client--unreal {
