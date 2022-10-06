@@ -144,7 +144,7 @@ const steps = [
 		icon: {
 			src: IconStep5,
 			width: 640,
-			height: 646,
+			height: 642,
 		},
 		description: (
 			<span>
