@@ -78,6 +78,10 @@ const StyledOurPlatform = styled.section`
 		}
     
 	}
+
+	.text {
+		max-width: 416px;
+	}
 `
 
 const OurPlatform = () => {
@@ -126,18 +130,16 @@ const OurPlatform = () => {
 								>
 									<div className="">
 										<div className="row align-items-center justify-content-center">
-											<div className="image col-12 col-md-4 text-center">
-												{item.image}
-											</div>
+											<div className="image col-12 col-md-4">{item.image}</div>
 											<div className="content col-12 col-md-5">
 												<div className="row">
-													<h2 className="text--xs color--green__500 mb-2">
+													<h2 className="text--xs color--green__500 font-weight--700 mb-2">
 														{item.title}
 													</h2>
-													<h2 className="text--m font-weight-600 mb-2">
+													<h2 className="text--m font-weight--600 mb-2">
 														{item.subtitle}
 													</h2>
-													<p className="text--s">{item.text}</p>
+													<p className="text text--s">{item.text}</p>
 												</div>
 											</div>
 										</div>
