@@ -189,7 +189,7 @@ const DeployCarousel = () => {
 							<LoadingLine duration="5s" visible className="loading-line" />
 						</div>
 
-						<div className="step__icon">
+						<div className="step__icon text-center">
 							<Image src={step.icon} width="640" height="646" alt="" />
 						</div>
 					</div>
