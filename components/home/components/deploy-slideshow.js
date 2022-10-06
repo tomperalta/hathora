@@ -10,11 +10,12 @@ import { colors } from "utils/variables"
 import LoadingLine from "components/loading-line"
 
 // Icons
-import { ReactComponent as IconStep1 } from "assets/icons/home/deploy/icon-step-1.svg"
-import { ReactComponent as IconStep2 } from "assets/icons/home/deploy/icon-step-2.svg"
-import { ReactComponent as IconStep3 } from "assets/icons/home/deploy/icon-step-3.svg"
-import { ReactComponent as IconStep4 } from "assets/icons/home/deploy/icon-step-4.svg"
-import { ReactComponent as IconStep5 } from "assets/icons/home/deploy/icon-step-5.svg"
+import IconStep1 from "assets/icons/home/deploy/icon-step-1.svg"
+import IconStep2 from "assets/icons/home/deploy/icon-step-2.svg"
+import IconStep3 from "assets/icons/home/deploy/icon-step-3.svg"
+import IconStep4 from "assets/icons/home/deploy/icon-step-4.svg"
+import IconStep5 from "assets/icons/home/deploy/icon-step-5.svg"
+import Image from "next/image"
 
 const StyledDeploySlideshow = styled.div`
 	.step {
@@ -93,7 +94,11 @@ const StyledDeploySlideshow = styled.div`
  */
 const steps = [
 	{
-		icon: <IconStep1 />,
+		icon: {
+			src: IconStep1,
+			width: 640,
+			height: 646,
+		},
 		description: (
 			<span>
 				<span className="font-weight--700">Enable online multiplayer</span>{" "}
@@ -102,11 +107,19 @@ const steps = [
 		),
 	},
 	{
-		icon: <IconStep2 />,
+		icon: {
+			src: IconStep2,
+			width: 640,
+			height: 646,
+		},
 		description: <span>Deploy on Hathora Cloud with a single command</span>,
 	},
 	{
-		icon: <IconStep3 />,
+		icon: {
+			src: IconStep3,
+			width: 640,
+			height: 646,
+		},
 		description: (
 			<span>
 				<span className="font-weight--700">Scale globally</span> without
@@ -115,7 +128,11 @@ const steps = [
 		),
 	},
 	{
-		icon: <IconStep4 />,
+		icon: {
+			src: IconStep4,
+			width: 640,
+			height: 646,
+		},
 		description: (
 			<span>
 				<span className="font-weight--700">Ship changes</span> with no downtime
@@ -124,7 +141,11 @@ const steps = [
 		),
 	},
 	{
-		icon: <IconStep5 />,
+		icon: {
+			src: IconStep5,
+			width: 640,
+			height: 646,
+		},
 		description: (
 			<span>
 				<span className="font-weight--700">Track usage</span> and system metrics
@@ -197,7 +218,7 @@ const DeploySlideshow = () => {
 				>
 					{steps.map((step, index) => (
 						<div className={`icon ${index === activeStep && "active"}`}>
-							{step.icon}
+							<Image {...step.icon} alt="" loading="eager" />
 						</div>
 					))}
 				</div>
