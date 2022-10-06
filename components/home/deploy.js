@@ -19,7 +19,10 @@ const StyledDeploy = styled.section`
   `}
 
 	.deploy__heading {
+		max-width: 650px;
+		margin-right: auto;
 		margin-bottom: 96px;
+		margin-left: auto;
 	}
 `
 
@@ -27,10 +30,12 @@ const Deploy = () => (
 	<StyledDeploy>
 		<Container>
 			<div className="row justify-content-center">
-				<div className="deploy__heading col-12 col-md-8">
-					<h2 className="heading--m dotted-separator text-center font-weigth--500">
-						Get your game online in just a few simple steps
-					</h2>
+				<div className="col-12 col-md-8">
+					<div className="deploy__heading">
+						<h2 className="heading--m dotted-separator text-center font-weigth--500">
+							Get your game online in just a few simple steps
+						</h2>
+					</div>
 				</div>
 			</div>
 
