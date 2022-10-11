@@ -51,14 +51,14 @@ const StyledClients = styled.section`
 			}
 
 			&.client--hathora {
-				width: 119px;
+				width: 42%;
 				height: 16px;
-				margin-right: 50px;
+				margin-right: 27px;
 
 				${breakpoint.medium`
           width: 215px;
           height: 28px;
-          margin-right: 27px;
+          margin-right: 37px;
           margin-left: 64px;
         `}
 
