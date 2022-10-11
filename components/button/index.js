@@ -8,9 +8,6 @@ import styled, { css } from "styled-components"
 import { colors } from "utils/variables"
 import { ButtonProps } from "utils/prop-types"
 
-// Icons
-// import IconShadowDetailsTurquoise from "assets/icons/components/button/icon-shadow-details--turquoise.svg"
-
 export const ButtonStyles = css`
 	display: inline-flex;
 	align-items: center;
@@ -174,7 +171,15 @@ const StyledButton = styled.button`
 	border: 0;
 	${ButtonStyles};
 `
+const StyledNext = styled.a`
+	display: flex;
+	flex-direction: column;
 
+	svg {
+		width: 20px;
+	}
+	${ButtonStyles};
+`
 const StyledButtonLink = styled.a`
 	${ButtonStyles};
 `
@@ -256,6 +261,24 @@ const Button = (props) => {
 			>
 				{children}
 			</StyledButton>
+		)
+	}
+
+	/**
+	 * Returns a <button type="arrow"></button>
+	 */
+
+	if (type === "next") {
+		return (
+			<StyledNext
+				ref={ref}
+				type="next"
+				className={className}
+				disabled={disabled}
+				onClick={onClick}
+			>
+				{children}
+			</StyledNext>
 		)
 	}
 

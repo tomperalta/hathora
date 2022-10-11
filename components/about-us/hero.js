@@ -4,12 +4,12 @@ import React from "react"
 import styled from "styled-components"
 import Lottie from "react-lottie"
 
-// Utils
-import breakpoint from "utils/breakpoints/"
+// Icons
+import { ReactComponent as IconCarretDown } from "assets/icons/icon-caret-down.svg"
 
 // Components
 import Container from "components/container/"
-// import Button from "components/button"
+import Button from "components/button"
 
 // Animations
 import HeroAnimation from "assets/animations/home/hero-animation.json"
@@ -20,47 +20,6 @@ const StyledHero = styled.section`
 	display: flex;
 	align-items: center;
 	padding: 96px 0 60px 0;
-
-	// .hero__buttons {
-	// 	margin-top: 32px;
-
-	// 	${breakpoint.medium`
-  //     margin-top: 56px;
-  //   `}
-
-	// 	button {
-	// 		margin-bottom: 24px;
-
-	// 		${breakpoint.medium`
-  //       margin: 0 32px 0 0;
-  //     `}
-	// 	}
-	// }
-
-	.hero__icon {
-		max-width: 671px;
-		width: 100%;
-		aspect-ratio: 1;
-		display: flex;
-		align-items: center;
-
-		${breakpoint.medium`
-      position: absolute;
-      top: calc((100vh - 671px) / 2);
-      right: 0;
-      margin: auto;
-    `}
-
-		${breakpoint.extraLarge`
-      top: calc(((100vh - 671px) / 2) + 32px);
-      right: calc((100vw - 1440px) / 2);
-    `}
-
-    svg {
-			width: 100%;
-			height: 100%;
-		}
-	}
 `
 
 const Hero = () => {
@@ -90,6 +49,13 @@ const Hero = () => {
 					>
 						<Lottie options={animationOptions} isClickToPauseDisabled />
 					</div>
+				</div>
+				<div className="text-center">
+					<Button type="next" href="/about" internal>
+						<IconCarretDown />
+						<IconCarretDown />
+						<IconCarretDown />
+					</Button>
 				</div>
 			</Container>
 		</StyledHero>
