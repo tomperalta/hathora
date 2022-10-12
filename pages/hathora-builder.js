@@ -13,6 +13,7 @@ import breakpoint from "utils/breakpoints/"
 import SEO from "components/seo"
 
 // Sections
+import GameDevelopment from "components/hathora-builder/game-development"
 
 const StyledHathoraBuilder = styled.main`
 	> section {
@@ -30,6 +31,7 @@ const HathoraBuilder = () => (
 			title="Hathora Builder | Serverless Cloud Platform for Multiplayer Games"
 			description="A multiplayer game framework"
 		/>
+		<GameDevelopment />
 	</StyledHathoraBuilder>
 )
 
