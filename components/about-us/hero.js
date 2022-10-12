@@ -4,12 +4,8 @@ import React from "react"
 import styled from "styled-components"
 import Lottie from "react-lottie"
 
-// Icons
-import { ReactComponent as IconCarretDown } from "assets/icons/icon-caret-down.svg"
-
 // Components
 import Container from "components/container/"
-import Button from "components/button"
 
 // Animations
 import HeroAnimation from "assets/animations/home/hero-animation.json"
@@ -49,13 +45,6 @@ const Hero = () => {
 					>
 						<Lottie options={animationOptions} isClickToPauseDisabled />
 					</div>
-				</div>
-				<div className="text-center">
-					<Button type="next" href="/about" internal>
-						<IconCarretDown />
-						<IconCarretDown />
-						<IconCarretDown />
-					</Button>
 				</div>
 			</Container>
 		</StyledHero>
