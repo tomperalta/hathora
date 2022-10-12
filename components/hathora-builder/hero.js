@@ -24,6 +24,7 @@ const StyledHero = styled.section`
 			white-space: nowrap;
 		`}
 	}
+
 	.hero__buttons {
 		margin-top: 32px;
 
