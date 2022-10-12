@@ -2,7 +2,6 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
-// import Lottie from "react-lottie"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -11,11 +10,6 @@ import breakpoint from "utils/breakpoints/"
 import Container from "components/container/"
 import Button from "components/button"
 
-// Animations
-// import HeroAnimation from "assets/animations/home/hero-animation.json"
-
-// Icons
-// import { ReactComponent as IconHero } from "assets/icons/home/icon-hero.svg"
 import { ReactComponent as IconHero } from "assets/icons/hathora-builder/hathora-builder-hero.svg"
 
 const StyledHero = styled.section`
@@ -25,6 +19,11 @@ const StyledHero = styled.section`
 	align-items: center;
 	padding: 96px 0 60px 0;
 
+	.text {
+		${breakpoint.large`
+			white-space: nowrap;
+		`}
+	}
 	.hero__buttons {
 		margin-top: 32px;
 
@@ -68,20 +67,7 @@ const StyledHero = styled.section`
 `
 
 const Hero = () => (
-	/**
-	 * Hooks
-	 */
-	// const dispatch = useDispatch()
-
-	/**
-	 * Animation options
-	 */
-	// const animationOptions = {
-	// 	loop: true,
-	// 	animationData: HeroAnimation,
-	// )
-
-	<StyledHero className="home__hero">
+	<StyledHero>
 		<Container>
 			<div className="row justify-content-center justify-content-md-start align-items-center">
 				<div className="col-12 col-sm-8 col-md-6 col-lg-7">
@@ -98,7 +84,7 @@ const Hero = () => (
 							<IconHero />
 						</div>
 
-						<p className="text--l">
+						<p className="text--l text">
 							Development framework for creating multiplayer games.
 						</p>
 
