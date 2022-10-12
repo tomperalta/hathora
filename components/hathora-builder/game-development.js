@@ -78,7 +78,7 @@ const GameDevelopment = () => {
 	return (
 		<StyledGameDevelopment>
 			<Container>
-				<h2 className="game-development__heading heading--m font-weight--500 text-center">
+				<h2 className="game-development__heading heading--m font-weight--500 text-center dotted-separator">
 					Game development made easy
 				</h2>
 
