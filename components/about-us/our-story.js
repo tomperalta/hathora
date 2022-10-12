@@ -4,12 +4,11 @@ import React from "react"
 import styled from "styled-components"
 
 // Images
-import { ReactComponent as TaruniPaleru } from "assets/images/about-us/taruni-paleru.svg"
 import { ReactComponent as SiddharthDhulipalla } from "assets/images/about-us/siddharth-dhulipalla.svg"
 import { ReactComponent as HarshPandey } from "assets/images/about-us/harsh-pandey.svg"
+import { ReactComponent as TaruniPaleru } from "assets/images/about-us/taruni-paleru.svg"
 
 // Utils
-// import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 // Components
@@ -29,7 +28,6 @@ const StyledOurStory = styled.section`
       margin-bottom: 96px;
     `}
 	}
-
 	.founders {
 		display: flex;
 		flex-direction: row;
@@ -77,7 +75,7 @@ const OurStory = () => {
 		{
 			image: <TaruniPaleru />,
 			name: "Taruni Paleru",
-			rol: "Co-Founder & CEO",
+			rol: "Product Manager",
 		},
 	]
 	return (
@@ -100,7 +98,7 @@ const OurStory = () => {
 							</p>
 						</div>
 					</div>
-					<div className="founders p-md-0">
+					<div className="founders p-0">
 						{founders.map((founder) => (
 							<div className="founder">
 								{founder.image}
