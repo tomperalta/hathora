@@ -21,13 +21,21 @@ const StyledOurValues = styled.section`
 		margin: 96px 0px;
 
 		.col-12 {
+			margin-bottom: 32px;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
 			${breakpoint.medium`
+			margin-bottom: 0px;
 			&:nth-child(2) {
 				margin-top: 124px;
 			}
 			&:nth-child(3) {
 				margin-top: 248px;
 			}
+
 			`}
 		}
 	}
