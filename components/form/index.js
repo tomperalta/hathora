@@ -42,6 +42,8 @@ const Form = styled.form`
 		font-size: 0.875rem;
 		line-height: 1.42em;
 		border-bottom: 1px solid ${colors.purple__500};
+		border-radius: 0;
+		-webkit-appearance: none;
 
 		&::placeholder {
 			color: ${colors.grey__400};
