@@ -85,9 +85,9 @@ const Testimonials = () => {
 		},
 		{
 			quote:
-				"Hathora took away a lot of those ‘tech debt’ items—Figuring out how to scale my backend horizontally to the scale that would be needed if a game takes off.",
-			author: "Justin Cho",
-			company: "Mobo",
+				"Game developers who enjoy setting up backend infrastructure are rare (potentially just a myth). Hathora Cloud replaces all the hassles with a few commands that deploy your backend to a modern, scalable infrastructure in just a few minutes!",
+			author: "Tommy Leung",
+			company: "Ourcade",
 		},
 	]
 
