@@ -15,6 +15,7 @@ import SEO from "components/seo"
 // Sections
 import Hero from "components/hathora-builder/hero"
 import GameDevelopment from "components/hathora-builder/game-development"
+import Testimonials from "components/hathora-builder/testimonials"
 
 const StyledHathoraBuilder = styled.main`
 	> section {
@@ -34,6 +35,7 @@ const HathoraBuilder = () => (
 		/>
 		<Hero />
 		<GameDevelopment />
+		<Testimonials />
 	</StyledHathoraBuilder>
 )
 

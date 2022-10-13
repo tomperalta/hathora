@@ -11,4 +11,10 @@ export const ButtonProps = {
 	onClick: PropTypes.func,
 }
 
+export const CarouselProps = {
+	config: PropTypes.instanceOf(PropTypes.object).isRequired,
+	children: PropTypes.node.isRequired,
+	className: PropTypes.string,
+}
+
 export default ButtonProps
