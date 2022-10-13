@@ -199,6 +199,8 @@ const Button = (props) => {
 		const handleMouseMove = (event) => {
 			const { pageX, pageY, target } = event
 
+			console.log(pageX)
+
 			// console.log(target.offsetTop, target.offsetLeft)
 
 			const x = pageX - target.offsetLeft
@@ -285,6 +287,7 @@ const Button = (props) => {
 			ref={ref}
 			className={className}
 			theme={theme}
+			data-theme={theme}
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"

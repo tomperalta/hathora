@@ -3,10 +3,6 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
-// Redux
-import { useDispatch } from "react-redux"
-import { openSignUpModal } from "redux/slices/sign-up-modal"
-
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -14,6 +10,7 @@ import breakpoint from "utils/breakpoints/"
 import Container from "components/container/"
 import Button from "components/button"
 
+// Icons
 import { ReactComponent as IconHero } from "assets/icons/hathora-builder/hathora-builder-hero.svg"
 
 const StyledHero = styled.section`
@@ -71,51 +68,43 @@ const StyledHero = styled.section`
 	}
 `
 
-const Hero = () => {
-	/**
-	 * Hooks
-	 */
-	const dispatch = useDispatch()
+const Hero = () => (
+	<StyledHero>
+		<Container>
+			<div className="row justify-content-center justify-content-md-start align-items-center">
+				<div className="col-12 col-sm-8 col-md-6 col-lg-7">
+					<div className="text-sm-center text-md-start">
+						<h1 className="heading--l font-weight--500 mb-4">
+							Prototype in minutes and scale to millions on the Hathora Builder
+						</h1>
 
-	return (
-		<StyledHero>
-			<Container>
-				<div className="row justify-content-center justify-content-md-start align-items-center">
-					<div className="col-12 col-sm-8 col-md-6 col-lg-7">
-						<div className="text-sm-center text-md-start">
-							<h1 className="heading--l font-weight--500 mb-4">
-								Prototype in minutes and scale to millions on the Hathora
-								Builder
-							</h1>
+						<div
+							className="hero__icon my-2 mb-5 my-md-0"
+							data-aos="zoom-in-up"
+							data-aos-anchor=".home__hero"
+						>
+							<IconHero />
+						</div>
 
-							<div
-								className="hero__icon my-2 mb-5 my-md-0"
-								data-aos="zoom-in-up"
-								data-aos-anchor=".home__hero"
+						<p className="text--l text">
+							Development framework for creating multiplayer games.
+						</p>
+
+						<div className="hero__buttons text-center text-md-start">
+							<Button
+								type="link"
+								theme="gradient"
+								href="https://docs.hathora.dev/#/"
+								external
 							>
-								<IconHero />
-							</div>
-
-							<p className="text--l text">
-								Development framework for creating multiplayer games.
-							</p>
-
-							<div className="hero__buttons text-center text-md-start">
-								<Button
-									type="button"
-									external
-									theme="gradient"
-									onClick={() => dispatch(openSignUpModal())}
-								>
-									Get Started
-								</Button>
-							</div>
+								Get Started
+							</Button>
 						</div>
 					</div>
 				</div>
-			</Container>
-		</StyledHero>
-	)
-}
+			</div>
+		</Container>
+	</StyledHero>
+)
 
 export default Hero
