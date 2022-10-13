@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import Link from "next/link"
 import { transparentize } from "polished"
+import { useRouter } from "next/router"
 
 // Redux
 import { useDispatch } from "react-redux"
@@ -207,6 +208,10 @@ const StyledMenu = styled.nav`
 				pointer-events: none;
 			}
 
+			&--active {
+				color: ${colors.green__500};
+			}
+
 			svg {
 				margin-left: 4px;
 				transition: all 0.2s ease;
@@ -311,6 +316,8 @@ const Menu = () => {
 	 */
 	const dispatch = useDispatch()
 	const ref = useRef()
+	const router = useRouter()
+	const currentRoute = router.pathname
 
 	/**
 	 * Locks window scroll if `active`
@@ -490,7 +497,11 @@ const Menu = () => {
 											<>
 												<button
 													type="button"
-													className="menu__link"
+													className={
+														currentRoute === item.label
+															? "menu__link menu__link--active"
+															: "menu__link"
+													}
 													onClick={toggleSubMenu}
 												>
 													{item.label}
@@ -511,7 +522,15 @@ const Menu = () => {
 																	</button>
 																) : !link.external ? (
 																	<Link href={link.url}>
-																		<a className="menu__link">{link.label}</a>
+																		<a
+																			className={
+																				currentRoute === link.label
+																					? "menu__link menu__link--active"
+																					: "menu__link"
+																			}
+																		>
+																			{link.label}
+																		</a>
 																	</Link>
 																) : (
 																	<a
@@ -530,7 +549,15 @@ const Menu = () => {
 											</>
 										) : !item.external ? (
 											<Link href={item.url}>
-												<a className="menu__link">{item.label}</a>
+												<a
+													className={
+														currentRoute === item.url
+															? "menu__link menu__link--active"
+															: "menu__link"
+													}
+												>
+													{item.label}
+												</a>
 											</Link>
 										) : (
 											<a
