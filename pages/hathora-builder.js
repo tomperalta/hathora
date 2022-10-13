@@ -11,6 +11,7 @@ import breakpoint from "utils/breakpoints/"
 
 // Components
 import SEO from "components/seo"
+import Testimonials from "components/hathora-builder/testimonials"
 
 // Sections
 
@@ -30,6 +31,7 @@ const HathoraBuilder = () => (
 			title="Hathora Builder | Serverless Cloud Platform for Multiplayer Games"
 			description="A multiplayer game framework"
 		/>
+		<Testimonials />
 	</StyledHathoraBuilder>
 )
 
