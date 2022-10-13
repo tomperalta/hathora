@@ -28,34 +28,22 @@ const StyledOurStory = styled.section`
       margin-bottom: 96px;
     `}
 	}
+
 	.founders {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
 		margin: 48px 0;
 
 		${breakpoint.medium`
-      justify-content: space-between;
-      max-width: 544px;
-      margin: 64px 0;
-    `}
+			margin: 64px 0;
+		`}
 
 		.founder {
-			width: 50%;
-			text-align: center;
-
-			&:last-child {
+			&:last-of-type {
 				margin-top: 32px;
 
-				${breakpoint.small`
-          margin-top: 0;
-        `}
+				${breakpoint.medium`
+					margin-top: 0;
+				`}
 			}
-
-			${breakpoint.small`
-        width: 33%;
-      `};
 		}
 	}
 `
@@ -82,48 +70,46 @@ const OurStory = () => {
 		<StyledOurStory>
 			<Container>
 				<div className="row justify-content-center">
-					<h1 className="heading--l title text-center dotted-separator mb-8">
-						Our Story
-					</h1>
-					<div className="row justify-content-center">
-						<div className="col-12 col-md-7 col-lg-6">
-							<p className="text--l font-weight--600">
-								Becoming infrastructure experts
-							</p>
-							<p className="text--s">
-								Our founders, Harsh and Sid, both studied Computer Science at
-								Carnegie Mellon and went on to become industry experts in the
-								infrastructure space, leading teams at top SaaS companies like
-								Palantir & Databricks.{" "}
-							</p>
+					<div className="col-12 col-sm-6">
+						<h2 className="heading--l title text-center dotted-separator">
+							Our Story
+						</h2>
+
+						<p className="text--l font-weight--600">
+							Becoming infrastructure experts
+						</p>
+						<p className="text--s">
+							Our founders, Harsh and Sid, both studied Computer Science at
+							Carnegie Mellon and went on to become industry experts in the
+							infrastructure space, leading teams at top SaaS companies like
+							Palantir & Databricks.{" "}
+						</p>
+
+						<div className="row justify-content-center founders">
+							{founders.map((founder) => (
+								<div className="col-6 col-md-4 p-0 founder">
+									<div className="text-center">
+										{founder.image}
+										<p className="text--s color--purple__500 font-weight--700">
+											{founder.name}
+										</p>
+										<p className="text--s color--grey__300 font-weight--700">
+											{founder.rol}
+										</p>
+									</div>
+								</div>
+							))}
 						</div>
-					</div>
-					<div className="founders p-0">
-						{founders.map((founder) => (
-							<div className="founder">
-								{founder.image}
-								<p className="text--s color--purple__500 font-weight--700">
-									{founder.name}
-								</p>
-								<p className="text--s color--grey__300 font-weight--700">
-									{founder.rol}
-								</p>
-							</div>
-						))}
-					</div>
-					<div className="row justify-content-center">
-						<div className="col-12 col-md-7 col-lg-6">
-							<p className="text--l font-weight--600">
-								Journeying into the gaming industry
-							</p>
-							<p className="text--s">
-								After a chance conversation with a friend at a gaming studio,
-								they were surprised to find that the gaming industry is far
-								behind when it comes to server infrastructure. Their new
-								venture, Hathora, looks to bring modern cloud techniques to the
-								gaming industry.
-							</p>
-						</div>
+
+						<p className="text--l font-weight--600">
+							Journeying into the gaming industry
+						</p>
+						<p className="text--s">
+							After a chance conversation with a friend at a gaming studio, they
+							were surprised to find that the gaming industry is far behind when
+							it comes to server infrastructure. Their new venture, Hathora,
+							looks to bring modern cloud techniques to the gaming industry.
+						</p>
 					</div>
 				</div>
 			</Container>
