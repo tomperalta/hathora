@@ -25,8 +25,23 @@ const StyledTestimonials = styled.section`
       padding: 0 64px;
     `}
 
+		.slick-track {
+			display: flex;
+
+			.slick-slide {
+				height: auto !important;
+
+				> div {
+					height: 100%;
+				}
+			}
+		}
+
 		.testimony {
+			height: 100%;
 			position: relative;
+			display: flex !important;
+			flex-wrap: wrap;
 			padding: 0 24px;
 
 			&::before {
