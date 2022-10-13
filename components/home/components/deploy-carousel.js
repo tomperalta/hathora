@@ -2,16 +2,17 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
-import Carousel from "react-slick"
+// import Carousel from "react-slick"
 
-// Styles
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+// // Styles
+// import "slick-carousel/slick/slick.css"
+// import "slick-carousel/slick/slick-theme.css"
 
 // Utils
 import { colors } from "utils/variables"
 
 // Components
+import Carousel from "components/carousel"
 import LoadingLine, { Animation } from "components/loading-line"
 
 // Icons
@@ -176,7 +177,7 @@ const DeployCarousel = () => {
 
 	return (
 		<StyledDeployCarousel className="row justify-content-center">
-			<Carousel className="deploy__carousel" {...carouselOptions}>
+			<Carousel className="deploy__carousel" config={carouselOptions}>
 				{steps.map((step, index) => (
 					<div className="step" key={step.title}>
 						<div className="d-flex align-items-center">
