@@ -18,8 +18,6 @@ import Trust from "../../assets/images/about-us/trust.svg"
 
 const StyledOurValues = styled.section`
 	.values-section {
-		margin: 96px 0px;
-
 		.col-12 {
 			margin-bottom: 32px;
 
