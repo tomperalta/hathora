@@ -19,11 +19,6 @@ import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
 const StyledClients = styled.section`
 	padding: 24px 0 120px 0;
 
-	${breakpoint.medium`
-    padding: 24px 0 200px 0;
-  
-  `}
-
 	.clients {
 		margin-top: 70px;
 		display: flex;
