@@ -17,6 +17,9 @@ import Hero from "components/about-us/hero"
 import Mission from "components/about-us/mission"
 import OurStory from "components/about-us/our-story"
 import OurVision from "components/about-us/our-vision"
+import OurValues from "components/about-us/our-values"
+
+// Sections
 
 const StyledAboutUs = styled.main`
 	> section {
@@ -35,6 +38,7 @@ const AboutUs = () => (
 		<Mission />
 		<OurStory />
 		<OurVision />
+		<OurValues />
 	</StyledAboutUs>
 )
 
