@@ -2,17 +2,20 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Image from "next/image"
 
-// Images
-import { ReactComponent as SiddharthDhulipalla } from "assets/images/about-us/siddharth-dhulipalla.svg"
-import { ReactComponent as HarshPandey } from "assets/images/about-us/harsh-pandey.svg"
-import { ReactComponent as TaruniPaleru } from "assets/images/about-us/taruni-paleru.svg"
+// Founder Images
+import TuraniPaleru from "assets/images/about-us/taruni-paleru.png"
+import HarshPandey from "assets/images/about-us/harsh-pandey.png"
+import SiddharthDhulipalla from "assets/images/about-us/siddharth-dhulipalla.png"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container/"
+
+// Images
 
 const StyledOurStory = styled.section`
 	padding: 24px 0 140px 0;
@@ -51,17 +54,17 @@ const StyledOurStory = styled.section`
 const OurStory = () => {
 	const founders = [
 		{
-			image: <SiddharthDhulipalla />,
-			name: "SiddharthDhulipalla",
+			image: <Image src={SiddharthDhulipalla} layout="responsive" />,
+			name: "Siddharth Dhulipalla",
 			rol: "Co-Founder & CEO",
 		},
 		{
-			image: <HarshPandey />,
+			image: <Image src={HarshPandey} layout="responsive" />,
 			name: "Harsh Pandey",
 			rol: "Co-Founder & CEO",
 		},
 		{
-			image: <TaruniPaleru />,
+			image: <Image src={TuraniPaleru} layout="responsive" />,
 			name: "Taruni Paleru",
 			rol: "Product Manager",
 		},
@@ -87,10 +90,10 @@ const OurStory = () => {
 
 						<div className="row justify-content-center founders">
 							{founders.map((founder) => (
-								<div className="col-6 col-md-4 p-0 founder">
+								<div className="col-6 col-md-4 founder">
 									<div className="text-center">
 										{founder.image}
-										<p className="text--s color--purple__500 font-weight--700">
+										<p className="text--s color--purple__500 font-weight--700 mt-2">
 											{founder.name}
 										</p>
 										<p className="text--s color--grey__300 font-weight--700">
