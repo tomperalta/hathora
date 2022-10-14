@@ -23,8 +23,6 @@ const TimelineItem = styled.div`
 	margin-bottom: 56px;
 
 	${breakpoint.medium`
-    // width: 638px;
-    position: static;
     margin-bottom: 120px;
 
     &:nth-child(odd) {
@@ -54,6 +52,10 @@ const TimelineItem = styled.div`
 
 	&:last-child {
 		margin-bottom: 0;
+
+		&::after {
+			display: none;
+		}
 	}
 
 	&::before {
@@ -78,11 +80,33 @@ const TimelineItem = styled.div`
     `}
 	}
 
+	&::after {
+		content: "";
+		width: 2px;
+		height: calc(100% + 56px);
+		position: absolute;
+		left: 15px;
+		transform: translateY(15px);
+		background: ${(props) =>
+			props.nextItemTheme
+				? `linear-gradient(180deg, ${props.theme} 0%, ${props.nextItemTheme} 50%)`
+				: props.theme};
+		z-index: -1;
+
+		${breakpoint.medium`
+      height: calc(100% + 120px);
+      left: 0;
+      right: 0;
+      margin: auto;
+    `}
+	}
+
 	.date {
 		margin-bottom: 20px;
 
 		${breakpoint.medium`
       position: absolute;
+      transform: translateY(2px);
       white-space: nowrap;
       margin: 0;
     `}
@@ -130,7 +154,7 @@ const OurVision = () => {
 		},
 		{
 			date: "February 2022",
-			theme: colors.purple__500,
+			theme: colors.purple__400,
 			content:
 				"Hathora Builder, an opinionated full-stack framework for realtime games, was launched and within 2 months it had over 400 stars on Github.",
 			icon: <IconStar />,
@@ -166,8 +190,12 @@ const OurVision = () => {
 				</h2>
 
 				<div className="our-vision__timeline">
-					{data.map((item) => (
-						<TimelineItem theme={item.theme} key={item.date}>
+					{data.map((item, index) => (
+						<TimelineItem
+							theme={item.theme}
+							nextItemTheme={data[index + 1] ? data[index + 1].theme : null}
+							key={item.date}
+						>
 							<div>
 								<p className="date text--s font-weight--700">{item.date}</p>
 
