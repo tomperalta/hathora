@@ -14,6 +14,9 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/about-us/hero"
+import Mission from "components/about-us/mission"
+
+// Sections
 
 const StyledAboutUs = styled.main`
 	> section {
@@ -29,6 +32,7 @@ const AboutUs = () => (
 	<StyledAboutUs>
 		<SEO />
 		<Hero />
+		<Mission />
 	</StyledAboutUs>
 )
 
