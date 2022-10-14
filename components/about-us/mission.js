@@ -14,13 +14,19 @@ import { ReactComponent as MissionImage } from "../../assets/images/about-us/ell
 import { ReactComponent as MissionImageSmall } from "../../assets/images/about-us/ellipse-small.svg"
 
 const StyledMission = styled.section`
+	min-height: 384px;
 	position: relative;
+	display: flex;
+	align-items: center;
+	box-sizing: content-box;
 
 	.image {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
 		top: 0;
+		bottom: 0;
+		margin: auto;
 	}
 `
 
