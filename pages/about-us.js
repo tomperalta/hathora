@@ -15,9 +15,8 @@ import SEO from "components/seo"
 // Sections
 import Hero from "components/about-us/hero"
 import Mission from "components/about-us/mission"
-
-// Sections
 import OurStory from "components/about-us/our-story"
+import OurVision from "components/about-us/our-vision"
 
 const StyledAboutUs = styled.main`
 	> section {
@@ -31,10 +30,11 @@ const StyledAboutUs = styled.main`
 
 const AboutUs = () => (
 	<StyledAboutUs>
-		<SEO />
+		<SEO title="About Us | Serverless Cloud Platform for Multiplayer Games" />
 		<Hero />
 		<Mission />
 		<OurStory />
+		<OurVision />
 	</StyledAboutUs>
 )
 
