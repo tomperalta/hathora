@@ -378,7 +378,7 @@ const Menu = () => {
 	const navigationData = [
 		{
 			label: "About Us",
-			url: "/about",
+			url: "/about-us",
 		},
 		{
 			label: "Integrations",

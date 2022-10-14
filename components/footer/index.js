@@ -115,7 +115,7 @@ const Footer = () => {
 			links: [
 				{
 					label: "About us",
-					url: "/about",
+					url: "/about-us",
 				},
 				{
 					label: "Hathora Builder",
