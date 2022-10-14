@@ -25,7 +25,7 @@ const StyledMission = styled.section`
 `
 
 const Mission = () => (
-	<StyledMission>
+	<StyledMission id="mission">
 		<Container>
 			<div className="row  justify-content-center align-items-center">
 				<div className="col-12 col-md-10">
