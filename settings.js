@@ -15,12 +15,12 @@ export const siteMetadata = {
 export const socialMediaLinks = [
 	{
 		title: "Discord",
-		url: "discord.gg/6nVdeCBffR",
+		url: "https://discord.com/invite/hathora",
 		icon: IconDiscord,
 	},
 	{
 		title: "GitHub",
-		url: "github.com/hathora/hathora",
+		url: "github.com/hathora",
 		icon: IconGitHub,
 	},
 	{
@@ -30,7 +30,7 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "YouTube",
-		url: "discord.gg/6nVdeCBffR",
+		url: "https://www.youtube.com/channel/UCwJhOa1fXbkitI0u94PJOHg",
 		icon: IconYouTube,
 	},
 	{
