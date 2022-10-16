@@ -22,6 +22,17 @@ const TimelineItem = styled.div`
 	display: flex;
 	margin-bottom: 56px;
 
+	&.aos-animate {
+		&::before {
+			transform: scale(1);
+		}
+
+		.date,
+		.card {
+			opacity: 1;
+		}
+	}
+
 	${breakpoint.medium`
     margin-bottom: 120px;
 
@@ -69,6 +80,8 @@ const TimelineItem = styled.div`
 		border: 10px solid ${colors.grey__700};
 		border-radius: 50%;
 		outline: 1px solid ${(props) => props.theme};
+		transform: scale(0.75);
+		transition: all 0.4s ease;
 
 		${breakpoint.medium`
       order: 1;
@@ -103,6 +116,8 @@ const TimelineItem = styled.div`
 
 	.date {
 		margin-bottom: 20px;
+		opacity: 0;
+		transition: all 0.4s ease;
 
 		${breakpoint.medium`
       position: absolute;
@@ -116,6 +131,8 @@ const TimelineItem = styled.div`
 		padding: 24px;
 		background-color: ${colors.grey__600};
 		border-radius: 8px;
+		opacity: 0;
+		transition: all 0.4s ease;
 
 		${breakpoint.medium`
       width: calc(50% - 16px - 32px);
@@ -195,6 +212,8 @@ const OurVision = () => {
 							theme={item.theme}
 							nextItemTheme={data[index + 1] ? data[index + 1].theme : null}
 							key={item.date}
+							data-aos
+							data-aos-offset="12"
 						>
 							<div>
 								<p className="date text--s font-weight--700">{item.date}</p>
