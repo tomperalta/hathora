@@ -1,7 +1,7 @@
 import React from "react"
 
 // Libraries
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -13,6 +13,16 @@ import Container from "components/container"
 import { ReactComponent as MissionImage } from "../../assets/images/about-us/ellipse.svg"
 import { ReactComponent as MissionImageSmall } from "../../assets/images/about-us/ellipse-small.svg"
 
+const RotateAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
+
 const StyledMission = styled.section`
 	min-height: 384px;
 	position: relative;
@@ -22,11 +32,12 @@ const StyledMission = styled.section`
 
 	.image {
 		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
 		top: 0;
+		right: 0;
 		bottom: 0;
+		left: 0;
 		margin: auto;
+		animation: ${RotateAnimation} 60s linear infinite forwards;
 	}
 `
 

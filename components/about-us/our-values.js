@@ -17,6 +17,14 @@ import Resolve from "../../assets/images/about-us/resolve.svg"
 import Trust from "../../assets/images/about-us/trust.svg"
 
 const StyledOurValues = styled.section`
+	.our-values__heading {
+		margin-bottom: 64px;
+
+		${breakpoint.medium`
+      margin-bottom: 96px;
+    `}
+	}
+
 	.values-section {
 		.col-12 {
 			margin-bottom: 32px;
@@ -70,7 +78,7 @@ const OurValues = () => {
 		<StyledOurValues>
 			<Container>
 				<div className="row justify-content-center">
-					<div className="col-12 col-md-8">
+					<div className="our-values__heading col-12 col-md-8">
 						<h2 className="heading--m text-center dotted-separator">
 							We're committed to building a platform that works for you
 						</h2>
