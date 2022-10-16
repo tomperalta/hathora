@@ -81,7 +81,7 @@ const StyledMenu = styled.nav`
       height: auto;
       position: relative;
       flex-direction: row;
-      background-color: none;
+      background-color: transparent;
       opacity: 1;
       visibility: visible;
       overflow: visible;

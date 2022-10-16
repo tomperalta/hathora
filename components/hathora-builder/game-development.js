@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Image from "next/image"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -14,7 +15,6 @@ import Container from "components/container/"
 import IconDataPersistence from "assets/icons/hathora-builder/icon-data-persistence.svg"
 import IconStateSync from "assets/icons/hathora-builder/icon-state-sync.svg"
 import IconOptimizedNetworking from "assets/icons/hathora-builder/icon-optimized-networking.svg"
-import Image from "next/image"
 
 const StyledGameDevelopment = styled.section`
 	.game-development__heading {
@@ -42,7 +42,12 @@ const StyledGameDevelopment = styled.section`
 
 		&.card--full {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: space-between;
+
+			${breakpoint.medium`
+        flex-wrap: nowrap;
+      `}
 
 			.card__content {
 				${breakpoint.medium`
