@@ -385,11 +385,12 @@ const Menu = () => {
 			links: [
 				{
 					label: "Phaser",
-					url: "/integrations/phaser",
+					url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
 				},
 				{
 					label: "Unity",
 					url: "/integrations/unity",
+					disabled: true,
 				},
 				{
 					label: "Unreal",
