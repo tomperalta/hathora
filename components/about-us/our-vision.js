@@ -171,7 +171,7 @@ const OurVision = () => {
 			date: "February 2022",
 			theme: colors.purple__400,
 			content:
-				"Hathora Builder, an opinionated full-stack framework for realtime games, was launched and within 2 months it had over 400 stars on Github.",
+				"Hathora Builder, an opinionated framework for realtime games, was launched and rapidly achieved traction amongst the indie community.",
 			icon: <IconStar />,
 		},
 		{

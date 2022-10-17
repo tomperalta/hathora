@@ -126,10 +126,10 @@ const OurStory = () => {
 							Journeying into the gaming industry
 						</p>
 						<p className="text--s">
-							After a chance conversation with a friend at a gaming studio, they
-							were surprised to find that the gaming industry is far behind when
-							it comes to server infrastructure. Their new venture, Hathora,
-							looks to bring modern cloud techniques to the gaming industry.
+							After multiple conversations with top gaming studios, they were
+							surprised to find that the gaming industry is far behind when it
+							comes to server infrastructure. Their new venture, Hathora, looks
+							to bring modern cloud techniques to the gaming industry.
 						</p>
 					</div>
 				</div>

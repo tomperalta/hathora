@@ -48,7 +48,7 @@ const Mission = () => (
 				<div className="col-12 col-md-10">
 					<h2 className="heading--s text-center">
 						Our team’s mission is to apply our years of experience scaling
-						multi-cloud, multi-region infrastructure to create a platform that
+						multi-region, multi-tenant infrastructure to create a platform that
 						suits game developer needs
 					</h2>
 					<MissionImage className="image d-none d-md-block" />
