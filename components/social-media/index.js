@@ -1,3 +1,4 @@
+import Image from "next/image"
 import React from "react"
 
 // Data
@@ -13,7 +14,12 @@ const SocialMedia = () => (
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					{link.icon()}
+					<Image
+						src={link.icon}
+						width="32"
+						height="32"
+						alt={`${link.title}'s icon`}
+					/>
 				</a>
 			</li>
 		))}

@@ -1,9 +1,9 @@
 // Icons
-import { ReactComponent as IconDiscord } from "assets/icons/social-media/icon-discord.svg"
-import { ReactComponent as IconGitHub } from "assets/icons/social-media/icon-github.svg"
-import { ReactComponent as IconTwitter } from "assets/icons/social-media/icon-twitter.svg"
-import { ReactComponent as IconYouTube } from "assets/icons/social-media/icon-youtube.svg"
-import { ReactComponent as IconLinkedIn } from "assets/icons/social-media/icon-linkedin.svg"
+import IconDiscord from "assets/icons/social-media/icon-discord.svg"
+import IconGitHub from "assets/icons/social-media/icon-github.svg"
+import IconTwitter from "assets/icons/social-media/icon-twitter.svg"
+import IconYouTube from "assets/icons/social-media/icon-youtube.svg"
+import IconLinkedIn from "assets/icons/social-media/icon-linkedin.svg"
 
 export const siteMetadata = {
 	defaultTitle: "Hathora | Serverless Cloud Platform for Multiplayer Games",
