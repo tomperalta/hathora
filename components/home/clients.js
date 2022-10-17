@@ -3,6 +3,8 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
+import Link from "next/link"
+
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -104,23 +106,28 @@ const Clients = () => (
 				</div>
 
 				<div className="col-12 col-sm-7 col-lg-7 clients__container">
-					<div className="col-12 d-flex flex-row flex-wrap justify-content-around mt-5 mb-5 text-center align-items-center">
-						<div className="col-4">
-							<Phaser />
+					<div className="col-12 d-flex flex-row flex-wrap justify-content-evenly mt-5 mb-5 text-center align-items-center justify-content-md-center">
+						<div className="col-5 col-md-4">
+							<Link href="https://docs.hathora.dev/#/builder/tutorial_platformer">
+								<Phaser />
+							</Link>
 						</div>
-						<div className="col-4">
-							<Hathora />
+
+						<div className="col-5 col-md-4">
+							<Link href="https://docs.hathora.dev/#/builder/README">
+								<Hathora />
+							</Link>
 						</div>
 					</div>
 
-					<div className="col-12 d-flex flex-row flex-wrap flex-md-nowrap justify-content-around text-md-center align-items-center">
-						<div className="col-4">
-							<Unity />
-						</div>
-						<div className="col-4  mb-5 mb-md-0">
+					<div className="col-12 d-flex flex-row flex-wrap flex-md-nowrap justify-content-around text-md-center align-items-md-center">
+						<div className="col-4 col-md-2">
 							<Godot />
 						</div>
-						<div className="col-8 col-md-4">
+						<div className="col-4  col-md-2 mb-5 mb-md-0">
+							<Unity />
+						</div>
+						<div className="col-8 col-md-2 col-md-4">
 							<Unreal />
 						</div>
 					</div>
