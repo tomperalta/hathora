@@ -557,7 +557,7 @@ const Menu = () => {
 															? "menu__link menu__link--active"
 															: "menu__link"
 													}
-													onClick={toggleMenu}
+													onClick={() => setActive(false)}
 												>
 													{item.label}
 												</a>
