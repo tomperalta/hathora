@@ -40,11 +40,18 @@ const StyledPlans = styled.section`
 		height: 100%;
 
 		.plan__price {
-			height: 3rem;
 			margin: 24px 0;
 
+			${breakpoint.small`
+        height: 3rem;
+      `}
+
 			.heading--m {
-				line-height: 32px;
+				line-height: 24px;
+
+				${breakpoint.medium`
+          line-height: 32px;
+        `}
 			}
 		}
 
