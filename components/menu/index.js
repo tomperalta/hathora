@@ -551,11 +551,13 @@ const Menu = () => {
 										) : !item.external ? (
 											<Link href={item.url}>
 												<a
+													href={item.url}
 													className={
 														currentRoute === item.url
 															? "menu__link menu__link--active"
 															: "menu__link"
 													}
+													onClick={toggleMenu}
 												>
 													{item.label}
 												</a>
