@@ -94,7 +94,7 @@ const Hero = () => (
 							<Button
 								type="link"
 								theme="gradient"
-								href="https://docs.hathora.dev/#/"
+								href="https://docs.hathora.dev/#/builder/README"
 								external
 							>
 								Get Started
