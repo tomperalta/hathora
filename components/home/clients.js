@@ -31,61 +31,66 @@ const StyledClients = styled.section`
 		${breakpoint.medium`
 			max-width: 700px;
 		`}
-	}
 
-	.clients {
-		margin-top: 70px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-
-		${breakpoint.medium`
-      justify-content: center;
-    `}
-
-		.client {
-			width: 50%;
-			text-align: center;
-			margin-bottom: 39px;
-
-			${breakpoint.medium`
-        width: auto;
-      `}
-
-			&.client--phaser {
-				${breakpoint.medium`
-          margin-right: 60px;
-        `}
-			}
-
-			&.client--hathora {
-				width: 50%;
-				height: 16px;
-
-				${breakpoint.medium`
-          width: 215px;
-          height: 28px;
-					margin-right: 35px;
-          margin-left: 64px;
-        `}
-			}
-
-			&.client--godot {
-				// text-align: center;
-			}
-
-			&.client--unreal {
-				${breakpoint.small`
-          width: 244px;
-				  height: 57px;
-        `}
-				${breakpoint.medium`
-          margin-left: 60px;
-        `}
-			}
+		.hathora {
+			width: 215px;
+			height: 15px;
 		}
 	}
+
+	// .clients {
+	// 	margin-top: 70px;
+	// 	display: flex;
+	// 	flex-direction: row;
+	// 	flex-wrap: wrap;
+	// 	align-items: center;
+
+	// 	${breakpoint.medium`
+  //     justify-content: center;
+  //   `}
+
+	// 	.client {
+	// 		width: 50%;
+	// 		text-align: center;
+	// 		margin-bottom: 39px;
+
+	// 		${breakpoint.medium`
+  //       width: auto;
+  //     `}
+
+	// 		&.client--phaser {
+	// 			${breakpoint.medium`
+  //         margin-right: 60px;
+  //       `}
+	// 		}
+
+	// 		&.client--hathora {
+	// 			width: 50%;
+	// 			height: 16px;
+
+	// 			${breakpoint.medium`
+  //         width: 215px;
+  //         height: 28px;
+	// 				margin-right: 35px;
+  //         margin-left: 64px;
+  //       `}
+	// 		}
+
+	// 		&.client--godot {
+	// 			// text-align: center;
+	// 		}
+
+	// 		&.client--unreal {
+	// 			${breakpoint.small`
+  //         // width: 244px;
+	// 			  // height: 57px;
+  //       `}
+	// 			${breakpoint.medium`
+  //         // margin-left: 60px;
+  //       `}
+	// 		}
+	// 	}
+	// }
 `
 
 const Clients = () => (
@@ -98,21 +103,24 @@ const Clients = () => (
 					</h1>
 				</div>
 
-				<div className="clients__container col-12 col-sm-7 col-lg-7 ">
-					<div className="clients">
-						<div className="client client--phaser">
+				<div className="col-12 col-sm-7 col-lg-7 clients__container">
+					<div className="col-12 d-flex flex-row flex-wrap justify-content-around mt-5 mb-5 text-center align-items-center">
+						<div className="col-4">
 							<Phaser />
 						</div>
-						<div className="client client--unity">
-							<Unity />
-						</div>
-						<div className="client client--hathora">
+						<div className="col-4">
 							<Hathora />
 						</div>
-						<div className="client client--godot">
+					</div>
+
+					<div className="col-12 d-flex flex-row flex-wrap flex-md-nowrap justify-content-around text-md-center align-items-center">
+						<div className="col-4">
+							<Unity />
+						</div>
+						<div className="col-4  mb-5 mb-md-0">
 							<Godot />
 						</div>
-						<div className="client client--unreal">
+						<div className="col-8 col-md-4">
 							<Unreal />
 						</div>
 					</div>
