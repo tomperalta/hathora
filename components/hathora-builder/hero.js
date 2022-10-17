@@ -33,11 +33,11 @@ const StyledHero = styled.section`
 		margin: 12px 0 45px 0;
 
 		${breakpoint.medium`
-			margin: 120px 0 0 0;
+			margin: 120px 0 24px 0;
 		`}
 
 		${breakpoint.large`
-			margin: 130px 0 0 0;
+			margin: 130px 0 24px 0;
 		`}
 	}
 
