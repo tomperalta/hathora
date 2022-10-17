@@ -10,6 +10,7 @@ import { ButtonProps } from "utils/prop-types"
 
 export const ButtonStyles = css`
 	display: inline-flex;
+	justify-content: center;
 	align-items: center;
 	padding: 16px 40px;
 	font-size: 1rem;

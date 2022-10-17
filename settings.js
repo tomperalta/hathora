@@ -39,3 +39,77 @@ export const socialMediaLinks = [
 		icon: IconLinkedIn,
 	},
 ]
+
+export const plans = [
+	{
+		name: "Free",
+		price: "0",
+		periodicity: "month",
+		cta: {
+			theme: "outline",
+			label: "Free Forever",
+			url: "/",
+		},
+		features: [
+			"50 CCU",
+			"1GB bandwidth",
+			"Up to X memory",
+			"Game supported in 1 region",
+			"2 cores",
+		],
+	},
+	{
+		name: "Turn-based",
+		price: "25",
+		periodicity: "month",
+		cta: {
+			theme: "gradient",
+			label: "Start trial",
+			url: "/",
+		},
+		features: [
+			"1000 MAU",
+			"Up to X bandwidth",
+			"Up to X memory",
+			"Game supportted in 1 region",
+			"2 cores",
+			"Email support available",
+		],
+	},
+	{
+		name: "Realtime",
+		price: "100",
+		periodicity: "month",
+		cta: {
+			theme: "gradient",
+			label: "Start Trial",
+			url: "/",
+		},
+		features: [
+			"1000 MAU",
+			"Up to X bandwidth",
+			"Up to X memory",
+			"Game supportted in 2 regions",
+			"2 cores",
+			"Email support available",
+		],
+	},
+	{
+		name: "Unlimited",
+		price: null,
+		periodicity: null,
+		cta: {
+			theme: "outline",
+			label: "Contact Us",
+			url: "mailto:contact@hathora.dev",
+		},
+		features: [
+			"Pay-as-you-go based on usage",
+			"Unlimited bandwidth",
+			"Unlimited memory",
+			"Game supported globally",
+			"Unlimited cores",
+			"24/7 support available",
+		],
+	},
+]

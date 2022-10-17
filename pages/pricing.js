@@ -13,6 +13,7 @@ import breakpoint from "utils/breakpoints/"
 import SEO from "components/seo"
 
 // Sections
+import Plans from "components/pricing/plans"
 
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
@@ -35,7 +36,8 @@ const StyledPricing = styled.main`
 
 const Pricing = () => (
 	<StyledPricing>
-		<SEO />
+		<SEO title="Pricing | Serverless Cloud Platform for Multiplayer Games" />
+		<Plans />
 	</StyledPricing>
 )
 
