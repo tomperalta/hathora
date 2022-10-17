@@ -175,17 +175,14 @@ const DeploySlideshow = () => {
 		setActiveStep(index)
 	}
 
-	const resetTimeout = () => {
-		clearTimeout(timeout)
-		setTheTimeout(setTimeout(() => goToNextStep(), 5000))
-	}
-
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						setVisible(true)
+						if (!visible) {
+							setVisible(true)
+						}
 					}
 				})
 			},
@@ -195,15 +192,16 @@ const DeploySlideshow = () => {
 		)
 
 		observer.observe(ref.current)
+
+		return () => observer.unobserve(ref.current)
 	}, [])
 
 	useEffect(() => {
-		resetTimeout()
-	}, [])
-
-	useEffect(() => {
-		resetTimeout()
-	}, [activeStep])
+		if (visible) {
+			clearTimeout(timeout)
+			setTheTimeout(setTimeout(() => goToNextStep(), 5000))
+		}
+	}, [visible, activeStep])
 
 	return (
 		<StyledDeploySlideshow
@@ -213,7 +211,7 @@ const DeploySlideshow = () => {
 			<div className="col-md-7">
 				<div
 					className="step__icons"
-					data-aos="zoom-in"
+					// data-aos="zoom-in"
 					data-aos-anchor=".deploy__slideshow"
 				>
 					{steps.map((step, index) => (
@@ -226,7 +224,7 @@ const DeploySlideshow = () => {
 
 			<div
 				className="col-md-5"
-				data-aos="fade-in"
+				// data-aos="fade-in"
 				data-aos-anchor=".deploy__slideshow"
 			>
 				{steps.map((step, index) => (

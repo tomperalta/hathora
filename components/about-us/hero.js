@@ -99,7 +99,6 @@ const StyledHero = styled.section`
 
 const Hero = () => {
 	const handleClick = () => {
-		console.log("Click")
 		const missionSection = document.getElementById("mission")
 
 		if (missionSection) {

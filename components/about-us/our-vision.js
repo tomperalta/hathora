@@ -159,8 +159,6 @@ const StyledOurVision = styled.section`
 `
 
 const OurVision = () => {
-	console.log("Our Vision")
-
 	const data = [
 		{
 			date: "March 2020",
