@@ -407,6 +407,7 @@ const Menu = () => {
 		{
 			label: "Pricing",
 			url: "/pricing",
+			disabled: true,
 		},
 		{
 			label: "Hathora Builder",
@@ -549,19 +550,25 @@ const Menu = () => {
 												</div>
 											</>
 										) : !item.external ? (
-											<Link href={item.url}>
-												<a
-													href={item.url}
-													className={
-														currentRoute === item.url
-															? "menu__link menu__link--active"
-															: "menu__link"
-													}
-													onClick={() => setActive(false)}
-												>
-													{item.label}
-												</a>
-											</Link>
+											!item.disabled ? (
+												<Link href={item.url}>
+													<a
+														href={item.url}
+														className={
+															currentRoute === item.url
+																? "menu__link menu__link--active"
+																: "menu__link"
+														}
+														onClick={() => setActive(false)}
+													>
+														{item.label}
+													</a>
+												</Link>
+											) : (
+												<button type="button" className="menu__link" disabled>
+													{item.label} (coming soon)
+												</button>
+											)
 										) : (
 											<a
 												href={item.url}
