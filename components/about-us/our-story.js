@@ -84,7 +84,7 @@ const OurStory = () => {
 							Our Story
 						</h2>
 						<div className="paragraph">
-							<p className="text--l font-weight--600">
+							<p className="text--l font-weight--600 mb-2">
 								Becoming infrastructure experts
 							</p>
 							<p className="text--s">
