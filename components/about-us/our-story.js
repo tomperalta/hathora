@@ -54,17 +54,35 @@ const StyledOurStory = styled.section`
 const OurStory = () => {
 	const founders = [
 		{
-			image: <Image src={SiddharthDhulipalla} layout="responsive" />,
+			image: (
+				<Image
+					src={SiddharthDhulipalla}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
 			name: "Siddharth Dhulipalla",
 			rol: "Co-Founder & CEO",
 		},
 		{
-			image: <Image src={HarshPandey} layout="responsive" />,
+			image: (
+				<Image
+					src={HarshPandey}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
 			name: "Harsh Pandey",
 			rol: "Co-Founder & CEO",
 		},
 		{
-			image: <Image src={TuraniPaleru} layout="responsive" />,
+			image: (
+				<Image
+					src={TuraniPaleru}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
 			name: "Taruni Paleru",
 			rol: "Product Manager",
 		},
