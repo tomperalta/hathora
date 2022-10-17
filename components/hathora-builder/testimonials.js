@@ -94,15 +94,15 @@ const Testimonials = () => {
 		},
 		{
 			quote:
-				"This is exactly the tool I need. It’s been really easy to get in; it’s really fast and easy to get prototypes mocked up and to start testing. It took all the pain and suffering out of development and made it fun again.",
-			author: "Justin Young",
-			company: "AtlasIED",
-		},
-		{
-			quote:
 				"Game developers who enjoy setting up backend infrastructure are rare (potentially just a myth). Hathora Cloud replaces all the hassles with a few commands that deploy your backend to a modern, scalable infrastructure in just a few minutes!",
 			author: "Tommy Leung",
 			company: "Ourcade",
+		},
+		{
+			quote:
+				"This is exactly the tool I need. It’s been really easy to get in; it’s really fast and easy to get prototypes mocked up and to start testing. It took all the pain and suffering out of development and made it fun again.",
+			author: "Justin Young",
+			company: "AtlasIED",
 		},
 	]
 
