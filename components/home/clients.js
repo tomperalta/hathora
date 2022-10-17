@@ -19,6 +19,20 @@ import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
 const StyledClients = styled.section`
 	padding: 24px 0 120px 0;
 
+	${breakpoint.medium`
+    padding: 24px 0 200px 0;
+  
+  `}
+
+	.clients__container {
+		max-width: 366px;
+		width: 100%;
+
+		${breakpoint.medium`
+			max-width: 700px;
+		`}
+	}
+
 	.clients {
 		margin-top: 70px;
 		display: flex;
@@ -26,7 +40,7 @@ const StyledClients = styled.section`
 		flex-wrap: wrap;
 		align-items: center;
 
-		${breakpoint.small`
+		${breakpoint.medium`
       justify-content: center;
     `}
 
@@ -35,37 +49,30 @@ const StyledClients = styled.section`
 			text-align: center;
 			margin-bottom: 39px;
 
-			${breakpoint.small`
+			${breakpoint.medium`
         width: auto;
       `}
-			${breakpoint.medium`
-				max-width: 333px;
-				width: 100%;
-			`}
-
-
 
 			&.client--phaser {
-				${breakpoint.small`
+				${breakpoint.medium`
           margin-right: 60px;
         `}
 			}
 
 			&.client--hathora {
-				width: 42%;
+				width: 50%;
 				height: 16px;
-				margin-right: 27px;
 
 				${breakpoint.medium`
           width: 215px;
           height: 28px;
-          margin-right: 37px;
-          margin-left: 54px;
+					margin-right: 35px;
+          margin-left: 64px;
         `}
+			}
 
-				${breakpoint.large`
-					margin-right: 0;
-				`}
+			&.client--godot {
+				// text-align: center;
 			}
 
 			&.client--unreal {
@@ -91,7 +98,7 @@ const Clients = () => (
 					</h1>
 				</div>
 
-				<div className="col-12 col-sm-6 col-md-8 col-lg-6">
+				<div className="clients__container col-12 col-sm-7 col-lg-7 ">
 					<div className="clients">
 						<div className="client client--phaser">
 							<Phaser />
@@ -99,10 +106,10 @@ const Clients = () => (
 						<div className="client client--unity">
 							<Unity />
 						</div>
-						<div className="client client--hathora text-center">
+						<div className="client client--hathora">
 							<Hathora />
 						</div>
-						<div className="client client--godot text-center">
+						<div className="client client--godot">
 							<Godot />
 						</div>
 						<div className="client client--unreal">
