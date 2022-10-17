@@ -290,6 +290,7 @@ const Button = (props) => {
 				<StyledButtonLink
 					ref={ref}
 					theme={theme}
+					data-theme={theme}
 					className={className}
 					onClick={onClick}
 				>

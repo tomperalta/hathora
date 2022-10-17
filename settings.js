@@ -48,7 +48,7 @@ export const plans = [
 		cta: {
 			theme: "outline",
 			label: "Free Forever",
-			url: "/",
+			href: "/",
 		},
 		features: [
 			"50 CCU",
@@ -65,7 +65,7 @@ export const plans = [
 		cta: {
 			theme: "gradient",
 			label: "Start trial",
-			url: "/",
+			href: "/",
 		},
 		features: [
 			"1000 MAU",
@@ -83,7 +83,7 @@ export const plans = [
 		cta: {
 			theme: "gradient",
 			label: "Start Trial",
-			url: "/",
+			href: "/",
 		},
 		features: [
 			"1000 MAU",
