@@ -29,6 +29,18 @@ const StyledHero = styled.section`
 		`}
 	}
 
+	.hero__title {
+		margin: 12px 0 45px 0;
+
+		${breakpoint.medium`
+			margin: 120px 0 0 0;
+		`}
+
+		${breakpoint.large`
+			margin: 130px 0 0 0;
+		`}
+	}
+
 	.hero__buttons {
 		margin-top: 32px;
 
@@ -53,15 +65,21 @@ const StyledHero = styled.section`
 		align-items: center;
 
 		${breakpoint.medium`
+			max-width: 471px;
       position: absolute;
-      top: calc((100vh - 671px) / 2);
+      top: calc((100vh - 390px) / 2);
       right: calc((100vw - 1024px) / 2);
       margin: auto;
     `}
 
+		${breakpoint.large`
+			right: calc((100vh - 820px) / 2);
+			top: calc((100vh - 450px) / 2);
+		`}
+
 		${breakpoint.extraLarge`
-      top: calc(((100vh - 571px) / 2) + 32px);
-      right: calc((100vw - 1340px) / 2);
+      top: calc(((100vh - 471px) / 2) + 32px);
+      right: calc((100vw - 1240px) / 2);
     `}
 
     svg {
@@ -83,7 +101,7 @@ const Hero = () => {
 				<div className="row justify-content-center justify-content-md-start align-items-center">
 					<div className="col-12 col-sm-8 col-md-6 col-lg-7">
 						<div className="text-sm-center text-md-start">
-							<h1 className="heading--l font-weight--500 mb-4">
+							<h1 className="heading--l hero__title font-weight--500">
 								Prototype in minutes and scale to millions on the Hathora
 								Builder
 							</h1>
