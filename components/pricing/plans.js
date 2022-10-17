@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 // Utils
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 // Data
 import { plans } from "settings"
@@ -27,6 +28,12 @@ const StyledPlans = styled.section`
 		padding: 24px;
 		background-color: ${colors.grey__600};
 		border-radius: 16px;
+
+		&--big {
+			${breakpoint.medium`
+        padding: 32px;
+      `}
+		}
 	}
 
 	.plan {
@@ -82,7 +89,7 @@ const Plans = () => (
 			<div className="plans">
 				<div className="row">
 					{plans.map((plan) => (
-						<div className="col-12 col-sm-6 col-md-3" key={plan.name}>
+						<div className="col-12 col-sm-6 col-md-3 mb-4" key={plan.name}>
 							<div className="card plan">
 								<p className="text--l mb-2 font-weight--600">{plan.name}</p>
 
@@ -118,6 +125,30 @@ const Plans = () => (
 							</div>
 						</div>
 					))}
+
+					<div className="col-12">
+						<div className="card card--big d-flex flex-wrap flex-md-no-wrap align-items-center justify-content-between">
+							<div className="mb-4 mb-md-0">
+								<p className="text--l mb-1 font-weight--600">
+									Don’t see a plan that works for you?
+								</p>
+
+								<p className="text--s">
+									Contact us and we’ll create a custom plan for you.
+								</p>
+							</div>
+
+							<div>
+								<Button
+									type="link"
+									href="mailto:contact@hathora.dev"
+									theme="outline"
+								>
+									Contact Us
+								</Button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</Container>
