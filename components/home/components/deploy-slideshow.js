@@ -192,8 +192,6 @@ const DeploySlideshow = () => {
 		)
 
 		observer.observe(ref.current)
-
-		return () => observer.unobserve(ref.current)
 	}, [])
 
 	useEffect(() => {
