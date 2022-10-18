@@ -3,8 +3,6 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
-import Link from "next/link"
-
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -108,15 +106,23 @@ const Clients = () => (
 				<div className="col-12 col-sm-7 col-lg-7 clients__container">
 					<div className="col-12 d-flex flex-row flex-wrap justify-content-evenly mt-5 mb-5 text-center align-items-center justify-content-md-center">
 						<div className="col-5 col-md-4">
-							<Link href="https://docs.hathora.dev/#/builder/tutorial_platformer">
+							<a
+								href="https://docs.hathora.dev/#/builder/tutorial_platformer"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Phaser />
-							</Link>
+							</a>
 						</div>
 
 						<div className="col-5 col-md-4">
-							<Link href="https://docs.hathora.dev/#/builder/README">
+							<a
+								href="https://docs.hathora.dev/#/builder/README"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Hathora />
-							</Link>
+							</a>
 						</div>
 					</div>
 
