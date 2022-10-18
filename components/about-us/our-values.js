@@ -55,17 +55,17 @@ const OurValues = () => {
 		{
 			title: "Invent & Simplify",
 			text: "Constantly look for new ideas to drive innovation while ensuring the simplest experience possible",
-			image: <Image src={Simplify} alt="Simplify" width="212" height="123" />,
+			image: <Image src={Simplify} alt="Simplify" width="300" height="200" />,
 		},
 		{
 			title: "Listen & Resolve",
 			text: "Pay attention to our customers when they have an issue and deliver fast, practical solution",
-			image: <Image src={Resolve} alt="Resolve" width="212" height="123" />,
+			image: <Image src={Resolve} alt="Resolve" width="300" height="200" />,
 		},
 		{
 			title: "Earn Trust",
 			text: "Celebrate our strengths, be honest about where we can improve, and benchmark against the best",
-			image: <Image src={Trust} alt="Trust" width="212" height="123" />,
+			image: <Image src={Trust} alt="Trust" width="300" height="200" />,
 		},
 	]
 	return (
@@ -73,7 +73,7 @@ const OurValues = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">
-						<h2 className="heading--m text-center dotted-separator">
+						<h2 className="heading--m font-weight--500 text-center dotted-separator">
 							We're committed to building a platform that works for you
 						</h2>
 					</div>
