@@ -124,7 +124,7 @@ const Testimonials = () => {
 	}
 
 	return (
-		<StyledTestimonials>
+		<StyledTestimonials id="testimonials">
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">

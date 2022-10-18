@@ -3,8 +3,6 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
-import Link from "next/link"
-
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -12,11 +10,12 @@ import breakpoint from "utils/breakpoints/"
 import Container from "components/container/"
 
 // Icons
-import { ReactComponent as Hathora } from "assets/icons/home/clients/hathora.svg"
+import Hathora from "assets/icons/home/clients/hathora.svg"
 import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
+import Image from "next/image"
 
 const StyledClients = styled.section`
 	padding: 24px 0 120px 0;
@@ -108,15 +107,23 @@ const Clients = () => (
 				<div className="col-12 col-sm-7 col-lg-7 clients__container">
 					<div className="col-12 d-flex flex-row flex-wrap justify-content-evenly mt-5 mb-5 text-center align-items-center justify-content-md-center">
 						<div className="col-5 col-md-4">
-							<Link href="https://docs.hathora.dev/#/builder/tutorial_platformer">
+							<a
+								href="https://docs.hathora.dev/#/builder/tutorial_platformer"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Phaser />
-							</Link>
+							</a>
 						</div>
 
 						<div className="col-5 col-md-4">
-							<Link href="https://docs.hathora.dev/#/builder/README">
-								<Hathora />
-							</Link>
+							<a
+								href="https://docs.hathora.dev/#/builder/README"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<Image src={Hathora} width="215" height="28" />
+							</a>
 						</div>
 					</div>
 
