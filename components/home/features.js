@@ -119,8 +119,7 @@ const Features = () => (
 							</p>
 							<Button
 								type="link"
-								href="https://docs.hathora.dev/#/"
-								external
+								href="/hathora-builder#testimonials"
 								theme="borderless"
 							>
 								SEE WHAT THEY HAVE TO SAY
