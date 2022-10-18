@@ -10,11 +10,12 @@ import breakpoint from "utils/breakpoints/"
 import Container from "components/container/"
 
 // Icons
-import { ReactComponent as Hathora } from "assets/icons/home/clients/hathora.svg"
+import Hathora from "assets/icons/home/clients/hathora.svg"
 import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
+import Image from "next/image"
 
 const StyledClients = styled.section`
 	padding: 24px 0 120px 0;
@@ -121,7 +122,7 @@ const Clients = () => (
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<Hathora />
+								<Image src={Hathora} width="215" height="28" />
 							</a>
 						</div>
 					</div>
