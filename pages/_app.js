@@ -4,6 +4,7 @@ import React from "react"
 import PrimaryLayout from "layouts/layout-primary"
 
 // Libraries
+import Script from "next/script"
 import PropTypes from "prop-types"
 
 // Redux
@@ -16,6 +17,17 @@ import "assets/styles/main.scss"
 
 const MyApp = ({ Component, pageProps }) => (
 	<Provider store={store}>
+		<Script
+			strategy="lazyOnload"
+			src="https://www.googletagmanager.com/gtag/js?id=G-X3F6VCK20S"
+		/>
+		<Script strategy="lazyOnload" id="analytics">
+			{`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-X3F6VCK20S');`}
+		</Script>
 		<PrimaryLayout>
 			<Component {...pageProps} />
 		</PrimaryLayout>
