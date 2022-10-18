@@ -171,28 +171,28 @@ const OurVision = () => {
 			date: "February 2022",
 			theme: colors.purple__400,
 			content:
-				"Hathora Builder, an opinionated framework for realtime games, was launched and rapidly achieved traction amongst the indie community.",
+				"Hathora Builder, an opinionated framework for real-time games, was launched and rapidly achieved traction amongst the indie community.",
 			icon: <IconStar />,
 		},
 		{
 			date: "April 2022",
 			theme: colors.green__400,
 			content:
-				"Our co-founders began work on a multiplayer game, which they expected to take a weekend’s worth of effort. However, it took over 2 months to ship a game. They felt this process could have been significantly easier for developers.",
+				"Hathora was incorporated & raised an initial round of funding led by Founders Fund & Lunar Ventures.",
 			icon: <IconGraph />,
 		},
 		{
 			date: "July 2022",
 			theme: colors.green__500,
 			content:
-				"Our co-founders began work on a multiplayer game, which they expected to take a weekend’s worth of effort. However, it took over 2 months to ship a game. They felt this process could have been significantly easier for developers.",
+				"Hathora Cloud, a modern hosting platform for game servers, was launched in beta.",
 			icon: <IconRocket />,
 		},
 		{
 			date: "August 2022",
 			theme: colors.green__500,
 			content:
-				"Our co-founders began work on a multiplayer game, which they expected to take a weekend’s worth of effort. However, it took over 2 months to ship a game. They felt this process could have been significantly easier for developers.",
+				"The first ever customer-built game was deployed on our platform.",
 			icon: <IconFlag />,
 		},
 	]
@@ -213,7 +213,7 @@ const OurVision = () => {
 							data-aos
 							data-aos-offset="12"
 						>
-							<div>
+							<div className="w-100">
 								<p className="date text--s font-weight--700">{item.date}</p>
 
 								<div className="card">
