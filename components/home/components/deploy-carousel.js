@@ -159,10 +159,6 @@ const steps = [
 	},
 	{
 		icon: IconStep2,
-		description: <span>Deploy on Hathora Cloud with a single command</span>,
-	},
-	{
-		icon: IconStep3,
 		description: (
 			<span>
 				Deploy on{" "}
@@ -174,6 +170,15 @@ const steps = [
 					Hathora Cloud
 				</a>{" "}
 				with a single command
+			</span>
+		),
+	},
+	{
+		icon: IconStep3,
+		description: (
+			<span>
+				<span className="font-weight--700">Scale globally</span> without
+				additional work
 			</span>
 		),
 	},
