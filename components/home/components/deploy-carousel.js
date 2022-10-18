@@ -99,6 +99,16 @@ const StyledDeployCarousel = styled.div`
 			line-height: 1.4em;
 		}
 
+		a {
+			color: ${colors.green__500};
+			text-decoration: underline;
+			pointer-events: initial;
+
+			&:hover {
+				color: ${colors.purple__500};
+			}
+		}
+
 		.step__loading-line {
 			width: 100%;
 			height: 2px;
@@ -128,7 +138,22 @@ const steps = [
 		description: (
 			<span>
 				<span className="font-weight--700">Enable online multiplayer</span>{" "}
-				using the Hathora BuildKits or the Hathora Builder
+				using the{" "}
+				<a
+					href="https://docs.hathora.dev/#/buildkit/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora BuildKits
+				</a>{" "}
+				or the{" "}
+				<a
+					href="https://docs.hathora.dev/#/builder/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora Builder
+				</a>
 			</span>
 		),
 	},
@@ -140,8 +165,15 @@ const steps = [
 		icon: IconStep3,
 		description: (
 			<span>
-				<span className="font-weight--700">Scale globally</span> without
-				additional work
+				Deploy on{" "}
+				<a
+					href="https://docs.hathora.dev/#/cloud/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora Cloud
+				</a>{" "}
+				with a single command
 			</span>
 		),
 	},
