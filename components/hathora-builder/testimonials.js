@@ -89,7 +89,7 @@ const Testimonials = () => {
 		{
 			quote:
 				"Hathora took away a lot of those ‘tech debt’ items—Figuring out how to scale my backend horizontally to the scale that would be needed if a game takes off.",
-			author: "Justin Cho",
+			author: "Justin Chu",
 			company: "Mobo",
 		},
 		{
