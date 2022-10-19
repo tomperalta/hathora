@@ -5,6 +5,7 @@ import styled, { css } from "styled-components"
 import Link from "next/link"
 import { transparentize } from "polished"
 import { useRouter } from "next/router"
+import Image from "next/image"
 
 // Redux
 import { useDispatch } from "react-redux"
@@ -19,7 +20,7 @@ import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 // Icons
-import { ReactComponent as IconLogo } from "assets/icons/icon-logo.svg"
+import IconLogo from "assets/icons/icon-logo.svg"
 import { ReactComponent as IconArrowExternal } from "assets/icons/icon-arrow-external.svg"
 import { ReactComponent as IconCaretDown } from "assets/icons/icon-caret-down.svg"
 import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
@@ -38,18 +39,18 @@ const StyledMenu = styled.nav`
 	}
 
 	.menu__logo {
-		svg {
-			width: auto;
-			height: 24px;
+		width: 120px;
+		height: 32px;
 
-			${breakpoint.medium`
-        height: 32px;
-      `}
-
-			${breakpoint.large`
-        height: 40px;
-      `}
+		.logo {
+			width: 100% !important;
+			height: 100% !important;
 		}
+
+		${breakpoint.large`
+      width: 230px;
+      height: 40px;
+    `}
 	}
 
 	.menu__content {
@@ -467,7 +468,13 @@ const Menu = () => {
 			>
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">
-						<IconLogo />
+						<Image
+							src={IconLogo}
+							className="logo"
+							width="230"
+							height="40"
+							alt=""
+						/>
 					</a>
 				</Link>
 
@@ -475,7 +482,13 @@ const Menu = () => {
 					<div id="menuOverlay" className="menu__content">
 						<div className="content">
 							<div className="content__header d-flex d-lg-none align-items-center justify-content-between">
-								<IconLogo className="logo" />
+								<Image
+									src={IconLogo}
+									className="logo"
+									width="120"
+									height="23"
+									alt=""
+								/>
 
 								<button
 									type="button"
