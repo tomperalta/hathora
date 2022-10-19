@@ -50,11 +50,12 @@ const StyledHero = styled.section`
       position: absolute;
       top: calc((100vh - 398px) / 2);
       right: 0;
+			right: calc((100vw - 940px) / 2);
       margin: auto;
     `}
 
 		${breakpoint.extraLarge`
-      top: calc(((100vh - 398px) / 2));
+      top: calc(((100vh - 358px) / 2));
       right: calc((100vw - 1140px) / 2);
     `}
 	}
@@ -125,7 +126,7 @@ const Hero = () => {
 							data-aos="zoom-in-up"
 							data-aos-anchor=".about__hero"
 						>
-							<Image src={IconHero} width="398" height="369" />
+							<Image src={IconHero} width="608" height="608" />
 						</div>
 					</div>
 				</div>
