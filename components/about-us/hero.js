@@ -39,22 +39,23 @@ const StyledHero = styled.section`
 	padding: 96px 0 60px 0;
 
 	.hero__icon {
-		max-width: 608px;
+		max-width: 398px;
 		width: 100%;
 		aspect-ratio: 1;
 		display: flex;
 		align-items: center;
+		margin: 75px auto 0 auto;
 
 		${breakpoint.medium`
       position: absolute;
-      top: calc((100vh - 608px) / 2);
+      top: calc((100vh - 398px) / 2);
       right: 0;
       margin: auto;
     `}
 
 		${breakpoint.extraLarge`
-      top: calc(((100vh - 608px) / 2));
-      right: calc((100vw - 1440px) / 2);
+      top: calc(((100vh - 398px) / 2));
+      right: calc((100vw - 1140px) / 2);
     `}
 	}
 
@@ -112,7 +113,7 @@ const Hero = () => {
 		<StyledHero className="about__hero">
 			<Container>
 				<div className="row justify-content-center justify-content-md-start align-items-center">
-					<div className="col-12 col-sm-8 col-md-7 p-md-0">
+					<div className="col-12 col-md-7 p-md-0">
 						<div className="text-sm-center text-md-start">
 							<h2 className="heading--l font-weight--500 mb-4">
 								Hathora is bringing infrastructure expertise to the gaming world
@@ -124,7 +125,7 @@ const Hero = () => {
 							data-aos="zoom-in-up"
 							data-aos-anchor=".about__hero"
 						>
-							<Image src={IconHero} width="608" height="608" alt="" />
+							<Image src={IconHero} width="398" height="369" />
 						</div>
 					</div>
 				</div>
