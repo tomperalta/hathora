@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import Link from "next/link"
 import { transparentize } from "polished"
+import { useRouter } from "next/router"
 
 // Redux
 import { useDispatch } from "react-redux"
@@ -75,12 +76,12 @@ const StyledMenu = styled.nav`
 				visibility: visible;
 			`}
 
-		${breakpoint.medium`
+		${breakpoint.large`
       width: auto;
       height: auto;
       position: relative;
       flex-direction: row;
-      background-color: none;
+      background-color: transparent;
       opacity: 1;
       visibility: visible;
       overflow: visible;
@@ -102,7 +103,7 @@ const StyledMenu = styled.nav`
 					transform: translateX(0);
 				`}
 
-			${breakpoint.medium`
+			${breakpoint.large`
         max-width: 100%;
         width: auto;
         height: auto;
@@ -127,12 +128,12 @@ const StyledMenu = styled.nav`
 			&:last-child {
 				margin: 0;
 
-				${breakpoint.medium`
+				${breakpoint.large`
           margin-right: 24px;
         `}
 			}
 
-			${breakpoint.medium`
+			${breakpoint.large`
         margin: 0 24px 0 0;
       `}
 
@@ -161,7 +162,7 @@ const StyledMenu = styled.nav`
 					.menu__sub-menu {
 						display: block;
 
-						${breakpoint.medium`
+						${breakpoint.large`
               opacity: 1;
               visibility: visible;
               transform: translateY(0);
@@ -181,7 +182,7 @@ const StyledMenu = styled.nav`
 			line-height: 1.4em;
 			transition: all 0.2s ease;
 
-			${breakpoint.medium`
+			${breakpoint.large`
         font-size: 1rem;
         line-height: 1.5em;
       `}
@@ -207,6 +208,10 @@ const StyledMenu = styled.nav`
 				pointer-events: none;
 			}
 
+			&--active {
+				color: ${colors.green__500};
+			}
+
 			svg {
 				margin-left: 4px;
 				transition: all 0.2s ease;
@@ -221,7 +226,7 @@ const StyledMenu = styled.nav`
 			display: none;
 			margin-top: 24px;
 
-			${breakpoint.medium`
+			${breakpoint.large`
         width: 220px;
         position: absolute;
         display: block;
@@ -249,7 +254,7 @@ const StyledMenu = styled.nav`
 					margin-bottom: 0;
 				}
 
-				${breakpoint.medium`
+				${breakpoint.large`
           padding: 8px 24px;
           margin: 0;
         `}
@@ -261,7 +266,7 @@ const StyledMenu = styled.nav`
 				font-weight: 600;
 				line-height: 1.5em;
 
-				${breakpoint.medium`
+				${breakpoint.large`
           color: ${colors.grey__200};
         `}
 			}
@@ -292,7 +297,7 @@ const StyledMenu = styled.nav`
 			line-height: 1.25rem;
 			padding: 6px 16px;
 
-			${breakpoint.medium`
+			${breakpoint.large`
         font-size: 1rem;
         line-height: 1.5rem;
       `}
@@ -311,6 +316,8 @@ const Menu = () => {
 	 */
 	const dispatch = useDispatch()
 	const ref = useRef()
+	const router = useRouter()
+	const currentRoute = router.pathname
 
 	/**
 	 * Locks window scroll if `active`
@@ -371,18 +378,19 @@ const Menu = () => {
 	const navigationData = [
 		{
 			label: "About Us",
-			url: "/about",
+			url: "/about-us",
 		},
 		{
 			label: "Integrations",
 			links: [
 				{
 					label: "Phaser",
-					url: "/integrations/phaser",
+					url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
 				},
 				{
 					label: "Unity",
 					url: "/integrations/unity",
+					disabled: true,
 				},
 				{
 					label: "Unreal",
@@ -399,6 +407,7 @@ const Menu = () => {
 		{
 			label: "Pricing",
 			url: "/pricing",
+			disabled: true,
 		},
 		{
 			label: "Hathora Builder",
@@ -465,7 +474,7 @@ const Menu = () => {
 				<div className="d-flex align-items-center flex-shrink-0">
 					<div id="menuOverlay" className="menu__content">
 						<div className="content">
-							<div className="content__header d-flex d-md-none align-items-center justify-content-between">
+							<div className="content__header d-flex d-lg-none align-items-center justify-content-between">
 								<IconLogo className="logo" />
 
 								<button
@@ -476,7 +485,7 @@ const Menu = () => {
 									<IconClose />
 								</button>
 							</div>
-							<ul className="d-md-flex align-items-center">
+							<ul className="d-lg-flex align-items-center">
 								{navigationData.map((item) => (
 									<li
 										className={
@@ -490,7 +499,11 @@ const Menu = () => {
 											<>
 												<button
 													type="button"
-													className="menu__link"
+													className={
+														currentRoute === item.label
+															? "menu__link menu__link--active"
+															: "menu__link"
+													}
 													onClick={toggleSubMenu}
 												>
 													{item.label}
@@ -511,7 +524,15 @@ const Menu = () => {
 																	</button>
 																) : !link.external ? (
 																	<Link href={link.url}>
-																		<a className="menu__link">{link.label}</a>
+																		<a
+																			className={
+																				currentRoute === link.label
+																					? "menu__link menu__link--active"
+																					: "menu__link"
+																			}
+																		>
+																			{link.label}
+																		</a>
 																	</Link>
 																) : (
 																	<a
@@ -529,9 +550,25 @@ const Menu = () => {
 												</div>
 											</>
 										) : !item.external ? (
-											<Link href={item.url}>
-												<a className="menu__link">{item.label}</a>
-											</Link>
+											!item.disabled ? (
+												<Link href={item.url}>
+													<a
+														href={item.url}
+														className={
+															currentRoute === item.url
+																? "menu__link menu__link--active"
+																: "menu__link"
+														}
+														onClick={() => setActive(false)}
+													>
+														{item.label}
+													</a>
+												</Link>
+											) : (
+												<button type="button" className="menu__link" disabled>
+													{item.label} (coming soon)
+												</button>
+											)
 										) : (
 											<a
 												href={item.url}
@@ -554,7 +591,7 @@ const Menu = () => {
 							type="button"
 							href="/sign-up"
 							theme="outline"
-							className="sign-up me-3 me-md-0"
+							className="sign-up me-3 me-lg-0"
 							onClick={() => dispatch(openSignUpModal())}
 						>
 							Sign Up
@@ -562,7 +599,7 @@ const Menu = () => {
 
 						<button
 							type="button"
-							className="toggler d-md-none"
+							className="toggler d-lg-none"
 							onClick={toggleMenu}
 						>
 							<span />

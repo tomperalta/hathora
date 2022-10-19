@@ -51,6 +51,7 @@ const StyledHero = styled.section`
 		aspect-ratio: 1;
 		display: flex;
 		align-items: center;
+		z-index: -1;
 
 		${breakpoint.medium`
       position: absolute;

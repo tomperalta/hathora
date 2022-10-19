@@ -15,7 +15,8 @@ import SocialMedia from "components/social-media"
 import NewsletterForm from "components/newsletter-form"
 
 // Icons
-import { ReactComponent as IconLogo } from "assets/icons/icon-logo.svg"
+import IconLogo from "assets/icons/icon-logo.svg"
+import Image from "next/image"
 
 const StyledFooter = styled.footer`
 	position: relative;
@@ -115,7 +116,7 @@ const Footer = () => {
 			links: [
 				{
 					label: "About us",
-					url: "/about",
+					url: "/about-us",
 				},
 				{
 					label: "Hathora Builder",
@@ -152,7 +153,7 @@ const Footer = () => {
 						<div className="footer__logo">
 							<Link href="/">
 								<a>
-									<IconLogo />
+									<Image src={IconLogo} width="160" height="32" alt="" />
 								</a>
 							</Link>
 						</div>

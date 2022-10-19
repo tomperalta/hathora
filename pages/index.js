@@ -29,6 +29,12 @@ const StyledHome = styled.main`
 		${breakpoint.medium`
       padding: 100px 0;
     `}
+
+		&:first-child {
+			${breakpoint.medium`
+        padding-top: 204px;
+      `}
+		}
 	}
 `
 

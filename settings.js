@@ -1,9 +1,9 @@
 // Icons
-import { ReactComponent as IconDiscord } from "assets/icons/social-media/icon-discord.svg"
-import { ReactComponent as IconGitHub } from "assets/icons/social-media/icon-github.svg"
-import { ReactComponent as IconTwitter } from "assets/icons/social-media/icon-twitter.svg"
-import { ReactComponent as IconYouTube } from "assets/icons/social-media/icon-youtube.svg"
-import { ReactComponent as IconLinkedIn } from "assets/icons/social-media/icon-linkedin.svg"
+import IconDiscord from "assets/icons/social-media/icon-discord.svg"
+import IconGitHub from "assets/icons/social-media/icon-github.svg"
+import IconTwitter from "assets/icons/social-media/icon-twitter.svg"
+import IconYouTube from "assets/icons/social-media/icon-youtube.svg"
+import IconLinkedIn from "assets/icons/social-media/icon-linkedin.svg"
 
 export const siteMetadata = {
 	defaultTitle: "Hathora | Serverless Cloud Platform for Multiplayer Games",
@@ -15,12 +15,12 @@ export const siteMetadata = {
 export const socialMediaLinks = [
 	{
 		title: "Discord",
-		url: "discord.gg/6nVdeCBffR",
+		url: "https://discord.com/invite/hathora",
 		icon: IconDiscord,
 	},
 	{
 		title: "GitHub",
-		url: "github.com/hathora/hathora",
+		url: "github.com/hathora",
 		icon: IconGitHub,
 	},
 	{
@@ -30,12 +30,86 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "YouTube",
-		url: "discord.gg/6nVdeCBffR",
+		url: "https://www.youtube.com/channel/UCwJhOa1fXbkitI0u94PJOHg",
 		icon: IconYouTube,
 	},
 	{
 		title: "LinkedIn",
 		url: "https://www.linkedin.com/company/hathora/",
 		icon: IconLinkedIn,
+	},
+]
+
+export const plans = [
+	{
+		name: "Free",
+		price: "0",
+		periodicity: "month",
+		cta: {
+			theme: "outline",
+			label: "Free Forever",
+			href: "/",
+		},
+		features: [
+			"50 CCU",
+			"1GB bandwidth",
+			"Up to X memory",
+			"Game supported in 1 region",
+			"2 cores",
+		],
+	},
+	{
+		name: "Turn-based",
+		price: "25",
+		periodicity: "month",
+		cta: {
+			theme: "gradient",
+			label: "Start trial",
+			href: "/",
+		},
+		features: [
+			"1000 MAU",
+			"Up to X bandwidth",
+			"Up to X memory",
+			"Game supportted in 1 region",
+			"2 cores",
+			"Email support available",
+		],
+	},
+	{
+		name: "Realtime",
+		price: "100",
+		periodicity: "month",
+		cta: {
+			theme: "gradient",
+			label: "Start Trial",
+			href: "/",
+		},
+		features: [
+			"1000 MAU",
+			"Up to X bandwidth",
+			"Up to X memory",
+			"Game supportted in 2 regions",
+			"2 cores",
+			"Email support available",
+		],
+	},
+	{
+		name: "Unlimited",
+		price: null,
+		periodicity: null,
+		cta: {
+			theme: "outline",
+			label: "Contact Us",
+			url: "mailto:contact@hathora.dev",
+		},
+		features: [
+			"Pay-as-you-go based on usage",
+			"Unlimited bandwidth",
+			"Unlimited memory",
+			"Game supported globally",
+			"Unlimited cores",
+			"24/7 support available",
+		],
 	},
 ]

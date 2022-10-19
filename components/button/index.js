@@ -8,11 +8,9 @@ import styled, { css } from "styled-components"
 import { colors } from "utils/variables"
 import { ButtonProps } from "utils/prop-types"
 
-// Icons
-// import IconShadowDetailsTurquoise from "assets/icons/components/button/icon-shadow-details--turquoise.svg"
-
 export const ButtonStyles = css`
 	display: inline-flex;
+	justify-content: center;
 	align-items: center;
 	padding: 16px 40px;
 	font-size: 1rem;
@@ -174,7 +172,15 @@ const StyledButton = styled.button`
 	border: 0;
 	${ButtonStyles};
 `
+const StyledNext = styled.a`
+	display: flex;
+	flex-direction: column;
 
+	svg {
+		width: 20px;
+	}
+	${ButtonStyles};
+`
 const StyledButtonLink = styled.a`
 	${ButtonStyles};
 `
@@ -198,8 +204,6 @@ const Button = (props) => {
 	useEffect(() => {
 		const handleMouseMove = (event) => {
 			const { pageX, pageY, target } = event
-
-			// console.log(target.offsetTop, target.offsetLeft)
 
 			const x = pageX - target.offsetLeft
 			const y = pageY - target.offsetTop
@@ -260,6 +264,24 @@ const Button = (props) => {
 	}
 
 	/**
+	 * Returns a <button type="arrow"></button>
+	 */
+
+	if (type === "next") {
+		return (
+			<StyledNext
+				ref={ref}
+				type="next"
+				className={className}
+				disabled={disabled}
+				onClick={onClick}
+			>
+				{children}
+			</StyledNext>
+		)
+	}
+
+	/**
 	 * Returns a Next <Link></Link>
 	 */
 	if (!external) {
@@ -268,6 +290,7 @@ const Button = (props) => {
 				<StyledButtonLink
 					ref={ref}
 					theme={theme}
+					data-theme={theme}
 					className={className}
 					onClick={onClick}
 				>
@@ -285,6 +308,7 @@ const Button = (props) => {
 			ref={ref}
 			className={className}
 			theme={theme}
+			data-theme={theme}
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"

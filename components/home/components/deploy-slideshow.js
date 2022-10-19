@@ -38,6 +38,16 @@ const StyledDeploySlideshow = styled.div`
 				-webkit-text-stroke-color: ${colors.green__500};
 			}
 
+			a {
+				color: ${colors.green__500};
+				text-decoration: underline;
+				pointer-events: initial;
+
+				&:hover {
+					color: ${colors.purple__500};
+				}
+			}
+
 			.step__loading-line {
 				background-color: ${colors.purple__500};
 			}
@@ -53,6 +63,10 @@ const StyledDeploySlideshow = styled.div`
 			font-size: 3.5rem;
 			font-weight: 300;
 			line-height: 1.4em;
+		}
+
+		a {
+			pointer-events: none;
 		}
 
 		.step__loading-line {
@@ -102,7 +116,22 @@ const steps = [
 		description: (
 			<span>
 				<span className="font-weight--700">Enable online multiplayer</span>{" "}
-				using the Hathora BuildKits or the Hathora Builder
+				using the{" "}
+				<a
+					href="https://docs.hathora.dev/#/buildkit/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora BuildKits
+				</a>{" "}
+				or the{" "}
+				<a
+					href="https://docs.hathora.dev/#/builder/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora Builder
+				</a>
 			</span>
 		),
 	},
@@ -112,7 +141,19 @@ const steps = [
 			width: 640,
 			height: 646,
 		},
-		description: <span>Deploy on Hathora Cloud with a single command</span>,
+		description: (
+			<span>
+				Deploy on{" "}
+				<a
+					href="https://docs.hathora.dev/#/cloud/README"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Hathora Cloud
+				</a>{" "}
+				with a single command
+			</span>
+		),
 	},
 	{
 		icon: {
@@ -175,17 +216,14 @@ const DeploySlideshow = () => {
 		setActiveStep(index)
 	}
 
-	const resetTimeout = () => {
-		clearTimeout(timeout)
-		setTheTimeout(setTimeout(() => goToNextStep(), 5000))
-	}
-
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						setVisible(true)
+						if (!visible) {
+							setVisible(true)
+						}
 					}
 				})
 			},
@@ -198,12 +236,11 @@ const DeploySlideshow = () => {
 	}, [])
 
 	useEffect(() => {
-		resetTimeout()
-	}, [])
-
-	useEffect(() => {
-		resetTimeout()
-	}, [activeStep])
+		if (visible) {
+			clearTimeout(timeout)
+			setTheTimeout(setTimeout(() => goToNextStep(), 5000))
+		}
+	}, [visible, activeStep])
 
 	return (
 		<StyledDeploySlideshow
@@ -213,7 +250,7 @@ const DeploySlideshow = () => {
 			<div className="col-md-7">
 				<div
 					className="step__icons"
-					data-aos="zoom-in"
+					// data-aos="zoom-in"
 					data-aos-anchor=".deploy__slideshow"
 				>
 					{steps.map((step, index) => (
@@ -226,7 +263,7 @@ const DeploySlideshow = () => {
 
 			<div
 				className="col-md-5"
-				data-aos="fade-in"
+				// data-aos="fade-in"
 				data-aos-anchor=".deploy__slideshow"
 			>
 				{steps.map((step, index) => (

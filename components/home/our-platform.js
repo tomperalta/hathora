@@ -10,16 +10,15 @@ import breakpoints from "utils/breakpoints"
 
 // Layout
 import Container from "components/container"
+import Button from "components/button"
 
 // Animations
+import Animation3 from "assets/animations/home/our-platform/our-platform-animation-3.json"
 import Animation1 from "assets/animations/home/our-platform/our-platform-animation-1.json"
 import Animation2 from "assets/animations/home/our-platform/our-platform-animation-2.json"
-import Animation3 from "assets/animations/home/our-platform/our-platform-animation-3.json"
 
-// // Images
-// import { ReactComponent as OptimizedImage } from "../../assets/images/home/optimized.svg"
-// import { ReactComponent as SeemlessDeploymentImage } from "../../assets/images/home/seemless-deployment.svg"
-// import { ReactComponent as SelfHosteableImage } from "../../assets/images/home/self-hosteable.svg"
+// Icons
+import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledOurPlatform = styled.section`
 	padding: 104px 0px;
@@ -79,7 +78,7 @@ const StyledOurPlatform = styled.section`
                 ${breakpoints.medium`
                 margin-bottom: 0px;
                 `}
-    \        }
+            }
         }
 		}
     
@@ -97,12 +96,24 @@ const OurPlatform = () => {
 			subtitle: "Optimized Edge Compute",
 			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
 			animation: Animation1,
+			cta: {
+				theme: "borderless",
+				label: "Read More",
+				href: "https://blog.hathora.dev/cloud-latency-shootout/",
+				external: true,
+			},
 		},
 		{
 			title: "SIMPLE",
 			subtitle: "Seamless Deployment and Operation",
 			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
 			animation: Animation2,
+			cta: {
+				theme: "borderless",
+				label: "Read More",
+				href: "https://blog.hathora.dev/modern-cloud-for-multiplayer-games/",
+				external: true,
+			},
 		},
 		{
 			title: "OPEN",
@@ -154,7 +165,20 @@ const OurPlatform = () => {
 													<h2 className="text--m font-weight--600 mb-2">
 														{item.subtitle}
 													</h2>
-													<p className="text text--s">{item.text}</p>
+													<p className="text text--s mb-3">{item.text}</p>
+
+													<div>
+														{item.cta && (
+															<Button
+																type="link"
+																{...item.cta}
+																className="d-inline-flex"
+															>
+																{item.cta.label}
+																<IconArrow />
+															</Button>
+														)}
+													</div>
 												</div>
 											</div>
 										</div>

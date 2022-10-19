@@ -3,6 +3,8 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 
+import Link from "next/link"
+
 // Utils
 import breakpoint from "utils/breakpoints/"
 
@@ -24,115 +26,108 @@ const StyledClients = styled.section`
   
   `}
 
-	.clients {
-		margin-top: 70px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
+	.clients__container {
+		max-width: 366px;
+		width: 100%;
 
-		${breakpoint.small`
-      justify-content: center;
-    `}
+		${breakpoint.medium`
+			max-width: 700px;
+		`}
 
-		.client {
-			width: 50%;
-			text-align: center;
-			margin-bottom: 39px;
-
-			${breakpoint.small`
-        width: auto;
-      `}
-
-			&.client--phaser {
-				${breakpoint.small`
-          margin-right: 60px;
-        `}
-			}
-
-			&.client--hathora {
-				width: 119px;
-				height: 16px;
-				margin-right: 50px;
-
-				${breakpoint.medium`
-          width: 215px;
-          height: 28px;
-          margin-right: 27px;
-          margin-left: 64px;
-        `}
-
-				${breakpoint.large`
-					margin-right: 0;
-				`}
-			}
-
-			&.client--unreal {
-				${breakpoint.small`
-          width: 244px;
-				  height: 57px;
-        `}
-				${breakpoint.medium`
-          margin-left: 60px;
-        `}
-			}
+		.hathora {
+			width: 215px;
+			height: 15px;
 		}
 	}
+
+	// .clients {
+	// 	margin-top: 70px;
+	// 	display: flex;
+	// 	flex-direction: row;
+	// 	flex-wrap: wrap;
+	// 	align-items: center;
+
+	// 	${breakpoint.medium`
+  //     justify-content: center;
+  //   `}
+
+	// 	.client {
+	// 		width: 50%;
+	// 		text-align: center;
+	// 		margin-bottom: 39px;
+
+	// 		${breakpoint.medium`
+  //       width: auto;
+  //     `}
+
+	// 		&.client--phaser {
+	// 			${breakpoint.medium`
+  //         margin-right: 60px;
+  //       `}
+	// 		}
+
+	// 		&.client--hathora {
+	// 			width: 50%;
+	// 			height: 16px;
+
+	// 			${breakpoint.medium`
+  //         width: 215px;
+  //         height: 28px;
+	// 				margin-right: 35px;
+  //         margin-left: 64px;
+  //       `}
+	// 		}
+
+	// 		&.client--godot {
+	// 			// text-align: center;
+	// 		}
+
+	// 		&.client--unreal {
+	// 			${breakpoint.small`
+  //         // width: 244px;
+	// 			  // height: 57px;
+  //       `}
+	// 			${breakpoint.medium`
+  //         // margin-left: 60px;
+  //       `}
+	// 		}
+	// 	}
+	// }
 `
 
 const Clients = () => (
-	<StyledClients className="home__clients">
+	<StyledClients>
 		<Container>
 			<div className="row justify-content-center">
 				<div className="col-12 col-md-7 text-center">
-					<h1
-						className="heading--m dotted-separator"
-						data-aos="fade-in"
-						data-aos-anchor=".home__clients"
-					>
+					<h1 className="heading--m dotted-separator">
 						Integrated with the game engines you know and love
 					</h1>
 				</div>
 
-				<div className="col-12 col-sm-6 col-md-8 col-lg-7">
-					<div className="clients">
-						<div
-							className="client client--phaser"
-							data-aos="fade-in"
-							data-aos-delay="250"
-						>
-							<Phaser />
+				<div className="col-12 col-sm-7 col-lg-7 clients__container">
+					<div className="col-12 d-flex flex-row flex-wrap justify-content-evenly mt-5 mb-5 text-center align-items-center justify-content-md-center">
+						<div className="col-5 col-md-4">
+							<Link href="https://docs.hathora.dev/#/builder/tutorial_platformer">
+								<Phaser />
+							</Link>
 						</div>
-						<div
-							className="client client--unity"
-							data-aos="fade-in"
-							data-aos-anchor="home__clients"
-							data-aos-delay="500"
-						>
-							<Unity />
+
+						<div className="col-5 col-md-4">
+							<Link href="https://docs.hathora.dev/#/builder/README">
+								<Hathora />
+							</Link>
 						</div>
-						<div
-							className="client client--hathora"
-							data-aos="fade-in"
-							data-aos-anchor="home__clients"
-							data-aos-delay="750"
-						>
-							<Hathora />
-						</div>
-						<div
-							className="client client--godot"
-							data-aos="fade-in"
-							data-aos-anchor="home__clients"
-							data-aos-delay="1000"
-						>
+					</div>
+
+					<div className="col-12 d-flex flex-row flex-wrap flex-md-nowrap justify-content-around text-md-center align-items-md-center">
+						<div className="col-4 col-md-2">
 							<Godot />
 						</div>
-						<div
-							className="client client--unreal"
-							data-aos="fade-in"
-							data-aos-anchor="home__clients"
-							data-aos-delay="1250"
-						>
+						<div className="col-4  col-md-2 mb-5 mb-md-0">
+							<Unity />
+						</div>
+						<div className="col-8 col-md-2 col-md-4">
 							<Unreal />
 						</div>
 					</div>

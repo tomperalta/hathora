@@ -17,9 +17,15 @@ import Resolve from "../../assets/images/about-us/resolve.svg"
 import Trust from "../../assets/images/about-us/trust.svg"
 
 const StyledOurValues = styled.section`
-	.values-section {
-		margin: 96px 0px;
+	.our-values__heading {
+		margin-bottom: 64px;
 
+		${breakpoint.medium`
+      margin-bottom: 96px;
+    `}
+	}
+
+	.values-section {
 		.col-12 {
 			margin-bottom: 32px;
 
@@ -85,7 +91,9 @@ const OurValues = () => {
 										<div className="value-item bg--grey__600 text-center">
 											{value.image}
 											<div className="text-start">
-												<h2 className="heading--s">{value.title}</h2>
+												<h2 className="heading--m font-weight--600">
+													{value.title}
+												</h2>
 												<p className="text--s">{value.text}</p>
 											</div>
 										</div>
