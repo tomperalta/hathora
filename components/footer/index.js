@@ -189,14 +189,23 @@ const Footer = () => {
 										{item.links.map((link) => (
 											<li className="text--s" key={link.label}>
 												{!link.external ? (
-													<Link href={link.url}>
-														<a>{link.label}</a>
-													</Link>
+													link.url === "/pricing" ? (
+														<button type="button" disabled>
+															{link.label}
+														</button>
+													) : (
+														<Link
+															href={link.url === "/pricing" ? "/" : link.url}
+														>
+															<a>{link.label}</a>
+														</Link>
+													)
 												) : (
 													<a
 														href={link.url}
 														target="_blank"
 														rel="noopener noreferrer"
+														disabled
 													>
 														{link.label}
 													</a>
