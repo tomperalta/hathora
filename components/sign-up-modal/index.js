@@ -88,7 +88,8 @@ const SignUpModal = () => {
 	 * State
 	 * It comes from redux's store
 	 */
-	const visible = useSelector((state) => state.signUpModal.value)
+	const store = useSelector((state) => state.signUpModal)
+
 	const [formFields, setFormFields] = useState({
 		name: "",
 		email: "",
@@ -133,14 +134,14 @@ const SignUpModal = () => {
 	 * Locks scroll when opened
 	 */
 	useEffect(() => {
-		if (visible) {
+		if (store.value) {
 			document.querySelector("html").classList.add("no-scroll")
 			document.querySelector("body").classList.add("no-scroll")
 		} else {
 			document.querySelector("html").classList.remove("no-scroll")
 			document.querySelector("body").classList.remove("no-scroll")
 		}
-	}, [visible])
+	}, [store.value])
 
 	/**
 	 * Handles input change
@@ -204,6 +205,7 @@ const SignUpModal = () => {
 				],
 				context: {
 					pageUri: window.location.href,
+					pageName: store.payload,
 				},
 			}
 
@@ -231,7 +233,7 @@ const SignUpModal = () => {
 	}
 
 	return (
-		<StyledSignUpModal visible={visible}>
+		<StyledSignUpModal visible={store.value}>
 			<Container>
 				<div className="sign-up__form">
 					<button
@@ -297,7 +299,7 @@ const SignUpModal = () => {
 								<div className="form__buttons mt-sm-5 d-flex flex-column flex-sm-row flex-sm-row-reverse align-items-center justify-content-sm-center">
 									<Button
 										type="submit"
-										theme="gradient"
+										theme="fill"
 										className="mb-3 mb-sm-0"
 										onClick={handleSubmit}
 										disabled={

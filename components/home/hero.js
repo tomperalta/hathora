@@ -114,7 +114,7 @@ const Hero = () => {
 								<Button
 									type="button"
 									theme="gradient"
-									onClick={() => dispatch(openSignUpModal())}
+									onClick={() => dispatch(openSignUpModal("Home's Hero"))}
 								>
 									Sign Up
 								</Button>

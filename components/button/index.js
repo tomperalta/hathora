@@ -32,6 +32,7 @@ export const ButtonStyles = css`
 		`
 			background-color: ${colors.green__500};
 			color: ${colors.grey__700};
+      transition: all 0.3s ease;
 
 			&:hover {
 				background-color: ${colors.purple__500};
@@ -254,6 +255,7 @@ const Button = (props) => {
 				ref={ref}
 				theme={theme}
 				type="submit"
+				data-theme={theme}
 				className={className}
 				disabled={disabled}
 				onClick={onClick}

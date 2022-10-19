@@ -605,7 +605,7 @@ const Menu = () => {
 							href="/sign-up"
 							theme="outline"
 							className="sign-up me-3 me-lg-0"
-							onClick={() => dispatch(openSignUpModal())}
+							onClick={() => dispatch(openSignUpModal("Navigation"))}
 						>
 							Sign Up
 						</Button>

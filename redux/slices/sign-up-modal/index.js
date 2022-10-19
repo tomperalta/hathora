@@ -6,8 +6,10 @@ export const signUpModalSlice = createSlice({
 		value: false,
 	},
 	reducers: {
-		openSignUpModal: (state) => {
+		openSignUpModal: (state, actions) => {
+			const { payload } = actions
 			state.value = true
+			state.payload = payload
 		},
 		closeSignUpModal: (state) => {
 			state.value = false
