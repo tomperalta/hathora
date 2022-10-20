@@ -26,7 +26,9 @@ const BackedBy = () => (
 	<StyledBackedBy>
 		<Container>
 			<div className="row text-center">
-				<h2 className="heading--s dotted-separator">Backed by</h2>
+				<h2 className="heading--s dotted-separator font-weight--500">
+					Backed by
+				</h2>
 				<div className="d-flex justify-content-center">
 					<div className="image">
 						<Image

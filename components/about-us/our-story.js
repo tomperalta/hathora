@@ -92,7 +92,7 @@ const OurStory = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-6">
-						<h2 className="heading--l title text-center dotted-separator">
+						<h2 className="heading--l title text-center dotted-separator font-weight--500">
 							Our Story
 						</h2>
 
