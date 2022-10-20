@@ -32,6 +32,12 @@ const StyledOurStory = styled.section`
     `}
 	}
 
+	.paragraph {
+		${breakpoint.medium`
+			padding: 0 12px;
+		`}
+	}
+
 	.founders {
 		margin: 48px 0;
 
@@ -73,7 +79,7 @@ const OurStory = () => {
 				/>
 			),
 			name: "Harsh Pandey",
-			rol: "Co-Founder & CEO",
+			rol: "Co-Founder & CTO",
 		},
 		{
 			image: (
@@ -92,19 +98,20 @@ const OurStory = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-6">
-						<h2 className="heading--l title text-center dotted-separator">
+						<h2 className="heading--l font-weight--500 title text-center dotted-separator">
 							Our Story
 						</h2>
-
-						<p className="text--l font-weight--600">
-							Becoming infrastructure experts
-						</p>
-						<p className="text--s">
-							Our founders, Harsh and Sid, both studied Computer Science at
-							Carnegie Mellon and went on to become industry experts in the
-							infrastructure space, leading teams at top SaaS companies like
-							Palantir & Databricks.{" "}
-						</p>
+						<div className="paragraph">
+							<p className="text--l font-weight--600 mb-2">
+								Becoming infrastructure experts
+							</p>
+							<p className="text--s">
+								Our founders, Harsh and Sid, both studied Computer Science at
+								Carnegie Mellon and went on to become industry experts in the
+								infrastructure space, leading teams at top SaaS companies like
+								Palantir & Databricks.{" "}
+							</p>
+						</div>
 
 						<div className="row justify-content-center founders">
 							{founders.map((founder) => (
