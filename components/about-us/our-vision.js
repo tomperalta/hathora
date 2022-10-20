@@ -130,7 +130,7 @@ const TimelineItem = styled.div`
 	.card {
 		padding: 24px;
 		background-color: ${colors.grey__600};
-		border-radius: 8px;
+		border-radius: 16px;
 		opacity: 0;
 		transition: all 0.4s ease;
 
