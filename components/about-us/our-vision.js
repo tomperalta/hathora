@@ -204,7 +204,7 @@ const OurVision = () => {
 		{
 			date: "Coming Soon",
 			theme: colors.green__500,
-			content: "Coming soon...",
+			content: "Coming Soon...",
 			icon: <IconRocket />,
 			disabled: true,
 		},
