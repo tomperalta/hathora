@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Image from "next/image"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -12,6 +13,7 @@ import Button from "components/button"
 
 // Icons
 import { ReactComponent as IconHero } from "assets/icons/hathora-builder/hathora-builder-hero.svg"
+import LogoImage from "assets/images/builder/hathora.svg"
 
 const StyledHero = styled.section`
 	min-height: 100vh;
@@ -74,8 +76,11 @@ const Hero = () => (
 			<div className="row justify-content-center justify-content-md-start align-items-center">
 				<div className="col-12 col-sm-8 col-md-6 col-lg-7">
 					<div className="text-sm-center text-md-start">
+						<div className="mb-2 mb-md-4">
+							<Image src={LogoImage} width="210" height="33" />
+						</div>
 						<h1 className="heading--l font-weight--500 mb-4">
-							Prototype in minutes and scale to millions on the Hathora Builder
+							Prototype in minutes, scale to millions
 						</h1>
 
 						<div
