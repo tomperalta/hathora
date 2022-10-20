@@ -22,6 +22,12 @@ const TimelineItem = styled.div`
 	display: flex;
 	margin-bottom: 56px;
 
+	${(props) =>
+		props.disabled &&
+		`
+    opacity: 0.3;
+  `}
+
 	&.aos-animate {
 		&::before {
 			transform: scale(1);
@@ -99,7 +105,7 @@ const TimelineItem = styled.div`
 		height: calc(100% + 56px);
 		position: absolute;
 		left: 15px;
-		transform: translateY(15px);
+		transform: translateY(0);
 		background: ${(props) =>
 			props.nextItemTheme
 				? `linear-gradient(180deg, ${props.theme} 0%, ${props.nextItemTheme} 50%)`
@@ -195,6 +201,13 @@ const OurVision = () => {
 				"The first ever customer-built game was deployed on our platform.",
 			icon: <IconFlag />,
 		},
+		{
+			date: "Coming Soon",
+			theme: colors.green__500,
+			content: "Coming soon...",
+			icon: <IconRocket />,
+			disabled: true,
+		},
 	]
 
 	return (
@@ -209,6 +222,7 @@ const OurVision = () => {
 						<TimelineItem
 							theme={item.theme}
 							nextItemTheme={data[index + 1] ? data[index + 1].theme : null}
+							disabled={item.disabled}
 							key={item.date}
 							data-aos
 							data-aos-offset="12"
