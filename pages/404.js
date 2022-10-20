@@ -25,7 +25,7 @@ const Page404 = () => (
 	<Styled404>
 		<Container>
 			<div className="row">
-				<div className="col-12 col-md-6">
+				<div className="col-12 col-md-6 mb-5 mb-md-0">
 					<h1 className="heading--l mb-4">
 						Sorry! We couldn’t find the page you were looking for.
 					</h1>
