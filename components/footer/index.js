@@ -65,6 +65,14 @@ const StyledFooter = styled.footer`
 	.footer__navigation-item {
 		width: 50%;
 
+		${breakpoint.medium`
+      margin-right: 16px;
+
+      &:last-child {
+        margin: 0;
+      }
+    `}
+
 		li {
 			margin-bottom: 16px;
 
@@ -76,6 +84,13 @@ const StyledFooter = styled.footer`
 		a {
 			&:hover {
 				color: ${colors.purple__500};
+			}
+		}
+
+		button {
+			&:disabled {
+				color: ${colors.grey__400};
+				pointer-events: none;
 			}
 		}
 	}
@@ -125,6 +140,7 @@ const Footer = () => {
 				{
 					label: "Pricing",
 					url: "/pricing",
+					disabled: true,
 				},
 			],
 		},
@@ -188,18 +204,14 @@ const Footer = () => {
 									<ul>
 										{item.links.map((link) => (
 											<li className="text--s" key={link.label}>
-												{!link.external ? (
-													link.url === "/pricing" ? (
-														<button type="button" disabled>
-															{link.label}
-														</button>
-													) : (
-														<Link
-															href={link.url === "/pricing" ? "/" : link.url}
-														>
-															<a>{link.label}</a>
-														</Link>
-													)
+												{link.disabled ? (
+													<button type="button" disabled>
+														{link.label} (coming soon)
+													</button>
+												) : !link.external ? (
+													<Link href={link.url === "/pricing" ? "/" : link.url}>
+														<a>{link.label}</a>
+													</Link>
 												) : (
 													<a
 														href={link.url}
