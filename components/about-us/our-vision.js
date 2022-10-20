@@ -117,11 +117,11 @@ const TimelineItem = styled.div`
 	.date {
 		margin-bottom: 20px;
 		opacity: 0;
+		transform: translateY(2px);
 		transition: all 0.4s ease;
 
 		${breakpoint.medium`
       position: absolute;
-      transform: translateY(2px);
       white-space: nowrap;
       margin: 0;
     `}
