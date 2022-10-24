@@ -1,5 +1,4 @@
 import React from "react"
-
 // Libraries
 import styled from "styled-components"
 
@@ -18,12 +17,11 @@ import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
 import Image from "next/image"
 
 const StyledClients = styled.section`
-	padding: 24px 0 120px 0;
+	// padding: 24px 0 120px 0;
 
-	${breakpoint.medium`
-    padding: 24px 0 200px 0;
-  
-  `}
+	// ${breakpoint.medium`
+  //   padding: 24px 0 200px 0;
+  // `}
 
 	.clients__container {
 		max-width: 366px;
