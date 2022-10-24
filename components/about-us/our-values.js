@@ -79,7 +79,7 @@ const OurValues = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">
-						<h2 className="heading--m font-weight--500 text-center dotted-separator">
+						<h2 className="our-values__heading heading--m font-weight--500 text-center dotted-separator">
 							We're committed to building a platform that works for you
 						</h2>
 					</div>
@@ -91,7 +91,7 @@ const OurValues = () => {
 										<div className="value-item bg--grey__600 text-center">
 											{value.image}
 											<div className="text-start">
-												<h2 className="heading--m font-weight--600">
+												<h2 className="heading--s font-weight--600">
 													{value.title}
 												</h2>
 												<p className="text--s">{value.text}</p>
