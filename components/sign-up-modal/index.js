@@ -253,7 +253,7 @@ const SignUpModal = () => {
 							<p className="text--s color--grey__400 font-weight--500">
 								Leave us your email and we'll contact you ASAP to get set up.
 							</p>
-							<Form className="mt-5" onSubmit={handleSubmit}>
+							<Form className="mt-4" onSubmit={handleSubmit}>
 								<div className="form__input">
 									{!formValidation.name && (
 										<p className="form__message form__message--error">

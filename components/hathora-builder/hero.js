@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import Image from "next/image"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -12,6 +13,7 @@ import Button from "components/button"
 
 // Icons
 import { ReactComponent as IconHero } from "assets/icons/hathora-builder/hathora-builder-hero.svg"
+import LogoImage from "assets/images/builder/hathora.svg"
 
 const StyledHero = styled.section`
 	min-height: 100vh;
@@ -23,6 +25,18 @@ const StyledHero = styled.section`
 	.text {
 		${breakpoint.large`
 			white-space: nowrap;
+		`}
+	}
+
+	.hero__title {
+		margin: 12px 0 45px 0;
+
+		${breakpoint.medium`
+			margin: 120px 0 24px 0;
+		`}
+
+		${breakpoint.large`
+			margin: 130px 0 24px 0;
 		`}
 	}
 
@@ -50,15 +64,21 @@ const StyledHero = styled.section`
 		align-items: center;
 
 		${breakpoint.medium`
+			max-width: 471px;
       position: absolute;
-      top: calc((100vh - 671px) / 2);
+      top: calc((100vh - 390px) / 2);
       right: calc((100vw - 1024px) / 2);
       margin: auto;
     `}
 
+		${breakpoint.large`
+			right: calc((100vh - 820px) / 2);
+			top: calc((100vh - 450px) / 2);
+		`}
+
 		${breakpoint.extraLarge`
-      top: calc(((100vh - 571px) / 2) + 32px);
-      right: calc((100vw - 1340px) / 2);
+      top: calc(((100vh - 471px) / 2) + 32px);
+      right: calc((100vw - 1240px) / 2);
     `}
 
     svg {
@@ -74,8 +94,11 @@ const Hero = () => (
 			<div className="row justify-content-center justify-content-md-start align-items-center">
 				<div className="col-12 col-sm-8 col-md-6 col-lg-7">
 					<div className="text-sm-center text-md-start">
+						<div className="mb-2 mb-md-4">
+							<Image src={LogoImage} width="210" height="33" />
+						</div>
 						<h1 className="heading--l font-weight--500 mb-4">
-							Prototype in minutes and scale to millions on the Hathora Builder
+							Prototype in minutes, scale to millions
 						</h1>
 
 						<div
