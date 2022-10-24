@@ -98,7 +98,7 @@ const OurStory = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-6">
-						<h2 className="heading--l font-weight--500 title text-center dotted-separator">
+						<h2 className="heading--l title font-weight--500 title text-center dotted-separator">
 							Our Story
 						</h2>
 						<div className="paragraph">
