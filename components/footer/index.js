@@ -180,11 +180,11 @@ const Footer = () => {
 
 						<div className="mb-md-4">
 							<a
-								href="mailto:contact@hathora.dev"
+								href="mailto:hello@hathora.dev"
 								className="text--s color--green__500 color-hover--purple__500 font-weight--500"
 								style={{ textDecoration: "underline" }}
 							>
-								contact@hathora.dev
+								hello@hathora.dev
 							</a>
 						</div>
 

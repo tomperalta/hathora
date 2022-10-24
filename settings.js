@@ -101,7 +101,7 @@ export const plans = [
 		cta: {
 			theme: "outline",
 			label: "Contact Us",
-			url: "mailto:contact@hathora.dev",
+			url: "mailto:hello@hathora.dev",
 		},
 		features: [
 			"Pay-as-you-go based on usage",

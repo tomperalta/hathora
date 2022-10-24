@@ -148,7 +148,7 @@ const Plans = () => (
 							<div>
 								<Button
 									type="link"
-									href="mailto:contact@hathora.dev"
+									href="mailto:hello@hathora.dev"
 									theme="outline"
 								>
 									Contact Us
