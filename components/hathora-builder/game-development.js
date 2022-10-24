@@ -106,7 +106,7 @@ const GameDevelopment = () => {
 								className={(index + 1) % 3 === 0 ? "card card--full" : "card"}
 							>
 								<div className="card__content">
-									<p className="text--l mb-2">{item.title}</p>
+									<p className="text--l font-weight--600 mb-2">{item.title}</p>
 									<p className="text--s">{item.description}</p>
 								</div>
 
