@@ -61,25 +61,25 @@ const OurValues = () => {
 		{
 			title: "Invent & Simplify",
 			text: "Constantly look for new ideas to drive innovation while ensuring the simplest experience possible",
-			image: <Image src={Simplify} alt="Simplify" width="212" height="123" />,
+			image: <Image src={Simplify} alt="Simplify" width="300" height="200" />,
 		},
 		{
 			title: "Listen & Resolve",
 			text: "Pay attention to our customers when they have an issue and deliver fast, practical solution",
-			image: <Image src={Resolve} alt="Resolve" width="212" height="123" />,
+			image: <Image src={Resolve} alt="Resolve" width="300" height="200" />,
 		},
 		{
 			title: "Earn Trust",
 			text: "Celebrate our strengths, be honest about where we can improve, and benchmark against the best",
-			image: <Image src={Trust} alt="Trust" width="212" height="123" />,
+			image: <Image src={Trust} alt="Trust" width="300" height="200" />,
 		},
 	]
 	return (
 		<StyledOurValues>
 			<Container>
 				<div className="row justify-content-center">
-					<div className="our-values__heading col-12 col-md-8">
-						<h2 className="heading--m text-center dotted-separator font-weight--500">
+					<div className="col-12 col-md-8">
+						<h2 className="our-values__heading heading--m font-weight--500 text-center dotted-separator">
 							We're committed to building a platform that works for you
 						</h2>
 					</div>
@@ -91,7 +91,9 @@ const OurValues = () => {
 										<div className="value-item bg--grey__600 text-center">
 											{value.image}
 											<div className="text-start">
-												<h2 className="heading--s">{value.title}</h2>
+												<h2 className="heading--s font-weight--600">
+													{value.title}
+												</h2>
 												<p className="text--s">{value.text}</p>
 											</div>
 										</div>
