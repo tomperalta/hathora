@@ -20,7 +20,7 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "GitHub",
-		url: "github.com/hathora",
+		url: "https://github.com/hathora",
 		icon: IconGitHub,
 	},
 	{
