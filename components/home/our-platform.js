@@ -116,7 +116,7 @@ const OurPlatform = () => {
 			},
 		},
 		{
-			title: "OPEN",
+			title: "SCALABLE",
 			subtitle: "Self-Hostable Infrastructure",
 			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
 			animation: Animation3,
