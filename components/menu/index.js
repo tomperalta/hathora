@@ -382,6 +382,10 @@ const Menu = () => {
 			url: "/about-us",
 		},
 		{
+			label: "How it works",
+			url: "/how-it-works",
+		},
+		{
 			label: "Integrations",
 			links: [
 				{
