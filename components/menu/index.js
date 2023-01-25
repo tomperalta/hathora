@@ -408,7 +408,6 @@ const Menu = () => {
 		{
 			label: "Pricing",
 			url: "/pricing",
-			disabled: true,
 		},
 		{
 			label: "Hathora Builder",
