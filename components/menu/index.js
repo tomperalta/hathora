@@ -382,6 +382,34 @@ const Menu = () => {
 			url: "/about-us",
 		},
 		{
+			label: "How it works",
+			url: "/how-it-works",
+		},
+		{
+			label: "Integrations",
+			links: [
+				{
+					label: "Phaser",
+					url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
+				},
+				{
+					label: "Unity",
+					url: "/integrations/unity",
+					disabled: true,
+				},
+				{
+					label: "Unreal",
+					url: "/integrations/unreal",
+					disabled: true,
+				},
+				{
+					label: "Godot",
+					url: "/integrations/godot",
+					disabled: true,
+				},
+			],
+		},
+		{
 			label: "Pricing",
 			url: "/pricing",
 		},
