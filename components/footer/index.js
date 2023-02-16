@@ -134,10 +134,6 @@ const Footer = () => {
 					url: "/about-us",
 				},
 				{
-					label: "Hathora Builder",
-					url: "/hathora-builder",
-				},
-				{
 					label: "Pricing",
 					url: "/pricing",
 					disabled: true,
