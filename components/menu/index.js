@@ -579,7 +579,7 @@ const Menu = () => {
 							className="sign-up me-3 me-lg-0"
 							onClick={() => dispatch(openSignUpModal("Navigation"))}
 						>
-							Sign Up
+							Login
 						</Button>
 
 						<button
