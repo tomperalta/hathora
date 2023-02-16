@@ -130,29 +130,22 @@ const Footer = () => {
 			title: "Navigation",
 			links: [
 				{
-					label: "Pricing",
-					url: "/pricing",
-				},
-				{
-					label: "How it works",
-					url: "/how-it-works",
-				},
-
-				{
 					label: "About us",
 					url: "/about-us",
 				},
-
 				{
 					label: "Pricing",
 					url: "/pricing",
-					disabled: true,
 				},
 			],
 		},
 		{
 			title: "Resources",
 			links: [
+				{
+					label: "Community",
+					url: "/community",
+				},
 				{
 					label: "Docs",
 					url: "https://docs.hathora.dev/#/",
@@ -162,6 +155,10 @@ const Footer = () => {
 					label: "Blog",
 					url: "https://blog.hathora.dev/",
 					external: true,
+				},
+				{
+					label: "Media Kit",
+					url: "/media-kit",
 				},
 			],
 		},

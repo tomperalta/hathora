@@ -378,42 +378,41 @@ const Menu = () => {
 	 */
 	const navigationData = [
 		{
+			label: "Pricing",
+			url: "/pricing",
+		},
+		{
 			label: "About Us",
 			url: "/about-us",
 		},
 		{
-			label: "How it works",
-			url: "/how-it-works",
+			label: "Community",
+			url: "/community",
 		},
-		{
-			label: "Integrations",
-			links: [
-				{
-					label: "Phaser",
-					url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
-				},
-				{
-					label: "Unity",
-					url: "/integrations/unity",
-					disabled: true,
-				},
-				{
-					label: "Unreal",
-					url: "/integrations/unreal",
-					disabled: true,
-				},
-				{
-					label: "Godot",
-					url: "/integrations/godot",
-					disabled: true,
-				},
-			],
-		},
-		{
-			label: "Pricing",
-			url: "/pricing",
-		},
-
+		// {
+		// 	label: "Integrations",
+		// 	links: [
+		// 		{
+		// 			label: "Phaser",
+		// 			url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
+		// 		},
+		// 		{
+		// 			label: "Unity",
+		// 			url: "/integrations/unity",
+		// 			disabled: true,
+		// 		},
+		// 		{
+		// 			label: "Unreal",
+		// 			url: "/integrations/unreal",
+		// 			disabled: true,
+		// 		},
+		// 		{
+		// 			label: "Godot",
+		// 			url: "/integrations/godot",
+		// 			disabled: true,
+		// 		},
+		// 	],
+		// },
 		{
 			label: "Docs",
 			url: "https://docs.hathora.dev/#/",
