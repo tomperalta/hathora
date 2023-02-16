@@ -20,7 +20,7 @@ import Animation2 from "assets/animations/home/our-platform/our-platform-animati
 // Icons
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
-const StyledOurPlatform = styled.section`
+const StyledModernInfrastructure = styled.section`
 	padding: 104px 0px;
 
 	${breakpoints.medium`
@@ -85,16 +85,16 @@ const StyledOurPlatform = styled.section`
 	}
 
 	.text {
-		max-width: 416px;
+		max-width: 440px;
 	}
 `
 
-const OurPlatform = () => {
+const ModernInfrastructure = () => {
 	const data = [
 		{
 			title: "FAST",
 			subtitle: "Optimized Edge Compute",
-			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
+			text: "We schedule game servers close to your users and direct traffic on our optimized global network.",
 			animation: Animation1,
 			cta: {
 				theme: "borderless",
@@ -105,8 +105,8 @@ const OurPlatform = () => {
 		},
 		{
 			title: "SIMPLE",
-			subtitle: "Seamless Deployment and Operation",
-			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
+			subtitle: "Easy Deployment and Operation",
+			text: "Single command deployment, global coverage, automatic Blue-Green updates, and built-in analytics.",
 			animation: Animation2,
 			cta: {
 				theme: "borderless",
@@ -116,15 +116,18 @@ const OurPlatform = () => {
 			},
 		},
 		{
-			title: "OPEN",
-			subtitle: "Self-Hostable Infrastructure",
-			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
+			title: "SCALABLE",
+			subtitle: "Elastic Compute Scheduling",
+			text: "Dynamic server provisioning to meet player demand.  Only pay for running sessions, no idle costs.",
 			animation: Animation3,
 		},
 	]
 
 	return (
-		<StyledOurPlatform className="home__our-platform" data-aos-offset="400">
+		<StyledModernInfrastructure
+			className="home__our-platform"
+			data-aos-offset="400"
+		>
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-7">
@@ -133,7 +136,8 @@ const OurPlatform = () => {
 							data-aos="fade-in"
 							data-anchor=".home__our-platform"
 						>
-							Our platform is built with game developers in mind
+							Modern infrastructure
+							<br /> for gaming
 						</h2>
 					</div>
 					<div className="row">
@@ -189,8 +193,8 @@ const OurPlatform = () => {
 					</div>
 				</div>
 			</Container>
-		</StyledOurPlatform>
+		</StyledModernInfrastructure>
 	)
 }
 
-export default OurPlatform
+export default ModernInfrastructure

@@ -14,7 +14,7 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/home/hero"
-import OurPlatform from "components/home/our-platform"
+import ModernInfrastructure from "components/home/modern-infrastructure"
 import Features from "components/home/features"
 import Deploy from "components/home/deploy"
 import Clients from "components/home/clients"
@@ -42,7 +42,7 @@ const Home = () => (
 	<StyledHome>
 		<SEO />
 		<Hero />
-		<OurPlatform />
+		<ModernInfrastructure />
 		<Features />
 		<Deploy />
 		<Clients />
