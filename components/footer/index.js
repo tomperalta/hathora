@@ -130,9 +130,19 @@ const Footer = () => {
 			title: "Navigation",
 			links: [
 				{
+					label: "Pricing",
+					url: "/pricing",
+				},
+				{
+					label: "How it works",
+					url: "/how-it-works",
+				},
+
+				{
 					label: "About us",
 					url: "/about-us",
 				},
+
 				{
 					label: "Pricing",
 					url: "/pricing",
