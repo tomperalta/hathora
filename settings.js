@@ -1,3 +1,5 @@
+import React from "react"
+
 // Icons
 import IconDiscord from "assets/icons/social-media/icon-discord.svg"
 import IconGitHub from "assets/icons/social-media/icon-github.svg"
@@ -42,74 +44,51 @@ export const socialMediaLinks = [
 
 export const plans = [
 	{
-		name: "Free",
-		price: "0",
-		periodicity: "month",
-		cta: {
-			theme: "outline",
-			label: "Free Forever",
-			href: "/",
-		},
+		name: "Tiny",
+		price: "0.04",
 		features: [
-			"50 CCU",
-			"1GB bandwidth",
-			"Up to X memory",
-			"Game supported in 1 region",
-			"2 cores",
+			<>
+				<span className="font-weight--700">Shared</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">512MB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Turn-based",
-		price: "25",
-		periodicity: "month",
-		cta: {
-			theme: "gradient",
-			label: "Start trial",
-			href: "/",
-		},
+		name: "Small",
+		price: "0.08",
 		features: [
-			"1000 MAU",
-			"Up to X bandwidth",
-			"Up to X memory",
-			"Game supportted in 1 region",
-			"2 cores",
-			"Email support available",
+			<>
+				<span className="font-weight--700">Shared</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">512MB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Realtime",
-		price: "100",
-		periodicity: "month",
-		cta: {
-			theme: "gradient",
-			label: "Start Trial",
-			href: "/",
-		},
+		name: "Medium",
+		price: "0.16",
 		features: [
-			"1000 MAU",
-			"Up to X bandwidth",
-			"Up to X memory",
-			"Game supportted in 2 regions",
-			"2 cores",
-			"Email support available",
+			<>
+				<span className="font-weight--700">Shared</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">512MB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Unlimited",
-		price: null,
-		periodicity: null,
-		cta: {
-			theme: "outline",
-			label: "Contact Us",
-			url: "mailto:hello@hathora.dev",
-		},
+		name: "Large",
+		price: "0.32",
 		features: [
-			"Pay-as-you-go based on usage",
-			"Unlimited bandwidth",
-			"Unlimited memory",
-			"Game supported globally",
-			"Unlimited cores",
-			"24/7 support available",
+			<>
+				<span className="font-weight--700">Shared</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">512MB</span> Memory
+			</>,
 		],
 	},
 ]
