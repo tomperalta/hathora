@@ -10,8 +10,7 @@ import Container from "components/container/"
 import Slider from "react-slick"
 
 // Icon Arrow
-import { ReactComponent as ArrowLeft } from "assets/icons/icon-arrow-left.svg"
-import { ReactComponent as ArrowRight } from "assets/icons/icon-arrow-right.svg"
+import ArrowRight from "assets/icons/icon-arrow-left.svg"
 
 // Icons Engine
 import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
@@ -54,6 +53,28 @@ const StyledClients = styled.section`
 		max-width: 1100px;
 		padding: 0;
 	}
+
+	.slick-arrow {
+		width: 32px;
+		height: 32px;
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+
+		&::before {
+			width: 32px;
+			height: 32px;
+			content: url(${ArrowRight});
+			transform: rotate(180deg);
+			opacity: 1;
+		}
+
+		&.slick-prev {
+			&::before {
+				transform: rotate(360deg);
+			}
+		}
+	}
 `
 
 const Clients = () => {
@@ -62,10 +83,9 @@ const Clients = () => {
 		autoplaySpeed: 5000,
 		speed: 500,
 		infinite: true,
+		arrows: true,
 		dots: true,
 		pauseOnFocus: false,
-		nextArrow: <ArrowLeft />,
-		prevArrow: <ArrowRight />,
 	}
 	return (
 		<StyledClients>
