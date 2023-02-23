@@ -8,11 +8,13 @@ import SEO from "components/seo"
 import Plans from "components/pricing/plans"
 import PricingPerMatch from "components/pricing/pricing-per-match"
 import GetInTouch from "components/pricing/get-in-touch"
+import Features from "components/pricing/features"
 
 const Pricing = () => (
 	<PrimaryLayout>
 		<SEO title="Pricing" />
 		<Plans />
+		<Features />
 		<PricingPerMatch />
 		<GetInTouch />
 	</PrimaryLayout>
