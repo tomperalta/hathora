@@ -74,12 +74,12 @@ const StyledPricingPerMatch = styled.section`
 			scroll-snap-align: start;
 
 			${breakpoint.small`
-        width: 33.33%;
-        padding: 0 0 0 16px;
+        width: calc((100% - 64px) / 3);
       `}
 
 			${breakpoint.medium`
-        width: 16.66%;
+          width: 16.66%;
+          padding: 0 0 0 16px;
 
         &:first-child {
           width: 25%;
