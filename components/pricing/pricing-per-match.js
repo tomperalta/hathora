@@ -71,7 +71,7 @@ const StyledPricingPerMatch = styled.section`
 			border-radius: 16px;
 			text-align: center;
 			overflow: hidden;
-			scroll-snap-align: start;
+			scroll-snap-align: center;
 
 			${breakpoint.small`
         width: calc((100% - 64px) / 3);

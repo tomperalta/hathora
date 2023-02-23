@@ -155,8 +155,9 @@ const Plans = () => {
 					))}
 				</div>
 
-				<p className="text--m text-center color--grey__400 font-weight--700">
-					All plans have an additional cost of $0.12 egress bandwidth/GB
+				<p className="text--m text-center color--grey__400">
+					All plans have an additional cost of{" "}
+					<span className="font-weight--700">$0.12</span> egress bandwidth/GB
 				</p>
 			</Container>
 		</StyledPlans>
