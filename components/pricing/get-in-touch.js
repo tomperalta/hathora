@@ -17,6 +17,10 @@ import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 const StyledGetInTouch = styled.section`
 	padding: 104px 0 156px 0;
 
+	${breakpoint.medium`
+    padding: 120px 0;
+  `}
+
 	.col-12 {
 		margin-bottom: 32px;
 
