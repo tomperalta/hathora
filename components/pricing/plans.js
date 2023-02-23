@@ -87,6 +87,11 @@ const StyledPlans = styled.section`
         transform: rotate(0deg);
       }
     `}
+
+    .price {
+			font-size: 3rem;
+			line-height: 4rem;
+		}
 	}
 `
 
@@ -122,12 +127,18 @@ const Plans = () => {
 				<div className="plans d-flex flex-wrap mb-3 bg--grey__600">
 					{plans.map((plan) => (
 						<div className="plan">
-							<p className="text--l mb--2 color--purple__500 font-weight--600">
+							<p className="text--l mb-2 color--purple__500 font-weight--600">
 								{plan.name}
 							</p>
-							<p className="mb--2" style={{ whiteSpace: "nowrap" }}>
-								<span className="text--m font-weight--700">$</span>
-								<span className="heading--m ms-1">{plan.price}</span>
+
+							<p className="mb-2" style={{ whiteSpace: "nowrap" }}>
+								<span
+									className="text--m font-weight--700"
+									style={{ position: "relative", top: "-4px" }}
+								>
+									$
+								</span>
+								<span className="price mx-1">{plan.price}</span>
 								<span
 									className="text--s font-weight--500"
 									style={{ position: "relative", top: "-4px" }}
