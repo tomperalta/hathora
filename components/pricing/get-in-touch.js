@@ -15,10 +15,10 @@ import Button from "components/button"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledGetInTouch = styled.section`
-	padding: 104px 0 156px 0;
+	padding-bottom: 156px;
 
 	${breakpoint.medium`
-    padding: 120px 0;
+    padding-bottom: 120px;
   `}
 
 	.col-12 {
