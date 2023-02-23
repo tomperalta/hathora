@@ -62,7 +62,7 @@ const StyledPricingPerMatch = styled.section`
 
 		.column {
 			flex-shrink: 0;
-			width: 100%;
+			width: 90%;
 			position: relative;
 			display: flex;
 			flex-direction: column;
