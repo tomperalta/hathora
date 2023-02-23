@@ -14,7 +14,12 @@ import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
 
 const StyledFeatures = styled.section`
 	.title {
+		margin-bottom: 64px;
 		text-align: center;
+
+		${breakpoint.medium`
+      margin-bottom: 0;
+    `}
 	}
 
 	.columns {
@@ -29,9 +34,11 @@ const StyledFeatures = styled.section`
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
+		margin-bottom: 24px;
 
 		${breakpoint.medium`
       width: calc((100% - 56px) / 2);
+      margin-bottom: 0;
     `}
 	}
 
