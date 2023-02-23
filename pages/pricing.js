@@ -6,11 +6,13 @@ import PrimaryLayout from "layouts/layout-primary"
 // Components
 import SEO from "components/seo"
 import Plans from "components/pricing/plans"
+import PricingPerMatch from "components/pricing/pricing-per-match"
 
 const Pricing = () => (
 	<PrimaryLayout>
 		<SEO title="Pricing" />
 		<Plans />
+		<PricingPerMatch />
 	</PrimaryLayout>
 )
 

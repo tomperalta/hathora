@@ -60,10 +60,10 @@ export const plans = [
 		price: "0.08",
 		features: [
 			<>
-				<span className="font-weight--700">Shared</span> Core
+				<span className="font-weight--700">1</span> Core
 			</>,
 			<>
-				<span className="font-weight--700">512MB</span> Memory
+				<span className="font-weight--700">2GB</span> Memory
 			</>,
 		],
 	},
@@ -72,10 +72,10 @@ export const plans = [
 		price: "0.16",
 		features: [
 			<>
-				<span className="font-weight--700">Shared</span> Core
+				<span className="font-weight--700">2</span> Cores
 			</>,
 			<>
-				<span className="font-weight--700">512MB</span> Memory
+				<span className="font-weight--700">4GB</span> Memory
 			</>,
 		],
 	},
@@ -84,11 +84,110 @@ export const plans = [
 		price: "0.32",
 		features: [
 			<>
-				<span className="font-weight--700">Shared</span> Core
+				<span className="font-weight--700">4</span> Cores
 			</>,
 			<>
-				<span className="font-weight--700">512MB</span> Memory
+				<span className="font-weight--700">8GB</span> Memory
 			</>,
+		],
+	},
+]
+
+export const pricesPerMatch = [
+	{
+		title: "Turn-based",
+		description: "(low CPU, low bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Tiny",
+			},
+			{
+				key: "Match Length (minutes)",
+				value: "15",
+			},
+			{
+				key: "Matches per Container",
+				value: "100",
+			},
+			{
+				key: "Bandwidth per Match (MB)",
+				value: "1",
+			},
+		],
+		prices: [
+			{
+				key: "Average Price per Match",
+				value: "$0.00024",
+			},
+			{
+				key: "$200 Credit Gets You",
+				value: "833k Matches",
+			},
+		],
+	},
+	{
+		title: "RTS",
+		description: "(low CPU, high bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Small",
+			},
+			{
+				key: "Match Length (minutes)",
+				value: "45",
+			},
+			{
+				key: "Matches per Container",
+				value: "10",
+			},
+			{
+				key: "Bandwidth per Match (MB)",
+				value: "100",
+			},
+		],
+		prices: [
+			{
+				key: "Average Price per Match",
+				value: "$0.02",
+			},
+			{
+				key: "$200 Credit Gets You",
+				value: "10k Matches",
+			},
+		],
+	},
+	{
+		title: "FPS",
+		description: "(high CPU, high bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Medium",
+			},
+			{
+				key: "Match Length (minutes)",
+				value: "20",
+			},
+			{
+				key: "Matches per Container",
+				value: "1",
+			},
+			{
+				key: "Bandwidth per Match (MB)",
+				value: "200",
+			},
+		],
+		prices: [
+			{
+				key: "Average Price per Match",
+				value: "$0.08",
+			},
+			{
+				key: "$200 Credit Gets You",
+				value: "2k Matches",
+			},
 		],
 	},
 ]
