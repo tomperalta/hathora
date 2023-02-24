@@ -128,15 +128,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Deploy</span> on{" "}
-				<a
-					href="https://docs.hathora.dev/#/cloud/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora Cloud
-				</a>{" "}
-				in minutes with minimal configuration
+				<span className="font-weight--700">Deploy</span> on Hathora Cloud in
+				minutes with minimal configuration
 			</span>
 		),
 	},
