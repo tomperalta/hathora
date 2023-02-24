@@ -115,23 +115,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Enable online multiplayer</span>{" "}
-				using the{" "}
-				<a
-					href="https://docs.hathora.dev/#/buildkit/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora BuildKits
-				</a>{" "}
-				or the{" "}
-				<a
-					href="https://docs.hathora.dev/#/builder/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora Builder
-				</a>
+				<span className="font-weight--700">Dockerize </span>
+				game server code
 			</span>
 		),
 	},
@@ -143,7 +128,7 @@ const steps = [
 		},
 		description: (
 			<span>
-				Deploy on{" "}
+				<span className="font-weight--700">Deploy</span> on{" "}
 				<a
 					href="https://docs.hathora.dev/#/cloud/README"
 					target="_blank"
@@ -151,7 +136,7 @@ const steps = [
 				>
 					Hathora Cloud
 				</a>{" "}
-				with a single command
+				in minutes with minimal configuration
 			</span>
 		),
 	},
@@ -163,8 +148,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Scale globally</span> without
-				additional work
+				<span className="font-weight--700">Scale</span> game sessions globally
+				on-demand
 			</span>
 		),
 	},
@@ -176,8 +161,7 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Ship changes</span> with no downtime
-				using blue-green rolling updates
+				<span className="font-weight--700">Ship</span> updates with no downtime
 			</span>
 		),
 	},
@@ -189,7 +173,7 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Track usage</span> and system metrics
+				<span className="font-weight--700">Track</span> usage & system metrics
 			</span>
 		),
 	},
