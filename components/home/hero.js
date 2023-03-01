@@ -5,8 +5,8 @@ import styled from "styled-components"
 import Lottie from "react-lottie"
 
 // Redux
-import { useDispatch } from "react-redux"
-import { openSignUpModal } from "redux/slices/sign-up-modal"
+// import { useDispatch } from "react-redux"
+// import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -76,7 +76,7 @@ const Hero = () => {
 	/**
 	 * Hooks
 	 */
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
 	/**
 	 * Animation options
@@ -114,9 +114,9 @@ const Hero = () => {
 								<Button
 									type="button"
 									theme="gradient"
-									onClick={() => dispatch(openSignUpModal("Home's Hero"))}
+									// onClick={() => dispatch(openSignUpModal("Home's Hero"))}
 								>
-									Sign Up
+									<a href="https://console.hathora.dev/login">Sing Up</a>
 								</Button>
 
 								<Button
