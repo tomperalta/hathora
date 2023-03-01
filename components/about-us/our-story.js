@@ -39,18 +39,18 @@ const StyledOurStory = styled.section`
 	}
 
 	.founders {
-		margin: 48px 0;
-
 		${breakpoint.medium`
-			margin: 64px 0;
+			margin: 12px 0 12px 0;
 		`}
 
 		.founder {
 			&:last-of-type {
 				margin-top: 32px;
+				margin-bottom: 48px;
 
 				${breakpoint.medium`
 					margin-top: 0;
+					margin-bottom: 48px;
 				`}
 			}
 		}
@@ -92,6 +92,28 @@ const OurStory = () => {
 			name: "Taruni Paleru",
 			rol: "Product Manager",
 		},
+		{
+			image: (
+				<Image
+					src={HarshPandey}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
+			name: "Justin Chu",
+			rol: "Software Engineer",
+		},
+		{
+			image: (
+				<Image
+					src={HarshPandey}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
+			name: "George Price",
+			rol: "Software Engineer",
+		},
 	]
 	return (
 		<StyledOurStory>
@@ -113,9 +135,9 @@ const OurStory = () => {
 							</p>
 						</div>
 
-						<div className="row justify-content-center founders">
+						<div className="row justify-content-start justify-content-md-center founders">
 							{founders.map((founder) => (
-								<div className="col-6 col-md-4 founder">
+								<div className="col-6 col-md-4 founder mt-5">
 									<div className="text-center">
 										{founder.image}
 										<p className="text--s color--purple__500 font-weight--700 mt-2">
