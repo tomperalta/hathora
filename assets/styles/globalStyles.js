@@ -103,7 +103,7 @@ export default createGlobalStyle`
         margin-left: auto;
         background-image: url('${IconDottedSeparator}');
         background-repeat: no-repeat;
-        background-size: auto 100%;
+        background-size: 100% auto;
         background-position: center;
 
       }
