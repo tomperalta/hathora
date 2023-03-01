@@ -10,6 +10,7 @@ import Container from "components/container"
 // Images
 import FoundersImage from "../../assets/images/about-us/founders.svg"
 import LunarVenturesImage from "../../assets/images/about-us/lunar-ventures.svg"
+import Upfront from "../../assets/images/about-us/upfront.svg"
 
 const StyledBackedBy = styled.section`
 	padding: 32px 0;
@@ -25,27 +26,23 @@ const StyledBackedBy = styled.section`
 const BackedBy = () => (
 	<StyledBackedBy>
 		<Container>
-			<div className="row text-center">
-				<h2 className="heading--s dotted-separator font-weight--500">
-					Backed by
-				</h2>
-				<div className="d-flex justify-content-center">
-					<div className="image">
-						<Image
-							src={FoundersImage}
-							alt="Backed by"
-							width="180"
-							height="180"
-						/>
-					</div>
-					<div>
-						<Image
-							src={LunarVenturesImage}
-							alt="Backed by"
-							width="180"
-							height="180"
-						/>
-					</div>
+			<h2 className="heading--s dotted-separator font-weight--500 text-center">
+				Backed by
+			</h2>
+			<div className="row d-flex justify-content-center">
+				<div className="col-12 col-md-2">
+					<Image src={Upfront} alt="Backed by" width="180" height="180" />
+				</div>
+				<div className="col-12 col-md-2">
+					<Image src={FoundersImage} alt="Backed by" width="180" height="180" />
+				</div>
+				<div className="col-12 col-md-2">
+					<Image
+						src={LunarVenturesImage}
+						alt="Backed by"
+						width="180"
+						height="180"
+					/>
 				</div>
 			</div>
 		</Container>
