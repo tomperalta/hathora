@@ -111,11 +111,12 @@ const Plans = () => {
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8 text-center">
 						<h1 className="heading--l mb-3 mb-md-4">
-							Go global with all one price
+							Go global with one price
 						</h1>
 
 						<p className="text--l" style={{ marginBottom: "32px" }}>
-							Stop paying to run your servers 24/7.
+							Stop paying to run your servers 24/7 and take advantage of
+							Hathora's dynamic compute scheduling.
 						</p>
 
 						<Button type="link" theme="gradient" href="/">
@@ -156,8 +157,8 @@ const Plans = () => {
 				</div>
 
 				<p className="text--m text-center color--grey__400">
-					All plans have an additional cost of{" "}
-					<span className="font-weight--700">$0.12</span> egress bandwidth/GB
+					AAll plans have a flat cost of{" "}
+					<span className="font-weight--700">$0.12</span> for egress bandwidth
 				</p>
 			</Container>
 		</StyledPlans>
