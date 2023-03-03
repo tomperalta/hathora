@@ -157,7 +157,7 @@ const Plans = () => {
 				</div>
 
 				<p className="text--m text-center color--grey__400">
-					AAll plans have a flat cost of{" "}
+					All plans have a flat cost of{" "}
 					<span className="font-weight--700">$0.12</span> for egress bandwidth
 				</p>
 			</Container>
