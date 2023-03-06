@@ -128,8 +128,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Deploy</span> on Hathora Cloud in
-				minutes with minimal configuration
+				<span className="font-weight--700">Deploy</span> game servers with
+				minimal configuration. We take your server code as-is
 			</span>
 		),
 	},
@@ -141,8 +141,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Scale</span> game sessions globally
-				on-demand
+				<span className="font-weight--700">Integrate</span> client to scale game
+				sessions globally on-demand
 			</span>
 		),
 	},
@@ -154,7 +154,8 @@ const steps = [
 		},
 		description: (
 			<span>
-				<span className="font-weight--700">Ship</span> updates with no downtime
+				<span className="font-weight--700">Monitor</span> usage and system
+				metrics. Observability made developer friendly
 			</span>
 		),
 	},

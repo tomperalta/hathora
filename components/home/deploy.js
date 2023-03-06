@@ -33,7 +33,7 @@ const Deploy = () => (
 				<div className="col-12 col-md-8">
 					<div className="deploy__heading">
 						<h2 className="heading--m dotted-separator text-center font-weigth--500">
-							Get your game online in just a few simple steps
+							Multiplayer hosting simplified with Hathora Cloud
 						</h2>
 					</div>
 				</div>
