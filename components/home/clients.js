@@ -17,7 +17,7 @@ import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
 import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
-import { ReactComponent as Bety } from "assets/icons/home/clients/bevy.svg"
+import { ReactComponent as Bety } from "assets/icons/home/clients/bety.svg"
 
 // Icons Platform
 import { ReactComponent as Apple } from "assets/icons/home/clients/apple.svg"
@@ -104,8 +104,8 @@ const Clients = () => {
 							<div className="col-12 col-md-2 mb-5 mb-md-0">
 								<Unreal />
 							</div>
-							<div className="col-12 col-md-2 mb-5 mb-md-0">
-								<Bety />
+							<div className="col-12 col-md-2">
+								<Godot />
 							</div>
 							<div className="col-12 col-md-3 mb-5 mb-md-0">
 								<a
@@ -116,9 +116,8 @@ const Clients = () => {
 									<Phaser />
 								</a>
 							</div>
-
-							<div className="col-12 col-md-2">
-								<Godot />
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<Bety />
 							</div>
 						</div>
 					</div>
@@ -131,22 +130,22 @@ const Clients = () => {
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-2">
-								<Windows />
-							</div>
-							<div className="col-12 col-md-1">
-								<Brand />
-							</div>
-							<div className="col-12 col-md-2">
 								<Consols />
 							</div>
-							<div className="col-12 col-md-1">
-								<Apple />
+							<div className="col-12 col-md-3">
+								<Oculus />
 							</div>
 							<div className="col-12 col-md-1">
 								<Android />
 							</div>
-							<div className="col-12 col-md-3">
-								<Oculus />
+							<div className="col-12 col-md-1">
+								<Apple />
+							</div>
+							<div className="col-12 col-md-2">
+								<Windows />
+							</div>
+							<div className="col-12 col-md-1">
+								<Brand />
 							</div>
 						</div>
 					</div>
