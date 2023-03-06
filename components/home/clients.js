@@ -17,7 +17,7 @@ import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
 import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
-import { ReactComponent as Bety } from "assets/icons/home/clients/bety.svg"
+import { ReactComponent as Bety } from "assets/icons/home/clients/bevy.svg"
 
 // Icons Platform
 import { ReactComponent as Apple } from "assets/icons/home/clients/apple.svg"
