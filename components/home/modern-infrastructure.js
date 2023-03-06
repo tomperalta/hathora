@@ -93,8 +93,8 @@ const ModernInfrastructure = () => {
 	const data = [
 		{
 			title: "FAST",
-			subtitle: "Optimized Edge Compute",
-			text: "We schedule game servers close to your users and direct traffic on our optimized global network.",
+			subtitle: "Cutting Edge Performance",
+			text: "Player traffic is routed on our private edge network to globally distributed game servers running latest generation hardware.",
 			animation: Animation1,
 			cta: {
 				theme: "borderless",
@@ -106,7 +106,7 @@ const ModernInfrastructure = () => {
 		{
 			title: "SIMPLE",
 			subtitle: "Easy Deployment and Operation",
-			text: "Single command deployment, global coverage, automatic Blue-Green updates, and built-in analytics.",
+			text: "Single command deployment with global coverage, zero-downtime game server upgrades, built-in monitoring and analytics.",
 			animation: Animation2,
 			cta: {
 				theme: "borderless",
@@ -118,7 +118,7 @@ const ModernInfrastructure = () => {
 		{
 			title: "SCALABLE",
 			subtitle: "Elastic Compute Scheduling",
-			text: "Dynamic server provisioning to meet player demand.  Only pay for running sessions, no idle costs.",
+			text: "Rapid server provisioning to handle massive demand spikes. Automatic spin down of idle servers to minimize resource waste.",
 			animation: Animation3,
 		},
 	]
