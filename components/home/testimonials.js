@@ -129,7 +129,7 @@ const Testimonials = () => {
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">
 						<h2 className="heading--m font-weight--500 text-center dotted-separator">
-							What game developers are saying about Hathora
+							We handle the infrastructure so you can focus on your game
 						</h2>
 					</div>
 
