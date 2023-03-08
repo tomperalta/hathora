@@ -103,11 +103,11 @@ export const pricesPerMatch = [
 				value: "Tiny",
 			},
 			{
-				key: "Game Length (minutes)",
+				key: "Match Length (minutes)",
 				value: "15",
 			},
 			{
-				key: "Games per Process",
+				key: "Matches per Container",
 				value: "100",
 			},
 			{
@@ -117,7 +117,7 @@ export const pricesPerMatch = [
 		],
 		prices: [
 			{
-				key: "Total Price per game",
+				key: "Average Price per Match",
 				value: "$0.0002",
 			},
 			{

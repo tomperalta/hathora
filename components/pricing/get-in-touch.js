@@ -57,7 +57,7 @@ const GetInTouch = () => {
 		{
 			title: "For Enterprises",
 			description:
-				"Need more flexibility? We offer specialized plans to meet your needs.",
+				"Need more flexibility or dedicated support? We offer specialized plans to meet your needs.",
 			url: "https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m",
 		},
 		{

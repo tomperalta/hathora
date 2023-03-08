@@ -8,6 +8,7 @@ import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container/"
+import Link from "next/link"
 
 // Icons
 import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
@@ -20,6 +21,10 @@ const StyledFeatures = styled.section`
 		${breakpoint.medium`
       margin-bottom: 0;
     `}
+
+		a {
+			text-decoration: underline;
+		}
 	}
 
 	.columns {
@@ -77,10 +82,15 @@ const Features = () => {
 					<div className="col-12 col-md-3">
 						<div className="title">
 							<h2 className="heading--s dotted-separator">Included Features</h2>
+							<span className="color--green__500 d-none d-md-block mt-3">
+								<Link href="https://docs.hathora.dev/#/">
+									Details and Limits
+								</Link>
+							</span>
 						</div>
 					</div>
 
-					<div className="columns col-12 col-md-9 d-flex flex-wrap flex-md-nowrap">
+					<div className="columns col-12 col-md-9 d-flex flex-column flex-md-row flex-wrap flex-md-nowrap">
 						{Object.values(data).map((column) => (
 							<ul className="column">
 								{column.map((feature) => (
@@ -92,6 +102,9 @@ const Features = () => {
 								))}
 							</ul>
 						))}
+						<span className="color--green__500 mt-3 d-md-none">
+							<Link href="https://docs.hathora.dev/#/">Details and Limits</Link>
+						</span>
 					</div>
 				</div>
 			</Container>

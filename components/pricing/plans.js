@@ -115,8 +115,8 @@ const Plans = () => {
 						</h1>
 
 						<p className="text--l" style={{ marginBottom: "32px" }}>
-							Stop paying to run your servers 24/7 and take advantage of
-							Hathora's dynamic compute scheduling.
+							Hathora's dynamic compute scheduling means you can stop paying to
+							run your servers 24/7
 						</p>
 
 						<Button type="link" theme="gradient" href="/">

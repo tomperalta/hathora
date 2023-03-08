@@ -22,9 +22,17 @@ const StyledPricingPerMatch = styled.section`
 		}
 	}
 
+	.price-per-match-title {
+		margin-top: 48px;
+
+		${breakpoint.medium`
+			margin-top: 98px;
+		`}
+	}
+
 	.table {
 		display: flex;
-		margin: 96px 0 40px 0;
+		margin: 40px 0 40px 0;
 		gap: 24px;
 		scroll-snap-type: x mandatory;
 		overflow-x: auto;
@@ -171,13 +179,13 @@ const PricingPerMatch = () => (
 					</h2>
 
 					<p className="text--l">
-						The price of a match depends on how long it lasts and how much data
-						it emits. Here are some sample calculations to help estimate the
-						cost for your game:
+						A match’s price depends on its length and bandwidth consumption.
 					</p>
 				</div>
 			</div>
-
+			<p className="text-center text--l color--grey__400 price-per-match-title">
+				Cost estimates for sample game types:
+			</p>
 			<div className="table justify-content-between">
 				<div className="column d-none d-md-flex flex-column justify-content-end">
 					{pricesPerMatch[0].features.map((plan) => (
