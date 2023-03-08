@@ -388,31 +388,8 @@ const Menu = () => {
 		{
 			label: "Community",
 			url: "/community",
+			external: true,
 		},
-		// {
-		// 	label: "Integrations",
-		// 	links: [
-		// 		{
-		// 			label: "Phaser",
-		// 			url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
-		// 		},
-		// 		{
-		// 			label: "Unity",
-		// 			url: "/integrations/unity",
-		// 			disabled: true,
-		// 		},
-		// 		{
-		// 			label: "Unreal",
-		// 			url: "/integrations/unreal",
-		// 			disabled: true,
-		// 		},
-		// 		{
-		// 			label: "Godot",
-		// 			url: "/integrations/godot",
-		// 			disabled: true,
-		// 		},
-		// 	],
-		// },
 		{
 			label: "Docs",
 			url: "https://docs.hathora.dev/#/",
