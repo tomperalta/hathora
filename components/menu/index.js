@@ -387,7 +387,7 @@ const Menu = () => {
 		},
 		{
 			label: "Community",
-			url: "/community",
+			url: "https://community.hathora.dev",
 			external: true,
 		},
 		{
