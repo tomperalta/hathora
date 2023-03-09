@@ -127,6 +127,7 @@ const ModernInfrastructure = () => {
 		<StyledModernInfrastructure
 			className="home__our-platform"
 			data-aos-offset="400"
+			id="modern-infrastructure"
 		>
 			<Container>
 				<div className="row justify-content-center">

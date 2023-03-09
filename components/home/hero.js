@@ -1,7 +1,7 @@
 import React from "react"
 
 // Libraries
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Lottie from "react-lottie"
 
 // Redux
@@ -10,6 +10,7 @@ import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
 
 // Components
 import Container from "components/container/"
@@ -21,6 +22,23 @@ import HeroAnimation from "assets/animations/home/hero-animation.json"
 // Icons
 // import { ReactComponent as IconHero } from "assets/icons/home/icon-hero.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+import { ReactComponent as IconChevronDown } from "assets/icons/about-us/icon-chevron-down.svg"
+
+const animation = keyframes`
+  0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+`
 
 const StyledHero = styled.section`
 	min-height: 100vh;
@@ -31,9 +49,11 @@ const StyledHero = styled.section`
 
 	.hero__buttons {
 		margin-top: 32px;
+		margin-bottom: 52px;
 
 		${breakpoint.medium`
       margin-top: 56px;
+			margin-bottom: 56px;
     `}
 
 		button {
@@ -70,6 +90,44 @@ const StyledHero = styled.section`
 			height: 100%;
 		}
 	}
+
+	.hero__scroll-down-button {
+		width: 24px;
+		height: 40px;
+		position: absolute;
+		right: 0;
+		bottom: 48px;
+		left: 0;
+		margin: auto;
+
+		svg {
+			position: relative;
+			animation: ${animation} 2s infinite;
+
+			&:nth-child(1) {
+				opacity: 0.3;
+
+				* {
+					fill: ${colors.purple__500};
+				}
+			}
+
+			&:nth-child(2) {
+				top: -20px;
+				opacity: 0.5;
+				animation-delay: -0.2s;
+
+				* {
+					fill: ${colors.green__400};
+				}
+			}
+
+			&:nth-child(3) {
+				top: -40px;
+				animation-delay: -0.4s;
+			}
+		}
+	}
 `
 
 const Hero = () => {
@@ -84,6 +142,16 @@ const Hero = () => {
 	const animationOptions = {
 		loop: true,
 		animationData: HeroAnimation,
+	}
+
+	const handleClick = () => {
+		const missionSection = document.getElementById("modern-infrastructure")
+
+		if (missionSection) {
+			missionSection.scrollIntoView({
+				behavior: "smooth",
+			})
+		}
 	}
 
 	return (
@@ -132,6 +200,15 @@ const Hero = () => {
 						</div>
 					</div>
 				</div>
+				<button
+					type="button"
+					className="hero__scroll-down-button mt-5"
+					onClick={handleClick}
+				>
+					<IconChevronDown />
+					<IconChevronDown />
+					<IconChevronDown />
+				</button>
 			</Container>
 		</StyledHero>
 	)
