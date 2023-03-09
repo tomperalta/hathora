@@ -111,18 +111,18 @@ export const pricesPerMatch = [
 				value: "100",
 			},
 			{
-				key: "Bandwidth per Match (MB)",
+				key: "Bandwidth per game (MB)",
 				value: "1",
 			},
 		],
 		prices: [
 			{
 				key: "Average Price per Match",
-				value: "$0.00024",
+				value: "$0.0002",
 			},
 			{
-				key: "$200 Credit Gets You",
-				value: "833k Matches",
+				key: "$500 Credit Gets You",
+				value: "2.3m Matches",
 			},
 		],
 	},
@@ -135,26 +135,26 @@ export const pricesPerMatch = [
 				value: "Small",
 			},
 			{
-				key: "Match Length (minutes)",
+				key: "Game Length (minutes)",
 				value: "45",
 			},
 			{
-				key: "Matches per Container",
+				key: "Games per Process",
 				value: "10",
 			},
 			{
-				key: "Bandwidth per Match (MB)",
+				key: "Bandwidth per game (MB)",
 				value: "100",
 			},
 		],
 		prices: [
 			{
-				key: "Average Price per Match",
+				key: "Total Price per game",
 				value: "$0.02",
 			},
 			{
-				key: "$200 Credit Gets You",
-				value: "10k Matches",
+				key: "$500 Credit Gets You",
+				value: "28k Matches",
 			},
 		],
 	},
@@ -167,26 +167,26 @@ export const pricesPerMatch = [
 				value: "Medium",
 			},
 			{
-				key: "Match Length (minutes)",
+				key: "Game Length (minutes)",
 				value: "20",
 			},
 			{
-				key: "Matches per Container",
+				key: "Games per Process",
 				value: "1",
 			},
 			{
-				key: "Bandwidth per Match (MB)",
+				key: "Bandwidth per game (MB)",
 				value: "200",
 			},
 		],
 		prices: [
 			{
-				key: "Average Price per Match",
+				key: "Total Price per game",
 				value: "$0.08",
 			},
 			{
-				key: "$200 Credit Gets You",
-				value: "2k Matches",
+				key: "$500 Credit Gets You",
+				value: "6.5k Matches",
 			},
 		],
 	},

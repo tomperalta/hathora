@@ -57,14 +57,14 @@ const GetInTouch = () => {
 		{
 			title: "For Enterprises",
 			description:
-				"Need more flexibility? We offer specialized plans to meet your needs.",
-			url: "/",
+				"Need more flexibility or dedicated support? We offer specialized plans to meet your needs.",
+			url: "https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m",
 		},
 		{
 			title: "For Students & Nonprofits",
 			description:
 				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits. ",
-			url: "/",
+			url: "https://share.hsforms.com/1lK839pmsRy2yXR2D7TSy2Adk67m",
 		},
 	]
 

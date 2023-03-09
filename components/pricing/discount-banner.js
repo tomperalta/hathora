@@ -48,7 +48,7 @@ const DiscountBanner = () => (
 		<Container>
 			<div className="card">
 				<h2 className="heading--s mb-2">
-					Get $200 in credit by signing-up today
+					Get $500 in credit by signing-up today
 				</h2>
 
 				<p className="text--xs">Credit valid for 24 months from sign up</p>
