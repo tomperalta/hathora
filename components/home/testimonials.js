@@ -113,7 +113,7 @@ const Testimonials = () => {
 		{
 			quote:
 				"The team at Hathora knows what it takes to create high quality infrastructure that scales across the globe, and I'm thrilled they're simplifying the path for more multiplayer games to successfully launch world-wide titles.",
-			author: "Brandi House",
+			author: "Brandi House, General Manager",
 			company: "ProbablyMonsters",
 		},
 		{
