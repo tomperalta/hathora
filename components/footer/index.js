@@ -160,6 +160,10 @@ const Footer = () => {
 					label: "Media Kit",
 					url: "/media-kit",
 				},
+				{
+					label: "Service Status",
+					url: "https://hathora.instatus.com/",
+				},
 			],
 		},
 	]
