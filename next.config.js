@@ -7,6 +7,18 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "assets/styles")],
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/docs",
+				destination: "https://hathora-docus.netlify.app/",
+			},
+			{
+				source: "/docs/:path*",
+				destination: "https://hathora-docus.netlify.app/:path*/",
+			},
+		]
+	},
 	webpack: (config, { dev }) => {
 		// ESLINT on `dev` mode:start
 		if (dev) {
