@@ -21,10 +21,6 @@ const StyledFeatures = styled.section`
 		${breakpoint.medium`
       margin-bottom: 0;
     `}
-
-		a {
-			text-decoration: underline;
-		}
 	}
 
 	.columns {
@@ -59,12 +55,19 @@ const StyledFeatures = styled.section`
 			margin-right: 8px;
 		}
 	}
+
+	.subtitle {
+		margin-top: 32px;
+		a {
+			text-decoration: underline;
+		}
+	}
 `
 
 const Features = () => {
 	const data = {
 		firstColumn: [
-			"Compute scheduling in 10+ regions",
+			"Compute scheduling in 8+ regions",
 			"Premium edge network for latency reduction",
 			"CI/CD with remote docker builder and global container registries",
 		],
@@ -82,14 +85,8 @@ const Features = () => {
 					<div className="col-12 col-md-3">
 						<div className="title">
 							<h2 className="heading--s dotted-separator">Included Features</h2>
-							<span className="color--green__500 d-none d-md-block mt-3">
-								<Link href="https://docs.hathora.dev/#/">
-									Details and Limits
-								</Link>
-							</span>
 						</div>
 					</div>
-
 					<div className="columns col-12 col-md-9 d-flex flex-column flex-md-row flex-wrap flex-md-nowrap">
 						{Object.values(data).map((column) => (
 							<ul className="column">
@@ -102,10 +99,17 @@ const Features = () => {
 								))}
 							</ul>
 						))}
-						<span className="color--green__500 mt-3 d-md-none">
+						{/* <span className="color--green__500 mt-3 d-md-none">
 							<Link href="https://docs.hathora.dev/#/">Details and Limits</Link>
-						</span>
+						</span> */}
 					</div>
+				</div>
+				<div className="subtitle text-center">
+					<span className="color--green__500 text-center">
+						<Link href="https://docs.hathora.dev/#/">
+							Details and Limits aca
+						</Link>
+					</span>
 				</div>
 			</Container>
 		</StyledFeatures>
