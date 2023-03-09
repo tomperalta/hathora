@@ -416,8 +416,7 @@ const Menu = () => {
 		},
 		{
 			label: "Docs",
-			url: "https://docs.hathora.dev/#/",
-			external: true,
+			url: "/docs",
 		},
 		{
 			label: "Blog",
