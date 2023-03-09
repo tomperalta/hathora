@@ -14,6 +14,7 @@ import { colors } from "utils/variables"
 
 // Components
 import Container from "components/container/"
+import Link from "next/link"
 // import Button from "components/button"
 
 const StyledFeatures = styled.section`
@@ -47,6 +48,10 @@ const StyledFeatures = styled.section`
       }
     `}
 
+		a {
+			text-decoration: underline;
+		}
+
 		.icon {
 			margin-bottom: 16px;
 			${breakpoint.large`
@@ -66,6 +71,21 @@ const Features = () => (
 						className="feature"
 						data-aos="fade-up"
 						data-aos-anchor=".home__features"
+						data-aos-delay="250"
+					>
+						<Check className="icon" />
+						<p className="text--s paragraph">
+							<span className="font-weight--700">Built by a team of </span>{" "}
+							<span className="font-weight--700 color--green__500 color-hover--purple__600">
+								<Link href="/about-us">infrastructure experts</Link>{" "}
+							</span>
+							who have overseen rapid growth at an enterprise scale.
+						</p>
+					</div>
+					<div
+						className="feature"
+						data-aos="fade-up"
+						data-aos-anchor=".home__features"
 					>
 						<Check className="icon" />
 						<p className="text--s paragraph">
@@ -74,21 +94,6 @@ const Features = () => (
 							</span>{" "}
 							from our team to help you get set up and respond to any questions
 							you may have.
-						</p>
-					</div>
-
-					<div
-						className="feature"
-						data-aos="fade-up"
-						data-aos-anchor=".home__features"
-						data-aos-delay="250"
-					>
-						<Check className="icon" />
-						<p className="text--s paragraph">
-							<span className="font-weight--700">
-								Built by a team of infrastructure experts
-							</span>{" "}
-							who have overseen rapid growth at an enterprise scale.
 						</p>
 					</div>
 				</div>
