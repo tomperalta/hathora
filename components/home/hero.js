@@ -5,8 +5,8 @@ import styled, { keyframes } from "styled-components"
 import Lottie from "react-lottie"
 
 // Redux
-import { useDispatch } from "react-redux"
-import { openSignUpModal } from "redux/slices/sign-up-modal"
+// import { useDispatch } from "react-redux"
+// import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -134,7 +134,7 @@ const Hero = () => {
 	/**
 	 * Hooks
 	 */
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
 	/**
 	 * Animation options
@@ -161,7 +161,7 @@ const Hero = () => {
 					<div className="col-12 col-sm-8 col-md-6">
 						<div className="text-sm-center text-md-start">
 							<h1 className="heading--l font-weight--500 mb-4">
-								Serverless cloud platform for multiplayer games
+								Serverless cloud hosting for multiplayer games
 							</h1>
 
 							<div
@@ -174,17 +174,16 @@ const Hero = () => {
 							</div>
 
 							<p className="text--l">
-								Seamlessly build, launch, and scale server authoritative game
-								backends
+								Seamlessly build, deploy, and scale game servers globally
 							</p>
 
 							<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
 								<Button
 									type="button"
 									theme="gradient"
-									onClick={() => dispatch(openSignUpModal("Home's Hero"))}
+									// onClick={() => dispatch(openSignUpModal("Home's Hero"))}
 								>
-									Sign Up
+									<a href="https://console.hathora.dev/login">Get Started</a>
 								</Button>
 
 								<Button

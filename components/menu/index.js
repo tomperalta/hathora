@@ -8,8 +8,8 @@ import { useRouter } from "next/router"
 import Image from "next/image"
 
 // Redux
-import { useDispatch } from "react-redux"
-import { openSignUpModal } from "redux/slices/sign-up-modal"
+// import { useDispatch } from "react-redux"
+// import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Components
 import Container from "components/container/"
@@ -315,7 +315,7 @@ const Menu = () => {
 	/**
 	 * Hooks
 	 */
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 	const ref = useRef()
 	const router = useRouter()
 	const currentRoute = router.pathname
@@ -601,12 +601,10 @@ const Menu = () => {
 					<div className="menu__toggler d-flex align-items-center">
 						<Button
 							type="button"
-							href="/sign-up"
 							theme="outline"
 							className="sign-up me-3 me-lg-0"
-							onClick={() => dispatch(openSignUpModal("Navigation"))}
 						>
-							Login
+							<a href="https://console.hathora.dev/login">Login</a>
 						</Button>
 
 						<button
