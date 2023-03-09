@@ -3,6 +3,7 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 import Lottie from "react-lottie"
+import Image from "next/image"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -13,7 +14,7 @@ import Container from "components/container"
 import Button from "components/button"
 
 // Animations
-import Animation3 from "assets/animations/home/our-platform/our-platform-animation-3.json"
+import Icon3 from "assets/animations/home/our-platform/our-platform-icon.svg"
 import Animation1 from "assets/animations/home/our-platform/our-platform-animation-1.json"
 import Animation2 from "assets/animations/home/our-platform/our-platform-animation-2.json"
 
@@ -87,6 +88,14 @@ const StyledModernInfrastructure = styled.section`
 	.text {
 		max-width: 440px;
 	}
+
+	.last-item{
+		margin-top: 100px;
+
+		${breakpoints.medium`
+			margin-top: 150px;
+		`}
+	}
 `
 
 const ModernInfrastructure = () => {
@@ -114,12 +123,6 @@ const ModernInfrastructure = () => {
 				href: "https://blog.hathora.dev/modern-cloud-for-multiplayer-games/",
 				external: true,
 			},
-		},
-		{
-			title: "SCALABLE",
-			subtitle: "Elastic Compute Scheduling",
-			text: "Dynamic server provisioning to meet player demand.  Only pay for running sessions, no idle costs.",
-			animation: Animation3,
 		},
 	]
 
@@ -189,6 +192,29 @@ const ModernInfrastructure = () => {
 									</div>
 								</div>
 							))}
+						</div>
+						<div className="last-item">
+							<div className="row align-items-center justify-content-center">
+								<div className="image col-12 col-md-5">
+									<Image src={Icon3} alt="Backed by" width="350" height="308" />
+								</div>
+
+								<div className="content col-12 col-md-4">
+									<div className="row">
+										<h2 className="text--xs color--green__500 font-weight--700 mb-2">
+											SCALABLE
+										</h2>
+										<h2 className="text--m font-weight--600 mb-2">
+											Elastic Compute Scheduling
+										</h2>
+										<p className="text text--s mb-3">
+											Rapid server provisioning to handle massive demand spikes.
+											Automatic spin down of idle servers to minimize resource
+											waste.
+										</p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
