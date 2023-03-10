@@ -100,7 +100,21 @@ const StyledFooter = styled.footer`
 
 		${breakpoint.medium`
       margin-top: 96px;
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-between;
     `}
+
+		a {
+			text-decoration: underline;
+			margin-top: 32px;
+
+			${breakpoint.medium`
+				margin-right: 16px;
+				margin-top: 0;
+			`}
+		}
 	}
 
 	.footer__shadow {
@@ -159,6 +173,10 @@ const Footer = () => {
 				{
 					label: "Media Kit",
 					url: "/media-kit",
+				},
+				{
+					label: "Service Status",
+					url: "https://hathora.instatus.com/",
 				},
 			],
 		},
@@ -251,14 +269,27 @@ const Footer = () => {
 						</p>
 					</div>
 
-					<div className="footer__copyright col-12 text-md-end">
-						<p className="text--xs color--grey__300 font-weight--500">
-							© Hathora {new Date().getFullYear()}
-						</p>
+					<div className="footer__copyright col-12">
+						<div>
+							<p className="text--xs color--grey__300 font-weight--500 text-md-end ">
+								© Hathora {new Date().getFullYear()}
+							</p>
+						</div>
+						<div className="d-flex flex-column flex-md-row">
+							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+								<Link href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5">
+									Term of Services
+								</Link>
+							</span>
+							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+								<Link href="https://bramble-slime-d3e.notion.site/Privacy-Policy-4ac5c1c8d434490298c0dbb3fb19b09f">
+									Privacy Policy
+								</Link>
+							</span>
+						</div>
 					</div>
 				</div>
 			</Container>
-
 			<div className="footer__shadow" />
 		</StyledFooter>
 	)
