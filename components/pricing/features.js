@@ -106,9 +106,7 @@ const Features = () => {
 				</div>
 				<div className="subtitle text-center">
 					<span className="color--green__500 text-center">
-						<Link href="https://docs.hathora.dev/#/">
-							Details and Limits aca
-						</Link>
+						<Link href="https://docs.hathora.dev/#/">Details and Limits</Link>
 					</span>
 				</div>
 			</Container>
