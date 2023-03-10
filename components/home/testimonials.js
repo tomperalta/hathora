@@ -107,20 +107,22 @@ const Testimonials = () => {
 		{
 			quote:
 				"Hathora’s focus on delivering top-end performance at scale empowers game studios like ours to build multiplayer experiences that meet or exceed the expectations of the modern online player base.",
-			author: "Tim Morten, Production Director & CEO",
-			company: "Frost Giant Studios",
+			author: "Tim Morten",
+			company:
+				"Production Director & CEO @ Frost Giant Studios, Former Production Director @ Blizzard Entertainmen",
 		},
 		{
 			quote:
 				"The team at Hathora knows what it takes to create high quality infrastructure that scales across the globe, and I'm thrilled they're simplifying the path for more multiplayer games to successfully launch world-wide titles.",
-			author: "Brandi House, General Manager",
-			company: "ProbablyMonsters",
+			author: "Brandi House",
+			company:
+				"General Manager @ ProbablyMonsters, Former Director of Product @ Unity",
 		},
 		{
 			quote:
 				"As the gaming industry shifts to ship games faster and with smaller teams, Hathora serves as the much-needed infrastructure partner to accelerate development and allow game studios to focus on the core game design and player experience.",
-			author: "Kevin Zhang, Partner",
-			company: "Upfront Ventures",
+			author: "Kevin Zhang",
+			company: "Partner @ Upfront Ventures",
 		},
 	]
 
