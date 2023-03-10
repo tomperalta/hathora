@@ -28,12 +28,9 @@ import { ReactComponent as Brand } from "assets/icons/home/clients/brand.svg"
 import { ReactComponent as Windows } from "assets/icons/home/clients/windows.svg"
 
 // Icons Game Type
-import { ReactComponent as AmongUs } from "assets/icons/home/clients/among-us.svg"
-import { ReactComponent as CallOfDuty } from "assets/icons/home/clients/call-of-duty.svg"
-import { ReactComponent as Fornite } from "assets/icons/home/clients/fornite.svg"
-import { ReactComponent as Dota } from "assets/icons/home/clients/dota-2.svg"
-import { ReactComponent as WordFriend } from "assets/icons/home/clients/word-with-friends.svg"
-import { ReactComponent as Chess } from "assets/icons/home/clients/chess.svg"
+import { ReactComponent as Illus1 } from "assets/icons/home/clients/illus-1.svg"
+import { ReactComponent as Illus2 } from "assets/icons/home/clients/illus-2.svg"
+import { ReactComponent as Illus3 } from "assets/icons/home/clients/illus-3.svg"
 
 const StyledClients = styled.section`
 	.clients__container {
@@ -50,8 +47,9 @@ const StyledClients = styled.section`
 		}
 	}
 	.section-brand {
-		max-width: 1100px;
+		max-width: 1200px;
 		padding: 0;
+		margin: 0 auto;
 	}
 
 	.slick-arrow {
@@ -157,34 +155,31 @@ const Clients = () => {
 								Any <span className="color--green__500">Game Type</span>
 							</h1>
 						</div>
-						<div className="d-none col-12 col-md-12 d-md-flex justify-content-around text-center mb-4">
-							<p className="text--m color--purple__500">REAL TIME</p>
-							<p className="text--m color--purple__500">TURN-BASED</p>
-						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
-							<div className="d-md-none text-center mb-4">
-								<p className="text--m color--purple__500">REAL TIME</p>
+							<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+								<div className="text-center mb-4">
+									<p className="text--m color--purple__500">SHOOTERS</p>
+								</div>
+								<div>
+									<Illus1 />
+								</div>
 							</div>
-							<div className="col-12 col-md-3 col-lg-2">
-								<CallOfDuty />
+
+							<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+								<div className=" text-center mb-4">
+									<p className="text--m color--purple__500">TURN-BASED</p>
+								</div>
+								<div>
+									<Illus2 />
+								</div>
 							</div>
-							<div className="col-12 col-md-1">
-								<Dota />
-							</div>
-							<div className="col-12 col-md-2">
-								<Fornite />
-							</div>
-							<div className="col-12 col-md-2">
-								<AmongUs />
-							</div>
-							<div className="d-md-none text-center mt-4 mb-4">
-								<p className="text--m color--purple__500">TURN-BASED</p>
-							</div>
-							<div className="col-12 col-md-3">
-								<WordFriend />
-							</div>
-							<div className="col-12 col-md-1 col-lg-2">
-								<Chess />
+							<div className="col-12 col-md-4 col-lg-3">
+								<div className="text-center mt-4 mb-4">
+									<p className="text--m color--purple__500">RTS/MOBA</p>
+								</div>
+								<div>
+									<Illus3 />
+								</div>
 							</div>
 						</div>
 					</div>
