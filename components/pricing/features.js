@@ -82,12 +82,12 @@ const Features = () => {
 	return (
 		<StyledFeatures>
 			<Container>
-				<div className="row align-items-center">
+				<div className="row align-items-start">
 					<div className="col-12 col-md-3">
 						<div className="title">
 							<h2 className="heading--s dotted-separator">
 								Included
-								<br className="d-sm-none" /> Features
+								<br /> Features
 							</h2>
 						</div>
 						<div className="subtitle text-center">
