@@ -15,12 +15,7 @@ import { ReactComponent as IconCheck } from "assets/icons/icon-check-circle.svg"
 
 const StyledFeatures = styled.section`
 	.title {
-		margin-bottom: 64px;
 		text-align: center;
-
-		${breakpoint.medium`
-      margin-bottom: 0;
-    `}
 	}
 
 	.columns {
@@ -57,7 +52,13 @@ const StyledFeatures = styled.section`
 	}
 
 	.subtitle {
-		margin-top: 32px;
+		margin-top: 4px;
+		margin-bottom: 64px;
+
+		${breakpoint.medium`
+			margin-bottom: 0;
+		`}
+
 		a {
 			text-decoration: underline;
 		}
@@ -84,7 +85,17 @@ const Features = () => {
 				<div className="row align-items-center">
 					<div className="col-12 col-md-3">
 						<div className="title">
-							<h2 className="heading--s dotted-separator">Included Features</h2>
+							<h2 className="heading--s dotted-separator">
+								Included
+								<br className="d-sm-none" /> Features
+							</h2>
+						</div>
+						<div className="subtitle text-center">
+							<span className="color--green__500 text-center color-hover--purple__500">
+								<Link href="https://docs.hathora.dev/#/">
+									Details and Limits
+								</Link>
+							</span>
 						</div>
 					</div>
 					<div className="columns col-12 col-md-9 d-flex flex-column flex-md-row flex-wrap flex-md-nowrap">
@@ -99,17 +110,7 @@ const Features = () => {
 								))}
 							</ul>
 						))}
-						{/* <span className="color--green__500 mt-3 d-md-none">
-							<Link href="https://docs.hathora.dev/#/">Details and Limits</Link>
-						</span> */}
 					</div>
-				</div>
-				<div className="subtitle text-center">
-					<span className="color--green__500 text-center">
-						<Link href="https://docs.hathora.dev/#/">
-							Details and Limits aca
-						</Link>
-					</span>
 				</div>
 			</Container>
 		</StyledFeatures>
