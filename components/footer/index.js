@@ -278,7 +278,7 @@ const Footer = () => {
 						<div className="d-flex flex-column flex-md-row">
 							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
 								<Link href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5">
-									Term of Services
+									Terms of Service
 								</Link>
 							</span>
 							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
