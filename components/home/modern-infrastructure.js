@@ -22,11 +22,6 @@ import Animation2 from "assets/animations/home/our-platform/our-platform-animati
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledModernInfrastructure = styled.section`
-	padding: 104px 0px;
-
-	${breakpoints.medium`
-	padding: 150px 0px;
-	`}
 
 	.items {
 		margin-top: 72px;
@@ -102,8 +97,8 @@ const ModernInfrastructure = () => {
 	const data = [
 		{
 			title: "FAST",
-			subtitle: "Cutting Edge Performance",
-			text: "Player traffic is routed on our private edge network to globally distributed game servers running latest generation hardware.",
+			subtitle: "Optimized Edge Compute",
+			text: "We schedule game servers close to your users and direct traffic on our optimized global network.",
 			animation: Animation1,
 			cta: {
 				theme: "borderless",
@@ -115,7 +110,7 @@ const ModernInfrastructure = () => {
 		{
 			title: "SIMPLE",
 			subtitle: "Easy Deployment and Operation",
-			text: "Single command deployment with global coverage, zero-downtime game server upgrades, built-in monitoring and analytics.",
+			text: "Single command deployment, global coverage, automatic Blue-Green updates, and built-in analytics.",
 			animation: Animation2,
 			cta: {
 				theme: "borderless",

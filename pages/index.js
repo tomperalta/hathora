@@ -26,7 +26,7 @@ import Clients from "components/home/clients"
 
 const StyledHome = styled.main`
 	> section {
-		padding: 96px 0;
+		padding: 96px 0 24px 0;
 
 		${breakpoint.medium`
       padding: 100px 0;

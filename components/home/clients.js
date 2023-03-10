@@ -47,7 +47,7 @@ const StyledClients = styled.section`
 		}
 	}
 	.section-brand {
-		max-width: 1200px;
+		max-width: 1100px;
 		padding: 0;
 		margin: 0 auto;
 	}

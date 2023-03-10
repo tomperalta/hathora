@@ -49,11 +49,9 @@ const StyledHero = styled.section`
 
 	.hero__buttons {
 		margin-top: 32px;
-		margin-bottom: 52px;
 
 		${breakpoint.medium`
       margin-top: 56px;
-			margin-bottom: 56px;
     `}
 
 		button {
@@ -201,7 +199,7 @@ const Hero = () => {
 				</div>
 				<button
 					type="button"
-					className="hero__scroll-down-button mt-5"
+					className="d-none d-md-block hero__scroll-down-button mt-5"
 					onClick={handleClick}
 				>
 					<IconChevronDown />
