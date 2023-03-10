@@ -130,6 +130,9 @@ const Clients = () => {
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-2">
+								<Brand />
+							</div>
+							<div className="col-12 col-md-2">
 								<Consols />
 							</div>
 							<div className="col-12 col-md-3">
@@ -143,9 +146,6 @@ const Clients = () => {
 							</div>
 							<div className="col-12 col-md-2">
 								<Windows />
-							</div>
-							<div className="col-12 col-md-1">
-								<Brand />
 							</div>
 						</div>
 					</div>
