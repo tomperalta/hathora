@@ -158,7 +158,7 @@ const Footer = () => {
 			links: [
 				{
 					label: "Community",
-					url: "/community",
+					url: "https://community.hathora.dev/",
 				},
 				{
 					label: "Docs",
@@ -201,11 +201,11 @@ const Footer = () => {
 
 						<div className="mb-md-4">
 							<a
-								href="mailto:hello@hathora.dev"
+								href="mailto:contact@hathora.dev"
 								className="text--s color--green__500 color-hover--purple__500 font-weight--500"
 								style={{ textDecoration: "underline" }}
 							>
-								hello@hathora.dev
+								contact@hathora.dev
 							</a>
 						</div>
 
@@ -230,7 +230,7 @@ const Footer = () => {
 														{link.label} (coming soon)
 													</button>
 												) : !link.external ? (
-													<Link href={link.url === "/pricing" ? "/" : link.url}>
+													<Link href={link.url}>
 														<a>{link.label}</a>
 													</Link>
 												) : (
@@ -277,14 +277,22 @@ const Footer = () => {
 						</div>
 						<div className="d-flex flex-column flex-md-row">
 							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
-								<Link href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5">
+								<a
+									href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									Terms of Service
-								</Link>
+								</a>
 							</span>
 							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
-								<Link href="https://bramble-slime-d3e.notion.site/Privacy-Policy-4ac5c1c8d434490298c0dbb3fb19b09f">
+								<a
+									href="https://bramble-slime-d3e.notion.site/Privacy-Policy-4ac5c1c8d434490298c0dbb3fb19b09f"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									Privacy Policy
-								</Link>
+								</a>
 							</span>
 						</div>
 					</div>
