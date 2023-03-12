@@ -174,7 +174,7 @@ const Clients = () => {
 								</div>
 							</div>
 							<div className="col-12 col-md-4 col-lg-3">
-								<div className="text-center mt-4 mb-4">
+								<div className="text-center mb-4">
 									<p className="text--m color--purple__500">RTS/MOBA</p>
 								</div>
 								<div>
