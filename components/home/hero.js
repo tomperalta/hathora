@@ -181,7 +181,7 @@ const Hero = () => {
 									theme="gradient"
 									// onClick={() => dispatch(openSignUpModal("Home's Hero"))}
 								>
-									<a href="https://console.hathora.dev/login">Get Started</a>
+									<a href="https://console.hathora.dev/">Get Started</a>
 								</Button>
 
 								<Button
