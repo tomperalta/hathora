@@ -88,28 +88,10 @@ const Testimonials = () => {
 	const data = [
 		{
 			quote:
-				"Hathora took away a lot of those ‘tech debt’ items—Figuring out how to scale my backend horizontally to the scale that would be needed if a game takes off.",
-			author: "Justin Chu",
-			company: "Mobo",
-		},
-		{
-			quote:
-				"Game developers who enjoy setting up backend infrastructure are rare (potentially just a myth). Hathora Cloud replaces all the hassles with a few commands that deploy your backend to a modern, scalable infrastructure in just a few minutes!",
-			author: "Tommy Leung",
-			company: "Ourcade",
-		},
-		{
-			quote:
-				"This is exactly the tool I need. It’s been really easy to get in; it’s really fast and easy to get prototypes mocked up and to start testing. It took all the pain and suffering out of development and made it fun again.",
-			author: "Justin Young",
-			company: "AtlasIED",
-		},
-		{
-			quote:
 				"Hathora’s focus on delivering top-end performance at scale empowers game studios like ours to build multiplayer experiences that meet or exceed the expectations of the modern online player base.",
 			author: "Tim Morten",
 			company:
-				"Production Director & CEO @ Frost Giant Studios, Former Production Director @ Blizzard Entertainmen",
+				"Production Director & CEO @ Frost Giant Studios, Former Production Director @ Blizzard Entertainment",
 		},
 		{
 			quote:
