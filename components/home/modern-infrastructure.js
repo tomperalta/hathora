@@ -97,8 +97,8 @@ const ModernInfrastructure = () => {
 	const data = [
 		{
 			title: "FAST",
-			subtitle: "Optimized Edge Compute",
-			text: "We schedule game servers close to your users and direct traffic on our optimized global network.",
+			subtitle: "Cutting Edge Performance",
+			text: "Player traffic is routed on our private edge network to globally distributed game servers running latest generation hardware.",
 			animation: Animation1,
 			cta: {
 				theme: "borderless",
@@ -110,7 +110,7 @@ const ModernInfrastructure = () => {
 		{
 			title: "SIMPLE",
 			subtitle: "Easy Deployment and Operation",
-			text: "Single command deployment, global coverage, automatic Blue-Green updates, and built-in analytics.",
+			text: "Single command deployment with global coverage, zero-downtime game server upgrades, built-in monitoring and analytics.",
 			animation: Animation2,
 			cta: {
 				theme: "borderless",
@@ -191,11 +191,11 @@ const ModernInfrastructure = () => {
 						</div>
 						<div className="last-item">
 							<div className="row align-items-center justify-content-center">
-								<div className="image col-12 col-md-5">
+								<div className="image col-12 col-md-4">
 									<Image src={Icon3} alt="Backed by" width="350" height="308" />
 								</div>
 
-								<div className="content col-12 col-md-4">
+								<div className="content col-12 col-md-5">
 									<div className="row">
 										<h2 className="text--xs color--green__500 font-weight--700 mb-2">
 											SCALABLE
