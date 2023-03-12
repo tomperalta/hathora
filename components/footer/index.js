@@ -158,7 +158,7 @@ const Footer = () => {
 			links: [
 				{
 					label: "Community",
-					url: "/community",
+					url: "https://community.hathora.dev/",
 				},
 				{
 					label: "Docs",
@@ -201,11 +201,11 @@ const Footer = () => {
 
 						<div className="mb-md-4">
 							<a
-								href="mailto:hello@hathora.dev"
+								href="mailto:contact@hathora.dev"
 								className="text--s color--green__500 color-hover--purple__500 font-weight--500"
 								style={{ textDecoration: "underline" }}
 							>
-								hello@hathora.dev
+								contact@hathora.dev
 							</a>
 						</div>
 
@@ -230,7 +230,7 @@ const Footer = () => {
 														{link.label} (coming soon)
 													</button>
 												) : !link.external ? (
-													<Link href={link.url === "/pricing" ? "/" : link.url}>
+													<Link href={link.url}>
 														<a>{link.label}</a>
 													</Link>
 												) : (
