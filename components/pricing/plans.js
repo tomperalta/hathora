@@ -119,7 +119,11 @@ const Plans = () => {
 							run your servers 24/7
 						</p>
 
-						<Button type="link" theme="gradient" href="/">
+						<Button
+							type="link"
+							theme="gradient"
+							href="https://console.hathora.dev/"
+						>
 							Get Started
 						</Button>
 					</div>
