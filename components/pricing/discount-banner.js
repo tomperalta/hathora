@@ -53,7 +53,12 @@ const DiscountBanner = () => (
 
 				<p className="text--xs">Credit valid for 24 months from sign up</p>
 
-				<Button className="button" type="link" href="/" theme="gradient">
+				<Button
+					className="button"
+					type="link"
+					href="https://console.hathora.dev"
+					theme="gradient"
+				>
 					Get Started
 				</Button>
 
