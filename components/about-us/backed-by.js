@@ -29,11 +29,11 @@ const BackedBy = () => (
 			<h2 className="heading--s dotted-separator font-weight--500 text-center">
 				Backed by
 			</h2>
-			<div className="row d-flex justify-content-center">
+			<div className="row text-center justify-content-center">
 				<div className="col-12 col-md-2">
 					<Image src={Upfront} alt="Backed by" width="180" height="180" />
 				</div>
-				<div className="col-12 col-md-2">
+				<div className="col-12 col-md-2 ">
 					<Image src={FoundersImage} alt="Backed by" width="180" height="180" />
 				</div>
 				<div className="col-12 col-md-2">
