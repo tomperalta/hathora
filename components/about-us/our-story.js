@@ -9,7 +9,7 @@ import TuraniPaleru from "assets/images/about-us/taruni-paleru.png"
 import HarshPandey from "assets/images/about-us/harsh-pandey.png"
 import SiddharthDhulipalla from "assets/images/about-us/siddharth-dhulipalla.png"
 import JustinChu from "assets/images/about-us/justin-chu.png"
-import GeorgePrice from "assets/images/about-us/george-price.jpeg"
+import GeorgePrice from "assets/images/about-us/george-price.png"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
