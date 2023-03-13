@@ -177,36 +177,34 @@ const OurVision = () => {
 			date: "February 2022",
 			theme: colors.purple__400,
 			content:
-				"Hathora Builder, an opinionated framework for real-time games, was launched and rapidly achieved traction amongst the indie community.",
+				"Hathora Builder, an opinionated framework for real-time games, was launched and rapidly achieved traction amongst the indie community",
 			icon: <IconStar />,
 		},
 		{
 			date: "April 2022",
 			theme: colors.green__400,
-			content:
-				"Hathora was incorporated & raised an initial round of funding led by Founders Fund & Lunar Ventures.",
+			content: "Hathora was incorporated",
 			icon: <IconGraph />,
 		},
 		{
 			date: "July 2022",
 			theme: colors.green__500,
 			content:
-				"Hathora Cloud, a modern hosting platform for game servers, was launched in beta.",
+				"Hathora Cloud, a modern hosting platform for game servers, was launched in private beta",
 			icon: <IconRocket />,
 		},
 		{
 			date: "August 2022",
 			theme: colors.green__500,
 			content:
-				"The first ever customer-built game was deployed on our platform.",
+				"The first ever customer-built game was deployed on our platform",
 			icon: <IconFlag />,
 		},
 		{
-			date: "Coming Soon",
+			date: "October 2022",
 			theme: colors.green__500,
-			content: "Coming Soon...",
-			icon: <IconRocket />,
-			disabled: true,
+			content: "Hathora signed its first AAA game",
+			icon: <IconStar />,
 		},
 	]
 
@@ -214,7 +212,7 @@ const OurVision = () => {
 		<StyledOurVision>
 			<Container>
 				<h2 className="heading--m font-weight--500 text-center dotted-separator">
-					This is only the beginning
+					The journey so far
 				</h2>
 
 				<div className="our-vision__timeline">
