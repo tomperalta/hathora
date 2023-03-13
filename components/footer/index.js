@@ -172,7 +172,7 @@ const Footer = () => {
 				},
 				{
 					label: "Media Kit",
-					url: "/media-kit",
+					url: "https://www.dropbox.com/sh/yjymhvs21d982al/AADopiw32_QRVoJzH5r48clZa?dl=0",
 				},
 				{
 					label: "Service Status",
