@@ -8,14 +8,14 @@ import Image from "next/image"
 import TuraniPaleru from "assets/images/about-us/taruni-paleru.png"
 import HarshPandey from "assets/images/about-us/harsh-pandey.png"
 import SiddharthDhulipalla from "assets/images/about-us/siddharth-dhulipalla.png"
+import JustinChu from "assets/images/about-us/justin-chu.png"
+import GeorgePrice from "assets/images/about-us/george-price.jpeg"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container/"
-
-// Images
 
 const StyledOurStory = styled.section`
 	padding: 24px 0 140px 0;
@@ -95,7 +95,7 @@ const OurStory = () => {
 		{
 			image: (
 				<Image
-					src={HarshPandey}
+					src={JustinChu}
 					style={{ borderRadius: "8px" }}
 					layout="responsive"
 				/>
@@ -106,7 +106,7 @@ const OurStory = () => {
 		{
 			image: (
 				<Image
-					src={HarshPandey}
+					src={GeorgePrice}
 					style={{ borderRadius: "8px" }}
 					layout="responsive"
 				/>
