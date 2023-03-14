@@ -44,6 +44,10 @@ const StyledOurStory = styled.section`
 		`}
 
 		.founder {
+			img {
+				-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+				filter: grayscale(100%);
+			}
 			&:last-of-type {
 				margin-top: 32px;
 				margin-bottom: 48px;
