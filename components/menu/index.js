@@ -386,13 +386,13 @@ const Menu = () => {
 			url: "/about-us",
 		},
 		{
+			label: "Docs",
+			url: "/docs",
+		},
+		{
 			label: "Community",
 			url: "https://community.hathora.dev",
 			external: true,
-		},
-		{
-			label: "Docs",
-			url: "/docs",
 		},
 		{
 			label: "Blog",

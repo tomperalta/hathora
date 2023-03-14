@@ -107,7 +107,7 @@ const NewsletterForm = () => {
 				.catch(() => setErrorMessage("Something went wrong. Please try again."))
 
 			if (response.status === 200) {
-				setSuccessMessage("Thanks for subsribing!")
+				setSuccessMessage("Thanks for subscribing!")
 			} else {
 				setErrorMessage("Something went wrong. Please try again.")
 			}

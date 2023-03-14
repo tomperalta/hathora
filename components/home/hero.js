@@ -184,12 +184,7 @@ const Hero = () => {
 									<a href="https://console.hathora.dev/">Get Started</a>
 								</Button>
 
-								<Button
-									type="link"
-									href="https://docs.hathora.dev/#/"
-									external
-									theme="borderless"
-								>
+								<Button type="link" href="/docs" theme="borderless">
 									Read our docs
 									<IconArrow />
 								</Button>

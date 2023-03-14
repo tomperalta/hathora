@@ -97,8 +97,12 @@ const Testimonials = () => {
 			quote:
 				"The team at Hathora knows what it takes to create high quality infrastructure that scales across the globe, and I'm thrilled they're simplifying the path for more multiplayer games to successfully launch world-wide titles.",
 			author: "Brandi House",
-			company:
-				"General Manager @ ProbablyMonsters, Former Director of Product @ Unity",
+			company: (
+				<>
+					General Manager @ ProbablyMonsters,
+					<br /> Former Director of Product @ Unity
+				</>
+			),
 		},
 		{
 			quote:
@@ -164,7 +168,7 @@ const Testimonials = () => {
 							<Button
 								type="link"
 								theme="outline"
-								href="https://discord.com/invite/hathora"
+								href="https://discord.gg/hathora"
 								external
 							>
 								Join us on Discord
