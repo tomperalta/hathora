@@ -78,8 +78,8 @@ const StyledClients = styled.section`
 const Clients = () => {
 	const settings = {
 		autoplay: true,
-		autoplaySpeed: 9000,
-		speed: 3000,
+		autoplaySpeed: 4000,
+		speed: 2000,
 		infinite: true,
 		arrows: true,
 		dots: false,
