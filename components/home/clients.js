@@ -76,19 +76,19 @@ const StyledClients = styled.section`
 `
 
 const Clients = () => {
-	const carouselOptions = {
+	const settings = {
 		autoplay: true,
-		autoplaySpeed: 5000,
-		speed: 500,
+		autoplaySpeed: 9000,
+		speed: 3000,
 		infinite: true,
 		arrows: true,
-		dots: true,
+		dots: false,
 		pauseOnFocus: false,
 	}
 	return (
 		<StyledClients>
 			<Container>
-				<Slider config={carouselOptions}>
+				<Slider {...settings}>
 					<div className="row justify-content-center">
 						<div className="col-12 mb-5 text-center">
 							<h1 className="heading--m dotted-separator">
@@ -102,7 +102,7 @@ const Clients = () => {
 							<div className="col-12 col-md-2 mb-5 mb-md-0">
 								<Unreal />
 							</div>
-							<div className="col-12 col-md-2">
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
 								<Godot />
 							</div>
 							<div className="col-12 col-md-3 mb-5 mb-md-0">
