@@ -10,7 +10,6 @@ import Container from "components/container"
 // Images
 import FoundersImage from "../../assets/images/about-us/founders.svg"
 import LunarVenturesImage from "../../assets/images/about-us/lunar-ventures.svg"
-import Upfront from "../../assets/images/about-us/upfront.svg"
 
 const StyledBackedBy = styled.section`
 	padding: 32px 0;
@@ -30,13 +29,10 @@ const BackedBy = () => (
 				Backed by
 			</h2>
 			<div className="row text-center justify-content-center">
-				<div className="col-12 col-md-2">
-					<Image src={Upfront} alt="Backed by" width="180" height="180" />
-				</div>
-				<div className="col-12 col-md-2 ">
+				<div className="col-12 col-sm-4 col-md-2">
 					<Image src={FoundersImage} alt="Backed by" width="180" height="180" />
 				</div>
-				<div className="col-12 col-md-2">
+				<div className="col-12 col-sm-4 col-md-2">
 					<Image
 						src={LunarVenturesImage}
 						alt="Backed by"
