@@ -168,7 +168,7 @@ const Testimonials = () => {
 							<Button
 								type="link"
 								theme="outline"
-								href="https://discord.com/invite/hathora"
+								href="https://discord.gg/hathora"
 								external
 							>
 								Join us on Discord

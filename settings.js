@@ -17,7 +17,7 @@ export const siteMetadata = {
 export const socialMediaLinks = [
 	{
 		title: "Discord",
-		url: "https://discord.com/invite/hathora",
+		url: "https://discord.gg/hathora",
 		icon: IconDiscord,
 	},
 	{
