@@ -176,8 +176,20 @@ const OurVision = () => {
 		{
 			date: "February 2022",
 			theme: colors.purple__400,
-			content:
-				"Hathora Builder, an opinionated framework for real-time games, was launched and rapidly achieved traction amongst the indie community",
+			content: (
+				<>
+					<a
+						href="https://docs.hathora.dev/#/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-decoration-underline color--green__500 color-hover--purple__500"
+					>
+						Hathora Builder
+					</a>
+					, an opinionated framework for real-time games, was launched and
+					rapidly achieved traction amongst the indie community
+				</>
+			),
 			icon: <IconStar />,
 		},
 		{
