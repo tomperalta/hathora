@@ -25,27 +25,20 @@ const StyledBackedBy = styled.section`
 const BackedBy = () => (
 	<StyledBackedBy>
 		<Container>
-			<div className="row text-center">
-				<h2 className="heading--s dotted-separator font-weight--500">
-					Backed by
-				</h2>
-				<div className="d-flex justify-content-center">
-					<div className="image">
-						<Image
-							src={FoundersImage}
-							alt="Backed by"
-							width="180"
-							height="180"
-						/>
-					</div>
-					<div>
-						<Image
-							src={LunarVenturesImage}
-							alt="Backed by"
-							width="180"
-							height="180"
-						/>
-					</div>
+			<h2 className="heading--s dotted-separator font-weight--500 text-center">
+				Backed by
+			</h2>
+			<div className="row text-center justify-content-center">
+				<div className="col-12 col-sm-4 col-md-2">
+					<Image src={FoundersImage} alt="Backed by" width="180" height="180" />
+				</div>
+				<div className="col-12 col-sm-4 col-md-2">
+					<Image
+						src={LunarVenturesImage}
+						alt="Backed by"
+						width="180"
+						height="180"
+					/>
 				</div>
 			</div>
 		</Container>

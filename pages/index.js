@@ -14,7 +14,9 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/home/hero"
-import OurPlatform from "components/home/our-platform"
+import ModernInfrastructure from "components/home/modern-infrastructure"
+// import OurPlatform from "components/home/our-platform"
+import Testimonials from "components/home/testimonials"
 import Features from "components/home/features"
 import Deploy from "components/home/deploy"
 import Clients from "components/home/clients"
@@ -24,7 +26,7 @@ import Clients from "components/home/clients"
 
 const StyledHome = styled.main`
 	> section {
-		padding: 96px 0;
+		padding: 96px 0 24px 0;
 
 		${breakpoint.medium`
       padding: 100px 0;
@@ -42,7 +44,9 @@ const Home = () => (
 	<StyledHome>
 		<SEO />
 		<Hero />
-		<OurPlatform />
+		<ModernInfrastructure />
+		{/* <OurPlatform /> */}
+		<Testimonials />
 		<Features />
 		<Deploy />
 		<Clients />

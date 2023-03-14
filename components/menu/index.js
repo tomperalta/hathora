@@ -8,8 +8,8 @@ import { useRouter } from "next/router"
 import Image from "next/image"
 
 // Redux
-import { useDispatch } from "react-redux"
-import { openSignUpModal } from "redux/slices/sign-up-modal"
+// import { useDispatch } from "react-redux"
+// import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Components
 import Container from "components/container/"
@@ -315,7 +315,7 @@ const Menu = () => {
 	/**
 	 * Hooks
 	 */
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 	const ref = useRef()
 	const router = useRouter()
 	const currentRoute = router.pathname
@@ -378,41 +378,17 @@ const Menu = () => {
 	 */
 	const navigationData = [
 		{
+			label: "Pricing",
+			url: "/pricing",
+		},
+		{
 			label: "About Us",
 			url: "/about-us",
 		},
 		{
-			label: "Integrations",
-			links: [
-				{
-					label: "Phaser",
-					url: "https://docs.hathora.dev/#/builder/tutorial_platformer",
-				},
-				{
-					label: "Unity",
-					url: "/integrations/unity",
-					disabled: true,
-				},
-				{
-					label: "Unreal",
-					url: "/integrations/unreal",
-					disabled: true,
-				},
-				{
-					label: "Godot",
-					url: "/integrations/godot",
-					disabled: true,
-				},
-			],
-		},
-		{
-			label: "Pricing",
-			url: "/pricing",
-			disabled: true,
-		},
-		{
-			label: "Hathora Builder",
-			url: "/hathora-builder",
+			label: "Community",
+			url: "https://community.hathora.dev",
+			external: true,
 		},
 		{
 			label: "Docs",
@@ -601,12 +577,10 @@ const Menu = () => {
 					<div className="menu__toggler d-flex align-items-center">
 						<Button
 							type="button"
-							href="/sign-up"
 							theme="outline"
 							className="sign-up me-3 me-lg-0"
-							onClick={() => dispatch(openSignUpModal("Navigation"))}
 						>
-							Sign Up
+							<a href="https://console.hathora.dev/">Login</a>
 						</Button>
 
 						<button

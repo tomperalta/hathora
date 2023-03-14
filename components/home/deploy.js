@@ -19,10 +19,18 @@ const StyledDeploy = styled.section`
   `}
 
 	.deploy__heading {
-		max-width: 650px;
+		max-width: 250px;
 		margin-right: auto;
 		margin-bottom: 96px;
 		margin-left: auto;
+
+		${breakpoint.small`
+			max-width: 437px;
+		`}
+
+		${breakpoint.medium`
+			max-width: 737px;
+		`}
 	}
 `
 
@@ -30,10 +38,10 @@ const Deploy = () => (
 	<StyledDeploy>
 		<Container>
 			<div className="row justify-content-center">
-				<div className="col-12 col-md-8">
+				<div className="col-12 col-md-8 px-0">
 					<div className="deploy__heading">
 						<h2 className="heading--m dotted-separator text-center font-weigth--500">
-							Get your game online in just a few simple steps
+							Multiplayer hosting simplified with Hathora Cloud
 						</h2>
 					</div>
 				</div>

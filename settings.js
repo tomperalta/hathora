@@ -1,3 +1,5 @@
+import React from "react"
+
 // Icons
 import IconDiscord from "assets/icons/social-media/icon-discord.svg"
 import IconGitHub from "assets/icons/social-media/icon-github.svg"
@@ -42,74 +44,150 @@ export const socialMediaLinks = [
 
 export const plans = [
 	{
-		name: "Free",
-		price: "0",
-		periodicity: "month",
-		cta: {
-			theme: "outline",
-			label: "Free Forever",
-			href: "/",
-		},
+		name: "Tiny",
+		price: "0.04",
 		features: [
-			"50 CCU",
-			"1GB bandwidth",
-			"Up to X memory",
-			"Game supported in 1 region",
-			"2 cores",
+			<>
+				<span className="font-weight--700">Shared</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">512MB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Turn-based",
-		price: "25",
-		periodicity: "month",
-		cta: {
-			theme: "gradient",
-			label: "Start trial",
-			href: "/",
-		},
+		name: "Small",
+		price: "0.08",
 		features: [
-			"1000 MAU",
-			"Up to X bandwidth",
-			"Up to X memory",
-			"Game supportted in 1 region",
-			"2 cores",
-			"Email support available",
+			<>
+				<span className="font-weight--700">1</span> Core
+			</>,
+			<>
+				<span className="font-weight--700">2GB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Realtime",
-		price: "100",
-		periodicity: "month",
-		cta: {
-			theme: "gradient",
-			label: "Start Trial",
-			href: "/",
-		},
+		name: "Medium",
+		price: "0.16",
 		features: [
-			"1000 MAU",
-			"Up to X bandwidth",
-			"Up to X memory",
-			"Game supportted in 2 regions",
-			"2 cores",
-			"Email support available",
+			<>
+				<span className="font-weight--700">2</span> Cores
+			</>,
+			<>
+				<span className="font-weight--700">4GB</span> Memory
+			</>,
 		],
 	},
 	{
-		name: "Unlimited",
-		price: null,
-		periodicity: null,
-		cta: {
-			theme: "outline",
-			label: "Contact Us",
-			url: "mailto:hello@hathora.dev",
-		},
+		name: "Large",
+		price: "0.32",
 		features: [
-			"Pay-as-you-go based on usage",
-			"Unlimited bandwidth",
-			"Unlimited memory",
-			"Game supported globally",
-			"Unlimited cores",
-			"24/7 support available",
+			<>
+				<span className="font-weight--700">4</span> Cores
+			</>,
+			<>
+				<span className="font-weight--700">8GB</span> Memory
+			</>,
+		],
+	},
+]
+
+export const pricesPerMatch = [
+	{
+		title: "Turn-based",
+		description: "(low CPU, low bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Tiny",
+			},
+			{
+				key: "Match Length (minutes)",
+				value: "15",
+			},
+			{
+				key: "Matches per Container",
+				value: "100",
+			},
+			{
+				key: "Bandwidth per game (MB)",
+				value: "1",
+			},
+		],
+		prices: [
+			{
+				key: "Average Price per Match",
+				value: "$0.0002",
+			},
+			{
+				key: "$500 Credit Gets You",
+				value: "2.3m Matches",
+			},
+		],
+	},
+	{
+		title: "RTS",
+		description: "(low CPU, high bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Small",
+			},
+			{
+				key: "Game Length (minutes)",
+				value: "45",
+			},
+			{
+				key: "Games per Process",
+				value: "10",
+			},
+			{
+				key: "Bandwidth per game (MB)",
+				value: "100",
+			},
+		],
+		prices: [
+			{
+				key: "Total Price per game",
+				value: "$0.02",
+			},
+			{
+				key: "$500 Credit Gets You",
+				value: "28k Matches",
+			},
+		],
+	},
+	{
+		title: "FPS",
+		description: "(high CPU, high bandwidth)",
+		features: [
+			{
+				key: "Size",
+				value: "Medium",
+			},
+			{
+				key: "Game Length (minutes)",
+				value: "20",
+			},
+			{
+				key: "Games per Process",
+				value: "1",
+			},
+			{
+				key: "Bandwidth per game (MB)",
+				value: "200",
+			},
+		],
+		prices: [
+			{
+				key: "Total Price per game",
+				value: "$0.08",
+			},
+			{
+				key: "$500 Credit Gets You",
+				value: "6.5k Matches",
+			},
 		],
 	},
 ]

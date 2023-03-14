@@ -100,7 +100,21 @@ const StyledFooter = styled.footer`
 
 		${breakpoint.medium`
       margin-top: 96px;
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-between;
     `}
+
+		a {
+			text-decoration: underline;
+			margin-top: 32px;
+
+			${breakpoint.medium`
+				margin-right: 16px;
+				margin-top: 0;
+			`}
+		}
 	}
 
 	.footer__shadow {
@@ -134,19 +148,18 @@ const Footer = () => {
 					url: "/about-us",
 				},
 				{
-					label: "Hathora Builder",
-					url: "/hathora-builder",
-				},
-				{
 					label: "Pricing",
 					url: "/pricing",
-					disabled: true,
 				},
 			],
 		},
 		{
 			title: "Resources",
 			links: [
+				{
+					label: "Community",
+					url: "https://community.hathora.dev/",
+				},
 				{
 					label: "Docs",
 					url: "https://docs.hathora.dev/#/",
@@ -156,6 +169,14 @@ const Footer = () => {
 					label: "Blog",
 					url: "https://blog.hathora.dev/",
 					external: true,
+				},
+				{
+					label: "Media Kit",
+					url: "https://www.dropbox.com/sh/yjymhvs21d982al/AADopiw32_QRVoJzH5r48clZa?dl=0",
+				},
+				{
+					label: "Service Status",
+					url: "https://hathora.instatus.com/",
 				},
 			],
 		},
@@ -180,11 +201,11 @@ const Footer = () => {
 
 						<div className="mb-md-4">
 							<a
-								href="mailto:hello@hathora.dev"
+								href="mailto:contact@hathora.dev"
 								className="text--s color--green__500 color-hover--purple__500 font-weight--500"
 								style={{ textDecoration: "underline" }}
 							>
-								hello@hathora.dev
+								contact@hathora.dev
 							</a>
 						</div>
 
@@ -209,7 +230,7 @@ const Footer = () => {
 														{link.label} (coming soon)
 													</button>
 												) : !link.external ? (
-													<Link href={link.url === "/pricing" ? "/" : link.url}>
+													<Link href={link.url}>
 														<a>{link.label}</a>
 													</Link>
 												) : (
@@ -248,14 +269,35 @@ const Footer = () => {
 						</p>
 					</div>
 
-					<div className="footer__copyright col-12 text-md-end">
-						<p className="text--xs color--grey__300 font-weight--500">
-							© Hathora {new Date().getFullYear()}
-						</p>
+					<div className="footer__copyright col-12">
+						<div>
+							<p className="text--xs color--grey__300 font-weight--500 text-md-end ">
+								© Hathora {new Date().getFullYear()}
+							</p>
+						</div>
+						<div className="d-flex flex-column flex-md-row">
+							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+								<a
+									href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Terms of Service
+								</a>
+							</span>
+							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+								<a
+									href="https://bramble-slime-d3e.notion.site/Privacy-Policy-4ac5c1c8d434490298c0dbb3fb19b09f"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Privacy Policy
+								</a>
+							</span>
+						</div>
 					</div>
 				</div>
 			</Container>
-
 			<div className="footer__shadow" />
 		</StyledFooter>
 	)

@@ -42,7 +42,7 @@ export default createGlobalStyle`
       line-height: 1.75rem;
 
       ${breakpoint.medium`
-        font-size: 2rem;
+        font-size: 1.5rem;
         line-height: 2.75rem;
       `}
     }
@@ -103,7 +103,7 @@ export default createGlobalStyle`
         margin-left: auto;
         background-image: url('${IconDottedSeparator}');
         background-repeat: no-repeat;
-        background-size: auto 100%;
+        background-size: 100% auto;
         background-position: center;
 
       }

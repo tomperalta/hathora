@@ -8,14 +8,14 @@ import Image from "next/image"
 import TuraniPaleru from "assets/images/about-us/taruni-paleru.png"
 import HarshPandey from "assets/images/about-us/harsh-pandey.png"
 import SiddharthDhulipalla from "assets/images/about-us/siddharth-dhulipalla.png"
+import JustinChu from "assets/images/about-us/justin-chu.png"
+import GeorgePrice from "assets/images/about-us/george-price.png"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container/"
-
-// Images
 
 const StyledOurStory = styled.section`
 	padding: 24px 0 140px 0;
@@ -39,18 +39,22 @@ const StyledOurStory = styled.section`
 	}
 
 	.founders {
-		margin: 48px 0;
-
 		${breakpoint.medium`
-			margin: 64px 0;
+			margin: 12px 0 12px 0;
 		`}
 
 		.founder {
+			img {
+				-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+				filter: grayscale(100%);
+			}
 			&:last-of-type {
 				margin-top: 32px;
+				margin-bottom: 48px;
 
 				${breakpoint.medium`
 					margin-top: 0;
+					margin-bottom: 48px;
 				`}
 			}
 		}
@@ -92,6 +96,28 @@ const OurStory = () => {
 			name: "Taruni Paleru",
 			rol: "Product Manager",
 		},
+		{
+			image: (
+				<Image
+					src={JustinChu}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
+			name: "Justin Chu",
+			rol: "Software Engineer",
+		},
+		{
+			image: (
+				<Image
+					src={GeorgePrice}
+					style={{ borderRadius: "8px" }}
+					layout="responsive"
+				/>
+			),
+			name: "George Price",
+			rol: "Software Engineer",
+		},
 	]
 	return (
 		<StyledOurStory>
@@ -113,9 +139,9 @@ const OurStory = () => {
 							</p>
 						</div>
 
-						<div className="row justify-content-center founders">
+						<div className="row justify-content-start justify-content-md-center founders">
 							{founders.map((founder) => (
-								<div className="col-6 col-md-4 founder">
+								<div className="col-6 col-md-4 founder mt-5">
 									<div className="text-center">
 										{founder.image}
 										<p className="text--s color--purple__500 font-weight--700 mt-2">

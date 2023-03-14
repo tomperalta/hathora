@@ -88,21 +88,23 @@ const Testimonials = () => {
 	const data = [
 		{
 			quote:
-				"Hathora took away a lot of those ‘tech debt’ items—Figuring out how to scale my backend horizontally to the scale that would be needed if a game takes off.",
-			author: "Justin Chu",
-			company: "Mobo",
+				"Hathora’s focus on delivering top-end performance at scale empowers game studios like ours to build multiplayer experiences that meet or exceed the expectations of the modern online player base.",
+			author: "Tim Morten",
+			company:
+				"Production Director & CEO @ Frost Giant Studios, Former Production Director @ Blizzard Entertainment",
 		},
 		{
 			quote:
-				"Game developers who enjoy setting up backend infrastructure are rare (potentially just a myth). Hathora Cloud replaces all the hassles with a few commands that deploy your backend to a modern, scalable infrastructure in just a few minutes!",
-			author: "Tommy Leung",
-			company: "Ourcade",
+				"The team at Hathora knows what it takes to create high quality infrastructure that scales across the globe, and I'm thrilled they're simplifying the path for more multiplayer games to successfully launch world-wide titles.",
+			author: "Brandi House",
+			company:
+				"General Manager @ ProbablyMonsters, Former Director of Product @ Unity",
 		},
 		{
 			quote:
-				"This is exactly the tool I need. It’s been really easy to get in; it’s really fast and easy to get prototypes mocked up and to start testing. It took all the pain and suffering out of development and made it fun again.",
-			author: "Justin Young",
-			company: "AtlasIED",
+				"As the gaming industry shifts to ship games faster and with smaller teams, Hathora serves as the much-needed infrastructure partner to accelerate development and allow game studios to focus on the core game design and player experience.",
+			author: "Kevin Zhang",
+			company: "Partner @ Upfront Ventures",
 		},
 	]
 
@@ -129,7 +131,7 @@ const Testimonials = () => {
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">
 						<h2 className="heading--m font-weight--500 text-center dotted-separator">
-							What game developers are saying about Hathora
+							We handle the infrastructure so you can focus on your game
 						</h2>
 					</div>
 

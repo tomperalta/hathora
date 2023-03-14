@@ -3,6 +3,7 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 import Lottie from "react-lottie"
+import Image from "next/image"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -13,19 +14,14 @@ import Container from "components/container"
 import Button from "components/button"
 
 // Animations
-import Animation3 from "assets/animations/home/our-platform/our-platform-animation-3.json"
+import Icon3 from "assets/animations/home/our-platform/our-platform-icon.svg"
 import Animation1 from "assets/animations/home/our-platform/our-platform-animation-1.json"
 import Animation2 from "assets/animations/home/our-platform/our-platform-animation-2.json"
 
 // Icons
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
-const StyledOurPlatform = styled.section`
-	padding: 104px 0px;
-
-	${breakpoints.medium`
-	padding: 150px 0px;
-	`}
+const StyledModernInfrastructure = styled.section`
 
 	.items {
 		margin-top: 72px;
@@ -85,16 +81,24 @@ const StyledOurPlatform = styled.section`
 	}
 
 	.text {
-		max-width: 416px;
+		max-width: 440px;
+	}
+
+	.last-item{
+		margin-top: 100px;
+
+		${breakpoints.medium`
+			margin-top: 150px;
+		`}
 	}
 `
 
-const OurPlatform = () => {
+const ModernInfrastructure = () => {
 	const data = [
 		{
 			title: "FAST",
-			subtitle: "Optimized Edge Compute",
-			text: "We schedule compute close to your users and direct them on our highly optimized global network.",
+			subtitle: "Cutting Edge Performance",
+			text: "Player traffic is routed on our private edge network to globally distributed game servers running latest generation hardware.",
 			animation: Animation1,
 			cta: {
 				theme: "borderless",
@@ -105,8 +109,8 @@ const OurPlatform = () => {
 		},
 		{
 			title: "SIMPLE",
-			subtitle: "Seamless Deployment and Operation",
-			text: "Single-command deployment, Blue-Green rolling updates, autoscaling, and built-in analytics.",
+			subtitle: "Easy Deployment and Operation",
+			text: "Single command deployment with global coverage, zero-downtime game server upgrades, built-in monitoring and analytics.",
 			animation: Animation2,
 			cta: {
 				theme: "borderless",
@@ -115,16 +119,14 @@ const OurPlatform = () => {
 				external: true,
 			},
 		},
-		{
-			title: "OPEN",
-			subtitle: "Self-Hostable Infrastructure",
-			text: "Built on open protocols. Host on our managed cloud or anywhere you choose. ",
-			animation: Animation3,
-		},
 	]
 
 	return (
-		<StyledOurPlatform className="home__our-platform" data-aos-offset="400">
+		<StyledModernInfrastructure
+			className="home__our-platform"
+			data-aos-offset="400"
+			id="modern-infrastructure"
+		>
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-7">
@@ -133,7 +135,8 @@ const OurPlatform = () => {
 							data-aos="fade-in"
 							data-anchor=".home__our-platform"
 						>
-							Our platform is built with game developers in mind
+							Modern infrastructure
+							<br /> for gaming
 						</h2>
 					</div>
 					<div className="row">
@@ -186,11 +189,34 @@ const OurPlatform = () => {
 								</div>
 							))}
 						</div>
+						<div className="last-item">
+							<div className="row align-items-center justify-content-center">
+								<div className="image col-12 col-md-4">
+									<Image src={Icon3} alt="Backed by" width="350" height="308" />
+								</div>
+
+								<div className="content col-12 col-md-5">
+									<div className="row">
+										<h2 className="text--xs color--green__500 font-weight--700 mb-2">
+											SCALABLE
+										</h2>
+										<h2 className="text--m font-weight--600 mb-2">
+											Elastic Compute Scheduling
+										</h2>
+										<p className="text text--s mb-3">
+											Rapid server provisioning to handle massive demand spikes.
+											Automatic spin down of idle servers to minimize resource
+											waste.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</Container>
-		</StyledOurPlatform>
+		</StyledModernInfrastructure>
 	)
 }
 
-export default OurPlatform
+export default ModernInfrastructure

@@ -7,22 +7,32 @@ import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container/"
+import Slider from "react-slick"
 
-// Icons
-import Hathora from "assets/icons/home/clients/hathora.svg"
-import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
+// Icon Arrow
+import ArrowRight from "assets/icons/icon-arrow-left.svg"
+
+// Icons Engine
 import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
+import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
-import Image from "next/image"
+import { ReactComponent as Bety } from "assets/icons/home/clients/bevy.svg"
+
+// Icons Platform
+import { ReactComponent as Apple } from "assets/icons/home/clients/apple.svg"
+import { ReactComponent as Oculus } from "assets/icons/home/clients/oculus.svg"
+import { ReactComponent as Consols } from "assets/icons/home/clients/consols.svg"
+import { ReactComponent as Android } from "assets/icons/home/clients/android.svg"
+import { ReactComponent as Brand } from "assets/icons/home/clients/brand.svg"
+import { ReactComponent as Windows } from "assets/icons/home/clients/windows.svg"
+
+// Icons Game Type
+import { ReactComponent as Illus1 } from "assets/icons/home/clients/illus-1.svg"
+import { ReactComponent as Illus2 } from "assets/icons/home/clients/illus-2.svg"
+import { ReactComponent as Illus3 } from "assets/icons/home/clients/illus-3.svg"
 
 const StyledClients = styled.section`
-	// padding: 24px 0 120px 0;
-
-	// ${breakpoint.medium`
-  //   padding: 24px 0 200px 0;
-  // `}
-
 	.clients__container {
 		max-width: 366px;
 		width: 100%;
@@ -36,110 +46,148 @@ const StyledClients = styled.section`
 			height: 15px;
 		}
 	}
+	.section-brand {
+		max-width: 1100px;
+		padding: 0;
+		margin: 0 auto;
+	}
 
-	// .clients {
-	// 	margin-top: 70px;
-	// 	display: flex;
-	// 	flex-direction: row;
-	// 	flex-wrap: wrap;
-	// 	align-items: center;
+	.slick-arrow {
+		width: 32px;
+		height: 32px;
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
 
-	// 	${breakpoint.medium`
-  //     justify-content: center;
-  //   `}
+		&::before {
+			width: 32px;
+			height: 32px;
+			content: url(${ArrowRight});
+			transform: rotate(180deg);
+			opacity: 1;
+		}
 
-	// 	.client {
-	// 		width: 50%;
-	// 		text-align: center;
-	// 		margin-bottom: 39px;
-
-	// 		${breakpoint.medium`
-  //       width: auto;
-  //     `}
-
-	// 		&.client--phaser {
-	// 			${breakpoint.medium`
-  //         margin-right: 60px;
-  //       `}
-	// 		}
-
-	// 		&.client--hathora {
-	// 			width: 50%;
-	// 			height: 16px;
-
-	// 			${breakpoint.medium`
-  //         width: 215px;
-  //         height: 28px;
-	// 				margin-right: 35px;
-  //         margin-left: 64px;
-  //       `}
-	// 		}
-
-	// 		&.client--godot {
-	// 			// text-align: center;
-	// 		}
-
-	// 		&.client--unreal {
-	// 			${breakpoint.small`
-  //         // width: 244px;
-	// 			  // height: 57px;
-  //       `}
-	// 			${breakpoint.medium`
-  //         // margin-left: 60px;
-  //       `}
-	// 		}
-	// 	}
-	// }
+		&.slick-prev {
+			&::before {
+				transform: rotate(360deg);
+			}
+		}
+	}
 `
 
-const Clients = () => (
-	<StyledClients>
-		<Container>
-			<div className="row justify-content-center">
-				<div className="col-12 col-md-7 text-center">
-					<h1 className="heading--m dotted-separator">
-						Integrated with the game engines you know and love
-					</h1>
-				</div>
-
-				<div className="col-12 col-sm-7 col-lg-7 clients__container">
-					<div className="col-12 d-flex flex-row flex-wrap justify-content-evenly mt-5 mb-5 text-center align-items-center justify-content-md-center">
-						<div className="col-5 col-md-4">
-							<a
-								href="https://docs.hathora.dev/#/builder/tutorial_platformer"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Phaser />
-							</a>
+const Clients = () => {
+	const settings = {
+		autoplay: true,
+		autoplaySpeed: 4000,
+		speed: 2000,
+		infinite: true,
+		arrows: true,
+		dots: false,
+		pauseOnFocus: false,
+	}
+	return (
+		<StyledClients>
+			<Container>
+				<Slider {...settings}>
+					<div className="row justify-content-center">
+						<div className="col-12 mb-5 text-center">
+							<h1 className="heading--m dotted-separator">
+								Any <span className="color--green__500">Engine</span>
+							</h1>
 						</div>
-
-						<div className="col-5 col-md-4">
-							<a
-								href="https://docs.hathora.dev/#/builder/README"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image src={Hathora} width="215" height="28" />
-							</a>
+						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
+							<div className="col-12 col-md-3 mb-5 mb-md-0">
+								<Unity />
+							</div>
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<Unreal />
+							</div>
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<Godot />
+							</div>
+							<div className="col-12 col-md-3 mb-5 mb-md-0">
+								<a
+									href="https://docs.hathora.dev/#/builder/tutorial_platformer"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Phaser />
+								</a>
+							</div>
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<Bety />
+							</div>
 						</div>
 					</div>
-
-					<div className="col-12 d-flex flex-row flex-wrap flex-md-nowrap justify-content-around text-md-center align-items-md-center">
-						<div className="col-4 col-md-2">
-							<Godot />
+					{/* Second Slider START */}
+					<div className="row justify-content-center">
+						<div className="col-12 mb-5 text-center">
+							<h1 className="heading--m dotted-separator">
+								Any <span className="color--green__500">Platform</span>
+							</h1>
 						</div>
-						<div className="col-4  col-md-2 mb-5 mb-md-0">
-							<Unity />
-						</div>
-						<div className="col-8 col-md-2 col-md-4">
-							<Unreal />
+						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
+							<div className="col-12 col-md-2">
+								<Brand />
+							</div>
+							<div className="col-12 col-md-2">
+								<Consols />
+							</div>
+							<div className="col-12 col-md-3">
+								<Oculus />
+							</div>
+							<div className="col-12 col-md-1">
+								<Android />
+							</div>
+							<div className="col-12 col-md-1">
+								<Apple />
+							</div>
+							<div className="col-12 col-md-2">
+								<Windows />
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</Container>
-	</StyledClients>
-)
+					{/* Second Slider END */}
+					{/* Third Slider START */}
+					<div className="row justify-content-center">
+						<div className="col-12 mb-5 text-center">
+							<h1 className="heading--m dotted-separator">
+								Any <span className="color--green__500">Game Type</span>
+							</h1>
+						</div>
+						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
+							<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+								<div className="text-center mb-4">
+									<p className="text--m color--purple__500">SHOOTERS</p>
+								</div>
+								<div>
+									<Illus1 />
+								</div>
+							</div>
+
+							<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+								<div className=" text-center mb-4">
+									<p className="text--m color--purple__500">TURN-BASED</p>
+								</div>
+								<div>
+									<Illus2 />
+								</div>
+							</div>
+							<div className="col-12 col-md-4 col-lg-3">
+								<div className="text-center mb-4">
+									<p className="text--m color--purple__500">RTS & MOBA</p>
+								</div>
+								<div>
+									<Illus3 />
+								</div>
+							</div>
+						</div>
+					</div>
+					{/* Third Slider END */}
+				</Slider>
+			</Container>
+		</StyledClients>
+	)
+}
 
 export default Clients
