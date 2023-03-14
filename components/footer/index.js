@@ -159,10 +159,12 @@ const Footer = () => {
 				{
 					label: "Community",
 					url: "https://community.hathora.dev/",
+					external: true,
 				},
 				{
 					label: "Docs",
 					url: "/docs",
+					external: true,
 				},
 				{
 					label: "Blog",
@@ -172,10 +174,12 @@ const Footer = () => {
 				{
 					label: "Media Kit",
 					url: "https://www.dropbox.com/sh/yjymhvs21d982al/AADopiw32_QRVoJzH5r48clZa?dl=0",
+					external: true,
 				},
 				{
 					label: "Service Status",
 					url: "https://hathora.instatus.com/",
+					external: true,
 				},
 			],
 		},
