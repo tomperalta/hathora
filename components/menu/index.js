@@ -393,6 +393,7 @@ const Menu = () => {
 		{
 			label: "Docs",
 			url: "/docs",
+			external: true,
 		},
 		{
 			label: "Blog",
