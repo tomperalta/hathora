@@ -65,7 +65,7 @@ const OurValues = () => {
 		},
 		{
 			title: "Listen & Resolve",
-			text: "Pay attention to our customers when they have an issue and deliver fast, practical solution",
+			text: "Pay attention to our customers when they have an issue and deliver fast, practical solutions",
 			image: <Image src={Resolve} alt="Resolve" width="300" height="200" />,
 		},
 		{
