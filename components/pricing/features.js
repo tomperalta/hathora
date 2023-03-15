@@ -92,7 +92,7 @@ const Features = () => {
 						</div>
 						<div className="subtitle text-center">
 							<span className="color--green__500 text-center color-hover--purple__500">
-								<Link href="https://docs.hathora.dev/#/">
+								<Link href="https://hathora.dev/docs/pricing-billing#limits">
 									Details and Limits
 								</Link>
 							</span>
