@@ -137,23 +137,8 @@ const steps = [
 		icon: IconStep1,
 		description: (
 			<span>
-				<span className="font-weight--700">Enable online multiplayer</span>{" "}
-				using the{" "}
-				<a
-					href="https://docs.hathora.dev/#/buildkit/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora BuildKits
-				</a>{" "}
-				or the{" "}
-				<a
-					href="https://docs.hathora.dev/#/builder/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora Builder
-				</a>
+				<span className="font-weight--700">Dockerize </span>
+				game server code
 			</span>
 		),
 	},
@@ -161,15 +146,8 @@ const steps = [
 		icon: IconStep2,
 		description: (
 			<span>
-				Deploy on{" "}
-				<a
-					href="https://docs.hathora.dev/#/cloud/README"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Hathora Cloud
-				</a>{" "}
-				with a single command
+				<span className="font-weight--700">Deploy</span> game servers with
+				minimal configuration. We take your server code as-is
 			</span>
 		),
 	},
@@ -177,8 +155,8 @@ const steps = [
 		icon: IconStep3,
 		description: (
 			<span>
-				<span className="font-weight--700">Scale globally</span> without
-				additional work
+				<span className="font-weight--700">Integrate</span> client to scale game
+				sessions globally on-demand
 			</span>
 		),
 	},
@@ -186,8 +164,8 @@ const steps = [
 		icon: IconStep4,
 		description: (
 			<span>
-				<span className="font-weight--700">Ship changes</span> with no downtime
-				using blue-green rolling updates
+				<span className="font-weight--700">Monitor</span> usage and system
+				metrics. Observability made developer friendly
 			</span>
 		),
 	},
@@ -195,7 +173,7 @@ const steps = [
 		icon: IconStep5,
 		description: (
 			<span>
-				<span className="font-weight--700">Track usage</span> and system metrics
+				<span className="font-weight--700">Track</span> usage & system metrics
 			</span>
 		),
 	},
