@@ -162,7 +162,8 @@ const Plans = () => {
 
 				<p className="text--m text-center color--grey__400">
 					All plans have a flat cost of{" "}
-					<span className="font-weight--700">$0.12/GB</span> for egress bandwidth
+					<span className="font-weight--700">$0.12/GB</span> for egress
+					bandwidth
 				</p>
 			</Container>
 		</StyledPlans>
