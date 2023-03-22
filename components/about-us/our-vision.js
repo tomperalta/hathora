@@ -16,6 +16,7 @@ import { ReactComponent as IconStar } from "assets/icons/about-us/our-vision/ico
 import { ReactComponent as IconGraph } from "assets/icons/about-us/our-vision/icon-graph.svg"
 import { ReactComponent as IconRocket } from "assets/icons/about-us/our-vision/icon-rocket.svg"
 import { ReactComponent as IconFlag } from "assets/icons/about-us/our-vision/icon-flag.svg"
+import { ReactComponent as IconMoney } from "assets/icons/about-us/our-vision/icon-money.svg"
 
 const TimelineItem = styled.div`
 	position: relative;
@@ -216,7 +217,14 @@ const OurVision = () => {
 			date: "October 2022",
 			theme: colors.green__500,
 			content: "Hathora signed its first AAA game",
-			icon: <IconStar />,
+			icon: <IconRocket />,
+		},
+		{
+			date: "March 2023",
+			theme: colors.green__500,
+			content:
+				"Raised a $7.6M seed round led by Upfront Ventures and Founders Fund",
+			icon: <IconMoney />,
 		},
 	]
 
