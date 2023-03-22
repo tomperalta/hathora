@@ -22,7 +22,11 @@ const StyledFundraiseBanner = styled.div`
 `
 
 const FundraiseBanner = () => (
-	<StyledFundraiseBanner>
+	<StyledFundraiseBanner
+		data-aos="fade-down"
+		data-aos-duration="400"
+		data-aos-delay="400"
+	>
 		<Container>
 			<p className="text--s font-weight--700">
 				Raised $7.6M to democratize multiplayer game development
