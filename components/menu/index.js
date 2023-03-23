@@ -584,7 +584,7 @@ const Menu = () => {
 							theme="outline"
 							className="sign-up me-3 me-lg-0"
 						>
-							<a href="https://console.hathora.dev/">Login</a>
+							<a href="https://hathora.dev/docs/get-started">Login</a>
 						</Button>
 
 						<button

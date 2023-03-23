@@ -11,6 +11,10 @@ import { colors } from "utils/variables"
 import Container from "components/container/"
 
 const StyledFundraiseBanner = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
 	padding: 8px 0;
 	color: ${colors.green__500};
 	border-bottom: 1px solid ${colors.green__500};
