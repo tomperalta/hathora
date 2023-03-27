@@ -16,13 +16,21 @@ const StyledFundraiseBanner = styled.div`
 	right: 0;
 	left: 0;
 	padding: 8px 0;
-	color: ${colors.green__500};
 	border-bottom: 1px solid ${colors.green__500};
 	text-align: center;
+	z-index: 9001;
 
 	${breakpoint.medium`
-    padding: 16px 0;
+  padding: 16px 0;
   `}
+
+	a {
+		color: ${colors.green__500};
+
+		&:hover {
+			color: ${colors.purple__500};
+		}
+	}
 `
 
 const FundraiseBanner = () => (
@@ -32,9 +40,14 @@ const FundraiseBanner = () => (
 		data-aos-delay="400"
 	>
 		<Container>
-			<p className="text--s font-weight--700">
+			<a
+				href="https://blog.hathora.dev/hathora-raises-7-6m-to-power-game-server-hosting/"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="text--s font-weight--700"
+			>
 				Raised $7.6M to democratize multiplayer game development
-			</p>
+			</a>
 		</Container>
 	</StyledFundraiseBanner>
 )
