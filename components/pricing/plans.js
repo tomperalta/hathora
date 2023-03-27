@@ -122,7 +122,7 @@ const Plans = () => {
 						<Button
 							type="link"
 							theme="gradient"
-							href="https://console.hathora.dev/"
+							href="https://hathora.dev/docs/get-started"
 						>
 							Get Started
 						</Button>

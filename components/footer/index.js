@@ -173,7 +173,7 @@ const Footer = () => {
 				},
 				{
 					label: "Media Kit",
-					url: "https://www.dropbox.com/sh/yjymhvs21d982al/AADopiw32_QRVoJzH5r48clZa?dl=0",
+					url: "/media-kit.zip",
 					external: true,
 				},
 				{

@@ -28,11 +28,15 @@ import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
 const StyledMenu = styled.nav`
 	width: 100vw;
 	position: absolute;
-	top: 0;
+	top: 64px;
 	right: 0;
 	left: 0;
 	box-sizing: border-box;
 	z-index: 9999;
+
+	${breakpoint.medium`
+    top: 56px;
+  `}
 
 	${Container} {
 		margin: 32px auto;
@@ -580,7 +584,7 @@ const Menu = () => {
 							theme="outline"
 							className="sign-up me-3 me-lg-0"
 						>
-							<a href="https://console.hathora.dev/">Login</a>
+							<a href="https://hathora.dev/docs/get-started">Login</a>
 						</Button>
 
 						<button

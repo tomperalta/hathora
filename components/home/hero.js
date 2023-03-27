@@ -54,7 +54,7 @@ const StyledHero = styled.section`
       margin-top: 56px;
     `}
 
-		button {
+		a {
 			margin-bottom: 24px;
 
 			${breakpoint.medium`
@@ -177,11 +177,11 @@ const Hero = () => {
 
 							<div className="hero__buttons d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
 								<Button
-									type="button"
+									type="link"
 									theme="gradient"
-									// onClick={() => dispatch(openSignUpModal("Home's Hero"))}
+									href="https://hathora.dev/docs/get-started"
 								>
-									<a href="https://console.hathora.dev/">Get Started</a>
+									Get Started
 								</Button>
 
 								<Button type="link" href="/docs" theme="borderless">
