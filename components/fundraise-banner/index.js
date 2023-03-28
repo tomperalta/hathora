@@ -46,7 +46,7 @@ const FundraiseBanner = () => (
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				Raised $7.6M to democratize multiplayer game development
+				Announcing our $7.6m Seed from Upfront Ventures and Founders Fund
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
