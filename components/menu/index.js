@@ -580,11 +580,13 @@ const Menu = () => {
 
 					<div className="menu__toggler d-flex align-items-center">
 						<Button
-							type="button"
+							type="link"
 							theme="outline"
+							href="https://console.hathora.dev/login"
+							external
 							className="sign-up me-3 me-lg-0"
 						>
-							<a href="https://hathora.dev/docs/get-started">Login</a>
+							Login
 						</Button>
 
 						<button
