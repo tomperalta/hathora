@@ -14,10 +14,10 @@ import { plans } from "settings"
 import Button from "components/button"
 
 const StyledPlans = styled.section`
-	padding: 112px 0 60px 0;
+	padding: 156px 0 60px 0;
 
 	${breakpoint.medium`
-    padding: 120px 0 60px 0;
+    padding-top: 196px;
   `}
 
 	.plans {
