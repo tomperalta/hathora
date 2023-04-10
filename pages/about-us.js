@@ -24,7 +24,7 @@ import BackedBy from "components/about-us/backed-by"
 
 const StyledAboutUs = styled.main`
 	> section {
-		padding: 96px 0;
+		padding: 156px 0 96px 0;
 
 		${breakpoint.medium`
       padding: 100px 0;
