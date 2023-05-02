@@ -51,7 +51,7 @@ export const plans = [
 				<span className="font-weight--700">Shared</span> Core
 			</>,
 			<>
-				<span className="font-weight--700">512MB</span> Memory
+				<span className="font-weight--700">1GB</span> Memory
 			</>,
 		],
 	},
