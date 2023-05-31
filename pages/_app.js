@@ -26,7 +26,9 @@ const MyApp = ({ Component, pageProps }) => (
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-X3F6VCK20S');`}
+          gtag('config', 'G-X3F6VCK20S');
+          gtag('config', 'AW-11183536945');
+          gtag('config', 'GTM-PHPK7ZF');`}
 		</Script>
 		<PrimaryLayout>
 			<Component {...pageProps} />
