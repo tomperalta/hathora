@@ -28,14 +28,16 @@ const generateSitemap = () => {
   `
 }
 
-const Sitemap = () => null
+const Sitemap = () => {
+	// getServerSideProps will do the heavy lifting
+}
 
 export default Sitemap
 
 export async function getServerSideProps({ res }) {
 	const sitemap = generateSitemap()
 
-	res.setHeader("Content-Type", "application/xml")
+	res.setHeader("Content-Type", "text/xml", "application/xml")
 	res.write(sitemap)
 	res.end()
 
