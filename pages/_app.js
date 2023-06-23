@@ -18,10 +18,21 @@ import "assets/styles/main.scss"
 const MyApp = ({ Component, pageProps }) => (
 	<Provider store={store}>
 		<Script
-			strategy="lazyOnload"
+			strategy="afterInteractive"
 			src="https://www.googletagmanager.com/gtag/js?id=G-X3F6VCK20S"
 		/>
-		<Script strategy="lazyOnload" id="analytics">
+		<Script strategy="afterInteractive">
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PHPK7ZF');
+		</Script>
+		<Script
+			strategy="afterInteractive"
+			src="https://www.googletagmanager.com/ns.html?id=GTM-PHPK7ZF"
+		/>
+		<Script strategy="afterInteractive" id="analytics">
 			{`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
