@@ -18,10 +18,10 @@ import "assets/styles/main.scss"
 const MyApp = ({ Component, pageProps }) => (
 	<Provider store={store}>
 		<Script
-			strategy="afterInteractive"
+			strategy="lazyOnload"
 			src="https://www.googletagmanager.com/gtag/js?id=G-X3F6VCK20S"
 		/>
-		<Script strategy="afterInteractive" id="gtag">
+		<Script strategy="lazyOnload" id="gtag">
 			{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -29,10 +29,10 @@ const MyApp = ({ Component, pageProps }) => (
 		})(window,document,'script','dataLayer','GTM-PHPK7ZF');`}
 		</Script>
 		<Script
-			strategy="afterInteractive"
+			strategy="lazyOnload"
 			src="https://www.googletagmanager.com/ns.html?id=GTM-PHPK7ZF"
 		/>
-		<Script strategy="afterInteractive" id="analytics">
+		<Script strategy="lazyOnload" id="analytics">
 			{`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
