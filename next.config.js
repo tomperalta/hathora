@@ -11,11 +11,11 @@ const nextConfig = {
 		return [
 			{
 				source: "/docs",
-				destination: "https://hathora-docus.netlify.app/",
+				destination: "https://hathora-cloud-monorepo.vercel.app/",
 			},
 			{
 				source: "/docs/:path*",
-				destination: "https://hathora-docus.netlify.app/:path*/",
+				destination: "https://hathora-cloud-monorepo.vercel.app/:path*/",
 			},
 		]
 	},
