@@ -10,7 +10,10 @@ import DiscountBanner from "components/pricing/discount-banner"
 
 const Pricing = () => (
 	<>
-		<SEO title="Pricing | Serverless Cloud Platform for Multiplayer Games" />
+		<SEO
+			title="Pricing | Serverless Cloud Platform for Multiplayer Games"
+			description="See Hathora’s pricing system that allows you to take your game global, with plans for all game types and bandwidth needs."
+		/>
 		<Plans />
 		<Features />
 		<DiscountBanner />

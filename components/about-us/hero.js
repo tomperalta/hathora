@@ -116,9 +116,9 @@ const Hero = () => {
 				<div className="row justify-content-center justify-content-md-start align-items-center">
 					<div className="col-12 col-md-7 p-md-0">
 						<div className="text-sm-center text-md-start">
-							<h2 className="heading--l font-weight--500 mb-4">
+							<h1 className="heading--l font-weight--500 mb-4">
 								Hathora is bringing infrastructure expertise to the gaming world
-							</h2>
+							</h1>
 						</div>
 
 						<div
