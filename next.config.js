@@ -11,11 +11,11 @@ const nextConfig = {
 		return [
 			{
 				source: "/docs",
-				destination: "https://hathora-cloud-monorepo.vercel.app/",
+				destination: "https://hathora-docs.vercel.app/",
 			},
 			{
 				source: "/docs/:path*",
-				destination: "https://hathora-cloud-monorepo.vercel.app/:path*/",
+				destination: "https://hathora-docs.vercel.app/:path*/",
 			},
 		]
 	},
