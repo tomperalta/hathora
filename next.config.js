@@ -17,6 +17,14 @@ const nextConfig = {
 				source: "/docs/:path*",
 				destination: "https://hathora-docus.netlify.app/:path*/",
 			},
+			{
+				source: "/api",
+				destination: "https://hathora-api.vercel.app/",
+			},
+			{
+				source: "/swagger.json",
+				destination: "https://hathora-api.vercel.app/swagger.json",
+			},
 		]
 	},
 	webpack: (config, { dev }) => {
