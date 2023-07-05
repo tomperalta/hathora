@@ -22,8 +22,8 @@ const nextConfig = {
 				destination: "https://hathora-api.vercel.app/",
 			},
 			{
-				source: "/api/:path*",
-				destination: "https://hathora-api.vercel.app/:path*/",
+				source: "/swagger.json",
+				destination: "https://hathora-api.vercel.app/swagger.json",
 			},
 		]
 	},
