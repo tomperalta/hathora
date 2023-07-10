@@ -41,12 +41,12 @@ const FundraiseBanner = () => (
 	>
 		<Container>
 			<a
-				href="https://blog.hathora.dev/hathora-raises-7-6m-to-power-game-server-hosting/"
+				href="https://itch.io/jam/multiplayer-madness-by-hathora"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				Announcing our $7.6m Seed from Upfront Ventures and Founders Fund
+				Join our Multiplayer Madness Game Jam on Itch.io with over $2,500 in prizes!
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
