@@ -46,7 +46,8 @@ const FundraiseBanner = () => (
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				Join our Multiplayer Madness Game Jam on Itch.io with over $2,500 in prizes!
+				Join our Multiplayer Madness Game Jam on Itch.io with over $2,500 in
+				prizes!
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
