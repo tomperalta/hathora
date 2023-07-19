@@ -178,7 +178,7 @@ const Hero = () => {
 								<Button
 									type="link"
 									theme="gradient"
-									href="https://hathora.dev/docs/get-started"
+									href="https://hathora.dev/docs"
 								>
 									Get Started
 								</Button>
