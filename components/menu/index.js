@@ -393,11 +393,11 @@ const Menu = () => {
 			label: "Docs",
 			url: "/docs",
 		},
-		{
-			label: "Community",
-			url: "https://community.hathora.dev",
-			external: true,
-		},
+		// {
+		// 	label: "Community",
+		// 	url: "https://community.hathora.dev",
+		// 	external: true,
+		// },
 		{
 			label: "Blog",
 			url: "https://blog.hathora.dev/",

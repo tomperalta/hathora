@@ -156,11 +156,11 @@ const Footer = () => {
 		{
 			title: "Resources",
 			links: [
-				{
-					label: "Community",
-					url: "https://community.hathora.dev/",
-					external: true,
-				},
+				// {
+				// 	label: "Community",
+				// 	url: "https://community.hathora.dev/",
+				// 	external: true,
+				// },
 				{
 					label: "Docs",
 					url: "/docs",
