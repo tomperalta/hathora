@@ -24,6 +24,7 @@ const PrimaryLayout = ({ children }) => {
 	return (
 		<>
 			<GlobalStyles />
+			<FundraiseBanner />
 			<Menu />
 			<main>{children}</main>
 			<Footer />
