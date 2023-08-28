@@ -28,15 +28,16 @@ import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
 const StyledMenu = styled.nav`
 	width: 100vw;
 	position: absolute;
-	top: 64px;
+	// top: 64px; // Space for banner
 	right: 0;
 	left: 0;
 	box-sizing: border-box;
 	z-index: 9999;
 
-	${breakpoint.medium`
-    top: 56px;
-  `}
+	// Space for banner
+	// ${breakpoint.medium`
+  //   top: 56px;
+  // `}
 
 	${Container} {
 		margin: 32px auto;
