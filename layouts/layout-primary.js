@@ -11,7 +11,6 @@ import GlobalStyles from "assets/styles/globalStyles"
 import Menu from "components/menu"
 import SignUpModal from "components/sign-up-modal"
 import Footer from "components/footer"
-import FundraiseBanner from "components/fundraise-banner"
 
 const PrimaryLayout = ({ children }) => {
 	useEffect(() => {
@@ -24,7 +23,6 @@ const PrimaryLayout = ({ children }) => {
 	return (
 		<>
 			<GlobalStyles />
-			<FundraiseBanner />
 			<Menu />
 			<main>{children}</main>
 			<Footer />
