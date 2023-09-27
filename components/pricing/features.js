@@ -68,11 +68,13 @@ const StyledFeatures = styled.section`
 const Features = () => {
 	const data = {
 		firstColumn: [
-			"Compute scheduling in 8+ regions",
+			"Begin game testing without any upfront expenses – cost-effective testing, no strings attached",
+			"Pay-as-you-go pricing ensures your testing costs stay manageable",
+			"Compute scheduling in 10+ regions",
 			"Premium edge network for latency reduction",
-			"CI/CD with remote docker builder and global container registries",
 		],
 		secondColumn: [
+			"CI/CD with remote docker builder and global container registries",
 			"Logs, metrics, and connection analytics",
 			"Unlimited team members",
 			"Denial of Service protection",
