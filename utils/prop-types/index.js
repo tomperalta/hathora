@@ -17,4 +17,13 @@ export const CarouselProps = {
 	className: PropTypes.string,
 }
 
+export const MapLocationProps = {
+	region: PropTypes.string.isRequired,
+	labelPosition: PropTypes.string.isRequired,
+	coords: PropTypes.shape({
+		y: PropTypes.number.isRequired,
+		x: PropTypes.number.isRequired,
+	}).isRequired,
+}
+
 export default ButtonProps

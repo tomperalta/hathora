@@ -4,11 +4,9 @@ import React from "react"
 import DesktopPingMap from "./components/ping-map--desktop"
 
 const PingMap = () => (
-	<section>
-		<div className="d-none d-lg-block">
-			<DesktopPingMap />
-		</div>
-	</section>
+	<div className="d-none d-lg-block">
+		<DesktopPingMap />
+	</div>
 )
 
 export default PingMap

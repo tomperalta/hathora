@@ -5,41 +5,11 @@ import styled from "styled-components"
 
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
-import { colors } from "utils/variables"
+import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
 	.map-wrapper {
 		position: relative;
-
-		.location {
-			position: absolute;
-			display: flex;
-			align-items: center;
-
-			.indicator {
-				width: 8px;
-				height: 8px;
-				background-color: red;
-				border-radius: 50%;
-			}
-
-			.label {
-				position: absolute;
-				padding: 4px 8px;
-				background-color: ${colors.grey__700};
-				color: white;
-				border-radius: 8px;
-				white-space: nowrap;
-
-				&--left {
-					right: calc(100% + 8px);
-				}
-
-				&--right {
-					left: calc(100% + 8px);
-				}
-			}
-		}
 	}
 `
 
@@ -49,7 +19,7 @@ const DesktopPingMap = () => {
 	 */
 	const locations = [
 		{
-			name: "Seattle",
+			region: "Seattle",
 			labelPosition: "right",
 			coords: {
 				y: 25.9438642298,
@@ -57,7 +27,7 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Chicago",
+			region: "Chicago",
 			labelPosition: "left",
 			coords: {
 				y: 31.2206266319,
@@ -65,7 +35,7 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Washington DC",
+			region: "Washington DC",
 			labelPosition: "right",
 			coords: {
 				y: 32.8498694517,
@@ -73,15 +43,15 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "São Paulo",
+			region: "São Paulo",
 			labelPosition: "right",
 			coords: {
-				y: 74.5874673629,
-				x: 30.2229166667,
+				y: 74.5430809399,
+				x: 30.2083333333,
 			},
 		},
 		{
-			name: "London",
+			region: "London",
 			labelPosition: "left",
 			coords: {
 				y: 24.0652741514,
@@ -89,7 +59,7 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Frankfurt",
+			region: "Frankfurt",
 			labelPosition: "right",
 			coords: {
 				y: 25.637075718,
@@ -97,7 +67,7 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Mumbai",
+			region: "Mumbai",
 			labelPosition: "left",
 			coords: {
 				y: 45.3315926893,
@@ -105,7 +75,7 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Singapore",
+			region: "Singapore",
 			labelPosition: "left",
 			coords: {
 				y: 57.591383812,
@@ -113,15 +83,15 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			name: "Tokyo",
+			region: "Tokyo",
 			labelPosition: "right",
 			coords: {
-				y: 266.63,
-				x: 1234.19,
+				y: 34.725848564,
+				x: 85.6944444444,
 			},
 		},
 		{
-			name: "Sydney",
+			region: "Sydney",
 			labelPosition: "left",
 			coords: {
 				y: 80.2506527415,
@@ -134,24 +104,8 @@ const DesktopPingMap = () => {
 		<StyledPingMap>
 			<div className="map-wrapper">
 				<Map />
-
 				{locations.map((location) => (
-					<div
-						key={location.name}
-						className="location"
-						style={{
-							top: `${location.coords.y}%`,
-							left: `${location.coords.x}%`,
-						}}
-					>
-						<div className="indicator" />
-
-						<div
-							className={`label label--${location.labelPosition} text--s font-weight--700`}
-						>
-							{location.name}
-						</div>
-					</div>
+					<MapLocation {...location} />
 				))}
 			</div>
 		</StyledPingMap>
