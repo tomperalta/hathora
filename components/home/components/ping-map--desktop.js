@@ -1,10 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Libraries
 import styled from "styled-components"
 
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
+import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
+
+// COmponents
+import Container from "components/container"
+import Button from "components/button"
 import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
@@ -14,6 +19,11 @@ const StyledPingMap = styled.div`
 `
 
 const DesktopPingMap = () => {
+	/**
+	 * STATES
+	 */
+	const [speeds, setSpeeds] = useState([])
+
 	/**
 	 * VARIABLES
 	 */
@@ -100,14 +110,40 @@ const DesktopPingMap = () => {
 		},
 	]
 
+	/**
+	 * METHODS
+	 */
+	const addSpeed = (region) => {
+		setSpeeds((current) => [...current, region])
+	}
+
 	return (
 		<StyledPingMap>
 			<div className="map-wrapper">
 				<Map />
 				{locations.map((location) => (
-					<MapLocation {...location} />
+					<MapLocation {...location} callbackFn={addSpeed} />
 				))}
 			</div>
+
+			<Container>
+				<div className="footer text-center">
+					<p className="text--s color--grey__400 mb-4">
+						Our goal: 90% of gamers under 40ms ping
+					</p>
+
+					<Button
+						theme="outline"
+						type="link"
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${speeds[0]?.region} region is ${speeds[0]?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						disabled={speeds.length !== locations.length}
+						external
+					>
+						Share your ping
+						<IconShare className="ml--16" />
+					</Button>
+				</div>
+			</Container>
 		</StyledPingMap>
 	)
 }

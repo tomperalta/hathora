@@ -124,13 +124,13 @@ const MapLocation = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, labelPosition, coords } = props
+	const { region, labelPosition, coords, callbackFn } = props
 
 	/**
 	 * STATE
 	 */
-	const [loading, setLoading] = useState(true)
 	const [speed, setSpeed] = useState(null)
+	const [loading, setLoading] = useState(true)
 
 	console.log(labelPosition, coords, setLoading)
 
@@ -139,6 +139,12 @@ const MapLocation = (props) => {
 
 		const timeoutId = setTimeout(() => {
 			setSpeed(Math.round(randomTimeout))
+
+			callbackFn({
+				region,
+				speed: Math.round(randomTimeout),
+			})
+
 			setLoading(false)
 		}, randomTimeout)
 
