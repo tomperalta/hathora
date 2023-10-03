@@ -62,11 +62,11 @@ const StyledMapLocation = styled.div`
 
 		&::before {
 			content: "";
-			width: 180px;
-			height: 180px;
+			width: 120px;
+			height: 120px;
 			position: absolute;
-			top: -88px;
-			left: -88px;
+			top: -56px;
+			left: -56px;
 			background: radial-gradient(
 				circle,
 				var(--indicatorColor) 0%,
@@ -87,6 +87,13 @@ const StyledMapLocation = styled.div`
 		color: white;
 		border-radius: 8px;
 		white-space: nowrap;
+
+		${(props) =>
+			props.featured &&
+			css`
+				font-size: 1.25rem;
+				line-height: 1.4em;
+			`}
 
 		${(props) =>
 			props.labelPosition === "left" &&
@@ -124,15 +131,13 @@ const MapLocation = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, labelPosition, coords, callbackFn } = props
+	const { region, labelPosition, coords, callbackFn, featured } = props
 
 	/**
 	 * STATE
 	 */
 	const [speed, setSpeed] = useState(null)
 	const [loading, setLoading] = useState(true)
-
-	console.log(labelPosition, coords, setLoading)
 
 	useEffect(() => {
 		const randomTimeout = Math.random() * 3000 + 100 // Random timeout between 0.1 and 1 second (in milliseconds)
@@ -154,6 +159,7 @@ const MapLocation = (props) => {
 	return (
 		<StyledMapLocation
 			loading={loading}
+			featured={featured}
 			speed={speed}
 			labelPosition={labelPosition}
 			style={{

@@ -122,7 +122,11 @@ const DesktopPingMap = () => {
 			<div className="map-wrapper">
 				<Map />
 				{locations.map((location) => (
-					<MapLocation {...location} callbackFn={addSpeed} />
+					<MapLocation
+						{...location}
+						featured={location.region === speeds[0]?.region}
+						callbackFn={addSpeed}
+					/>
 				))}
 			</div>
 
