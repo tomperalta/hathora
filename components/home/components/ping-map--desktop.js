@@ -22,7 +22,7 @@ const DesktopPingMap = () => {
 	/**
 	 * STATES
 	 */
-	const [speeds, setSpeeds] = useState([])
+	const [fastestRegion, setFastestRegion] = useState(null)
 
 	/**
 	 * VARIABLES
@@ -114,7 +114,13 @@ const DesktopPingMap = () => {
 	 * METHODS
 	 */
 	const addSpeed = (region) => {
-		setSpeeds((current) => [...current, region])
+		setFastestRegion((current) => {
+			if (!current) {
+				return region
+			}
+
+			return current
+		})
 	}
 
 	return (
@@ -124,7 +130,7 @@ const DesktopPingMap = () => {
 				{locations.map((location) => (
 					<MapLocation
 						{...location}
-						featured={location.region === speeds[0]?.region}
+						featured={fastestRegion?.region === location.region}
 						callbackFn={addSpeed}
 					/>
 				))}
@@ -139,8 +145,8 @@ const DesktopPingMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${speeds[0]?.region} region is ${speeds[0]?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
-						disabled={speeds.length !== locations.length}
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion?.region} region is ${fastestRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						disabled={!fastestRegion}
 						external
 					>
 						Share your ping
