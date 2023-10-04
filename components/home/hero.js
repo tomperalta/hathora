@@ -51,7 +51,7 @@ const Home = () => (
 						</Button>
 
 						<Button type="link" href="/docs" theme="borderless">
-							Read our docs
+							Book a Call
 							<IconArrow />
 						</Button>
 					</div>
