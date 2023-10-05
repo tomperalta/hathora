@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 // Libraries
 import styled, { css, keyframes } from "styled-components"
-import Lottie from "react-lottie"
+import Lottie from "lottie-react"
 
 // Components
 import Container from "components/container"
@@ -157,7 +157,58 @@ const MobileMap = () => {
 	/**
 	 * VARIABLES
 	 */
-	const locations = ["Seattle", "São Paulo"]
+	const locations = [
+		{
+			region: "Singapore",
+			host: "ping.hathora.dev",
+			port: 2006,
+		},
+		{
+			region: "Washington_DC",
+			host: "ping.hathora.dev",
+			port: 2001,
+		},
+		{
+			region: "Mumbai",
+			host: "ping.hathora.dev",
+			port: 2005,
+		},
+		{
+			region: "Sydney",
+			host: "ping.hathora.dev",
+			port: 2008,
+		},
+		{
+			region: "Sao_Paulo",
+			host: "ping.hathora.dev",
+			port: 2009,
+		},
+		{
+			region: "Seattle",
+			host: "ping.hathora.dev",
+			port: 2000,
+		},
+		{
+			region: "Chicago",
+			host: "ping.hathora.dev",
+			port: 2002,
+		},
+		{
+			region: "Frankfurt",
+			host: "ping.hathora.dev",
+			port: 2004,
+		},
+		{
+			region: "Tokyo",
+			host: "ping.hathora.dev",
+			port: 2007,
+		},
+		{
+			region: "London",
+			host: "ping.hathora.dev",
+			port: 2003,
+		},
+	]
 
 	/**
 	 * STATE
@@ -171,11 +222,15 @@ const MobileMap = () => {
 	/**
 	 * HOOKS
 	 */
+	const lottieRef = useRef()
+
 	useEffect(() => {
 		const randomTimeout = Math.random() * 3000 + 100 // Random timeout between 0.1 and 1 second (in milliseconds)
 
 		const timeoutId = setTimeout(() => {
 			setSpeed(Math.round(randomTimeout))
+
+			console.log(`Lottie Ref:`, lottieRef.current)
 
 			setLoading(false)
 		}, randomTimeout)
@@ -183,16 +238,40 @@ const MobileMap = () => {
 		return () => clearTimeout(timeoutId) // Clean up the timer when the component unmounts
 	}, [])
 
+	/**
+	 * METHODS
+	 */
+	const animateMap = (startRegion, endRegion) => {
+		const { current: lottieElem } = lottieRef
+
+		if (lottieElem) {
+			lottieElem.playSegments(
+				[
+					locations.indexOf(startRegion) * 60,
+					locations.indexOf(endRegion) * 60,
+				],
+				true
+			)
+		}
+	}
+
+	const handleRegionChange = (newRegion) => {
+		setActiveRegion((currentRegion) => {
+			animateMap(currentRegion, newRegion)
+
+			return newRegion
+		})
+	}
+
 	return (
 		<StyledMobileMap loading={loading} speed={speed}>
 			<Container>
 				<div className="map-wrapper">
 					<Lottie
-						options={{
-							animationData: MapAnimation,
-						}}
-						isPaused
-						isClickToPauseDisabled
+						lottieRef={lottieRef}
+						animationData={MapAnimation}
+						autoplay={false}
+						loop={false}
 					/>
 
 					<div className="indicator" />
@@ -214,6 +293,18 @@ const MobileMap = () => {
 							</p>
 						</div>
 					</div>
+				</div>
+
+				<div className="d-flex flex-wrap" style={{ gap: "8px" }}>
+					{locations.map((location) => (
+						<button
+							key={location.region}
+							type="button"
+							onClick={() => handleRegionChange(location.region)}
+						>
+							{location.region}
+						</button>
+					))}
 				</div>
 			</Container>
 		</StyledMobileMap>
