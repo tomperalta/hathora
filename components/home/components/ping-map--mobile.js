@@ -65,7 +65,9 @@ const StyledMobileMap = styled.div`
 	}}
 
 	.map-wrapper {
-		max-width: 334px;
+		width: 334px;
+		height: 334px;
+		aspect-ratio: 1 / 1;
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
