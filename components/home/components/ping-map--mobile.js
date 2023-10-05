@@ -241,27 +241,19 @@ const MobileMap = () => {
 	/**
 	 * METHODS
 	 */
-	const animateMap = (startRegion, endRegion) => {
-		const { current: lottieElem } = lottieRef
+	// const animateMap = (startRegion, endRegion) => {
+	// 	const { current: lottieElem } = lottieRef
 
-		if (lottieElem) {
-			lottieElem.playSegments(
-				[
-					locations.indexOf(startRegion) * 60,
-					locations.indexOf(endRegion) * 60,
-				],
-				true
-			)
-		}
-	}
-
-	const handleRegionChange = (newRegion) => {
-		setActiveRegion((currentRegion) => {
-			animateMap(currentRegion, newRegion)
-
-			return newRegion
-		})
-	}
+	// 	if (lottieElem) {
+	// 		lottieElem.playSegments(
+	// 			[
+	// 				locations.indexOf(startRegion) * 60,
+	// 				locations.indexOf(endRegion) * 60,
+	// 			],
+	// 			true
+	// 		)
+	// 	}
+	// }
 
 	return (
 		<StyledMobileMap loading={loading} speed={speed}>
@@ -289,22 +281,10 @@ const MobileMap = () => {
 							<div className="speed">{speed} ms</div>
 
 							<p className="text--xs font-weight--500 color--grey__400">
-								{activeRegion}
+								{activeRegion.region}
 							</p>
 						</div>
 					</div>
-				</div>
-
-				<div className="d-flex flex-wrap" style={{ gap: "8px" }}>
-					{locations.map((location) => (
-						<button
-							key={location.region}
-							type="button"
-							onClick={() => handleRegionChange(location.region)}
-						>
-							{location.region}
-						</button>
-					))}
 				</div>
 			</Container>
 		</StyledMobileMap>
