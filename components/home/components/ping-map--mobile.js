@@ -172,31 +172,6 @@ const MobileMap = () => {
 	 */
 	const locations = [
 		{
-			region: "Singapore",
-			host: "ping.hathora.dev",
-			port: 2006,
-		},
-		{
-			region: "Washington_DC",
-			host: "ping.hathora.dev",
-			port: 2001,
-		},
-		{
-			region: "Mumbai",
-			host: "ping.hathora.dev",
-			port: 2005,
-		},
-		{
-			region: "Sydney",
-			host: "ping.hathora.dev",
-			port: 2008,
-		},
-		{
-			region: "Sao_Paulo",
-			host: "ping.hathora.dev",
-			port: 2009,
-		},
-		{
 			region: "Seattle",
 			host: "ping.hathora.dev",
 			port: 2000,
@@ -207,19 +182,44 @@ const MobileMap = () => {
 			port: 2002,
 		},
 		{
-			region: "Frankfurt",
+			region: "Washington DC",
 			host: "ping.hathora.dev",
-			port: 2004,
+			port: 2001,
 		},
 		{
-			region: "Tokyo",
+			region: "São Paulo",
 			host: "ping.hathora.dev",
-			port: 2007,
+			port: 2009,
 		},
 		{
 			region: "London",
 			host: "ping.hathora.dev",
 			port: 2003,
+		},
+		{
+			region: "Frankfurt",
+			host: "ping.hathora.dev",
+			port: 2004,
+		},
+		{
+			region: "Mumbai",
+			host: "ping.hathora.dev",
+			port: 2005,
+		},
+		{
+			region: "Singapore",
+			host: "ping.hathora.dev",
+			port: 2006,
+		},
+		{
+			region: "Sydney",
+			host: "ping.hathora.dev",
+			port: 2008,
+		},
+		{
+			region: "Tokyo",
+			host: "ping.hathora.dev",
+			port: 2007,
 		},
 	]
 
@@ -227,10 +227,8 @@ const MobileMap = () => {
 	 * STATE
 	 */
 	const [loading, setLoading] = useState(true)
-	const [activeRegion, setActiveRegion] = useState(locations[0])
+	const [activeRegion, setActiveRegion] = useState(null)
 	const [speed, setSpeed] = useState(null)
-
-	console.log(setActiveRegion)
 
 	/**
 	 * HOOKS
@@ -242,9 +240,9 @@ const MobileMap = () => {
 
 		const timeoutId = setTimeout(() => {
 			setSpeed(Math.round(randomTimeout))
-
-			console.log(`Lottie Ref:`, lottieRef.current)
-
+			setActiveRegion(
+				locations[Math.floor(Math.random() * locations.length)].region
+			)
 			setLoading(false)
 		}, randomTimeout)
 
@@ -254,19 +252,23 @@ const MobileMap = () => {
 	/**
 	 * METHODS
 	 */
-	// const animateMap = (startRegion, endRegion) => {
-	// 	const { current: lottieElem } = lottieRef
+	useEffect(() => {
+		const { current: lottieElem } = lottieRef
 
-	// 	if (lottieElem) {
-	// 		lottieElem.playSegments(
-	// 			[
-	// 				locations.indexOf(startRegion) * 60,
-	// 				locations.indexOf(endRegion) * 60,
-	// 			],
-	// 			true
-	// 		)
-	// 	}
-	// }
+		if (lottieElem && activeRegion) {
+			const endFrame =
+				(locations.findIndex((location) => location.region === activeRegion) +
+					1) *
+				30
+			const startFrame = endFrame - 30 > 0 ? endFrame - 30 : 0
+
+			console.log(`End frame:`, endFrame)
+			console.log(lottieElem)
+
+			lottieElem.playSegments([startFrame, endFrame], true)
+			lottieElem.setSpeed(2)
+		}
+	}, [activeRegion])
 
 	return (
 		<StyledMobileMap loading={loading} speed={speed}>
@@ -296,7 +298,7 @@ const MobileMap = () => {
 							<div className="speed">{speed} ms</div>
 
 							<p className="name text--xs font-weight--500 color--grey__400">
-								{activeRegion.region}
+								{activeRegion}
 							</p>
 						</div>
 					</div>
@@ -310,7 +312,7 @@ const MobileMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${activeRegion?.region} region is ${activeRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${activeRegion} region is ${speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
 						disabled={!activeRegion}
 						external
 					>
