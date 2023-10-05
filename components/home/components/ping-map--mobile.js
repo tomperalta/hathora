@@ -6,6 +6,7 @@ import Lottie from "lottie-react"
 
 // Components
 import Container from "components/container"
+import Button from "components/button"
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
@@ -14,6 +15,7 @@ import { colors } from "utils/variables"
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
 import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
+import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -63,6 +65,9 @@ const StyledMobileMap = styled.div`
 	}}
 
 	.map-wrapper {
+		max-width: 334px;
+		margin-left: auto;
+		margin-right: auto;
 		position: relative;
 
 		.indicator {
@@ -140,12 +145,20 @@ const StyledMobileMap = styled.div`
 			border-radius: 4px;
 
 			svg {
+				position: relative;
+				top: 4px;
 				flex-shrink: 0;
 			}
 
 			.speed {
 				max-height: ${(props) => (props.loading ? "0" : "72px")};
 				color: var(--indicatorColor);
+				overflow: hidden;
+				transition: max-height 1s ease 1.2s;
+			}
+
+			.name {
+				max-height: ${(props) => (props.loading ? "0" : "72px")};
 				overflow: hidden;
 				transition: max-height 1s ease 1.2s;
 			}
@@ -276,15 +289,34 @@ const MobileMap = () => {
 						<IconPing />
 
 						<div>
-							<p className="text--s font-weight--700">Your best ping</p>
+							<p className="text--s font-weight--700">
+								{speed ? "Your best ping" : "Calculating your ping..."}
+							</p>
 
 							<div className="speed">{speed} ms</div>
 
-							<p className="text--xs font-weight--500 color--grey__400">
+							<p className="name text--xs font-weight--500 color--grey__400">
 								{activeRegion.region}
 							</p>
 						</div>
 					</div>
+				</div>
+
+				<div className="mt-4 text-center">
+					<p className="text--s color--grey__400 mb-4">
+						Our goal: 90% of gamers with under 40ms ping in their nearest region
+					</p>
+
+					<Button
+						theme="outline"
+						type="link"
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${activeRegion?.region} region is ${activeRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						disabled={!activeRegion}
+						external
+					>
+						Share your ping
+						<IconShare className="ml--16" />
+					</Button>
 				</div>
 			</Container>
 		</StyledMobileMap>

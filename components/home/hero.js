@@ -30,7 +30,7 @@ const Home = () => (
 	<StyledHome>
 		<Container>
 			<div className="row justify-content-center text-center">
-				<div className="col-12 col-md-8">
+				<div className="col-12 col-sm-8 col-md-8">
 					<h1 className="title heading--l">
 						Dedicated servers to host elite multiplayer games
 					</h1>
