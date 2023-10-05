@@ -18,7 +18,7 @@ import ModernInfrastructure from "components/home/modern-infrastructure"
 // import OurPlatform from "components/home/our-platform"
 import Testimonials from "components/home/testimonials"
 import Features from "components/home/features"
-import Deploy from "components/home/deploy"
+// import Deploy from "components/home/deploy"
 import Clients from "components/home/clients"
 import CTACards from "components/home/cta-cards"
 
@@ -30,7 +30,7 @@ const StyledHome = styled.main`
 		padding: 60px 0;
 
 		${breakpoint.medium`
-      padding: 76px 0;
+      padding: 100px 0;
     `}
 
 		&:first-child {
@@ -51,7 +51,7 @@ const Home = () => (
 		{/* <OurPlatform /> */}
 		<Testimonials />
 		<Features />
-		<Deploy />
+		{/* <Deploy /> */}
 		<Clients />
 		<CTACards />
 	</StyledHome>
