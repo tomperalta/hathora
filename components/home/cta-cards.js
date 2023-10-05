@@ -77,12 +77,7 @@ const CTACards = () => (
 						<p className="text--l font-weight--600">Ready to launch?</p>
 
 						<div className="card__footer d-flex align-items-center flex-column flex-md-row">
-							<Button
-								theme="gradient"
-								type="link"
-								href="https://docs.hathora.dev/"
-								external
-							>
+							<Button theme="fill" type="link" href="https://docs.hathora.dev/">
 								Read our Docs
 							</Button>
 
@@ -95,7 +90,7 @@ const CTACards = () => (
 
 				<div className="col-12 col-md-6">
 					<div className="card">
-						<p className="text--l font-weight--600">Ready to launch?</p>
+						<p className="text--l font-weight--600">Build with our community</p>
 						<div className="card__footer d-flex align-items-center flex-column flex-md-row">
 							<Button
 								type="link"
