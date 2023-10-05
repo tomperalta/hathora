@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 // Libraries
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import { MapLocationProps } from "utils/prop-types"
 
 // Utils
@@ -9,6 +9,30 @@ import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
+
+const PulseAnimation = keyframes`
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(2);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+`
+
+const RotateAnimation = keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+`
 
 const StyledMapLocation = styled.div`
 	--indicatorColor: var(--indicatorColor);
@@ -58,6 +82,12 @@ const StyledMapLocation = styled.div`
 			border-radius: 50%;
 			transform: scale(${(props) => (props.loading ? "0" : "1")});
 			transition: transform 0.3s ease-in 0.9s;
+
+			${(props) =>
+				props.featured &&
+				css`
+					animation: ${RotateAnimation} 4s linear infinite;
+				`}
 		}
 
 		&::before {
@@ -77,6 +107,12 @@ const StyledMapLocation = styled.div`
 			opacity: ${(props) => (props.loading ? "0" : "0.6")};
 			transition: opacity 1s ease-in 1.2s;
 			z-index: -1;
+
+			${(props) =>
+				props.featured &&
+				css`
+					animation: ${PulseAnimation} 4s linear infinite;
+				`}
 		}
 	}
 

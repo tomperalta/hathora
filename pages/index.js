@@ -27,13 +27,15 @@ import CTACards from "components/home/cta-cards"
 
 const StyledHome = styled.main`
 	> section {
-		padding: 156px 0 24px 0;
+		padding: 60px 0;
 
 		${breakpoint.medium`
-      padding: 100px 0;
+      padding: 76px 0;
     `}
 
 		&:first-child {
+			padding-top: 120px;
+
 			${breakpoint.medium`
         padding-top: 148px;
       `}
