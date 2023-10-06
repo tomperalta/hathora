@@ -40,13 +40,13 @@ const StyledMapLocation = styled.div`
 	${(props) => {
 		const { speed } = props
 
-		if (speed <= 500) {
+		if (speed <= 40) {
 			return css`
 				--indicatorColor: ${colors.green__500};
 			`
 		}
 
-		if (speed > 500 && speed <= 1000) {
+		if (speed > 40 && speed <= 100) {
 			return css`
 				--indicatorColor: #f2af4a;
 			`
@@ -167,34 +167,85 @@ const MapLocation = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, labelPosition, coords, callbackFn, featured } = props
+	const { region, displayName, labelPosition, coords, callbackFn, featured } =
+		props
 
 	/**
 	 * STATE
 	 */
+	const [url, setUrl] = useState(null)
+	const [socket, setSocket] = useState(null)
 	const [speed, setSpeed] = useState(null)
-	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		const randomTimeout = Math.random() * 3000 + 100 // Random timeout between 0.1 and 1 second (in milliseconds)
+		const getRegionUrl = async () => {
+			const response = await fetch("https://api.hathora.dev/discovery/v1/ping")
 
-		const timeoutId = setTimeout(() => {
-			setSpeed(Math.round(randomTimeout))
+			if (response.status === 200) {
+				const data = await response.json()
 
-			callbackFn({
-				region,
-				speed: Math.round(randomTimeout),
+				// We filter the response by `regions`
+				const regionData = data.find((location) => location.region === region)
+
+				if (regionData) {
+					const { host, port } = regionData
+
+					setUrl(`wss://${host}:${port}/ws`)
+				}
+			}
+		}
+
+		getRegionUrl()
+	}, [])
+
+	useEffect(() => {
+		if (url && !speed) {
+			// Initialize WebSocket connection
+			const newSocket = new WebSocket(url)
+
+			newSocket.addEventListener("open", () => {
+				const startTime = Date.now() // Record the start time
+				newSocket.send("Ping") // Send a ping message
+
+				newSocket.addEventListener("message", () => {
+					const endTime = Date.now() // Record the end time
+					const responseTime = endTime - startTime // Calculate the ping time
+					setSpeed(responseTime)
+				})
+
+				// Close the WebSocket connection after getting the response
+				newSocket.addEventListener("close", () => {
+					newSocket.close()
+				})
+
+				newSocket.addEventListener("error", (error) => {
+					console.error("WebSocket error:", error)
+				})
 			})
 
-			setLoading(false)
-		}, randomTimeout)
+			setSocket(newSocket)
 
-		return () => clearTimeout(timeoutId) // Clean up the timer when the component unmounts
-	}, [])
+			return () => {
+				// Clean up the WebSocket connection when the component unmounts
+				if (socket) {
+					socket.close()
+				}
+			}
+		}
+
+		return () => false
+	}, [url])
+
+	useEffect(() => {
+		callbackFn({
+			region,
+			speed,
+		})
+	}, [speed])
 
 	return (
 		<StyledMapLocation
-			loading={loading}
+			loading={!speed}
 			featured={featured}
 			speed={speed}
 			labelPosition={labelPosition}
@@ -206,7 +257,7 @@ const MapLocation = (props) => {
 			<div className="indicator" />
 
 			<span className="label text--s font-weight--700">
-				{region}
+				{displayName || region}
 				{speed && <span className="speed">{speed} ms</span>}
 			</span>
 

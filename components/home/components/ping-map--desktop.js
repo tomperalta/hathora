@@ -45,7 +45,8 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			region: "Washington DC",
+			region: "Washington_DC",
+			displayName: "Washington DC",
 			labelPosition: "right",
 			coords: {
 				y: 32.8498694517,
@@ -53,7 +54,8 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
-			region: "São Paulo",
+			region: "Sao_Paulo",
+			displayName: "São Paulo",
 			labelPosition: "right",
 			coords: {
 				y: 74.5430809399,
