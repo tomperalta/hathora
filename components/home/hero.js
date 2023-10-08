@@ -44,13 +44,13 @@ const Home = () => (
 						<Button
 							theme="gradient"
 							type="link"
-							href="https://docs.hathora.dev/"
+							href="https://hathora.dev/docs"
 							external
 						>
 							Read our Docs
 						</Button>
 
-						<Button type="link" href="/docs" theme="borderless">
+						<Button type="link" href="/" theme="borderless">
 							Book a Call
 							<IconArrow />
 						</Button>

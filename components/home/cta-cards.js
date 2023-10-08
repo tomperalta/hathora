@@ -77,7 +77,7 @@ const CTACards = () => (
 						<p className="text--l font-weight--600">Ready to launch?</p>
 
 						<div className="card__footer d-flex align-items-center flex-column flex-md-row">
-							<Button theme="fill" type="link" href="https://docs.hathora.dev/">
+							<Button theme="fill" type="link" href="/docs" external>
 								Read our Docs
 							</Button>
 
