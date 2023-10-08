@@ -181,7 +181,7 @@ const DesktopPingMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${
+						href={`https://twitter.com/intent/tweet?text=My ping on @HathoraDev ${
 							fastestRegion?.displayName || fastestRegion?.name
 						} region is ${
 							fastestRegion?.speed

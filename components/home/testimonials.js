@@ -168,10 +168,10 @@ const Testimonials = () => {
 							<Button
 								type="link"
 								theme="outline"
-								href="https://discord.gg/hathora"
+								href="https://blog.hathora.dev/"
 								external
 							>
-								Join us on Discord
+								Subscribe to our Blog
 							</Button>
 						</div>
 					</div>
