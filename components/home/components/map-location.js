@@ -205,17 +205,20 @@ const MapLocation = (props) => {
 
 			newSocket.addEventListener("open", () => {
 				const startTime = Date.now() // Record the start time
+				let responseTime
 				newSocket.send("Ping") // Send a ping message
 
 				newSocket.addEventListener("message", () => {
 					const endTime = Date.now() // Record the end time
-					const responseTime = endTime - startTime // Calculate the ping time
+					responseTime = endTime - startTime // Calculate the ping time
 					setSpeed(responseTime)
 				})
 
 				// Close the WebSocket connection after getting the response
 				newSocket.addEventListener("close", () => {
 					newSocket.close()
+
+					setSpeed(responseTime)
 				})
 
 				newSocket.addEventListener("error", (error) => {

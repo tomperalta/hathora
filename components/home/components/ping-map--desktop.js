@@ -122,8 +122,22 @@ const DesktopPingMap = () => {
 			(region) => region.name === location.name
 		)
 
-		// If it doesn't exist, add the location to the resolvedRegions array
-		if (!exists) {
+		// If exists, I update the `speed` value of the region's object
+		if (exists) {
+			setResolvedRegions((prevState) =>
+				prevState.map((region) => {
+					if (region.name === location.name) {
+						return {
+							...region,
+							speed: location.speed,
+						}
+					}
+
+					return region
+				})
+			)
+		} else {
+			// If it doesn't exist, add the location to the resolvedRegions array
 			setResolvedRegions((prevState) => [...prevState, location])
 		}
 	}
@@ -152,7 +166,7 @@ const DesktopPingMap = () => {
 				{locations.map((location) => (
 					<MapLocation
 						{...location}
-						featured={fastestRegion?.region === location.region}
+						featured={fastestRegion?.name === location.region}
 						callbackFn={addResolvedRegion}
 					/>
 				))}
@@ -167,7 +181,11 @@ const DesktopPingMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion?.name} region is ${fastestRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${
+							fastestRegion?.displayName || fastestRegion?.name
+						} region is ${
+							fastestRegion?.speed
+						} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
 						disabled={!fastestRegion}
 						external
 					>
