@@ -104,9 +104,14 @@ const CTACards = () => (
 							</Button>
 						</div>
 
-						<div className="card__icon">
+						<a
+							href="https://discord.gg/hathora"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="card__icon"
+						>
 							<IconDiscord />
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
