@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // Libraries
 import styled from "styled-components"
@@ -22,6 +22,7 @@ const DesktopPingMap = () => {
 	/**
 	 * STATES
 	 */
+	const [resolvedRegions, setResolvedRegions] = useState([])
 	const [fastestRegion, setFastestRegion] = useState(null)
 
 	/**
@@ -115,15 +116,34 @@ const DesktopPingMap = () => {
 	/**
 	 * METHODS
 	 */
-	const addSpeed = (region) => {
-		setFastestRegion((current) => {
-			if (!current) {
-				return region
+	const addResolvedRegion = (location) => {
+		// Check if a location with the same region already exists in the resolvedRegions array
+		const exists = resolvedRegions.some(
+			(region) => region.name === location.name
+		)
+
+		// If it doesn't exist, add the location to the resolvedRegions array
+		if (!exists) {
+			setResolvedRegions((prevState) => [...prevState, location])
+		}
+	}
+
+	useEffect(() => {
+		if (resolvedRegions.length === locations.length) {
+			let fastest
+
+			for (const region of resolvedRegions) {
+				// First case
+				if (!fastest) {
+					fastest = region
+				} else if (region.speed < fastest.speed) {
+					fastest = region
+				}
 			}
 
-			return current
-		})
-	}
+			setFastestRegion(fastest)
+		}
+	}, [resolvedRegions])
 
 	return (
 		<StyledPingMap>
@@ -133,7 +153,7 @@ const DesktopPingMap = () => {
 					<MapLocation
 						{...location}
 						featured={fastestRegion?.region === location.region}
-						callbackFn={addSpeed}
+						callbackFn={addResolvedRegion}
 					/>
 				))}
 			</div>
@@ -147,7 +167,7 @@ const DesktopPingMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion?.region} region is ${fastestRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion?.name} region is ${fastestRegion?.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
 						disabled={!fastestRegion}
 						external
 					>

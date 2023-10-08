@@ -237,10 +237,12 @@ const MapLocation = (props) => {
 	}, [url])
 
 	useEffect(() => {
-		callbackFn({
-			region,
-			speed,
-		})
+		if (speed) {
+			callbackFn({
+				name: region,
+				speed,
+			})
+		}
 	}, [speed])
 
 	return (
