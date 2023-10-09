@@ -5,7 +5,7 @@ import styled, { css, keyframes } from "styled-components"
 import { MapLocationProps } from "utils/prop-types"
 
 // Utils
-import { colors } from "utils/variables"
+import { colors, gradients } from "utils/variables"
 
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
@@ -121,14 +121,32 @@ const StyledMapLocation = styled.div`
 		padding: 4px 8px;
 		background-color: ${colors.grey__700};
 		color: white;
-		border-radius: 8px;
+		border-radius: 9px;
 		white-space: nowrap;
+
+		&:before {
+			content: "";
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background: ${gradients.primary};
+			border-radius: 9px;
+			transform: scale(0);
+			transition: transform 0.3s ease 0.3s;
+			z-index: -1;
+		}
 
 		${(props) =>
 			props.featured &&
 			css`
 				font-size: 1.25rem;
 				line-height: 1.4em;
+
+				&:before {
+					transform: scale(1);
+				}
 			`}
 
 		${(props) =>
