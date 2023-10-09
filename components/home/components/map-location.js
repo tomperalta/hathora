@@ -36,26 +36,21 @@ const RotateAnimation = keyframes`
 
 const StyledMapLocation = styled.div`
 	--indicatorColor: var(--indicatorColor);
+	--gradientColor: var(--gradientColor);
+	--speedColor: var(--speedColor);
 
-	${(props) => {
-		const { speed } = props
-
-		if (speed <= 40) {
-			return css`
-				--indicatorColor: ${colors.green__500};
-			`
-		}
-
-		if (speed > 40 && speed <= 100) {
-			return css`
-				--indicatorColor: #f2af4a;
-			`
-		}
-
-		return css`
-			--indicatorColor: #e53959;
-		`
-	}}
+	${(props) =>
+		props.featured
+			? css`
+					--indicatorColor: ${colors.green__500};
+					--gradientColor: ${colors.green__500};
+					--speedColor: ${colors.green__500};
+			  `
+			: css`
+					--indicatorColor: ${colors.purple__300};
+					--gradientColor: ${colors.purple__500};
+					--speedColor: ${colors.purple__500};
+			  `}
 
 	position: absolute;
 	display: flex;
@@ -90,7 +85,7 @@ const StyledMapLocation = styled.div`
 				`}
 		}
 
-		&::before {
+		&:before {
 			content: "";
 			width: 120px;
 			height: 120px;
@@ -99,7 +94,7 @@ const StyledMapLocation = styled.div`
 			left: -56px;
 			background: radial-gradient(
 				circle,
-				var(--indicatorColor) 0%,
+				var(--gradientColor) 0%,
 				rgba(9, 9, 121, 0) 65%
 			);
 			border-radius: 50%;
@@ -122,6 +117,7 @@ const StyledMapLocation = styled.div`
 		background-color: ${colors.grey__700};
 		color: white;
 		border-radius: 9px;
+		transition: font-size: 0.3s ease;
 		white-space: nowrap;
 
 		&:before {
@@ -162,7 +158,14 @@ const StyledMapLocation = styled.div`
 			`}
 
 		.speed {
-			color: var(--indicatorColor);
+			color: var(--speedColor);
+			transition: font-size 0.3s ease, color 0.3s ease;
+
+			${(props) =>
+				props.featured &&
+				css`
+					color: ${colors.green__500};
+				`}
 
 			&::before {
 				content: "·";
