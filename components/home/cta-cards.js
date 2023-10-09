@@ -23,22 +23,28 @@ const StyledCTACards = styled.section`
 		border-radius: 16px;
 		background-color: ${colors.grey__600};
 
-		&--highlighted {
-			&::before {
-				content: "";
-				width: calc(100% + 2px);
-				height: calc(100% + 2px);
-				top: -1px;
-				left: -1px;
-				position: absolute;
-				background: linear-gradient(
-					180deg,
-					rgba(174, 105, 235, 1) 0%,
-					rgba(42, 252, 97, 1) 100%
-				);
-				border-radius: 16px;
-				z-index: -1;
+		&:hover {
+			&:before {
+				opacity: 1;
 			}
+		}
+
+		&:before {
+			content: "";
+			width: calc(100% + 2px);
+			height: calc(100% + 2px);
+			top: -1px;
+			left: -1px;
+			position: absolute;
+			background: linear-gradient(
+				180deg,
+				rgba(174, 105, 235, 1) 0%,
+				rgba(42, 252, 97, 1) 100%
+			);
+			border-radius: 16px;
+			opacity: 0;
+			transition: opacity 0.6s ease;
+			z-index: -1;
 		}
 
 		.card__footer {
