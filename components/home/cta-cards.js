@@ -87,8 +87,9 @@ const CTACards = () => (
 								Read our Docs
 							</Button>
 
-							<Button type="link" href="/docs" theme="outline">
+							<Button type="link" href="/" theme="borderless">
 								Book a Call
+								<IconArrow />
 							</Button>
 						</div>
 					</div>
