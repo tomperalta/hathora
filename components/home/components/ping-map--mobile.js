@@ -172,56 +172,58 @@ const MobileMap = () => {
 	/**
 	 * VARIABLES
 	 */
-	const locations = [
+	const regionsByOrderOfAppearance = [
 		{
-			region: "Seattle",
-			host: "ping.hathora.dev",
-			port: 2000,
+			name: "Seattle",
+			startFrame: 0,
+			endFrame: 30,
 		},
 		{
-			region: "Chicago",
-			host: "ping.hathora.dev",
-			port: 2002,
+			name: "Chicago",
+			startFrame: 30,
+			endFrame: 60,
 		},
 		{
-			region: "Washington DC",
-			host: "ping.hathora.dev",
-			port: 2001,
+			name: "Washington_DC",
+			displayName: "Washington DC",
+			startFrame: 60,
+			endFrame: 90,
 		},
 		{
-			region: "São Paulo",
-			host: "ping.hathora.dev",
-			port: 2009,
+			name: "Sao_Paulo",
+			displayName: "São Paulo",
+			startFrame: 90,
+			endFrame: 120,
 		},
 		{
-			region: "London",
-			host: "ping.hathora.dev",
-			port: 2003,
+			name: "London",
+			startFrame: 120,
+			endFrame: 150,
 		},
 		{
-			region: "Frankfurt",
-			host: "ping.hathora.dev",
-			port: 2004,
+			name: "Frankfurt",
+			startFrame: 150,
+			endFrame: 180,
 		},
 		{
-			region: "Mumbai",
-			host: "ping.hathora.dev",
-			port: 2005,
+			name: "Mumbai",
+			startFrame: 180,
+			endFrame: 210,
 		},
 		{
-			region: "Singapore",
-			host: "ping.hathora.dev",
-			port: 2006,
+			name: "Singapore",
+			startFrame: 210,
+			endFrame: 240,
 		},
 		{
-			region: "Sydney",
-			host: "ping.hathora.dev",
-			port: 2008,
+			name: "Sydney",
+			startFrame: 240,
+			endFrame: 270,
 		},
 		{
-			region: "Tokyo",
-			host: "ping.hathora.dev",
-			port: 2007,
+			name: "Tokyo",
+			startFrame: 270,
+			endFrame: 300,
 		},
 	]
 
@@ -229,8 +231,56 @@ const MobileMap = () => {
 	 * STATE
 	 */
 	const [loading, setLoading] = useState(true)
-	const [activeRegion, setActiveRegion] = useState(null)
-	const [speed, setSpeed] = useState(null)
+	const [resolvedRegions, setResolvedRegions] = useState([])
+	const [fastestRegion, setFastestRegion] = useState({})
+
+	/**
+	 * METHODS
+	 */
+	// Function to send a ping via WebSocket and return the ping speed
+	const sendPing = (location) => {
+		const { region, host, port } = location
+
+		const url = `wss://${host}:${port}/ws`
+
+		return new Promise((resolve, reject) => {
+			const startTime = Date.now()
+			const socket = new WebSocket(url)
+
+			// Handle WebSocket events
+			socket.onopen = () => {
+				// Send a ping message (You can customize the message as needed)
+				socket.send("Ping")
+			}
+
+			socket.onmessage = () => {
+				// Handle incoming WebSocket messages (e.g., pong response)
+				const endTime = Date.now()
+				const pingSpeed = endTime - startTime
+				socket.close()
+				resolve({
+					name: region,
+					speed: pingSpeed,
+				}) // Resolve the promise with ping speed
+			}
+
+			socket.onerror = (error) => {
+				console.error(`WebSocket error for ${url}: ${error}`)
+				reject(new Error(error)) // Reject the promise on error
+			}
+
+			socket.onclose = (event) => {
+				if (event.wasClean) {
+					console.log(
+						`Closed cleanly, code=${event.code}, reason=${event.reason}`
+					)
+				} else {
+					console.error(`Connection died`)
+					reject(new Error("Connection died")) // Reject the promise on connection failure
+				}
+			}
+		})
+	}
 
 	/**
 	 * HOOKS
@@ -238,42 +288,95 @@ const MobileMap = () => {
 	const lottieRef = useRef()
 
 	useEffect(() => {
-		const randomTimeout = Math.random() * 3000 + 100 // Random timeout between 0.1 and 1 second (in milliseconds)
-
-		const timeoutId = setTimeout(() => {
-			setSpeed(Math.round(randomTimeout))
-			setActiveRegion(
-				locations[Math.floor(Math.random() * locations.length)].region
+		const addResolvedRegion = (newRegion) => {
+			const exists = resolvedRegions.some(
+				(resolvedRegion) => resolvedRegion.name === newRegion.name
 			)
-			setLoading(false)
-		}, randomTimeout)
 
-		return () => clearTimeout(timeoutId) // Clean up the timer when the component unmounts
+			// If exists, I update the `speed` value of the region's object
+			if (exists) {
+				setResolvedRegions((prevState) =>
+					prevState.map((region) => {
+						if (region.name === newRegion.name) {
+							return {
+								...region,
+								speed: newRegion.speed,
+							}
+						}
+
+						return region
+					})
+				)
+			} else {
+				const regionInLottie = regionsByOrderOfAppearance.find(
+					(region) => region.name === newRegion.name
+				)
+
+				// If it doesn't exist, add the location to the resolvedRegions array
+				setResolvedRegions((prevState) => [
+					...prevState,
+					{
+						...newRegion,
+						displayName: regionInLottie.displayName,
+						startFrame: regionInLottie.startFrame,
+						endFrame: regionInLottie.endFrame,
+					},
+				])
+			}
+		}
+
+		const sendPings = async () => {
+			const response = await fetch("https://api.hathora.dev/discovery/v1/ping")
+
+			if (response.status === 200) {
+				const data = await response.json()
+
+				console.log(`This is the data: `, data)
+
+				const pingPromises = data.map((region) => sendPing(region))
+
+				const pingResults = await Promise.all(pingPromises)
+				console.log(`Results: `, pingResults)
+
+				pingResults.forEach((result) => addResolvedRegion(result))
+			}
+		}
+
+		sendPings()
 	}, [])
 
-	/**
-	 * METHODS
-	 */
+	useEffect(() => {
+		if (resolvedRegions.length === regionsByOrderOfAppearance.length) {
+			let fastest
+
+			for (const region of resolvedRegions) {
+				// First case
+				if (!fastest) {
+					fastest = region
+				} else if (region.speed < fastest.speed) {
+					fastest = region
+				}
+			}
+
+			setFastestRegion(fastest)
+
+			setLoading(false)
+		}
+	}, [resolvedRegions])
+
 	useEffect(() => {
 		const { current: lottieElem } = lottieRef
 
-		if (lottieElem && activeRegion) {
-			const endFrame =
-				(locations.findIndex((location) => location.region === activeRegion) +
-					1) *
-				30
-			const startFrame = endFrame - 30 > 0 ? endFrame - 30 : 0
-
-			console.log(`End frame:`, endFrame)
-			console.log(lottieElem)
+		if (lottieElem && fastestRegion) {
+			const { startFrame, endFrame } = fastestRegion
 
 			lottieElem.playSegments([startFrame, endFrame], true)
 			lottieElem.setSpeed(2)
 		}
-	}, [activeRegion])
+	}, [fastestRegion])
 
 	return (
-		<StyledMobileMap loading={loading} speed={speed}>
+		<StyledMobileMap loading={loading} speed={fastestRegion.speed}>
 			<Container>
 				<div className="map-wrapper">
 					<Lottie
@@ -294,13 +397,13 @@ const MobileMap = () => {
 
 						<div>
 							<p className="text--s font-weight--700">
-								{speed ? "Your best ping" : "Calculating your ping..."}
+								{!loading ? "Your best ping" : "Calculating your ping..."}
 							</p>
 
-							<div className="speed">{speed} ms</div>
+							<div className="speed">{fastestRegion.speed} ms</div>
 
 							<p className="name text--xs font-weight--500 color--grey__400">
-								{activeRegion}
+								{fastestRegion.displayName || fastestRegion.name}
 							</p>
 						</div>
 					</div>
@@ -314,8 +417,8 @@ const MobileMap = () => {
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${activeRegion} region is ${speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
-						disabled={!activeRegion}
+						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion.name} region is ${fastestRegion.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						disabled={!fastestRegion}
 						external
 					>
 						Share your ping
