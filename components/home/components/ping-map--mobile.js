@@ -326,19 +326,25 @@ const MobileMap = () => {
 		}
 
 		const sendPings = async () => {
-			const response = await fetch("https://api.hathora.dev/discovery/v1/ping")
+			try {
+				const response = await fetch(
+					"https://api.hathora.dev/discovery/v1/ping"
+				)
 
-			if (response.status === 200) {
-				const data = await response.json()
+				if (response.status === 200) {
+					const data = await response.json()
 
-				console.log(`This is the data: `, data)
+					console.log(`This is the data: `, data)
 
-				const pingPromises = data.map((region) => sendPing(region))
+					const pingPromises = data.map((region) => sendPing(region))
 
-				const pingResults = await Promise.all(pingPromises)
-				console.log(`Results: `, pingResults)
+					const pingResults = await Promise.all(pingPromises)
+					console.log(`Results: `, pingResults)
 
-				pingResults.forEach((result) => addResolvedRegion(result))
+					pingResults.forEach((result) => addResolvedRegion(result))
+				}
+			} catch (error) {
+				console.log(error)
 			}
 		}
 
