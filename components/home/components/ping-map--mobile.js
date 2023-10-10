@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 
 // Libraries
-import styled, { css, keyframes } from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Lottie from "lottie-react"
 
 // Components
@@ -42,27 +42,7 @@ const RotateAnimation = keyframes`
 `
 
 const StyledMobileMap = styled.div`
-	--indicatorColor: var(--indicatorColor);
-
-	${(props) => {
-		const { speed } = props
-
-		if (speed <= 500) {
-			return css`
-				--indicatorColor: ${colors.green__500};
-			`
-		}
-
-		if (speed > 500 && speed <= 1000) {
-			return css`
-				--indicatorColor: #f2af4a;
-			`
-		}
-
-		return css`
-			--indicatorColor: #e53959;
-		`
-	}}
+	--indicatorColor: ${colors.green__500};
 
 	.map-wrapper {
 		width: 334px;
