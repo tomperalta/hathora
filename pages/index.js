@@ -17,7 +17,7 @@ import Hero from "components/home/hero"
 import ModernInfrastructure from "components/home/modern-infrastructure"
 // import OurPlatform from "components/home/our-platform"
 import Testimonials from "components/home/testimonials"
-import Features from "components/home/features"
+// import Features from "components/home/features"
 // import Deploy from "components/home/deploy"
 import Clients from "components/home/clients"
 import CTACards from "components/home/cta-cards"
@@ -50,7 +50,7 @@ const Home = () => (
 		<ModernInfrastructure />
 		{/* <OurPlatform /> */}
 		<Testimonials />
-		<Features />
+		{/* <Features /> */}
 		{/* <Deploy /> */}
 		<Clients />
 		<CTACards />
