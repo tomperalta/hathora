@@ -397,7 +397,8 @@ const MobileMap = () => {
 
 				<div className="mt-4 text-center">
 					<p className="text--s color--grey__400 mb-4">
-						Our goal: 90% of gamers with under 40ms ping in their nearest region
+						On Hathora you get 90% of your gamers with under 40 ms ping to their
+						nearest region.
 					</p>
 
 					<Button
