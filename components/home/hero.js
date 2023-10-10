@@ -2,6 +2,7 @@ import React from "react"
 
 // Libraries
 import styled from "styled-components"
+import breakpoints from "utils/breakpoints"
 
 // Icons
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
@@ -21,8 +22,12 @@ const StyledHome = styled.section`
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		gap: 16px;
+		gap: 24px;
 		margin: 32px 0 16px 0;
+
+		${breakpoints.medium`
+			gap: 32px;
+		`}
 	}
 `
 
