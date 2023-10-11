@@ -165,6 +165,7 @@ const DesktopPingMap = () => {
 				<Map />
 				{locations.map((location) => (
 					<MapLocation
+						key={location.region}
 						{...location}
 						featured={fastestRegion?.name === location.region}
 						callbackFn={addResolvedRegion}

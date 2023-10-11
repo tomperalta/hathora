@@ -145,7 +145,7 @@ const Testimonials = () => {
 							config={carouselSettings}
 						>
 							{data.map((testimony) => (
-								<div className="testimony">
+								<div className="testimony" key={testimony.author}>
 									<p className="text--m color--grey__200 mb-4">
 										<span className="color--purple__500">“</span>
 										<span className="color--grey__200">{testimony.quote}</span>

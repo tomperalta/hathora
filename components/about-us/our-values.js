@@ -87,7 +87,7 @@ const OurValues = () => {
 						<div className="values-section">
 							<div className="row">
 								{data.map((value) => (
-									<div className="col-12 col-md-4">
+									<div className="col-12 col-md-4" key={value.title}>
 										<div className="value-item bg--grey__600 text-center">
 											{value.image}
 											<div className="text-start">
