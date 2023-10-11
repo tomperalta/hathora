@@ -9,7 +9,6 @@ import breakpoints from "utils/breakpoints"
 // Components
 import SEO from "components/seo"
 import Plans from "components/pricing/plans"
-import PricingPerMatch from "components/pricing/pricing-per-match"
 import GetInTouch from "components/pricing/get-in-touch"
 import Features from "components/pricing/features"
 import DiscountBanner from "components/pricing/discount-banner"
@@ -37,9 +36,8 @@ const Pricing = () => (
 		/>
 		<Plans />
 		<Features />
-		<DiscountBanner />
 		<Faqs />
-		<PricingPerMatch />
+		<DiscountBanner />
 		<GetInTouch />
 	</StyledPricing>
 )
