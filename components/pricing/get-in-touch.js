@@ -41,8 +41,18 @@ const StyledGetInTouch = styled.section`
       padding: 32px;
     `}
 
+		&--first {
+			${breakpoint.medium`
+				padding-bottom: 48px;
+			`}
+		}
+
 		.cta {
 			margin-top: 32px;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 32px;
 			align-self: end;
 		}
 	}
@@ -51,16 +61,40 @@ const StyledGetInTouch = styled.section`
 const GetInTouch = () => {
 	const data = [
 		{
-			title: "For Enterprises",
-			description:
-				"Need more flexibility or dedicated support? We offer specialized plans to meet your needs.",
-			url: "https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m",
-		},
-		{
 			title: "For Students & Nonprofits",
 			description:
-				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits. ",
-			url: "https://share.hsforms.com/1lK839pmsRy2yXR2D7TSy2Adk67m",
+				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits.",
+			ctas: [
+				<Button
+					type="link"
+					href="https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m"
+					external
+					theme="borderless"
+				>
+					Get in touch
+					<IconArrow />
+				</Button>,
+			],
+		},
+		{
+			title: "Ready to launch?",
+			description:
+				"You can get started without any commitment today. As you gain confidence in what infra you'll need, you can adjust your requirements and we will deliver it.",
+			ctas: [
+				<Button
+					type="link"
+					href="https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m"
+					external
+					theme="outline"
+				>
+					Read our docs
+				</Button>,
+
+				<Button type="link" href="/" external theme="borderless">
+					Book a call
+					<IconArrow />
+				</Button>,
+			],
 		},
 	]
 
@@ -68,26 +102,16 @@ const GetInTouch = () => {
 		<StyledGetInTouch>
 			<Container>
 				<div className="cards row">
-					{data.map((card) => (
+					{data.map((card, index) => (
 						<div className="col-12 col-sm-6 mb-5" key={card.title}>
-							<div className="card">
+							<div className={`card ${index === 0 && "card--first"}`}>
 								<div>
 									<p className="text--l mb-3 font-weight--600">{card.title}</p>
 
 									<p className="text--s">{card.description}</p>
 								</div>
 
-								<div className="cta">
-									<Button
-										type="link"
-										href={card.url}
-										external
-										theme="borderless"
-									>
-										Get in touch
-										<IconArrow />
-									</Button>
-								</div>
+								<div className="cta">{card.ctas.map((cta) => cta)}</div>
 							</div>
 						</div>
 					))}
