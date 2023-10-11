@@ -10,6 +10,20 @@ import { colors, gradients } from "utils/variables"
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
 
+const PulseAnimationSmall = keyframes`
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+`
+
 const PulseAnimation = keyframes`
 	0% {
 		transform: scale(1);
@@ -100,6 +114,7 @@ const StyledMapLocation = styled.div`
 			border-radius: 50%;
 			mix-blend-mode: hard-light;
 			opacity: ${(props) => (props.loading ? "0" : "0.6")};
+			animation: ${PulseAnimationSmall} 4s linear infinite;
 			transition: opacity 1s ease-in 1.2s;
 			z-index: -1;
 

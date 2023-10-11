@@ -30,7 +30,7 @@ const StyledHome = styled.main`
 		padding: 60px 0;
 
 		${breakpoint.medium`
-      padding: 100px 0;
+      padding: 76px 0;
     `}
 
 		&:first-child {

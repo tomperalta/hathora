@@ -21,7 +21,7 @@ export const ButtonStyles = css`
 	border-radius: 45px;
 	white-space: nowrap;
 	cursor: pointer;
-	transition: opacity 1s ease;
+	transition: opacity 1s ease, color 0.3s ease, border 0.3s ease;
 	z-index: 10;
 
 	${(props) =>

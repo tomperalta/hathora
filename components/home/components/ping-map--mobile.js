@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 
 // Libraries
-import styled, { css, keyframes } from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Lottie from "lottie-react"
 
 // Components
@@ -42,27 +42,7 @@ const RotateAnimation = keyframes`
 `
 
 const StyledMobileMap = styled.div`
-	--indicatorColor: var(--indicatorColor);
-
-	${(props) => {
-		const { speed } = props
-
-		if (speed <= 500) {
-			return css`
-				--indicatorColor: ${colors.green__500};
-			`
-		}
-
-		if (speed > 500 && speed <= 1000) {
-			return css`
-				--indicatorColor: #f2af4a;
-			`
-		}
-
-		return css`
-			--indicatorColor: #e53959;
-		`
-	}}
+	--indicatorColor: ${colors.green__500};
 
 	.map-wrapper {
 		width: 334px;
@@ -417,7 +397,8 @@ const MobileMap = () => {
 
 				<div className="mt-4 text-center">
 					<p className="text--s color--grey__400 mb-4">
-						Our goal: 90% of gamers with under 40ms ping in their nearest region
+						On Hathora you get 90% of your gamers with under 40 ms ping to their
+						nearest region.
 					</p>
 
 					<Button

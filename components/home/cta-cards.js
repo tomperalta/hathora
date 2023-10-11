@@ -23,6 +23,10 @@ const StyledCTACards = styled.section`
 		border-radius: 16px;
 		background-color: ${colors.grey__600};
 
+		${breakpoints.medium`
+			padding: 24px 32px 32px 32px;
+		`}
+
 		&:hover {
 			&:before {
 				opacity: 1;
@@ -45,6 +49,12 @@ const StyledCTACards = styled.section`
 			opacity: 0;
 			transition: opacity 0.6s ease;
 			z-index: -1;
+		}
+
+		&--discord {
+			${breakpoints.medium`
+				padding-bottom: 48px;
+			`}
 		}
 
 		.card__footer {
@@ -79,7 +89,7 @@ const CTACards = () => (
 		<Container>
 			<div className="row">
 				<div className="col-12 col-md-6 mb-4 mb-md-0">
-					<div className="card card--highlighted">
+					<div className="card">
 						<p className="text--l font-weight--600">Ready to launch?</p>
 
 						<div className="card__footer d-flex align-items-start align-items-md-center flex-column flex-md-row">
@@ -96,7 +106,7 @@ const CTACards = () => (
 				</div>
 
 				<div className="col-12 col-md-6">
-					<div className="card">
+					<div className="card card--discord">
 						<p className="text--l font-weight--600">Build with our community</p>
 						<div className="card__footer d-flex align-items-start align-items-md-center flex-column flex-md-row">
 							<Button

@@ -94,7 +94,7 @@ const Clients = () => {
 		infinite: true,
 		arrows: true,
 		dots: false,
-		pauseOnFocus: false,
+		pauseOnFocus: true,
 	}
 
 	return (

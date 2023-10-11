@@ -26,4 +26,9 @@ export const MapLocationProps = {
 	}).isRequired,
 }
 
+export const AccordionProps = {
+	title: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired,
+}
+
 export default ButtonProps
