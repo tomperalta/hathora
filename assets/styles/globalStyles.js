@@ -125,6 +125,7 @@ export default createGlobalStyle`
       border: 0;
       color: inherit;
       cursor: pointer;
+      text-align: inherit;
     }
 
     svg {

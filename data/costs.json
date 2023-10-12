@@ -1,0 +1,46 @@
+[
+	{
+		"title": "Turn Based",
+		"variables": {
+			"vCPU": 0.5,
+			"roomPerProcess": 10,
+			"matchLength": 0.25,
+			"bandwidth": 1
+		},
+		"discountPrice": 0.79,
+		"regularPrice": 1.12
+	},
+	{
+		"title": "RTS",
+		"variables": {
+			"vCPU": 0.5,
+			"roomPerProcess": 1,
+			"matchLength": 0.5,
+			"bandwidth": 100
+		},
+		"discountPrice": 3.4,
+		"regularPrice": 5.2
+	},
+	{
+		"title": "FPS",
+		"variables": {
+			"vCPU": 1,
+			"roomPerProcess": 1,
+			"matchLength": 0.25,
+			"bandwidth": 200
+		},
+		"discountPrice": 15.4,
+		"regularPrice": 21.2
+	},
+	{
+		"title": "Battle Royale",
+		"variables": {
+			"vCPU": 2,
+			"roomPerProcess": 1,
+			"matchLength": 1,
+			"bandwidth": 1024
+		},
+		"discountPrice": 120,
+		"regularPrice": 180
+	}
+]
