@@ -5,7 +5,13 @@
 			"vCPU": 0.5,
 			"roomPerProcess": 10,
 			"matchLength": 0.25,
-			"bandwidth": 1
+			"hcu": 0.125
+		},
+		"bandwidth": {
+			"speed": 1,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
 		},
 		"discountPrice": 0.79,
 		"regularPrice": 1.12
@@ -16,7 +22,13 @@
 			"vCPU": 0.5,
 			"roomPerProcess": 1,
 			"matchLength": 0.5,
-			"bandwidth": 100
+			"hcu": 0.25
+		},
+		"bandwidth": {
+			"speed": 100,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
 		},
 		"discountPrice": 3.4,
 		"regularPrice": 5.2
@@ -27,7 +39,13 @@
 			"vCPU": 1,
 			"roomPerProcess": 1,
 			"matchLength": 0.25,
-			"bandwidth": 200
+			"hcu": 0.25
+		},
+		"bandwidth": {
+			"speed": 200,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
 		},
 		"discountPrice": 15.4,
 		"regularPrice": 21.2
@@ -38,7 +56,13 @@
 			"vCPU": 2,
 			"roomPerProcess": 1,
 			"matchLength": 1,
-			"bandwidth": 1024
+			"hcu": 2
+		},
+		"bandwidth": {
+			"speed": 1,
+			"label": "GB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
 		},
 		"discountPrice": 120,
 		"regularPrice": 180
