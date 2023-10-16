@@ -103,8 +103,8 @@ const StyledCostEstimator = styled.div`
 	.plan-toggler {
 		width: 100vw;
 		margin-top: 48px;
-		margin-left: -28px;
-		padding: 0 28px;
+		margin-left: -16px;
+		padding: 0 16px;
 		display: flex;
 		align-items: center;
 		gap: 32px;
