@@ -8,6 +8,8 @@ import { colors, gradients } from "utils/variables"
 
 // Data
 import pricingPlans from "data/pricing-plans.json"
+import Dropdown from "components/dropdown"
+import breakpoints from "utils/breakpoints"
 
 const StyledCostEstimator = styled.div`
 	max-width: 576px;
@@ -83,11 +85,25 @@ const StyledCostEstimator = styled.div`
 	}
 
 	.plan-toggler {
+		width: 100vw;
 		margin-top: 48px;
+		margin-left: -28px;
+		padding: 0 28px;
 		display: flex;
 		align-items: center;
-		justify-content: center;
 		gap: 32px;
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		${breakpoints.small`
+			width: 100%;
+			justify-content: center;
+			padding: 0;
+			margin-left: 0;
+		`}
 
 		.plan {
 			flex-shrink: 0;
@@ -116,7 +132,8 @@ const StyledCostEstimator = styled.div`
 	}
 
 	.price-wrapper {
-		width: 270px;
+		max-width: 270px;
+		width: 100%;
 		height: 72px;
 		position: relative;
 		display: flex;
@@ -151,6 +168,14 @@ const StyledCostEstimator = styled.div`
 			}
 		}
 	}
+
+	.dropdown {
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 `
 
 const CostEstimator = () => {
@@ -170,7 +195,7 @@ const CostEstimator = () => {
 	const [hcu, setHcu] = useState(() => (vCPU / roomPerProcess) * matchLength)
 	const [monthlyPrice, setMonthlyPrice] = useState(null)
 
-	console.log(hcuRate, gbEgressRate)
+	console.log(hcuRate, gbEgressRate, monthlyPrice)
 
 	/**
 	 * VARIABLES
@@ -200,6 +225,11 @@ const CostEstimator = () => {
 			setRoomPerProcess(variables.roomPerProcess)
 			setMatchLength(variables.matchLength)
 			setBandwidth(bandwidth.speed)
+		} else {
+			setvCPU(0.5)
+			setRoomPerProcess(10)
+			setMatchLength(0.25)
+			setBandwidth(1)
 		}
 	}, [selectedPlan])
 
@@ -209,11 +239,11 @@ const CostEstimator = () => {
 
 	useEffect(() => {
 		const gbEgress =
-			selectedPlan.bandwidth.label === "GB"
+			selectedPlan.bandwidth?.label === "GB"
 				? bandwidth * gbEgressRate
 				: (bandwidth / 1024) * gbEgressRate
 
-		setMonthlyPrice(Math.round((hcu * hcuRate + gbEgress) * numberOfMatches))
+		setMonthlyPrice(((hcu * hcuRate + gbEgress) * numberOfMatches).toFixed(2))
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
 	/**
@@ -300,7 +330,7 @@ const CostEstimator = () => {
 					className={`plan ${selectedPlan === "custom" && "active"}`}
 					onClick={() => setSelectedPlan("custom")}
 				>
-					Custom ✨
+					Custom
 				</button>
 			</div>
 
@@ -309,8 +339,8 @@ const CostEstimator = () => {
 					<>
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 col-md-6">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-end">
+								<div className="col-12 col-md-6 mb-2 mb-md-0">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Hathora Compute Unit
 										<br />
 										(HCU)
@@ -345,8 +375,8 @@ const CostEstimator = () => {
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 col-md-6">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-end">
+								<div className="col-12 col-md-6 mb-2 mb-md-0">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Bandwidth
 									</p>
 								</div>
@@ -371,8 +401,8 @@ const CostEstimator = () => {
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 col-md-6">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-end">
+								<div className="col-12 col-md-6 mb-2 mb-md-0">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Monthly Price
 									</p>
 								</div>
@@ -400,10 +430,141 @@ const CostEstimator = () => {
 						</div>
 					</>
 				) : (
-					<div className="row">
-						<p>Custom</p>
-						{monthlyPrice}
-					</div>
+					<>
+						<div className="plan-item">
+							<div className="row">
+								<div className="col-12 col-md-6">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
+										Hathora Compute Unit
+										<br />
+										(HCU)
+									</p>
+								</div>
+
+								<div className="col-12 col-md-6">
+									<Dropdown
+										options={[
+											{
+												label: "0.5 vCPU",
+												value: 0.5,
+											},
+											{
+												label: "1 vCPU",
+												value: 1,
+											},
+											{
+												label: "2 vCPU",
+												value: 2,
+											},
+										]}
+										callbackFunction={setvCPU}
+									/>
+
+									<Dropdown
+										options={[
+											{
+												label: "1 ROOM PER PROCESS",
+												value: 1,
+											},
+											{
+												label: "10 ROOM PER PROCESS",
+												value: 10,
+											},
+											{
+												label: "100 ROOM PER PROCESS",
+												value: 100,
+											},
+											{
+												label: "1K ROOM PER PROCESS",
+												value: 1000,
+											},
+										]}
+										callbackFunction={setRoomPerProcess}
+									/>
+
+									<Dropdown
+										options={[
+											{
+												label: "0.25 HR MATCH LENGTH",
+												value: 0.25,
+											},
+											{
+												label: "0.5 HR MATCH LENGTH",
+												value: 0.5,
+											},
+											{
+												label: "1 HR MATCH LENGTH",
+												value: 1,
+											},
+											{
+												label: "2 HR MATCH LENGTH",
+												value: 2,
+											},
+										]}
+										callbackFunction={setMatchLength}
+									/>
+
+									<div className="separator" />
+
+									<p className="text--m font-weight--600 color--purple__500">
+										{hcu} HCU
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div className="plan-item">
+							<div className="row">
+								<div className="col-12 col-md-6">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
+										Bandwidth
+									</p>
+								</div>
+
+								<div className="col-12 col-md-6">
+									<Dropdown
+										options={[
+											{
+												label: "1 MB",
+												value: 1,
+											},
+											{
+												label: "10 MB",
+												value: 10,
+											},
+											{
+												label: "100 MB",
+												value: 100,
+											},
+											{
+												label: "1 GB",
+												value: 1,
+											},
+										]}
+										callbackFunction={setBandwidth}
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div className="plan-item">
+							<div className="row">
+								<div className="col-12 col-md-6">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
+										Monthly Cost
+									</p>
+								</div>
+
+								<div className="col-12 col-md-6">
+									<div className="price-wrapper">
+										<span className="price heading--m color--purple__500 font-weight--500">
+											{monthlyPrice}
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</>
 				)}
 			</div>
 		</StyledCostEstimator>

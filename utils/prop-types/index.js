@@ -31,4 +31,9 @@ export const AccordionProps = {
 	children: PropTypes.element.isRequired,
 }
 
+export const DropdownProps = {
+	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	callbackFunction: PropTypes.func.isRequired,
+}
+
 export default ButtonProps
