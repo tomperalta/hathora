@@ -149,12 +149,15 @@ const StyledCostEstimator = styled.div`
 	}
 
 	.price-wrapper {
-		height: 72px;
+		// max-width: 270px;
+		// width: 100%;
+		// height: 72px;
+		margin-bottom: 40px;
 		position: relative;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 8px;
+		padding: 6px;
 		background-color: ${colors.grey__700};
 		border-radius: 16px;
 
@@ -176,11 +179,14 @@ const StyledCostEstimator = styled.div`
 			&:before {
 				content: "$";
 				position: relative;
-				top: -8px;
 				margin-right: 4px;
 				font-size: 1.25rem;
 				line-height: 1.4em;
 				color: ${colors.purple__500};
+
+				${breakpoints.medium`
+					top: -8px;
+				`}
 			}
 		}
 	}
@@ -194,13 +200,14 @@ const StyledCostEstimator = styled.div`
 	}
 
 	.book-a-call-link {
+		position: absolute;
+		top: 100%;
 		margin-top: 16px;
-		text-align: center;
 
 		${breakpoints.medium`
-			// position: absolute;
-			// left: calc(100% + 8px);
-			// bottom: 72px;
+			position: absolute;
+			top: 8px;
+			left: calc(100% + 32px);
 		`}
 	}
 `
@@ -409,12 +416,14 @@ const CostEstimator = () => {
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 text-center">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-center">
+								<div className="col-12 col-md-6 mb-2 mb-md-0">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Monthly Cost
 									</p>
+								</div>
 
-									<div className="price-wrapper mt-3">
+								<div className="col-12 col-md-6">
+									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
 											{monthlyPrice}
 										</span>
@@ -424,20 +433,36 @@ const CostEstimator = () => {
 												${getPayAsYouGoPrice()}
 											</s>
 										)}
-									</div>
 
-									{monthlyPrice >= 10000 && (
-										<div className="book-a-call-link d-inline-flex">
-											<Button
-												type="link"
-												href="https://calendly.com/gabi-zx8/try-hathora"
-												theme="borderless"
-											>
-												Call us for scale rates
-												<IconArrow />
-											</Button>
-										</div>
-									)}
+										{monthlyPrice >= 10000 && (
+											<div className="book-a-call-link d-inline-flex">
+												<Button
+													type="link"
+													href="https://calendly.com/gabi-zx8/try-hathora"
+													theme="borderless"
+												>
+													Call us for scale rates
+													<IconArrow />
+												</Button>
+											</div>
+										)}
+
+										{/* {selectedPlan.discountPrice ? (
+											<>
+												<span className="price heading--m color--purple__500 font-weight--500">
+													{Math.round(selectedPlan.discountPrice * 100) / 100}
+												</span>
+
+												<s className="text--l color--grey__400 font-weight--600">
+													${selectedPlan.regularPrice}
+												</s>
+											</>
+										) : (
+											<span className="price color--purple__500 font-weight--500">
+												{selectedPlan.regularPrice}
+											</span>
+										)} */}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -572,12 +597,14 @@ const CostEstimator = () => {
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 text-center">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-center">
+								<div className="col-12 col-md-6">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Monthly Cost
 									</p>
+								</div>
 
-									<div className="price-wrapper mt-3">
+								<div className="col-12 col-md-6">
+									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
 											{monthlyPrice}
 										</span>
@@ -587,20 +614,20 @@ const CostEstimator = () => {
 												${getPayAsYouGoPrice()}
 											</s>
 										)}
-									</div>
 
-									{monthlyPrice >= 10000 && (
-										<div className="book-a-call-link d-inline-flex">
-											<Button
-												type="link"
-												href="https://calendly.com/gabi-zx8/try-hathora"
-												theme="borderless"
-											>
-												Call us for scale rates
-												<IconArrow />
-											</Button>
-										</div>
-									)}
+										{monthlyPrice >= 10000 && (
+											<div className="book-a-call-link d-inline-flex">
+												<Button
+													type="link"
+													href="https://calendly.com/gabi-zx8/try-hathora"
+													theme="borderless"
+												>
+													Call us for scale rates
+													<IconArrow />
+												</Button>
+											</div>
+										)}
+									</div>
 								</div>
 							</div>
 						</div>
