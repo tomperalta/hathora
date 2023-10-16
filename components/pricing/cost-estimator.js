@@ -6,13 +6,19 @@ import styled, { css } from "styled-components"
 // Utils
 import { colors, gradients } from "utils/variables"
 
+// Icons
+import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+
 // Data
 import pricingPlans from "data/pricing-plans.json"
 import Dropdown from "components/dropdown"
 import breakpoints from "utils/breakpoints"
+import InputWithSuggestions from "components/input-with-suggestions"
+import Button from "components/button"
 
 const StyledCostEstimator = styled.div`
-	max-width: 576px;
+	max-width: 600px;
+	position: relative;
 	margin-right: auto;
 	margin-left: auto;
 
@@ -82,6 +88,16 @@ const StyledCostEstimator = styled.div`
 			justify-content: center;
 			gap: 32px;
 		}
+
+		label {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			input {
+				margin-top: 8px;
+			}
+		}
 	}
 
 	.plan-toggler {
@@ -103,6 +119,7 @@ const StyledCostEstimator = styled.div`
 			justify-content: center;
 			padding: 0;
 			margin-left: 0;
+			overflow: hidden;
 		`}
 
 		.plan {
@@ -132,13 +149,12 @@ const StyledCostEstimator = styled.div`
 	}
 
 	.price-wrapper {
-		max-width: 270px;
-		width: 100%;
 		height: 72px;
 		position: relative;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		padding: 8px;
 		background-color: ${colors.grey__700};
 		border-radius: 16px;
 
@@ -176,6 +192,17 @@ const StyledCostEstimator = styled.div`
 			margin-bottom: 0;
 		}
 	}
+
+	.book-a-call-link {
+		margin-top: 16px;
+		text-align: center;
+
+		${breakpoints.medium`
+			// position: absolute;
+			// left: calc(100% + 8px);
+			// bottom: 72px;
+		`}
+	}
 `
 
 const CostEstimator = () => {
@@ -192,19 +219,8 @@ const CostEstimator = () => {
 	const [roomPerProcess, setRoomPerProcess] = useState(null)
 	const [matchLength, setMatchLength] = useState(null)
 	const [bandwidth, setBandwidth] = useState(null)
-	const [hcu, setHcu] = useState(() => (vCPU / roomPerProcess) * matchLength)
+	const [hcu, setHcu] = useState(null)
 	const [monthlyPrice, setMonthlyPrice] = useState(null)
-
-	console.log(hcuRate, gbEgressRate, monthlyPrice)
-
-	/**
-	 * VARIABLES
-	 */
-	const numberOfMatchesList = [1000, 10000, 100000, 1000000]
-
-	/**
-	 * HOOKS
-	 */
 
 	// Sets the values for `HCU` and `GB Egress` rates
 	useEffect(() => {
@@ -227,7 +243,7 @@ const CostEstimator = () => {
 			setBandwidth(bandwidth.speed)
 		} else {
 			setvCPU(0.5)
-			setRoomPerProcess(10)
+			setRoomPerProcess(1)
 			setMatchLength(0.25)
 			setBandwidth(1)
 		}
@@ -249,14 +265,13 @@ const CostEstimator = () => {
 	/**
 	 * METHODS
 	 */
-	const handleInputRadioChange = (event) => {
-		const { target } = event
+	const getPayAsYouGoPrice = () => {
+		const gbEgress =
+			selectedPlan.bandwidth?.label === "GB"
+				? bandwidth * 0.12
+				: (bandwidth / 1024) * 0.12
 
-		if (target) {
-			const { value } = target
-
-			setNumberOfMatches(value)
-		}
+		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toFixed(2)
 	}
 
 	return (
@@ -295,22 +310,15 @@ const CostEstimator = () => {
 
 			<div className="number-of-matches">
 				<p className="text--s font-weight--600 color--grey__400 text-uppercase">
-					Number of Matches
+					Number of Matches per month
 				</p>
 
 				<div className="radio-wrapper">
-					{numberOfMatchesList.map((number) => (
-						<label key={number} htmlFor="numberOfMatches">
-							{number}
-							<input
-								type="radio"
-								name="numberOfMatches"
-								value={number}
-								checked={parseInt(numberOfMatches, 10) === number}
-								onChange={handleInputRadioChange}
-							/>
-						</label>
-					))}
+					<InputWithSuggestions
+						defaultValue={1000}
+						callbackFunction={setNumberOfMatches}
+						suggestions={[1000, 10000, 100000, 1000000]}
+					/>
 				</div>
 			</div>
 
@@ -388,12 +396,12 @@ const CostEstimator = () => {
 											{selectedPlan.bandwidth.label}
 										</li>
 
-										<li className="font-weight--600">
-											{selectedPlan.bandwidth.discountPrice}{" "}
-											<s className="color--grey__400">
-												({selectedPlan.bandwidth.regularPrice})
-											</s>
-										</li>
+										{selectedBillingMethod === "commitment" && (
+											<li className="font-weight--600">
+												($0.04/GB){" "}
+												<s className="color--grey__400">($0.12/GB)</s>
+											</li>
+										)}
 									</ul>
 								</div>
 							</div>
@@ -401,30 +409,35 @@ const CostEstimator = () => {
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 col-md-6 mb-2 mb-md-0">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
-										Monthly Price
+								<div className="col-12 text-center">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-center">
+										Monthly Cost
 									</p>
-								</div>
 
-								<div className="col-12 col-md-6">
-									<div className="price-wrapper">
-										{selectedPlan.discountPrice ? (
-											<>
-												<span className="price heading--m color--purple__500 font-weight--500">
-													{Math.round(selectedPlan.discountPrice * 100) / 100}
-												</span>
+									<div className="price-wrapper mt-3">
+										<span className="price heading--m color--purple__500 font-weight--500">
+											{monthlyPrice}
+										</span>
 
-												<s className="text--l color--grey__400 font-weight--600">
-													${selectedPlan.regularPrice}
-												</s>
-											</>
-										) : (
-											<span className="price color--purple__500 font-weight--500">
-												{selectedPlan.regularPrice}
-											</span>
+										{selectedBillingMethod === "commitment" && (
+											<s className="text--l color--grey__400 font-weight--600">
+												${getPayAsYouGoPrice()}
+											</s>
 										)}
 									</div>
+
+									{monthlyPrice >= 10000 && (
+										<div className="book-a-call-link d-inline-flex">
+											<Button
+												type="link"
+												href="https://calendly.com/gabi-zx8/try-hathora"
+												theme="borderless"
+											>
+												Call us for scale rates
+												<IconArrow />
+											</Button>
+										</div>
+									)}
 								</div>
 							</div>
 						</div>
@@ -537,36 +550,76 @@ const CostEstimator = () => {
 												value: 100,
 											},
 											{
+												label: "200 MB",
+												value: 200,
+											},
+											{
 												label: "1 GB",
 												value: 1024,
 											},
 										]}
 										callbackFunction={setBandwidth}
 									/>
+
+									{selectedBillingMethod === "commitment" && (
+										<p className="text--m font-weight--600">
+											($0.04/GB) <s className="color--grey__400">($0.12/GB)</s>
+										</p>
+									)}
 								</div>
 							</div>
 						</div>
 
 						<div className="plan-item">
 							<div className="row">
-								<div className="col-12 col-md-6">
-									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
+								<div className="col-12 text-center">
+									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-center">
 										Monthly Cost
 									</p>
-								</div>
 
-								<div className="col-12 col-md-6">
-									<div className="price-wrapper">
+									<div className="price-wrapper mt-3">
 										<span className="price heading--m color--purple__500 font-weight--500">
 											{monthlyPrice}
 										</span>
+
+										{selectedBillingMethod === "commitment" && (
+											<s className="text--l color--grey__400 font-weight--600">
+												${getPayAsYouGoPrice()}
+											</s>
+										)}
 									</div>
+
+									{monthlyPrice >= 10000 && (
+										<div className="book-a-call-link d-inline-flex">
+											<Button
+												type="link"
+												href="https://calendly.com/gabi-zx8/try-hathora"
+												theme="borderless"
+											>
+												Call us for scale rates
+												<IconArrow />
+											</Button>
+										</div>
+									)}
 								</div>
 							</div>
 						</div>
 					</>
 				)}
 			</div>
+
+			<p className="mt-4 text--s color--grey__400 text-center">
+				For full pricing and plan sizes, check out our{" "}
+				<a
+					href="/docs"
+					style={{
+						textDecoration: "underline",
+					}}
+					className="color--green__500 color-hover--purple__500"
+				>
+					docs page
+				</a>
+			</p>
 		</StyledCostEstimator>
 	)
 }

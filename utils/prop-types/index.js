@@ -36,4 +36,10 @@ export const DropdownProps = {
 	callbackFunction: PropTypes.func.isRequired,
 }
 
+export const InputWithSuggestionsProps = {
+	defaultValue: PropTypes.number,
+	callbackFunction: PropTypes.func.isRequired,
+	suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
+
 export default ButtonProps
