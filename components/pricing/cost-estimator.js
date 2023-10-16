@@ -538,7 +538,7 @@ const CostEstimator = () => {
 											},
 											{
 												label: "1 GB",
-												value: 1,
+												value: 1024,
 											},
 										]}
 										callbackFunction={setBandwidth}
