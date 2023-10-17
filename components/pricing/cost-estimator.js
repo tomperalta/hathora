@@ -218,7 +218,7 @@ const CostEstimator = () => {
 	 */
 	const [selectedBillingMethod, setSelectedBillingMethod] =
 		useState("commitment") // "commitment" or "pay as you go"
-	const [selectedPlan, setSelectedPlan] = useState(pricingPlans[0])
+	const [selectedPlan, setSelectedPlan] = useState(pricingPlans[1])
 	const [hcuRate, setHcuRate] = useState(0.06)
 	const [gbEgressRate, setGbEgressRate] = useState(0.04)
 	const [numberOfMatches, setNumberOfMatches] = useState(1000)
