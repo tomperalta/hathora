@@ -403,11 +403,13 @@ const CostEstimator = () => {
 											{selectedPlan.bandwidth.label}
 										</li>
 
-										{selectedBillingMethod === "commitment" && (
+										{selectedBillingMethod === "commitment" ? (
 											<li className="font-weight--600">
 												($0.04/GB){" "}
 												<s className="color--grey__400">($0.12/GB)</s>
 											</li>
+										) : (
+											<li className="font-weight--600">($0.12/GB)</li>
 										)}
 									</ul>
 								</div>
@@ -586,10 +588,12 @@ const CostEstimator = () => {
 										callbackFunction={setBandwidth}
 									/>
 
-									{selectedBillingMethod === "commitment" && (
+									{selectedBillingMethod === "commitment" ? (
 										<p className="text--m font-weight--600">
 											($0.04/GB) <s className="color--grey__400">($0.12/GB)</s>
 										</p>
+									) : (
+										<p className="text--m font-weight--600">($0.12/GB)</p>
 									)}
 								</div>
 							</div>
