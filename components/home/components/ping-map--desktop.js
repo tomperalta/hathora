@@ -143,20 +143,18 @@ const DesktopPingMap = () => {
 	}
 
 	useEffect(() => {
-		if (resolvedRegions.length === locations.length) {
-			let fastest
+		let fastest
 
-			for (const region of resolvedRegions) {
-				// First case
-				if (!fastest) {
-					fastest = region
-				} else if (region.speed < fastest.speed) {
-					fastest = region
-				}
+		for (const region of resolvedRegions) {
+			// First case
+			if (!fastest) {
+				fastest = region
+			} else if (region.speed < fastest.speed) {
+				fastest = region
 			}
-
-			setFastestRegion(fastest)
 		}
+
+		setFastestRegion(fastest)
 	}, [resolvedRegions])
 
 	return (
