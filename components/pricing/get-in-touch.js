@@ -81,16 +81,16 @@ const GetInTouch = () => {
 			description:
 				"You can get started without any commitment today. As you gain confidence in what infra you'll need, you can adjust your requirements and we will deliver it.",
 			ctas: [
-				<Button
-					type="link"
-					href="https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m"
-					external
-					theme="outline"
-				>
+				<Button type="link" href="/docs" theme="outline">
 					Read our docs
 				</Button>,
 
-				<Button type="link" href="/" external theme="borderless">
+				<Button
+					type="link"
+					href="https://calendly.com/gabi-zx8/try-hathora?month=2023-10"
+					external
+					theme="borderless"
+				>
 					Book a call
 					<IconArrow />
 				</Button>,
