@@ -73,8 +73,8 @@ const Faqs = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-8">
-						{data.map((faq, index) => (
-							<Accordion active={index === 0} title={faq.title} key={faq.title}>
+						{data.map((faq) => (
+							<Accordion title={faq.title} key={faq.title}>
 								{faq.content}
 							</Accordion>
 						))}
