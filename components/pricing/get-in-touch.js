@@ -65,12 +65,7 @@ const GetInTouch = () => {
 			description:
 				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits.",
 			ctas: [
-				<Button
-					type="link"
-					href="https://share.hsforms.com/1q-6gUirVTfmPtA4wiH3OOAdk67m"
-					external
-					theme="borderless"
-				>
+				<Button type="link" href="mailto:hello@hathora.dev" theme="borderless">
 					Get in touch
 					<IconArrow />
 				</Button>,
