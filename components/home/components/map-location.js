@@ -210,8 +210,59 @@ const MapLocation = (props) => {
 	 * STATE
 	 */
 	const [url, setUrl] = useState(null)
-	const [socket, setSocket] = useState(null)
+	// const [socket, setSocket] = useState(null)
 	const [speed, setSpeed] = useState(null)
+
+	/**
+	 * METHODS
+	 */
+	const sendPing = (url) =>
+		new Promise((resolve, reject) => {
+			const pingSpeeds = []
+			const socket = new WebSocket(url)
+
+			socket.onopen = () => {
+				for (let i = 0; i < 5; i += 1) {
+					const startTime = Date.now()
+					socket.send(startTime)
+				}
+
+				socket.onmessage = (event) => {
+					const receivedTime = parseInt(event.data, 10)
+
+					if (!Number.isNaN(receivedTime)) {
+						const endTime = Date.now()
+						const pingSpeed = endTime - receivedTime
+
+						console.log(`Speed for ${region}: ${pingSpeed} ms`)
+						pingSpeeds.push(pingSpeed)
+
+						if (pingSpeeds.length === 5) {
+							console.log(`Speeds for ${region}`, pingSpeeds)
+
+							console.log(`Speeds for ${region}: `, pingSpeeds)
+							socket.close()
+							const lowestPingSpeed = Math.min(...pingSpeeds)
+							resolve(lowestPingSpeed)
+						}
+					} else {
+						pingSpeeds.push(100000)
+					}
+				}
+
+				socket.onerror = (error) => {
+					console.error(`WebSocket error for ${url}: ${error}`)
+					reject(new Error(error))
+				}
+
+				socket.onclose = (event) => {
+					if (!event.wasClean) {
+						console.error("Connection died")
+						reject(new Error("Connection died"))
+					}
+				}
+			}
+		})
 
 	useEffect(() => {
 		const getRegionUrl = async () => {
@@ -237,49 +288,18 @@ const MapLocation = (props) => {
 			}
 		}
 
-		getRegionUrl()
-	}, [])
+		if (!url) {
+			getRegionUrl()
+		}
+	}, [url])
 
 	useEffect(() => {
 		if (url && !speed) {
-			// Initialize WebSocket connection
-			const newSocket = new WebSocket(url)
-
-			newSocket.addEventListener("open", () => {
-				const startTime = Date.now() // Record the start time
-				let responseTime
-				newSocket.send("Ping") // Send a ping message
-
-				newSocket.addEventListener("message", () => {
-					const endTime = Date.now() // Record the end time
-					responseTime = endTime - startTime // Calculate the ping time
-					setSpeed(responseTime)
-				})
-
-				// Close the WebSocket connection after getting the response
-				newSocket.addEventListener("close", () => {
-					newSocket.close()
-
-					setSpeed(responseTime)
-				})
-
-				newSocket.addEventListener("error", (error) => {
-					console.error("WebSocket error:", error)
-				})
-			})
-
-			setSocket(newSocket)
-
-			return () => {
-				// Clean up the WebSocket connection when the component unmounts
-				if (socket) {
-					socket.close()
-				}
-			}
+			sendPing(url).then((lowestSpeed) => setSpeed(lowestSpeed))
 		}
 
 		return () => false
-	}, [url])
+	}, [url, speed])
 
 	useEffect(() => {
 		if (speed) {
