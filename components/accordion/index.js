@@ -47,7 +47,7 @@ const Accordion = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { active: defaultState, title, children } = props
+	const { active: defaultState, title, children, id } = props
 
 	/**
 	 * STATE
@@ -62,7 +62,7 @@ const Accordion = (props) => {
 	}
 
 	return (
-		<StyledAccordion active={active} className="text--s">
+		<StyledAccordion id={id} active={active} className="text--s">
 			<button
 				type="button"
 				className="accordion__toggler font-weight--700"

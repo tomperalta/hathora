@@ -5,6 +5,7 @@ import React from "react"
 const Faqs = () => {
 	const data = [
 		{
+			id: "pricingDifference",
 			title:
 				"What is the difference between pay as you go and commitment pricing on Hathora?",
 			content: (
@@ -31,40 +32,31 @@ const Faqs = () => {
 			),
 		},
 		{
+			id: "hcu",
 			title: "What is a Hathora Compute Unit (HCU)?",
 			content: (
-				<>
-					<p>
-						To optimize compute costs for our customers, Hathora operates as a
-						hybrid cloud. Hybrid cloud means that we can provision servers on
-						both bare metal and public cloud. We run base (or committed)
-						capacity on bare metal and for unexpected (or burst) capacity we use
-						public cloud.
-					</p>
-
-					<p>
-						Hathora’s operating costs are significantly cheaper on bare metal
-						than on public cloud and we pass on the savings to you! However, it
-						does come at the cost of flexibility. We need approximately 2-3
-						weeks to order and set up the servers in our data centers. If you
-						know that your game will require a certain amount of base capacity,
-						we encourage you to reach out for commitment based pricing.
-					</p>
-				</>
+				<p>
+					Hathora Compute Unit (HCU) is a normalized unit of compute power on
+					Hathora Cloud used for measurement and pricing purposes. The number of
+					HCUs your application consumes is driven by how long a compute
+					resource is utilized and how many matches it can concurrently run (HCU
+					= vCPU*MatchLength/Rooms Per Process). For a full breakdown of the HCU
+					checkout our <a href="/docs">docs</a>.
+				</p>
 			),
 		},
 		{
+			id: "credit",
 			title: "How does the $500 credit work?",
-			content: (
-				<>
-					Yep. And maybe a <a href="/docs">link</a>?
-				</>
-			),
+			content:
+				"Hathora grants customers $500 in credit on sign up (valid for 24 months) to evaluate and develop on our platform. If you’re with an educational institution or non-profit organization, reach out to us for additional benefits.",
 		},
 		{
+			id: "discounts",
 			title:
 				"What if we already have significant cloud discounts, but don’t want to orchestrate our own servers?",
-			content: "That was all. Well, until there is real content I guess.",
+			content:
+				"Hathora allows you to Bring Your Own Cloud (BYOC). If you would like us to orchestrate your servers on either public or private cloud, reach out to us!",
 		},
 	]
 
@@ -74,7 +66,7 @@ const Faqs = () => {
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-8">
 						{data.map((faq) => (
-							<Accordion title={faq.title} key={faq.title}>
+							<Accordion id={faq.id} title={faq.title} key={faq.title}>
 								{faq.content}
 							</Accordion>
 						))}
