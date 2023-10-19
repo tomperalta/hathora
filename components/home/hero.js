@@ -55,7 +55,12 @@ const Home = () => (
 							Read our Docs
 						</Button>
 
-						<Button type="link" href="/" theme="borderless">
+						<Button
+							type="link"
+							href="https://calendly.com/gabi-zx8/try-hathora"
+							external
+							theme="borderless"
+						>
 							Book a Call
 							<IconArrow />
 						</Button>
