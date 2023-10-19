@@ -126,7 +126,7 @@ const ModernInfrastructure = () => {
 			cta: {
 				theme: "borderless",
 				label: "Read More",
-				href: "https://blog.hathora.dev/modern-cloud-for-multiplayer-games/",
+				href: "https://blog.hathora.dev/1-million-ccu",
 				external: true,
 			},
 		},

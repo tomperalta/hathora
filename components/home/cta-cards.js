@@ -101,6 +101,7 @@ const CTACards = () => (
 								type="link"
 								href="https://calendly.com/gabi-zx8/try-hathora"
 								theme="borderless"
+								external
 							>
 								Book a Call
 								<IconArrow />

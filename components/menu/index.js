@@ -401,7 +401,7 @@ const Menu = () => {
 		// },
 		{
 			label: "API Reference",
-			url: "https://hathora.dev/docs/api-reference",
+			url: "https://hathora.dev/api",
 			external: true,
 		},
 		{

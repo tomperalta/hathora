@@ -61,22 +61,11 @@ const StyledGetInTouch = styled.section`
 const GetInTouch = () => {
 	const data = [
 		{
-			title: "For Students & Nonprofits",
-			description:
-				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits.",
-			ctas: [
-				<Button type="link" href="mailto:hello@hathora.dev" theme="borderless">
-					Get in touch
-					<IconArrow />
-				</Button>,
-			],
-		},
-		{
 			title: "Ready to launch?",
 			description:
 				"You can get started without any commitment today. As you gain confidence in what infra you'll need, you can adjust your requirements and we will deliver it.",
 			ctas: [
-				<Button type="link" href="/docs" theme="outline">
+				<Button type="link" href="/docs" theme="outline" external>
 					Read our docs
 				</Button>,
 
@@ -91,6 +80,17 @@ const GetInTouch = () => {
 				</Button>,
 			],
 		},
+		{
+			title: "For Students & Nonprofits",
+			description:
+				"Hathora would love to sponsor you! Get in touch to see if you’re eligible for additional credits.",
+			ctas: [
+				<Button type="link" href="mailto:hello@hathora.dev" theme="borderless">
+					Get in touch
+					<IconArrow />
+				</Button>,
+			],
+		},
 	]
 
 	return (
@@ -99,7 +99,7 @@ const GetInTouch = () => {
 				<div className="cards row">
 					{data.map((card, index) => (
 						<div className="col-12 col-sm-6 mb-5" key={card.title}>
-							<div className={`card ${index === 0 && "card--first"}`}>
+							<div className={`card ${index === 1 && "card--first"}`}>
 								<div>
 									<p className="text--l mb-3 font-weight--600">{card.title}</p>
 

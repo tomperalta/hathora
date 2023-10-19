@@ -743,10 +743,12 @@ const CostEstimator = () => {
 			<p className="mt-4 text--s color--grey__400 text-center">
 				For full pricing and plan sizes, check out our{" "}
 				<a
-					href="/docs"
+					href="https://hathora.dev/docs/pricing-billing"
 					style={{
 						textDecoration: "underline",
 					}}
+					target="_blank"
+					rel="noopener noreferrer"
 					className="color--green__500 color-hover--purple__500"
 				>
 					docs page
