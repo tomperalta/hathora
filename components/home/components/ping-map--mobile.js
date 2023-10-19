@@ -224,39 +224,56 @@ const MobileMap = () => {
 		const url = `wss://${host}:${port}/ws`
 
 		return new Promise((resolve, reject) => {
-			const startTime = Date.now()
 			const socket = new WebSocket(url)
 
 			// Handle WebSocket events
 			socket.onopen = () => {
 				// Send a ping message (You can customize the message as needed)
-				socket.send("Ping")
-			}
+				const speeds = []
 
-			socket.onmessage = () => {
-				// Handle incoming WebSocket messages (e.g., pong response)
-				const endTime = Date.now()
-				const pingSpeed = endTime - startTime
-				socket.close()
-				resolve({
-					name: region,
-					speed: pingSpeed,
-				}) // Resolve the promise with ping speed
-			}
+				for (let i = 0; i < 5; i += 1) {
+					const startTime = Date.now()
+					socket.send(startTime)
+				}
 
-			socket.onerror = (error) => {
-				console.error(`WebSocket error for ${url}: ${error}`)
-				reject(new Error(error)) // Reject the promise on error
-			}
+				socket.onmessage = (event) => {
+					const receivedTime = parseInt(event.data, 10)
 
-			socket.onclose = (event) => {
-				if (event.wasClean) {
-					console.log(
-						`Closed cleanly, code=${event.code}, reason=${event.reason}`
-					)
-				} else {
-					console.error(`Connection died`)
-					reject(new Error("Connection died")) // Reject the promise on connection failure
+					if (!Number.isNaN(receivedTime)) {
+						// Handle incoming WebSocket messages (e.g., pong response)
+						const endTime = Date.now()
+						const pingSpeed = endTime - receivedTime
+
+						speeds.push(pingSpeed)
+
+						if (speeds.length === 5) {
+							socket.close()
+
+							const lowestSpeed = Math.min(...speeds)
+							resolve({
+								name: region,
+								speed: lowestSpeed,
+							})
+						}
+					} else {
+						speeds.push(100000) // We push a big number
+					}
+				}
+
+				socket.onerror = (error) => {
+					console.error(`WebSocket error for ${url}: ${error}`)
+					reject(new Error(error)) // Reject the promise on error
+				}
+
+				socket.onclose = (event) => {
+					if (event.wasClean) {
+						console.log(
+							`Closed cleanly, code=${event.code}, reason=${event.reason}`
+						)
+					} else {
+						console.error(`Connection died`)
+						reject(new Error("Connection died")) // Reject the promise on connection failure
+					}
 				}
 			}
 		})

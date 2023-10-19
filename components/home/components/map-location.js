@@ -246,7 +246,7 @@ const MapLocation = (props) => {
 							resolve(lowestPingSpeed)
 						}
 					} else {
-						pingSpeeds.push(100000)
+						pingSpeeds.push(100000) // We push a big number
 					}
 				}
 
