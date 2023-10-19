@@ -292,7 +292,9 @@ const CostEstimator = () => {
 				? bandwidth * gbEgressRate
 				: (bandwidth / 1024) * gbEgressRate
 
-		setMonthlyPrice(((hcu * hcuRate + gbEgress) * numberOfMatches).toFixed(2))
+		setMonthlyPrice(
+			((hcu * hcuRate + gbEgress) * numberOfMatches).toLocaleString()
+		)
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
 	/**
@@ -304,7 +306,7 @@ const CostEstimator = () => {
 				? bandwidth * 0.12
 				: (bandwidth / 1024) * 0.12
 
-		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toFixed(2)
+		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toLocaleString()
 	}
 
 	const handleRangeInputChange = (event) => {
