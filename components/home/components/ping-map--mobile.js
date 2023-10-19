@@ -413,15 +413,10 @@ const MobileMap = () => {
 				</div>
 
 				<div className="mt-4 text-center">
-					<p className="text--s color--grey__400 mb-4">
-						On Hathora you get 90% of your gamers with under 40 ms ping to their
-						nearest region.
-					</p>
-
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping for @HathoraDev ${fastestRegion.name} region is ${fastestRegion.speed} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						href={`https://twitter.com/intent/tweet?text=My closest @HathoraDev region is ${fastestRegion.name} with a ${fastestRegion.speed} ms ping 📍 https://hathora.dev/#ping`}
 						disabled={!fastestRegion}
 						external
 					>

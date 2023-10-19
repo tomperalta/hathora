@@ -120,7 +120,7 @@ const ModernInfrastructure = () => {
 		},
 		{
 			title: "SCALABLE",
-			subtitle: "Elastic Compute Scheduling",
+			subtitle: "Scale to 1 Million CCU",
 			text: "Rapid server provisioning and scaling to handle massive demand spikes. Automatically spin down idle servers to maximize cost efficiency.",
 			icon: <IconScalable />,
 			cta: {

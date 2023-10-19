@@ -94,7 +94,7 @@ const CTACards = () => (
 
 						<div className="card__footer d-flex align-items-start align-items-md-center flex-column flex-md-row">
 							<Button theme="fill" type="link" href="/docs" external>
-								Read our Docs
+								Get Started
 							</Button>
 
 							<Button

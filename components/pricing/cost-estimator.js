@@ -199,6 +199,10 @@ const StyledCostEstimator = styled.div`
 			z-index: -1;
 		}
 
+		${breakpoints.medium`
+			margin-bottom: 0;
+		`}
+
 		.price {
 			margin-right: 16px;
 
@@ -255,6 +259,10 @@ const CostEstimator = () => {
 	const [hcu, setHcu] = useState(null)
 	const [monthlyPrice, setMonthlyPrice] = useState(null)
 
+	useEffect(() => {
+		console.log("Monthly price: ", parseInt(monthlyPrice, 2))
+	}, [monthlyPrice])
+
 	// Sets the values for `HCU` and `GB Egress` rates
 	useEffect(() => {
 		if (selectedBillingMethod === "commitment") {
@@ -276,7 +284,7 @@ const CostEstimator = () => {
 			setBandwidth(bandwidth.speed)
 		} else {
 			setvCPU(0.5)
-			setRoomPerProcess(1)
+			setRoomPerProcess(10)
 			setMatchLength(0.25)
 			setBandwidth(1)
 		}
@@ -292,11 +300,7 @@ const CostEstimator = () => {
 				? bandwidth * gbEgressRate
 				: (bandwidth / 1024) * gbEgressRate
 
-		setMonthlyPrice(
-			((hcu * hcuRate + gbEgress) * numberOfMatches).toLocaleString(undefined, {
-				maximumFractionDigits: 2,
-			})
-		)
+		setMonthlyPrice((hcu * hcuRate + gbEgress) * numberOfMatches)
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
 	/**
@@ -308,7 +312,12 @@ const CostEstimator = () => {
 				? bandwidth * 0.12
 				: (bandwidth / 1024) * 0.12
 
-		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toLocaleString()
+		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toLocaleString(
+			undefined,
+			{
+				maximumFractionDigits: 2,
+			}
+		)
 	}
 
 	const handleRangeInputChange = (event) => {
@@ -481,7 +490,9 @@ const CostEstimator = () => {
 											<span className="color--purple__500">
 												{roomPerProcess}
 											</span>{" "}
-											ROOMS PER PROCESS
+											{roomPerProcess === 1
+												? "ROOM PER PROCESS"
+												: "ROOMS PER PROCESS"}
 										</li>
 
 										<li>
@@ -526,7 +537,7 @@ const CostEstimator = () => {
 						</div>
 
 						<div className="plan-item">
-							<div className="row">
+							<div className="row align-items-center">
 								<div className="col-12 col-md-6 mb-2 mb-md-0">
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Monthly Cost
@@ -536,7 +547,9 @@ const CostEstimator = () => {
 								<div className="col-12 col-md-6">
 									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
-											{monthlyPrice}
+											{monthlyPrice.toLocaleString(undefined, {
+												maximumFractionDigits: 2,
+											})}
 										</span>
 
 										{selectedBillingMethod === "commitment" && (
@@ -618,19 +631,15 @@ const CostEstimator = () => {
 									<Dropdown
 										options={[
 											{
-												label: "1 ROOM PER PROCESS",
-												value: 1,
-											},
-											{
-												label: "10 ROOM PER PROCESS",
+												label: "10 ROOMS PER PROCESS",
 												value: 10,
 											},
 											{
-												label: "100 ROOM PER PROCESS",
+												label: "100 ROOMS PER PROCESS",
 												value: 100,
 											},
 											{
-												label: "1K ROOM PER PROCESS",
+												label: "1K ROOMS PER PROCESS",
 												value: 1000,
 											},
 										]}
@@ -715,7 +724,7 @@ const CostEstimator = () => {
 						</div>
 
 						<div className="plan-item">
-							<div className="row">
+							<div className="row align-items-center">
 								<div className="col-12 col-md-6">
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Monthly Cost
@@ -725,7 +734,9 @@ const CostEstimator = () => {
 								<div className="col-12 col-md-6">
 									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
-											{monthlyPrice}
+											{monthlyPrice.toLocaleString(undefined, {
+												maximumFractionDigits: 2,
+											})}
 										</span>
 
 										{selectedBillingMethod === "commitment" && (
@@ -754,7 +765,7 @@ const CostEstimator = () => {
 				)}
 			</div>
 
-			<p className="mt-4 text--s color--grey__400 text-center">
+			<p className="mt-5 text--s color--grey__400 text-center">
 				For full pricing and plan sizes, check out our{" "}
 				<a
 					href="https://hathora.dev/docs/pricing-billing"

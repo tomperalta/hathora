@@ -63,10 +63,10 @@ const GetInTouch = () => {
 		{
 			title: "Ready to launch?",
 			description:
-				"You can get started without any commitment today. As you gain confidence in what infra you'll need, you can adjust your requirements and we will deliver it.",
+				"You can Get Started without any commitment today. As you gain confidence in what infra you'll need, you can adjust your requirements and we will deliver it.",
 			ctas: [
 				<Button type="link" href="/docs" theme="outline" external>
-					Read our docs
+					Get Started
 				</Button>,
 
 				<Button

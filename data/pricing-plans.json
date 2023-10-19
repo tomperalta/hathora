@@ -1,6 +1,6 @@
 [
 	{
-		"title": "Turn Based",
+		"title": "Turn-Based",
 		"variables": {
 			"vCPU": 0.5,
 			"roomPerProcess": 10,

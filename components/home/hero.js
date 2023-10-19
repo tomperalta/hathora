@@ -37,12 +37,11 @@ const Home = () => (
 			<div className="row justify-content-center text-center">
 				<div className="col-12 col-sm-8 col-md-8">
 					<h1 className="title heading--l">
-						Dedicated servers to host elite multiplayer games
+						Server orchestration for multiplayer games
 					</h1>
 
 					<p className="text--l">
-						Confidently deploy and scale your game to millions with
-						developer-first gaming infra
+						Confidently deploy and scale your game globally
 					</p>
 
 					<div className="buttons">
@@ -52,7 +51,7 @@ const Home = () => (
 							href="https://hathora.dev/docs"
 							external
 						>
-							Read our Docs
+							Get Started
 						</Button>
 
 						<Button

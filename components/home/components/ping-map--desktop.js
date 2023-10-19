@@ -173,19 +173,14 @@ const DesktopPingMap = () => {
 
 			<Container>
 				<div className="footer text-center">
-					<p className="text--s color--grey__400 mb-4">
-						On Hathora you get 90% of your gamers with under 40 ms ping to their
-						nearest region.
-					</p>
-
 					<Button
 						theme="outline"
 						type="link"
-						href={`https://twitter.com/intent/tweet?text=My ping on @HathoraDev ${
+						href={`https://twitter.com/intent/tweet?text=My closest @HathoraDev region is ${
 							fastestRegion?.displayName || fastestRegion?.name
-						} region is ${
+						} with a ${
 							fastestRegion?.speed
-						} ms 🔥 \n\nCheck yours at https://hathora.dev/`}
+						} ms ping 📍 https://hathora.dev/#ping`}
 						disabled={!fastestRegion}
 						external
 					>
