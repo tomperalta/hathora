@@ -293,7 +293,9 @@ const CostEstimator = () => {
 				: (bandwidth / 1024) * gbEgressRate
 
 		setMonthlyPrice(
-			((hcu * hcuRate + gbEgress) * numberOfMatches).toLocaleString()
+			((hcu * hcuRate + gbEgress) * numberOfMatches).toLocaleString(undefined, {
+				maximumFractionDigits: 2,
+			})
 		)
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
@@ -459,7 +461,11 @@ const CostEstimator = () => {
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Hathora Compute Unit
 										<br />
-										<a href="#faqs" className="color-hover--green__500">
+										<a
+											href="#faqs"
+											className="color--green__500 color-hover--purple__500"
+											style={{ textDecoration: "underline" }}
+										>
 											(HCU)
 										</a>
 									</p>
@@ -546,7 +552,7 @@ const CostEstimator = () => {
 													href="https://calendly.com/gabi-zx8/try-hathora"
 													theme="borderless"
 												>
-													Call us for scale rates
+													Call us for volume discounts
 													<IconArrow />
 												</Button>
 											</div>
@@ -580,7 +586,13 @@ const CostEstimator = () => {
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Hathora Compute Unit
 										<br />
-										<a href="#faqs">(HCU)</a>
+										<a
+											href="#faqs"
+											className="color--green__500 color-hover--purple__500"
+											style={{ textDecoration: "underline" }}
+										>
+											(HCU)
+										</a>
 									</p>
 								</div>
 
