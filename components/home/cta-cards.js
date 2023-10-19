@@ -97,7 +97,11 @@ const CTACards = () => (
 								Read our Docs
 							</Button>
 
-							<Button type="link" href="/" theme="borderless">
+							<Button
+								type="link"
+								href="https://calendly.com/gabi-zx8/try-hathora"
+								theme="borderless"
+							>
 								Book a Call
 								<IconArrow />
 							</Button>
