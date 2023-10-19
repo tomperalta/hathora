@@ -501,8 +501,10 @@ const CostEstimator = () => {
 										</li>
 
 										<li>
-											<span className="color--purple__500">{matchLength}</span>{" "}
-											HR MATCH LENGTH
+											<span className="color--purple__500">
+												{matchLength < 1 ? matchLength * 60 : matchLength}
+											</span>{" "}
+											{matchLength < 1 ? "MINS" : "HR"} MATCH LENGTH
 										</li>
 										<div className="separator" />
 										<li>
@@ -559,7 +561,10 @@ const CostEstimator = () => {
 
 										{selectedBillingMethod === "commitment" && (
 											<s className="text--l color--grey__400 font-weight--600">
-												${getPayAsYouGoPrice()}
+												$
+												{getPayAsYouGoPrice().toLocaleString(undefined, {
+													maximumFractionDigits: 2,
+												})}
 											</s>
 										)}
 
@@ -654,11 +659,11 @@ const CostEstimator = () => {
 									<Dropdown
 										options={[
 											{
-												label: "0.25 HR MATCH LENGTH",
+												label: "15 MINS MATCH LENGTH",
 												value: 0.25,
 											},
 											{
-												label: "0.5 HR MATCH LENGTH",
+												label: "30 MINS MATCH LENGTH",
 												value: 0.5,
 											},
 											{
