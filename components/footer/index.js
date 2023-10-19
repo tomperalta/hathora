@@ -156,11 +156,11 @@ const Footer = () => {
 		{
 			title: "Resources",
 			links: [
-				{
-					label: "Community",
-					url: "https://community.hathora.dev/",
-					external: true,
-				},
+				// {
+				// 	label: "Community",
+				// 	url: "https://community.hathora.dev/",
+				// 	external: true,
+				// },
 				{
 					label: "Docs",
 					url: "/docs",
@@ -213,9 +213,9 @@ const Footer = () => {
 						</div>
 
 						<p className="text--xs color--grey__300 d-none d-md-block">
-							394 Broadway 5th Floor,
+							159 W 25th St #404,
 							<br />
-							New York, NY 10013
+							New York, NY 10001
 						</p>
 					</div>
 
@@ -268,7 +268,7 @@ const Footer = () => {
 						</div>
 
 						<p className="d-md-none text--xs mt-5 color--grey__300 font-weight--500">
-							394 Broadway 5th Floor, New York, NY 10013
+							159 W 25th St #404, New York, NY 10001
 						</p>
 					</div>
 

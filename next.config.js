@@ -11,11 +11,19 @@ const nextConfig = {
 		return [
 			{
 				source: "/docs",
-				destination: "https://hathora-docus.netlify.app/",
+				destination: "https://hathora-docs.vercel.app/",
 			},
 			{
 				source: "/docs/:path*",
-				destination: "https://hathora-docus.netlify.app/:path*/",
+				destination: "https://hathora-docs.vercel.app/:path*/",
+			},
+			{
+				source: "/api",
+				destination: "https://hathora-api.vercel.app/",
+			},
+			{
+				source: "/swagger.json",
+				destination: "https://hathora-api.vercel.app/swagger.json",
 			},
 		]
 	},

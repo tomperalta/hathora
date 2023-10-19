@@ -28,15 +28,16 @@ import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
 const StyledMenu = styled.nav`
 	width: 100vw;
 	position: absolute;
-	top: 64px;
+	// top: 64px; // Space for banner
 	right: 0;
 	left: 0;
 	box-sizing: border-box;
 	z-index: 9999;
 
-	${breakpoint.medium`
-    top: 56px;
-  `}
+	// Space for banner
+	// ${breakpoint.medium`
+  //   top: 56px;
+  // `}
 
 	${Container} {
 		margin: 32px auto;
@@ -390,12 +391,17 @@ const Menu = () => {
 			url: "/about-us",
 		},
 		{
-			label: "Docs",
+			label: "Documentation",
 			url: "/docs",
 		},
+		// {
+		// 	label: "Community",
+		// 	url: "https://community.hathora.dev",
+		// 	external: true,
+		// },
 		{
-			label: "Community",
-			url: "https://community.hathora.dev",
+			label: "API Reference",
+			url: "https://hathora.dev/docs/api-reference",
 			external: true,
 		},
 		{
@@ -580,11 +586,13 @@ const Menu = () => {
 
 					<div className="menu__toggler d-flex align-items-center">
 						<Button
-							type="button"
+							type="link"
 							theme="outline"
+							href="https://console.hathora.dev/login"
+							external
 							className="sign-up me-3 me-lg-0"
 						>
-							<a href="https://hathora.dev/docs/get-started">Login</a>
+							Login
 						</Button>
 
 						<button

@@ -36,7 +36,7 @@ const StyledHero = styled.section`
 	position: relative;
 	display: flex;
 	align-items: center;
-	padding: 96px 0 60px 0;
+	// padding: 96px 0 60px 0;
 
 	.hero__icon {
 		max-width: 398px;

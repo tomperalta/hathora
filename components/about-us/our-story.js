@@ -141,7 +141,7 @@ const OurStory = () => {
 
 						<div className="row justify-content-start justify-content-md-center founders">
 							{founders.map((founder) => (
-								<div className="col-6 col-md-4 founder mt-5">
+								<div className="col-6 col-md-4 founder mt-5" key={founder.name}>
 									<div className="text-center">
 										{founder.image}
 										<p className="text--s color--purple__500 font-weight--700 mt-2">

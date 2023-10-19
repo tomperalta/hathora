@@ -14,10 +14,10 @@ import { plans } from "settings"
 import Button from "components/button"
 
 const StyledPlans = styled.section`
-	padding: 112px 0 60px 0;
+	padding: 156px 0 60px 0;
 
 	${breakpoint.medium`
-    padding: 120px 0 60px 0;
+    padding-top: 196px;
   `}
 
 	.plans {
@@ -122,7 +122,7 @@ const Plans = () => {
 						<Button
 							type="link"
 							theme="gradient"
-							href="https://hathora.dev/docs/get-started"
+							href="https://hathora.dev/docs"
 						>
 							Get Started
 						</Button>
