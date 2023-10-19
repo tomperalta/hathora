@@ -91,14 +91,16 @@ const StyledCostEstimator = styled.div`
 
 			input[type="range"] {
 				width: 100%;
-				height: 24px;
-				margin-top: 12px;
+				height: 64px;
+				margin-top: -20px;
 				-webkit-appearance: none;
 				appearance: none;
 				background: transparent;
 
 				&::-webkit-slider-runnable-track {
 					height: 2px;
+					position: relative;
+					top: 20px;
 					background-color: ${colors.green__500};
 				}
 
@@ -121,6 +123,14 @@ const StyledCostEstimator = styled.div`
 				.label {
 					width: 52px;
 					transition: color 0.3s ease;
+
+					&:first-child {
+						margin-left: -8px;
+					}
+
+					&:last-child {
+						margin-right: -8px;
+					}
 				}
 			}
 		}
@@ -312,12 +322,7 @@ const CostEstimator = () => {
 				? bandwidth * 0.12
 				: (bandwidth / 1024) * 0.12
 
-		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toLocaleString(
-			undefined,
-			{
-				maximumFractionDigits: 2,
-			}
-		)
+		return (hcu * 0.08 + gbEgress) * numberOfMatches
 	}
 
 	const handleRangeInputChange = (event) => {
@@ -547,7 +552,7 @@ const CostEstimator = () => {
 								<div className="col-12 col-md-6">
 									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
-											{monthlyPrice.toLocaleString(undefined, {
+											{monthlyPrice?.toLocaleString(undefined, {
 												maximumFractionDigits: 2,
 											})}
 										</span>
@@ -734,14 +739,17 @@ const CostEstimator = () => {
 								<div className="col-12 col-md-6">
 									<div className="price-wrapper">
 										<span className="price heading--m color--purple__500 font-weight--500">
-											{monthlyPrice.toLocaleString(undefined, {
+											{monthlyPrice?.toLocaleString(undefined, {
 												maximumFractionDigits: 2,
 											})}
 										</span>
 
 										{selectedBillingMethod === "commitment" && (
 											<s className="text--l color--grey__400 font-weight--600">
-												${getPayAsYouGoPrice()}
+												$
+												{getPayAsYouGoPrice()?.toLocaleString(undefined, {
+													maximumFractionDigits: 2,
+												})}
 											</s>
 										)}
 
