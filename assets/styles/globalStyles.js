@@ -125,6 +125,7 @@ export default createGlobalStyle`
       border: 0;
       color: inherit;
       cursor: pointer;
+      text-align: inherit;
     }
 
     svg {
@@ -134,7 +135,7 @@ export default createGlobalStyle`
     }
 
     input {
-      -webkit-appearance: none;
+      // -webkit-appearance: none;
       padding: 0;
       margin: 0;
       background: 0;

@@ -9,6 +9,9 @@ import { colors } from "utils/variables"
 import { AccordionProps } from "utils/prop-types"
 
 const StyledAccordion = styled.div`
+	border-bottom: 1px solid
+		${(props) => (props.active ? colors.green__500 : colors.purple__500)};
+
 	.accordion__toggler {
 		width: 100%;
 		display: flex;
@@ -28,6 +31,15 @@ const StyledAccordion = styled.div`
 		max-height: ${(props) => (props.active ? "1000px" : "0")};
 		padding: ${(props) => (props.active ? "16px 24px 24px 24px" : "0")};
 		overflow: hidden;
+
+		a {
+			color: ${colors.green__500};
+			text-decoration: underline;
+
+			&:hover {
+				color: ${colors.purple__500};
+			}
+		}
 	}
 `
 
@@ -35,12 +47,12 @@ const Accordion = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { title, children } = props
+	const { active: defaultState, title, children, id } = props
 
 	/**
 	 * STATE
 	 */
-	const [active, setActive] = useState(false)
+	const [active, setActive] = useState(defaultState || false)
 
 	/**
 	 * METHODS
@@ -50,10 +62,10 @@ const Accordion = (props) => {
 	}
 
 	return (
-		<StyledAccordion active={active}>
+		<StyledAccordion id={id} active={active} className="text--s">
 			<button
 				type="button"
-				className="accordion__toggler"
+				className="accordion__toggler font-weight--700"
 				onClick={toggleAccordion}
 			>
 				{title}

@@ -40,13 +40,14 @@ const StyledFeatures = styled.section`
 
 	.feature {
 		display: flex;
+		align-items: center;
 
 		svg {
 			flex-shrink: 0;
 			width: 24px;
 			height: 24px;
 			position: relative;
-			top: 2px;
+			// top: 2px;
 			margin-right: 8px;
 		}
 	}
@@ -84,7 +85,7 @@ const Features = () => {
 	return (
 		<StyledFeatures>
 			<Container>
-				<div className="row align-items-start">
+				<div className="row align-items-center">
 					<div className="col-12 col-md-3">
 						<div className="title">
 							<h2 className="heading--s dotted-separator">
@@ -104,7 +105,7 @@ const Features = () => {
 						{Object.values(data).map((column) => (
 							<ul className="column">
 								{column.map((feature) => (
-									<li className="feature" key={feature}>
+									<li className="feature text--s" key={feature}>
 										<IconCheck />
 
 										{feature}
