@@ -13,7 +13,7 @@ import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 import pricingPlans from "data/pricing-plans.json"
 import Dropdown from "components/dropdown"
 import breakpoints from "utils/breakpoints"
-import InputWithSuggestions from "components/input-with-suggestions"
+// import InputWithSuggestions from "components/input-with-suggestions"
 import Button from "components/button"
 
 const StyledCostEstimator = styled.div`
@@ -81,21 +81,47 @@ const StyledCostEstimator = styled.div`
 		margin-top: 48px;
 		text-align: center;
 
-		.radio-wrapper {
-			margin-top: 16px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 32px;
-		}
-
-		label {
+		.range-wrapper {
+			width: 220px;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			margin-top: 16px;
+			margin-right: auto;
+			margin-left: auto;
 
-			input {
-				margin-top: 8px;
+			input[type="range"] {
+				width: 100%;
+				height: 24px;
+				margin-top: 12px;
+				-webkit-appearance: none;
+				appearance: none;
+				background: transparent;
+
+				&::-webkit-slider-runnable-track {
+					height: 2px;
+					background-color: ${colors.green__500};
+				}
+
+				&::-webkit-slider-thumb {
+					-webkit-appearance: none; /* Override default look */
+					appearance: none;
+					width: 24px;
+					height: 24px;
+					position: relative;
+					top: -11px;
+					background-color: ${colors.green__500};
+					border-radius: 50%;
+				}
+			}
+
+			.labels {
+				display: flex;
+				gap: 24px;
+
+				.label {
+					width: 52px;
+					transition: color 0.3s ease;
+				}
 			}
 		}
 	}
@@ -281,6 +307,36 @@ const CostEstimator = () => {
 		return ((hcu * 0.08 + gbEgress) * numberOfMatches).toFixed(2)
 	}
 
+	const handleRangeInputChange = (event) => {
+		const {
+			target: { value },
+		} = event
+
+		console.log(`Range value: `, value)
+
+		switch (value) {
+			case "1":
+				console.log("One")
+				setNumberOfMatches(1000)
+				break
+
+			case "2":
+				setNumberOfMatches(10000)
+				break
+
+			case "3":
+				setNumberOfMatches(100000)
+				break
+
+			case "4":
+				setNumberOfMatches(1000000)
+				break
+
+			default:
+				break
+		}
+	}
+
 	return (
 		<StyledCostEstimator selectedBillingMethod={selectedBillingMethod}>
 			<div className="toggler">
@@ -320,12 +376,55 @@ const CostEstimator = () => {
 					Number of Matches per month
 				</p>
 
-				<div className="radio-wrapper">
-					<InputWithSuggestions
+				<div className="range-wrapper">
+					<div className="labels">
+						<span
+							className={`label text--s text-uppercase text-center font-weight--500 ${
+								numberOfMatches === 1000 && "color--green__500"
+							}`}
+						>
+							1K
+						</span>
+
+						<span
+							className={`label text--s text-uppercase text-center font-weight--500 ${
+								numberOfMatches === 10000 && "color--green__500"
+							}`}
+						>
+							10K
+						</span>
+
+						<span
+							className={`label text--s text-uppercase text-center font-weight--500 ${
+								numberOfMatches === 100000 && "color--green__500"
+							}`}
+						>
+							100K
+						</span>
+
+						<span
+							className={`label text--s text-uppercase text-center font-weight--500 ${
+								numberOfMatches === 1000000 && "color--green__500"
+							}`}
+						>
+							1M
+						</span>
+					</div>
+
+					<input
+						type="range"
+						min="1"
+						max="4"
+						step="1"
+						// value={1}
+						defaultValue={1}
+						onChange={handleRangeInputChange}
+					/>
+					{/* <InputWithSuggestions
 						defaultValue={1000}
 						callbackFunction={setNumberOfMatches}
 						suggestions={[1000, 10000, 100000, 1000000]}
-					/>
+					/> */}
 				</div>
 			</div>
 
