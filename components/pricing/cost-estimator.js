@@ -457,7 +457,9 @@ const CostEstimator = () => {
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Hathora Compute Unit
 										<br />
-										(HCU)
+										<a href="#faqs" className="color-hover--green__500">
+											(HCU)
+										</a>
 									</p>
 								</div>
 
@@ -576,7 +578,7 @@ const CostEstimator = () => {
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
 										Hathora Compute Unit
 										<br />
-										(HCU)
+										<a href="#faqs">(HCU)</a>
 									</p>
 								</div>
 

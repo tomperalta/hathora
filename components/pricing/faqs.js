@@ -61,7 +61,7 @@ const Faqs = () => {
 	]
 
 	return (
-		<section>
+		<section id="faqs">
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-sm-8">
