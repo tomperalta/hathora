@@ -21,11 +21,15 @@ export const ButtonStyles = css`
 	border-radius: 45px;
 	white-space: nowrap;
 	cursor: pointer;
+	transition: opacity 1s ease, color 0.3s ease, border 0.3s ease;
 	z-index: 10;
 
-	&:disabled {
-		pointer-events: none;
-	}
+	${(props) =>
+		props.disabled &&
+		css`
+			opacity: 0.3;
+			pointer-events: none;
+		`}
 
 	${(props) =>
 		props.theme === "fill" &&
@@ -113,6 +117,12 @@ export const ButtonStyles = css`
 			&:hover {
 				border-color: ${colors.purple__500};
 				color: ${colors.purple__500};
+
+				svg {
+					* {
+						stroke: ${colors.purple__500};
+					}
+				}
 			}
 
 			&:disabled {
@@ -163,7 +173,12 @@ export const ButtonStyles = css`
 	}
 
 	svg {
+		flex-shrink: 0;
 		margin-left: 8px;
+
+		* {
+			transition: stroke 0.3s ease;
+		}
 	}
 `
 
@@ -313,6 +328,7 @@ const Button = (props) => {
 			data-theme={theme}
 			href={href}
 			target="_blank"
+			disabled={disabled}
 			rel="noopener noreferrer"
 			onClick={onClick}
 		>

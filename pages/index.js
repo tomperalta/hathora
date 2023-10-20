@@ -17,24 +17,27 @@ import Hero from "components/home/hero"
 import ModernInfrastructure from "components/home/modern-infrastructure"
 // import OurPlatform from "components/home/our-platform"
 import Testimonials from "components/home/testimonials"
-import Features from "components/home/features"
-import Deploy from "components/home/deploy"
+// import Features from "components/home/features"
+// import Deploy from "components/home/deploy"
 import Clients from "components/home/clients"
+import CTACards from "components/home/cta-cards"
 
 // Icons
 // import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 const StyledHome = styled.main`
 	> section {
-		padding: 156px 0 24px 0;
+		padding: 60px 0;
 
 		${breakpoint.medium`
-      padding: 100px 0;
+      padding: 76px 0;
     `}
 
 		&:first-child {
+			padding-top: 120px;
+
 			${breakpoint.medium`
-        padding-top: 204px;
+        padding-top: 148px;
       `}
 		}
 	}
@@ -47,9 +50,10 @@ const Home = () => (
 		<ModernInfrastructure />
 		{/* <OurPlatform /> */}
 		<Testimonials />
-		<Features />
-		<Deploy />
+		{/* <Features /> */}
+		{/* <Deploy /> */}
 		<Clients />
+		<CTACards />
 	</StyledHome>
 )
 

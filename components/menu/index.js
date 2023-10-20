@@ -391,7 +391,7 @@ const Menu = () => {
 			url: "/about-us",
 		},
 		{
-			label: "Docs",
+			label: "Documentation",
 			url: "/docs",
 		},
 		// {
@@ -399,6 +399,11 @@ const Menu = () => {
 		// 	url: "https://community.hathora.dev",
 		// 	external: true,
 		// },
+		{
+			label: "API Reference",
+			url: "https://hathora.dev/api",
+			external: true,
+		},
 		{
 			label: "Blog",
 			url: "https://blog.hathora.dev/",

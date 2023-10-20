@@ -14,7 +14,6 @@ import { colors } from "utils/variables"
 
 // Components
 import Container from "components/container/"
-import Link from "next/link"
 // import Button from "components/button"
 
 const StyledFeatures = styled.section`
@@ -75,11 +74,8 @@ const Features = () => (
 					>
 						<Check className="icon" />
 						<p className="text--s paragraph">
-							<span className="font-weight--700">Built by a team of </span>{" "}
-							<span className="font-weight--700 color--green__500 color-hover--purple__600">
-								<Link href="/about-us">infrastructure experts</Link>{" "}
-							</span>
-							who have overseen rapid growth at an enterprise scale.
+							<b>Direct contact and customer support</b> from our team to help
+							you get set up and respond to any questions you may have.
 						</p>
 					</div>
 					<div
@@ -89,11 +85,8 @@ const Features = () => (
 					>
 						<Check className="icon" />
 						<p className="text--s paragraph">
-							<span className="font-weight--700">
-								Direct contact and customer support
-							</span>{" "}
-							from our team to help you get set up and respond to any questions
-							you may have.
+							<b>Built by a team of infrastructure experts</b> who have overseen
+							rapid growth at an enterprise scale.
 						</p>
 					</div>
 				</div>

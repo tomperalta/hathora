@@ -14,10 +14,10 @@ import ArrowRight from "assets/icons/icon-arrow-left.svg"
 
 // Icons Engine
 import { ReactComponent as Unity } from "assets/icons/home/clients/unity.svg"
-import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
+// import { ReactComponent as Phaser } from "assets/icons/home/clients/phaser.svg"
 import { ReactComponent as Unreal } from "assets/icons/home/clients/unreal.svg"
 import { ReactComponent as Godot } from "assets/icons/home/clients/godot.svg"
-import { ReactComponent as Bety } from "assets/icons/home/clients/bevy.svg"
+import { ReactComponent as JavaScript } from "assets/icons/home/clients/javascript.svg"
 
 // Icons Platform
 import { ReactComponent as Apple } from "assets/icons/home/clients/apple.svg"
@@ -73,6 +73,17 @@ const StyledClients = styled.section`
 			}
 		}
 	}
+
+	.engine {
+		max-height: 96px;
+		display: inline-flex;
+		filter: grayscale(1);
+		transition: filter 0.3s ease;
+
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
 `
 
 const Clients = () => {
@@ -83,8 +94,9 @@ const Clients = () => {
 		infinite: true,
 		arrows: true,
 		dots: false,
-		pauseOnFocus: false,
+		pauseOnFocus: true,
 	}
+
 	return (
 		<StyledClients>
 			<Container>
@@ -97,25 +109,59 @@ const Clients = () => {
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-3 mb-5 mb-md-0">
-								<Unity />
-							</div>
-							<div className="col-12 col-md-2 mb-5 mb-md-0">
-								<Unreal />
-							</div>
-							<div className="col-12 col-md-2 mb-5 mb-md-0">
-								<Godot />
-							</div>
-							<div className="col-12 col-md-3 mb-5 mb-md-0">
 								<a
-									href="https://docs.hathora.dev/#/builder/tutorial_platformer"
+									className="engine"
+									href="https://hathora.dev/docs/engines/unity"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<Phaser />
+									<Unity />
 								</a>
 							</div>
 							<div className="col-12 col-md-2 mb-5 mb-md-0">
-								<Bety />
+								<a
+									className="engine"
+									href="https://hathora.dev/docs/engines/unreal"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Unreal />
+								</a>
+							</div>
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<a
+									className="engine"
+									href="https://hathora.dev/docs/engines/godot"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Godot />
+								</a>
+							</div>
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<a
+									href="https://hathora.dev/docs/engines/javascript"
+									className="engine"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<JavaScript />
+								</a>
+							</div>
+
+							<div className="col-12 col-md-2 mb-5 mb-md-0">
+								<a
+									href="https://hathora.dev/docs/engines/other"
+									className="engine font-weight--600 color--green__500"
+									style={{
+										fontSize: "32px",
+										lineHeight: "40px",
+									}}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Other
+								</a>
 							</div>
 						</div>
 					</div>
