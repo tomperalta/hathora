@@ -8,9 +8,9 @@ import IconYouTube from "assets/icons/social-media/icon-youtube.svg"
 import IconLinkedIn from "assets/icons/social-media/icon-linkedin.svg"
 
 export const siteMetadata = {
-	defaultTitle: "Hathora | Serverless Cloud Platform for Multiplayer Games",
+	defaultTitle: "Hathora | Server Orchestration for Multiplayer Games",
 	defaultDescription:
-		"Seamlessly deploy, scale, and manage server-authoritative game backends globally on our edge network. Our optimized network minimizes latency and improves players’ experience.",
+		"Confidently deploy and scale your game globally. Our optimized network minimizes latency and improves players’ experience.",
 	defaultImage: "/open-graph.png",
 }
 

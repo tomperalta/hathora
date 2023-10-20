@@ -32,8 +32,8 @@ const StyledPricing = styled.main`
 const Pricing = () => (
 	<StyledPricing>
 		<SEO
-			title="Pricing | Serverless Cloud Platform for Multiplayer Games"
-			description="See Hathora’s pricing system that allows you to take your game global, with plans for all game types and bandwidth needs."
+			title="Hathora | Server Orchestration for Multiplayer Games"
+			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
 		/>
 		<Hero />
 		{/* <Plans /> */}
