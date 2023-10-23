@@ -6,7 +6,7 @@ import Image from "next/image"
 
 // Utils
 // import { colors } from "utils/variables"
-import breakpoint from "utils/breakpoints"
+import breakpoints from "utils/breakpoints"
 
 // Layout
 import Container from "components/container"
@@ -20,7 +20,7 @@ const StyledOurValues = styled.section`
 	.our-values__heading {
 		margin-bottom: 64px;
 
-		${breakpoint.medium`
+		${breakpoints.medium`
       margin-bottom: 96px;
     `}
 	}
@@ -33,7 +33,7 @@ const StyledOurValues = styled.section`
 				margin-bottom: 0px;
 			}
 
-			${breakpoint.medium`
+			${breakpoints.medium`
 			margin-bottom: 0px;
 			&:nth-child(2) {
 				margin-top: 124px;
