@@ -28,7 +28,7 @@ import { ReactComponent as IconClose } from "assets/icons/icon-close.svg"
 const StyledMenu = styled.nav`
 	width: 100vw;
 	position: absolute;
-	top: 64px; // Space for banner
+	top: 40px; // Space for banner
 	right: 0;
 	left: 0;
 	box-sizing: border-box;
