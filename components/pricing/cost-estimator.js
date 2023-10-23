@@ -294,7 +294,7 @@ const CostEstimator = () => {
 			setBandwidth(bandwidth.speed)
 		} else {
 			setvCPU(0.5)
-			setRoomPerProcess(10)
+			setRoomPerProcess(1)
 			setMatchLength(0.25)
 			setBandwidth(1)
 		}
@@ -640,6 +640,10 @@ const CostEstimator = () => {
 
 									<Dropdown
 										options={[
+											{
+												label: "1 ROOM PER PROCESS",
+												value: 1,
+											},
 											{
 												label: "10 ROOMS PER PROCESS",
 												value: 10,
