@@ -34,10 +34,17 @@ const StyledHome = styled.main`
     `}
 
 		&:first-child {
-			padding-top: 120px;
+			//padding-top: 120px;
+
+			// ${breakpoint.medium`
+      //   padding-top: 148px;
+      // `}
+
+			// Space for banner
+			padding-top: 176px;
 
 			${breakpoint.medium`
-        padding-top: 148px;
+        padding-top: 204px;
       `}
 		}
 	}
