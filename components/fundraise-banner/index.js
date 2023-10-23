@@ -41,13 +41,12 @@ const FundraiseBanner = () => (
 	>
 		<Container>
 			<a
-				href="https://itch.io/jam/multiplayer-madness-by-hathora"
+				href="https://blog.hathora.dev/1-million-ccu/"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				Join our Multiplayer Madness Game Jam on Itch.io with over $2,500 in
-				prizes!
+				Scaling Hathora to 1 million CCU with Frost Giant
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
