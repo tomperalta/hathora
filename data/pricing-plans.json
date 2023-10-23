@@ -1,0 +1,70 @@
+[
+	{
+		"title": "Turn-Based",
+		"variables": {
+			"vCPU": 0.5,
+			"roomPerProcess": 10,
+			"matchLength": 0.25,
+			"hcu": 0.125
+		},
+		"bandwidth": {
+			"speed": 1,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
+		},
+		"discountPrice": 0.79,
+		"regularPrice": 1.12
+	},
+	{
+		"title": "RTS",
+		"variables": {
+			"vCPU": 0.5,
+			"roomPerProcess": 1,
+			"matchLength": 0.5,
+			"hcu": 0.25
+		},
+		"bandwidth": {
+			"speed": 100,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
+		},
+		"discountPrice": 3.4,
+		"regularPrice": 5.2
+	},
+	{
+		"title": "FPS",
+		"variables": {
+			"vCPU": 1,
+			"roomPerProcess": 1,
+			"matchLength": 0.25,
+			"hcu": 0.25
+		},
+		"bandwidth": {
+			"speed": 200,
+			"label": "MB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
+		},
+		"discountPrice": 15.4,
+		"regularPrice": 21.2
+	},
+	{
+		"title": "Battle Royale",
+		"variables": {
+			"vCPU": 2,
+			"roomPerProcess": 1,
+			"matchLength": 1,
+			"hcu": 2
+		},
+		"bandwidth": {
+			"speed": 1,
+			"label": "GB",
+			"discountPrice": "$0.12/GB",
+			"regularPrice": "$0.04/GB"
+		},
+		"discountPrice": 120,
+		"regularPrice": 180
+	}
+]

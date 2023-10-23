@@ -17,4 +17,29 @@ export const CarouselProps = {
 	className: PropTypes.string,
 }
 
+export const MapLocationProps = {
+	region: PropTypes.string.isRequired,
+	labelPosition: PropTypes.string.isRequired,
+	coords: PropTypes.shape({
+		y: PropTypes.number.isRequired,
+		x: PropTypes.number.isRequired,
+	}).isRequired,
+}
+
+export const AccordionProps = {
+	title: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired,
+}
+
+export const DropdownProps = {
+	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	callbackFunction: PropTypes.func.isRequired,
+}
+
+export const InputWithSuggestionsProps = {
+	defaultValue: PropTypes.number,
+	callbackFunction: PropTypes.func.isRequired,
+	suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
+
 export default ButtonProps

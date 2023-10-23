@@ -3,7 +3,6 @@ import React from "react"
 // Libraries
 import styled from "styled-components"
 import Lottie from "react-lottie"
-import Image from "next/image"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -14,7 +13,7 @@ import Container from "components/container"
 import Button from "components/button"
 
 // Animations
-import Icon3 from "assets/animations/home/our-platform/our-platform-icon.svg"
+import { ReactComponent as IconScalable } from "assets/animations/home/our-platform/our-platform-icon.svg"
 import Animation1 from "assets/animations/home/our-platform/our-platform-animation-1.json"
 import Animation2 from "assets/animations/home/our-platform/our-platform-animation-2.json"
 
@@ -115,7 +114,19 @@ const ModernInfrastructure = () => {
 			cta: {
 				theme: "borderless",
 				label: "Read More",
-				href: "https://blog.hathora.dev/modern-cloud-for-multiplayer-games/",
+				href: "https://hathora.dev/docs/guides/deploy-hathora",
+				external: true,
+			},
+		},
+		{
+			title: "SCALABLE",
+			subtitle: "Scale to 1 Million CCU",
+			text: "Rapid server provisioning and scaling to handle massive demand spikes. Automatically spin down idle servers to maximize cost efficiency.",
+			icon: <IconScalable />,
+			cta: {
+				theme: "borderless",
+				label: "Read More",
+				href: "https://blog.hathora.dev/1-million-ccu",
 				external: true,
 			},
 		},
@@ -152,12 +163,15 @@ const ModernInfrastructure = () => {
 									<div className="">
 										<div className="row align-items-center justify-content-center">
 											<div className="image col-12 col-md-4">
-												<Lottie
-													options={{
-														loop: true,
-														animationData: item.animation,
-													}}
-												/>
+												{item.animation && (
+													<Lottie
+														options={{
+															loop: true,
+															animationData: item.animation,
+														}}
+													/>
+												)}
+												{item.icon && item.icon}
 											</div>
 
 											<div className="content col-12 col-md-5">
@@ -188,29 +202,6 @@ const ModernInfrastructure = () => {
 									</div>
 								</div>
 							))}
-						</div>
-						<div className="last-item">
-							<div className="row align-items-center justify-content-center">
-								<div className="image col-12 col-md-4">
-									<Image src={Icon3} alt="Backed by" width="350" height="308" />
-								</div>
-
-								<div className="content col-12 col-md-5">
-									<div className="row">
-										<h2 className="text--xs color--green__500 font-weight--700 mb-2">
-											SCALABLE
-										</h2>
-										<h2 className="text--m font-weight--600 mb-2">
-											Elastic Compute Scheduling
-										</h2>
-										<p className="text text--s mb-3">
-											Rapid server provisioning to handle massive demand spikes.
-											Automatic spin down of idle servers to minimize resource
-											waste.
-										</p>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

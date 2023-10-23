@@ -145,7 +145,7 @@ const Testimonials = () => {
 							config={carouselSettings}
 						>
 							{data.map((testimony) => (
-								<div className="testimony">
+								<div className="testimony" key={testimony.author}>
 									<p className="text--m color--grey__200 mb-4">
 										<span className="color--purple__500">“</span>
 										<span className="color--grey__200">{testimony.quote}</span>
@@ -168,10 +168,10 @@ const Testimonials = () => {
 							<Button
 								type="link"
 								theme="outline"
-								href="https://discord.gg/hathora"
+								href="https://blog.hathora.dev/"
 								external
 							>
-								Join us on Discord
+								Subscribe to our Blog
 							</Button>
 						</div>
 					</div>
