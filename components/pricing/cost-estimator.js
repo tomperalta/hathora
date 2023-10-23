@@ -641,6 +641,10 @@ const CostEstimator = () => {
 									<Dropdown
 										options={[
 											{
+												label: "1 ROOM PER PROCESS",
+												value: 1,
+											},
+											{
 												label: "10 ROOMS PER PROCESS",
 												value: 10,
 											},
