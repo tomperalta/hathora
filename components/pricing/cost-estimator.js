@@ -294,7 +294,7 @@ const CostEstimator = () => {
 			setBandwidth(bandwidth.speed)
 		} else {
 			setvCPU(0.5)
-			setRoomPerProcess(10)
+			setRoomPerProcess(1)
 			setMatchLength(0.25)
 			setBandwidth(1)
 		}
