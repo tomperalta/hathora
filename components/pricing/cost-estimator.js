@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 // Libraries
 import styled, { css } from "styled-components"
+import { useRouter } from "next/router"
 
 // Utils
 import { colors, gradients } from "utils/variables"
@@ -269,9 +270,30 @@ const CostEstimator = () => {
 	const [hcu, setHcu] = useState(null)
 	const [monthlyPrice, setMonthlyPrice] = useState(null)
 
+	/**
+	 * HOOKS
+	 */
+	const router = useRouter()
+
 	useEffect(() => {
-		console.log("Monthly price: ", parseInt(monthlyPrice, 2))
-	}, [monthlyPrice])
+		let { plan: planQuery } = router.query
+
+		if (planQuery) {
+			planQuery = planQuery.toLowerCase()
+
+			if (planQuery === "custom") {
+				setSelectedPlan("custom")
+			} else {
+				const matchedPlan = pricingPlans.find(
+					(plan) => plan.title.toLowerCase() === planQuery
+				)
+
+				if (matchedPlan) {
+					setSelectedPlan(matchedPlan)
+				}
+			}
+		}
+	}, [router.query])
 
 	// Sets the values for `HCU` and `GB Egress` rates
 	useEffect(() => {
