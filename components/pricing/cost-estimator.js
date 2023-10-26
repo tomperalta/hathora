@@ -519,7 +519,7 @@ const CostEstimator = () => {
 							<div className="row">
 								<div className="col-12 col-md-6 mb-2 mb-md-0">
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
-										Bandwidth
+										Bandwidth per process
 									</p>
 								</div>
 
@@ -695,7 +695,7 @@ const CostEstimator = () => {
 							<div className="row">
 								<div className="col-12 col-md-6">
 									<p className="text--m color--grey__400 font-weight--600 text-uppercase text-md-end">
-										Bandwidth
+										Bandwidth per process
 									</p>
 								</div>
 
