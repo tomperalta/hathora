@@ -271,12 +271,23 @@ const CostEstimator = () => {
 	const [monthlyPrice, setMonthlyPrice] = useState(null)
 
 	/**
+	 * VARIABLES
+	 */
+	const inputRangeMapValues = {
+		1000: 1,
+		10000: 2,
+		100000: 3,
+		1000000: 4,
+	}
+
+	/**
 	 * HOOKS
 	 */
 	const router = useRouter()
 
 	useEffect(() => {
-		let { plan: planQuery } = router.query
+		let { plan: planQuery, billingMethod: billingMethodQuery } = router.query
+		const { numberOfMatches: numberOfMatchesQuery } = router.query
 
 		if (planQuery) {
 			planQuery = planQuery.toLowerCase()
@@ -292,6 +303,21 @@ const CostEstimator = () => {
 					setSelectedPlan(matchedPlan)
 				}
 			}
+		}
+
+		if (billingMethodQuery) {
+			billingMethodQuery = billingMethodQuery.toLowerCase()
+
+			if (
+				billingMethodQuery === "commitment" ||
+				billingMethodQuery === "pay as you go"
+			) {
+				setSelectedBillingMethod(billingMethodQuery)
+			}
+		}
+
+		if (numberOfMatchesQuery) {
+			setNumberOfMatches(parseInt(numberOfMatchesQuery, 10))
 		}
 	}, [router.query])
 
@@ -456,7 +482,7 @@ const CostEstimator = () => {
 						min="1"
 						max="4"
 						step="1"
-						// value={1}
+						value={inputRangeMapValues[numberOfMatches]}
 						defaultValue={1}
 						onChange={handleRangeInputChange}
 					/>
