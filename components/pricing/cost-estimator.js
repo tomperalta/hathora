@@ -285,39 +285,156 @@ const CostEstimator = () => {
 	 */
 	const router = useRouter()
 
+	/**
+	 * METHODS
+	 */
+
+	// Function to update URL parameters
+	const updateQueryParam = (paramName, paramValue) => {
+		const query = { ...router.query, [paramName]: paramValue }
+		router.push(
+			{
+				pathname: router.pathname,
+				query,
+			},
+			undefined,
+			{
+				shallow: true,
+			}
+		)
+	}
+
+	const handleBillingMethodChange = (newBillingMethod) => {
+		if (selectedBillingMethod !== newBillingMethod) {
+			setSelectedBillingMethod(newBillingMethod)
+			updateQueryParam("billingMethod", newBillingMethod)
+		}
+	}
+
+	const handlePlanChange = (newPlan) => {
+		if (selectedPlan !== newPlan) {
+			setSelectedPlan(newPlan)
+			updateQueryParam("plan", newPlan === "custom" ? "custom" : newPlan.title)
+		}
+	}
+
+	const handleNumberOfMatchesChange = (newNumber) => {
+		if (numberOfMatches !== newNumber) {
+			setNumberOfMatches(newNumber)
+			updateQueryParam("numberOfMatches", newNumber)
+		}
+	}
+
+	const handlevCPUChange = (newvCPU) => {
+		if (vCPU !== newvCPU) {
+			setvCPU(newvCPU)
+			updateQueryParam("vcpu", newvCPU)
+		}
+	}
+
+	const handleRoomsPerProccessChange = (newRoomsPerProcess) => {
+		if (roomPerProcess !== newRoomsPerProcess) {
+			setRoomPerProcess(newRoomsPerProcess)
+			updateQueryParam("roomsPerProcess", newRoomsPerProcess)
+		}
+	}
+
+	const handleMatchLengthChange = (newMatchLength) => {
+		if (matchLength !== newMatchLength) {
+			setMatchLength(newMatchLength)
+			updateQueryParam("matchLength", newMatchLength)
+		}
+	}
+
+	const handleBandwidthChange = (newBandwidth) => {
+		if (bandwidth !== newBandwidth) {
+			setBandwidth(newBandwidth)
+			updateQueryParam("bandwidth", newBandwidth)
+		}
+	}
+
+	const handleInputRangeChange = (event) => {
+		const {
+			target: { value },
+		} = event
+
+		switch (value) {
+			case "1":
+				handleNumberOfMatchesChange(1000)
+				break
+
+			case "2":
+				handleNumberOfMatchesChange(10000)
+				break
+
+			case "3":
+				handleNumberOfMatchesChange(100000)
+				break
+
+			case "4":
+				handleNumberOfMatchesChange(1000000)
+				break
+
+			default:
+				break
+		}
+	}
+
+	const getPayAsYouGoPrice = () => {
+		const gbEgress =
+			selectedPlan.bandwidth?.label === "GB"
+				? bandwidth * 0.12
+				: (bandwidth / 1024) * 0.12
+
+		return (hcu * 0.08 + gbEgress) * numberOfMatches
+	}
+
+	/**
+	 * EFFECTS
+	 */
+
 	useEffect(() => {
-		let { plan: planQuery, billingMethod: billingMethodQuery } = router.query
-		const { numberOfMatches: numberOfMatchesQuery } = router.query
+		let {
+			plan: planQuery,
+			billingMethod: billingMethodQuery,
+			numberOfMatches: numberOfMatchesQuery,
+			vcpu: vcpuQuery,
+		} = router.query
 
 		if (planQuery) {
 			planQuery = planQuery.toLowerCase()
 
 			if (planQuery === "custom") {
-				setSelectedPlan("custom")
+				handlePlanChange("custom")
 			} else {
 				const matchedPlan = pricingPlans.find(
 					(plan) => plan.title.toLowerCase() === planQuery
 				)
 
 				if (matchedPlan) {
-					setSelectedPlan(matchedPlan)
+					handlePlanChange(matchedPlan)
 				}
 			}
 		}
 
 		if (billingMethodQuery) {
 			billingMethodQuery = billingMethodQuery.toLowerCase()
-
-			if (
-				billingMethodQuery === "commitment" ||
-				billingMethodQuery === "pay as you go"
-			) {
-				setSelectedBillingMethod(billingMethodQuery)
-			}
+			handleBillingMethodChange(billingMethodQuery)
 		}
 
 		if (numberOfMatchesQuery) {
-			setNumberOfMatches(parseInt(numberOfMatchesQuery, 10))
+			// Checks if the query number is a valid number
+			if (Object.keys(inputRangeMapValues).includes(numberOfMatchesQuery)) {
+				numberOfMatchesQuery = parseInt(numberOfMatchesQuery, 10) // Parses to int
+				handleNumberOfMatchesChange(numberOfMatchesQuery)
+			}
+		}
+
+		if (selectedPlan === "custom") {
+			if (vcpuQuery) {
+				vcpuQuery = parseFloat(vcpuQuery, 2)
+				handlevCPUChange(vcpuQuery)
+			}
 		}
 	}, [router.query])
 
@@ -341,10 +458,17 @@ const CostEstimator = () => {
 			setMatchLength(variables.matchLength)
 			setBandwidth(bandwidth.speed)
 		} else {
-			setvCPU(0.5)
-			setRoomPerProcess(1)
-			setMatchLength(0.25)
-			setBandwidth(1)
+			const {
+				vcpu: vcpuQuery,
+				roomsPerProcess: roomsPerProcessQuery,
+				matchLength: matchLengthQuery,
+				bandwidth: bandwidthQuery,
+			} = router.query
+
+			setvCPU(vcpuQuery || 0.5)
+			setRoomPerProcess(roomsPerProcessQuery || 1)
+			setMatchLength(matchLengthQuery || 0.25)
+			setBandwidth(bandwidthQuery || 1)
 		}
 	}, [selectedPlan])
 
@@ -361,66 +485,6 @@ const CostEstimator = () => {
 		setMonthlyPrice((hcu * hcuRate + gbEgress) * numberOfMatches)
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
-	// Function to update URL parameters
-	const updateQueryParam = (paramName, paramValue) => {
-		const query = { ...router.query, [paramName]: paramValue.toLowerCase() }
-		router.push({
-			pathname: router.pathname,
-			query,
-		})
-	}
-
-	useEffect(() => {
-		updateQueryParam(
-			"plan",
-			selectedPlan === "custom" ? selectedPlan : selectedPlan.title
-		)
-	}, [selectedPlan])
-
-	console.log(updateQueryParam)
-
-	/**
-	 * METHODS
-	 */
-	const getPayAsYouGoPrice = () => {
-		const gbEgress =
-			selectedPlan.bandwidth?.label === "GB"
-				? bandwidth * 0.12
-				: (bandwidth / 1024) * 0.12
-
-		return (hcu * 0.08 + gbEgress) * numberOfMatches
-	}
-
-	const handleRangeInputChange = (event) => {
-		const {
-			target: { value },
-		} = event
-
-		console.log(`Range value: `, value)
-
-		switch (value) {
-			case "1":
-				console.log("One")
-				setNumberOfMatches(1000)
-				break
-
-			case "2":
-				setNumberOfMatches(10000)
-				break
-
-			case "3":
-				setNumberOfMatches(100000)
-				break
-
-			case "4":
-				setNumberOfMatches(1000000)
-				break
-
-			default:
-				break
-		}
-	}
-
 	return (
 		<StyledCostEstimator selectedBillingMethod={selectedBillingMethod}>
 			<div className="toggler">
@@ -429,7 +493,7 @@ const CostEstimator = () => {
 					className={`text--m font-weight--600 ${
 						selectedBillingMethod === "commitment" && "active"
 					}`}
-					onClick={() => setSelectedBillingMethod("commitment")}
+					onClick={() => handleBillingMethodChange("commitment")}
 				>
 					Commitment
 					<span className="text--xs">
@@ -444,7 +508,7 @@ const CostEstimator = () => {
 					className={`text--m font-weight--600 ${
 						selectedBillingMethod === "pay as you go" && "active"
 					}`}
-					onClick={() => setSelectedBillingMethod("pay as you go")}
+					onClick={() => handleBillingMethodChange("pay as you go")}
 				>
 					Pay as you go
 					<span className="text--xs">
@@ -502,7 +566,7 @@ const CostEstimator = () => {
 						step="1"
 						value={inputRangeMapValues[numberOfMatches]}
 						defaultValue={1}
-						onChange={handleRangeInputChange}
+						onChange={handleInputRangeChange}
 					/>
 					{/* <InputWithSuggestions
 						defaultValue={1000}
@@ -517,7 +581,7 @@ const CostEstimator = () => {
 					<button
 						type="button"
 						className={`plan ${plan.title === selectedPlan.title && "active"}`}
-						onClick={() => setSelectedPlan(plan)}
+						onClick={() => handlePlanChange(plan)}
 					>
 						{plan.title}
 					</button>
@@ -526,7 +590,7 @@ const CostEstimator = () => {
 				<button
 					type="button"
 					className={`plan ${selectedPlan === "custom" && "active"}`}
-					onClick={() => setSelectedPlan("custom")}
+					onClick={() => handlePlanChange("custom")}
 				>
 					Custom
 				</button>
@@ -701,7 +765,7 @@ const CostEstimator = () => {
 												value: 2,
 											},
 										]}
-										callbackFunction={setvCPU}
+										callbackFunction={handlevCPUChange}
 									/>
 
 									<Dropdown
@@ -723,7 +787,7 @@ const CostEstimator = () => {
 												value: 1000,
 											},
 										]}
-										callbackFunction={setRoomPerProcess}
+										callbackFunction={handleRoomsPerProccessChange}
 									/>
 
 									<Dropdown
@@ -745,7 +809,7 @@ const CostEstimator = () => {
 												value: 2,
 											},
 										]}
-										callbackFunction={setMatchLength}
+										callbackFunction={handleMatchLengthChange}
 									/>
 
 									<div className="separator" />
@@ -789,7 +853,7 @@ const CostEstimator = () => {
 												value: 1024,
 											},
 										]}
-										callbackFunction={setBandwidth}
+										callbackFunction={handleBandwidthChange}
 									/>
 
 									{selectedBillingMethod === "commitment" ? (
