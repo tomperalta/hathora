@@ -361,6 +361,24 @@ const CostEstimator = () => {
 		setMonthlyPrice((hcu * hcuRate + gbEgress) * numberOfMatches)
 	}, [hcu, hcuRate, bandwidth, gbEgressRate, numberOfMatches])
 
+	// Function to update URL parameters
+	const updateQueryParam = (paramName, paramValue) => {
+		const query = { ...router.query, [paramName]: paramValue.toLowerCase() }
+		router.push({
+			pathname: router.pathname,
+			query,
+		})
+	}
+
+	useEffect(() => {
+		updateQueryParam(
+			"plan",
+			selectedPlan === "custom" ? selectedPlan : selectedPlan.title
+		)
+	}, [selectedPlan])
+
+	console.log(updateQueryParam)
+
 	/**
 	 * METHODS
 	 */
