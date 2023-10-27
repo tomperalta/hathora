@@ -765,6 +765,7 @@ const CostEstimator = () => {
 												value: 2,
 											},
 										]}
+										value={vCPU}
 										callbackFunction={handlevCPUChange}
 									/>
 
@@ -787,6 +788,7 @@ const CostEstimator = () => {
 												value: 1000,
 											},
 										]}
+										value={roomPerProcess}
 										callbackFunction={handleRoomsPerProccessChange}
 									/>
 
@@ -809,6 +811,7 @@ const CostEstimator = () => {
 												value: 2,
 											},
 										]}
+										value={matchLength}
 										callbackFunction={handleMatchLengthChange}
 									/>
 
@@ -853,6 +856,7 @@ const CostEstimator = () => {
 												value: 1024,
 											},
 										]}
+										value={bandwidth}
 										callbackFunction={handleBandwidthChange}
 									/>
 
