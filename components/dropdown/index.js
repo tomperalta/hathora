@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // Libraries
 import styled from "styled-components"
@@ -47,13 +47,28 @@ const Dropdown = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { options, callbackFunction } = props
+	const { options, value, callbackFunction } = props
 
 	/**
 	 * STATE
 	 */
 	const [active, setActive] = useState(false)
 	const [selectedOption, setSelectedOption] = useState(options[0])
+
+	/**
+	 * HOOKS
+	 */
+	useEffect(() => {
+		if (value) {
+			const matchedOption = options.find(
+				(option) => option.value.toString() === value
+			)
+
+			if (matchedOption) {
+				setSelectedOption(matchedOption)
+			}
+		}
+	}, [value])
 
 	/**
 	 * METHODS
