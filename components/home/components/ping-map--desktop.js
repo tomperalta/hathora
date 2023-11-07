@@ -41,7 +41,7 @@ const DesktopPingMap = () => {
 			region: "Chicago",
 			labelPosition: "left",
 			coords: {
-				y: 31.2206266319,
+				y: 30.8206266319,
 				x: 19.4194444444,
 			},
 		},
@@ -52,6 +52,15 @@ const DesktopPingMap = () => {
 			coords: {
 				y: 32.8498694517,
 				x: 22.1006944444,
+			},
+		},
+		{
+			region: "Los_Angeles",
+			displayName: "Los Angeles",
+			labelPosition: "right",
+			coords: {
+				y: 34.9438642298,
+				x: 9.0034722222,
 			},
 		},
 		{
