@@ -55,6 +55,15 @@ const DesktopPingMap = () => {
 			},
 		},
 		{
+			region: "Los_Angeles",
+			displayName: "Los Angeles",
+			labelPosition: "right",
+			coords: {
+				y: 25.9438642298,
+				x: 5.5034722222,
+			},
+		},
+		{
 			region: "Sao_Paulo",
 			displayName: "São Paulo",
 			labelPosition: "right",
