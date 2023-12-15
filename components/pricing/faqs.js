@@ -41,7 +41,7 @@ const Faqs = () => {
 					HCUs your application consumes is driven by how long a compute
 					resource is utilized and how many matches it can concurrently run (HCU
 					= vCPU*MatchLength/Rooms Per Process). For a full breakdown of the HCU
-					checkout our <a href="/docs">docs</a>.
+					checkout our <a href="/docs/pricing-billing">docs</a>.
 				</p>
 			),
 		},
