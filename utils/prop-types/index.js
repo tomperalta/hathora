@@ -42,4 +42,6 @@ export const InputWithSuggestionsProps = {
 	suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
-export default ButtonProps
+export const PingMapsProps = {
+	pingData: PropTypes.shape({}),
+}

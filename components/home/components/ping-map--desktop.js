@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react"
 // Libraries
 import styled from "styled-components"
 
+// Utils
+import { PingMapsProps } from "utils/prop-types"
+import { decodePings, encodePings } from "utils/functions"
+
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
@@ -18,11 +22,16 @@ const StyledPingMap = styled.div`
 	}
 `
 
-const DesktopPingMap = () => {
+const DesktopPingMap = (props) => {
+	/**
+	 * PROPS
+	 */
+	const { pingData } = props
+
 	/**
 	 * STATES
 	 */
-	const [resolvedRegions, setResolvedRegions] = useState([])
+	const [resolvedRegions, setResolvedRegions] = useState(pingData || [])
 	const [fastestRegion, setFastestRegion] = useState(null)
 
 	/**
@@ -196,6 +205,17 @@ const DesktopPingMap = () => {
 						Share your ping
 						<IconShare className="ml--16" />
 					</Button>
+
+					{resolvedRegions && (
+						<div className="mt--32">
+							<p>Encoded data: {encodePings(resolvedRegions)}</p>
+
+							<p>
+								Decoded data:{" "}
+								{JSON.stringify(decodePings(encodePings(resolvedRegions)))}
+							</p>
+						</div>
+					)}
 				</div>
 			</Container>
 		</StyledPingMap>
@@ -203,3 +223,5 @@ const DesktopPingMap = () => {
 }
 
 export default DesktopPingMap
+
+DesktopPingMap.propTypes = PingMapsProps
