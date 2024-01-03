@@ -172,44 +172,44 @@ const MobileMap = () => {
 		{
 			name: "Los_Angeles",
 			displayName: "Los Angeles",
-			startFrame: 90,
-			endFrame: 120,
+			startFrame: 0,
+			endFrame: 30,
 		},
 		{
 			name: "Sao_Paulo",
 			displayName: "São Paulo",
+			startFrame: 90,
+			endFrame: 120,
+		},
+		{
+			name: "London",
 			startFrame: 120,
 			endFrame: 150,
 		},
 		{
-			name: "London",
+			name: "Frankfurt",
 			startFrame: 150,
 			endFrame: 180,
 		},
 		{
-			name: "Frankfurt",
+			name: "Mumbai",
 			startFrame: 180,
 			endFrame: 210,
 		},
 		{
-			name: "Mumbai",
+			name: "Singapore",
 			startFrame: 210,
 			endFrame: 240,
 		},
 		{
-			name: "Singapore",
+			name: "Sydney",
 			startFrame: 240,
 			endFrame: 270,
 		},
 		{
-			name: "Sydney",
+			name: "Tokyo",
 			startFrame: 270,
 			endFrame: 300,
-		},
-		{
-			name: "Tokyo",
-			startFrame: 300,
-			endFrame: 330,
 		},
 	]
 
