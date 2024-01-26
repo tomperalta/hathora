@@ -13,4 +13,12 @@ export const decodePings = (pings) => {
 	return JSON.parse(decodedData)
 }
 
+export const copyTextToClipboard = async (text) => {
+	try {
+		await navigator.clipboard.writeText(text)
+	} catch (err) {
+		console.log(err)
+	}
+}
+
 export default validateEmail

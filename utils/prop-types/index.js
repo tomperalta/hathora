@@ -45,3 +45,10 @@ export const InputWithSuggestionsProps = {
 export const PingMapsProps = {
 	pingData: PropTypes.shape({}),
 }
+
+export const MapResultProps = {
+	region: PropTypes.string.isRequired,
+	speed: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired,
+	reloadFn: PropTypes.func.isRequired,
+}

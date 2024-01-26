@@ -1,0 +1,164 @@
+import React, { useState } from "react"
+
+// Libraries
+import styled, { keyframes } from "styled-components"
+
+// Utils
+import { MapResultProps } from "utils/prop-types"
+import { colors, gradients } from "utils/variables"
+
+// Icons
+import { ReactComponent as IconClipboard } from "assets/icons/icon-copy-clipboard.svg"
+import { ReactComponent as IconLink } from "assets/icons/icon-link.svg"
+import { ReactComponent as IconReload } from "assets/icons/icon-reload.svg"
+import { copyTextToClipboard } from "utils/functions"
+
+const FadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+const StyledResult = styled.div`
+	max-width: 246px;
+	position: absolute;
+	padding: 8px 12px;
+	margin: 0 auto;
+	background-color: ${colors.grey__700};
+	border-radius: 8px;
+	text-align: center;
+	animation: ${FadeIn} 1s ease;
+
+	&:before {
+		content: "";
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		background: ${gradients.primary};
+		border-radius: 9px;
+		transition: transform 0.3s ease 0.3s;
+		z-index: -1;
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 24px;
+		margin-top: 8px;
+
+		button {
+			position: relative;
+			display: flex;
+
+			&:hover {
+				svg {
+					* {
+						stroke: ${colors.purple__500};
+					}
+				}
+
+				.tooltip {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			.tooltip {
+				position: absolute;
+				top: 0;
+				left: calc(100% + 6px);
+				padding: 8px 12px;
+				background-color: ${colors.grey__700};
+				font-size: 14px;
+				line-height: 1.4em;
+				border: 1px solid ${colors.grey__400};
+				border-radius: 8px;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease;
+				text-wrap: nowrap;
+				z-index: 20;
+			}
+
+			svg {
+				* {
+					transition: all 0.3s ease;
+				}
+			}
+		}
+	}
+`
+
+const Result = (props) => {
+	/**
+	 * PROPS
+	 */
+	const { region, speed, className, reloadFn, encodedData } = props
+
+	/**
+	 * STATE
+	 */
+	const [copyLinkText, setCopyLinkText] = useState("Copy link")
+
+	/**
+	 * METHODS
+	 */
+	const handleCopyLink = () => {
+		const pingsLink =
+			process.env.NODE_ENV === "production"
+				? `https://hathora.dev/pings?data=${encodedData}`
+				: `http://localhost:3000/pings?data=${encodedData}`
+		copyTextToClipboard(pingsLink)
+
+		setCopyLinkText("Copied!")
+
+		setTimeout(() => {
+			setCopyLinkText("Copy link")
+		}, 1000)
+	}
+
+	return (
+		<StyledResult className={className || undefined}>
+			<p className="text--xs font-weight--700">Your closest region</p>
+
+			<p className="text--m font-weight--700">
+				{region} <span className="color--green__500">· {speed} ms</span>
+			</p>
+
+			<div className="actions">
+				<button type="button">
+					<IconClipboard />
+
+					<div className="tooltip">Copy map to clipboard</div>
+				</button>
+				<button
+					type="button"
+					disabled={!encodedData}
+					onClick={() => handleCopyLink()}
+				>
+					<IconLink />
+
+					<div className="tooltip">{copyLinkText}</div>
+				</button>
+				<button type="button" onClick={() => reloadFn()}>
+					<IconReload />
+
+					<div className="tooltip">Refresh Pings</div>
+				</button>
+			</div>
+		</StyledResult>
+	)
+}
+
+export default Result
+
+Result.propTypes = MapResultProps
