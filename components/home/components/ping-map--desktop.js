@@ -5,16 +5,13 @@ import styled from "styled-components"
 
 // Utils
 import { PingMapsProps } from "utils/prop-types"
-import { decodePings, encodePings } from "utils/functions"
+import { encodePings } from "utils/functions"
 
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
-import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
 
 // COmponents
-import Container from "components/container"
 import Result from "components/ping-map-result"
-import Button from "components/button"
 import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
@@ -217,36 +214,6 @@ const DesktopPingMap = (props) => {
 					/>
 				)}
 			</div>
-
-			<Container>
-				<div className="footer text-center">
-					<Button
-						theme="outline"
-						type="link"
-						href={`https://twitter.com/intent/tweet?text=My closest @HathoraDev region is ${
-							fastestRegion?.displayName || fastestRegion?.name
-						} with a ${
-							fastestRegion?.speed
-						} ms ping 📍 https://hathora.dev/#ping`}
-						disabled={!fastestRegion}
-						external
-					>
-						Share your ping
-						<IconShare className="ml--16" />
-					</Button>
-
-					{resolvedRegions && (
-						<div className="mt--32">
-							<p>Encoded data: {encodePings(resolvedRegions)}</p>
-
-							<p>
-								Decoded data:{" "}
-								{JSON.stringify(decodePings(encodePings(resolvedRegions)))}
-							</p>
-						</div>
-					)}
-				</div>
-			</Container>
 		</StyledPingMap>
 	)
 }

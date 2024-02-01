@@ -44,6 +44,7 @@ export const InputWithSuggestionsProps = {
 
 export const PingMapsProps = {
 	pingData: PropTypes.shape({}),
+	staticPings: PropTypes.shape({}),
 }
 
 export const MapResultProps = {

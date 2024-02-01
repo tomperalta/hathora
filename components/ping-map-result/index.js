@@ -11,6 +11,7 @@ import { colors, gradients } from "utils/variables"
 import { ReactComponent as IconClipboard } from "assets/icons/icon-copy-clipboard.svg"
 import { ReactComponent as IconLink } from "assets/icons/icon-link.svg"
 import { ReactComponent as IconReload } from "assets/icons/icon-reload.svg"
+import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
 import { copyTextToClipboard } from "utils/functions"
 
 const FadeIn = keyframes`
@@ -44,7 +45,8 @@ const StyledResult = styled.div`
 		left: -2px;
 		background: ${gradients.primary};
 		border-radius: 9px;
-		transition: transform 0.3s ease 0.3s;
+		// transition: transform 0.3s ease 0.3s;
+		will-change: opacity;
 		z-index: -1;
 	}
 
@@ -102,7 +104,8 @@ const Result = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, speed, className, reloadFn, encodedData } = props
+	const { region, speed, className, reloadFn, encodedData, showFriendCopy } =
+		props
 
 	/**
 	 * STATE
@@ -115,8 +118,8 @@ const Result = (props) => {
 	const handleCopyLink = () => {
 		const pingsLink =
 			process.env.NODE_ENV === "production"
-				? `https://hathora.dev/pings?data=${encodedData}`
-				: `http://localhost:3000/pings?data=${encodedData}`
+				? `https://hathora.dev/pings?pings=${encodedData}`
+				: `http://localhost:3000/pings?pings=${encodedData}`
 		copyTextToClipboard(pingsLink)
 
 		setCopyLinkText("Copied!")
@@ -128,33 +131,47 @@ const Result = (props) => {
 
 	return (
 		<StyledResult className={className || undefined}>
-			<p className="text--xs font-weight--700">Your closest region</p>
+			<p
+				className="d-inline-flex align-items-center text--xs font-weight--700"
+				style={{ gap: "4px" }}
+			>
+				{showFriendCopy ? (
+					<>
+						<IconPing />
+						Your friend's best ping
+					</>
+				) : (
+					"Your closest region"
+				)}
+			</p>
 
 			<p className="text--m font-weight--700">
 				{region} <span className="color--green__500">· {speed} ms</span>
 			</p>
 
-			<div className="actions">
-				<button type="button">
-					<IconClipboard />
+			{!showFriendCopy && (
+				<div className="actions">
+					<button type="button">
+						<IconClipboard />
 
-					<div className="tooltip">Copy map to clipboard</div>
-				</button>
-				<button
-					type="button"
-					disabled={!encodedData}
-					onClick={() => handleCopyLink()}
-				>
-					<IconLink />
+						<div className="tooltip">Copy map to clipboard</div>
+					</button>
+					<button
+						type="button"
+						disabled={!encodedData}
+						onClick={() => handleCopyLink()}
+					>
+						<IconLink />
 
-					<div className="tooltip">{copyLinkText}</div>
-				</button>
-				<button type="button" onClick={() => reloadFn()}>
-					<IconReload />
+						<div className="tooltip">{copyLinkText}</div>
+					</button>
+					<button type="button" onClick={() => reloadFn()}>
+						<IconReload />
 
-					<div className="tooltip">Refresh Pings</div>
-				</button>
-			</div>
+						<div className="tooltip">Refresh Pings</div>
+					</button>
+				</div>
+			)}
 		</StyledResult>
 	)
 }

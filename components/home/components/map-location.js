@@ -185,15 +185,21 @@ const MapLocation = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, displayName, labelPosition, coords, callbackFn, featured } =
-		props
+	const {
+		region,
+		displayName,
+		labelPosition,
+		coords,
+		callbackFn,
+		featured,
+		speed: staticSpeed,
+	} = props
 
 	/**
 	 * STATE
 	 */
 	const [url, setUrl] = useState(null)
-	// const [socket, setSocket] = useState(null)
-	const [speed, setSpeed] = useState(null)
+	const [speed, setSpeed] = useState(staticSpeed)
 
 	/**
 	 * METHODS
@@ -270,7 +276,7 @@ const MapLocation = (props) => {
 			}
 		}
 
-		if (!url) {
+		if (!url && !staticSpeed) {
 			getRegionUrl()
 		}
 	}, [url])
@@ -284,7 +290,7 @@ const MapLocation = (props) => {
 	}, [url, speed])
 
 	useEffect(() => {
-		if (speed) {
+		if (speed && callbackFn) {
 			callbackFn({
 				name: region,
 				speed,
