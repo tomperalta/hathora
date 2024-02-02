@@ -132,7 +132,7 @@ const Result = (props) => {
 	const handleCopyLink = () => {
 		const pingsLink =
 			process.env.NODE_ENV === "production"
-				? `https://hathora.dev`
+				? `https://hathora.dev/pings?pings=${encodedData}`
 				: `http://localhost:3000/pings?pings=${encodedData}`
 		copyTextToClipboard(pingsLink)
 
