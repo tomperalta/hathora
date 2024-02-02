@@ -12,17 +12,19 @@ import { ReactComponent as IconClipboard } from "assets/icons/icon-copy-clipboar
 import { ReactComponent as IconLink } from "assets/icons/icon-link.svg"
 import { ReactComponent as IconReload } from "assets/icons/icon-reload.svg"
 import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
+import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
+
 import { copyTextToClipboard } from "utils/functions"
 
 const FadeIn = keyframes`
   from {
-    opacity: 0;
-    transform: translateY(40px);
+    // opacity: 0;
+    // transform: translateY(40px);
   }
 
   to {
-    opacity: 1;
-    transform: translateY(0);
+    // opacity: 1;
+    // transform: translateY(0);
   }
 `
 
@@ -45,8 +47,6 @@ const StyledResult = styled.div`
 		left: -2px;
 		background: ${gradients.primary};
 		border-radius: 9px;
-		// transition: transform 0.3s ease 0.3s;
-		will-change: opacity;
 		z-index: -1;
 	}
 
@@ -104,8 +104,16 @@ const Result = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, speed, className, reloadFn, encodedData, showFriendCopy } =
-		props
+	const {
+		region,
+		speed,
+		className,
+		reloadFn,
+		encodedData,
+		showFriendCopy,
+		screenshotFn,
+		isTakingPicture,
+	} = props
 
 	/**
 	 * STATE
@@ -151,8 +159,8 @@ const Result = (props) => {
 
 			{!showFriendCopy && (
 				<div className="actions">
-					<button type="button">
-						<IconClipboard />
+					<button type="button" onClick={() => screenshotFn()}>
+						{!isTakingPicture ? <IconClipboard /> : <IconLoader />}
 
 						<div className="tooltip">Copy map to clipboard</div>
 					</button>

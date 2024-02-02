@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 // Libraries
 import styled from "styled-components"
+import { useScreenshot, createFileName } from "use-react-screenshot"
 
 // Utils
 import { PingMapsProps } from "utils/prop-types"
 import { encodePings } from "utils/functions"
+import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
+import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // COmponents
+import Container from "components/container"
 import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
+	padding-bottom: 32px;
+	background-color: ${colors.grey__700};
+
 	.map-wrapper {
 		position: relative;
 
@@ -133,11 +140,15 @@ const DesktopPingMap = (props) => {
 	const [locations, setLocations] = useState(regions)
 	const [resolvedRegions, setResolvedRegions] = useState(pingData || [])
 	const [fastestRegion, setFastestRegion] = useState(null)
+	const [image, takeScreenShot] = useScreenshot()
+	const [isTakingPicture, setIsTakingPicture] = useState(false)
+	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
 
 	/**
-	 * VARIABLES
+	 * HOOKS
 	 */
+	const mapRef = useRef()
 
 	/**
 	 * METHODS
@@ -172,8 +183,33 @@ const DesktopPingMap = (props) => {
 		setLocations([])
 		setFastestRegion(null)
 
-		setTimeout(() => setLocations(regions), 100)
+		setTimeout(() => {
+			setLocations(regions)
+			setTimestamp(new Date())
+		}, 100)
 	}
+
+	const download = (iImage, { name = "img", extension = "png" } = {}) => {
+		const a = document.createElement("a")
+		a.href = iImage
+		a.download = createFileName(extension, name)
+		a.click()
+	}
+
+	const getImage = async () => {
+		setIsTakingPicture(true)
+		await takeScreenShot(mapRef.current)
+		setIsTakingPicture(false)
+	}
+
+	useEffect(() => {
+		if (image) {
+			download(image, {
+				name: `hathora-ping-${timestamp.toISOString()}`,
+				extension: "png",
+			})
+		}
+	}, [image])
 
 	useEffect(() => {
 		let fastest
@@ -191,8 +227,12 @@ const DesktopPingMap = (props) => {
 		setEncodedData(encodePings(resolvedRegions))
 	}, [resolvedRegions])
 
+	useEffect(() => {
+		setTimestamp(new Date())
+	}, [])
+
 	return (
-		<StyledPingMap>
+		<StyledPingMap ref={mapRef}>
 			<div className="map-wrapper">
 				<Map />
 				{locations.map((location) => (
@@ -208,11 +248,21 @@ const DesktopPingMap = (props) => {
 					<Result
 						className="result"
 						region={fastestRegion.displayName || fastestRegion.name}
+						isTakingPicture={isTakingPicture}
+						screenshotFn={getImage}
 						speed={fastestRegion.speed}
 						reloadFn={reloadPings}
 						encodedData={encodedData}
 					/>
 				)}
+
+				<Container className="d-flex align-items-center justify-content-between">
+					<p className="text--xs color--grey__400 font-weight--700">
+						{timestamp && timestamp.toISOString()}
+					</p>
+
+					<Iso />
+				</Container>
 			</div>
 		</StyledPingMap>
 	)
