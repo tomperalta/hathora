@@ -17,6 +17,7 @@ import { colors } from "utils/variables"
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
 // import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
+import { encodePings } from "utils/functions"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -117,17 +118,13 @@ const StyledMobileMap = styled.div`
 		}
 
 		.region {
-			// width: 192px;
 			position: absolute;
 			top: calc(50% + 14px + 24px);
 			right: 0;
 			left: 0;
-			// display: flex;
 			gap: 8px;
 			margin: auto;
-			padding: 24px;
 			background-color: ${colors.grey__700};
-			border-radius: 4px;
 
 			svg {
 				position: relative;
@@ -226,7 +223,7 @@ const MobileMap = () => {
 	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
 
-	console.log(setTimestamp, setEncodedData)
+	// console.log(setTimestamp, setEncodedData)
 
 	/**
 	 * HOOKS
@@ -415,7 +412,6 @@ const MobileMap = () => {
 			}
 
 			setFastestRegion(fastest)
-
 			setLoading(false)
 		}
 	}, [resolvedRegions])
@@ -429,6 +425,8 @@ const MobileMap = () => {
 
 				lottieElem.playSegments([startFrame, endFrame], true)
 				lottieElem.setSpeed(2)
+
+				setEncodedData(encodePings([fastestRegion]))
 			} else {
 				lottieElem.play()
 				lottieElem.setSpeed(2)

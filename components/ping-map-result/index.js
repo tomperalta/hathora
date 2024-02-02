@@ -30,13 +30,19 @@ const FadeIn = keyframes`
 
 const StyledResult = styled.div`
 	max-width: 246px;
-	position: absolute;
-	padding: 8px 12px;
+	position: relative;
 	margin: 0 auto;
-	background-color: ${colors.grey__700};
-	border-radius: 8px;
+	// background-color: ${colors.grey__700};
 	text-align: center;
-	animation: ${FadeIn} 1s ease;
+	// animation: ${FadeIn} 1s ease forwards;
+
+	.wrapper {
+		position: relative;
+		z-index: 20;
+		padding: 8px 12px;
+		border-radius: 8px;
+		background-color: black;
+	}
 
 	&:before {
 		content: "";
@@ -46,8 +52,8 @@ const StyledResult = styled.div`
 		top: -2px;
 		left: -2px;
 		background: ${gradients.primary};
-		border-radius: 9px;
-		z-index: -1;
+		border-radius: 8px;
+		// z-index: -1;
 	}
 
 	.actions {
@@ -139,47 +145,49 @@ const Result = (props) => {
 
 	return (
 		<StyledResult className={className || undefined}>
-			<p
-				className="d-inline-flex align-items-center text--xs font-weight--700"
-				style={{ gap: "4px" }}
-			>
-				{showFriendCopy ? (
-					<>
-						<IconPing />
-						Your friend's best ping
-					</>
-				) : (
-					"Your closest region"
+			<div className="wrapper">
+				<p
+					className="d-inline-flex align-items-center text--xs font-weight--700"
+					style={{ gap: "4px" }}
+				>
+					{showFriendCopy ? (
+						<>
+							<IconPing />
+							Your friend's best ping
+						</>
+					) : (
+						"Your closest region"
+					)}
+				</p>
+
+				<p className="text--m font-weight--700">
+					{region} <span className="color--green__500">· {speed} ms</span>
+				</p>
+
+				{!showFriendCopy && (
+					<div className="actions">
+						<button type="button" onClick={() => screenshotFn()}>
+							{!isTakingPicture ? <IconClipboard /> : <IconLoader />}
+
+							<div className="tooltip">Copy map to clipboard</div>
+						</button>
+						<button
+							type="button"
+							disabled={!encodedData}
+							onClick={() => handleCopyLink()}
+						>
+							<IconLink />
+
+							<div className="tooltip">{copyLinkText}</div>
+						</button>
+						<button type="button" onClick={() => reloadFn()}>
+							<IconReload />
+
+							<div className="tooltip">Refresh Pings</div>
+						</button>
+					</div>
 				)}
-			</p>
-
-			<p className="text--m font-weight--700">
-				{region} <span className="color--green__500">· {speed} ms</span>
-			</p>
-
-			{!showFriendCopy && (
-				<div className="actions">
-					<button type="button" onClick={() => screenshotFn()}>
-						{!isTakingPicture ? <IconClipboard /> : <IconLoader />}
-
-						<div className="tooltip">Copy map to clipboard</div>
-					</button>
-					<button
-						type="button"
-						disabled={!encodedData}
-						onClick={() => handleCopyLink()}
-					>
-						<IconLink />
-
-						<div className="tooltip">{copyLinkText}</div>
-					</button>
-					<button type="button" onClick={() => reloadFn()}>
-						<IconReload />
-
-						<div className="tooltip">Refresh Pings</div>
-					</button>
-				</div>
-			)}
+			</div>
 		</StyledResult>
 	)
 }

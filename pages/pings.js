@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { useRouter } from "next/router"
 
 // Libraries
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import Lottie from "lottie-react"
 
 // Utils
 import breakpoints from "utils/breakpoints"
@@ -21,8 +22,37 @@ import regions from "data/regions.json"
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as IconPing } from "assets/icons/icon-ping.svg"
+import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
 
-const StyledPricing = styled.main`
+// Animations
+import MapAnimation from "assets/animations/pings-map/map--mobile.json"
+import { colors } from "utils/variables"
+
+const PulseAnimation = keyframes`
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(2);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+`
+
+const RotateAnimation = keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+`
+
+const StyledPings = styled.main`
 	> section {
 		padding: 60px 0;
 
@@ -48,8 +78,74 @@ const StyledPricing = styled.main`
 		.result {
 			position: absolute;
 			right: 0;
-			bottom: 31.3315926893%;
+			bottom: 20%;
 			left: 0;
+			z-index: 999;
+
+			${breakpoints.large`
+				bottom: 31.3315926893%;
+			`}
+		}
+
+		.mobile-indicator {
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: ${colors.green__500};
+			margin: auto;
+			border-radius: 50%;
+			transform: scale(${(props) => (props.loading ? "0" : "1")});
+			transition: transform 0.3s ease-in 0.9s;
+
+			&::after {
+				content: "";
+				width: 28px;
+				height: 28px;
+				position: absolute;
+				top: -12px;
+				left: -12px;
+				border: 2px dashed ${colors.green__500};
+				border-radius: 50%;
+				transform: scale(${(props) => (props.loading ? "0" : "1")});
+				transition: transform 0.3s ease-in 0.9s;
+				animation: ${RotateAnimation} 4s linear infinite;
+			}
+
+			&::before {
+				content: "";
+				width: 120px;
+				height: 120px;
+				position: absolute;
+				top: -56px;
+				left: -56px;
+				background: radial-gradient(
+					circle,
+					${colors.green__500} 0%,
+					rgba(9, 9, 121, 0) 65%
+				);
+				border-radius: 50%;
+				mix-blend-mode: hard-light;
+				opacity: ${(props) => (props.loading ? "0" : "0.6")};
+				transition: opacity 1s ease-in 1.2s;
+				animation: ${PulseAnimation} 4s linear infinite;
+			}
+		}
+
+		.loader {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			opacity: ${(props) => (props.loading ? "1" : "0")};
+			transition: opacity 1s ease-in;
 		}
 	}
 
@@ -61,6 +157,7 @@ const StyledPricing = styled.main`
 		gap: 16px;
 		border-radius: 16px;
 		background-color: rgba(21, 21, 33, 1);
+		text-align: center;
 
 		${breakpoints.large`
 			flex-direction: row;
@@ -87,18 +184,20 @@ const StyledPricing = styled.main`
 	}
 `
 
-const Pricing = () => {
+const Pings = () => {
 	/**
 	 * STATE
 	 */
 	const [data, setData] = useState([])
 	const [locations, setLocations] = useState(null)
 	const [fastestRegion, setFastestRegion] = useState(null)
+	const [loading, setLoading] = useState(true)
 
 	/**
 	 * HOOKS
 	 */
 	const router = useRouter()
+	const lottieRef = useRef()
 	const { pings } = router.query
 
 	useEffect(() => {
@@ -108,32 +207,51 @@ const Pricing = () => {
 			const newRegions = regions
 			let fastest
 
-			decodedPings.forEach((region) => {
-				const { name, speed } = region
+			if (decodedPings.length) {
+				decodedPings.forEach((region) => {
+					const { name, speed } = region
 
-				// Adds `speed` to the region object
-				const regionIndex = newRegions.findIndex((r) => r.region === name)
-				if (regionIndex !== -1) {
-					newRegions[regionIndex].speed = speed
-				}
+					// Adds `speed` to the region object
+					const regionIndex = newRegions.findIndex((r) => r.region === name)
+					if (regionIndex !== -1) {
+						newRegions[regionIndex].speed = speed
+					}
 
-				if (!fastest) {
-					fastest = region
-				} else if (region.speed < fastest.speed) {
-					fastest = region
-				}
-			})
+					if (!fastest) {
+						fastest = region
+					} else if (region.speed < fastest.speed) {
+						fastest = region
+					}
+				})
+			}
 
 			console.log(`New regions: `, newRegions)
 
 			setData(decodedPings)
 			setLocations(newRegions)
 			setFastestRegion(fastest)
+			setLoading(false)
 		}
 	}, [pings])
 
+	useEffect(() => {
+		const { current: lottieElem } = lottieRef
+
+		if (lottieElem) {
+			if (fastestRegion) {
+				const { startFrame, endFrame } = fastestRegion
+
+				lottieElem.playSegments([startFrame, endFrame], true)
+				lottieElem.setSpeed(2)
+			} else {
+				lottieElem.play()
+				lottieElem.setSpeed(2)
+			}
+		}
+	}, [fastestRegion])
+
 	return (
-		<StyledPricing>
+		<StyledPings loading={loading}>
 			<SEO
 				title="Hathora | Server Orchestration for Multiplayer Games"
 				description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
@@ -147,7 +265,7 @@ const Pricing = () => {
 								Your friend’s ping times
 							</h1>
 
-							<div className="banner">
+							<div className="banner d-none d-md-flex">
 								<div className="d-md-flex align-items-center">
 									<div className="icon">
 										<IconPing />
@@ -176,30 +294,69 @@ const Pricing = () => {
 
 				{data && (
 					<div className="map">
-						<Map />
+						<div className="d-lg-none">
+							<Lottie
+								lottieRef={lottieRef}
+								animationData={MapAnimation}
+								autoplay={false}
+								loop={false}
+							/>
 
-						{locations &&
-							locations.map((location) => (
-								<MapLocation
-									key={location.region}
-									{...location}
-									featured={fastestRegion?.name === location.region}
-								/>
-							))}
+							<div className="mobile-indicator" />
+
+							<div className="loader">
+								<IconLoader />
+							</div>
+						</div>
+
+						<div className="d-none d-lg-block">
+							<Map />
+
+							{locations &&
+								locations.map((location) => (
+									<MapLocation
+										key={location.region}
+										{...location}
+										featured={fastestRegion?.name === location.region}
+									/>
+								))}
+						</div>
 
 						{fastestRegion && (
 							<Result
 								className="result"
-								region={fastestRegion.displayName || fastestRegion.name}
-								speed={fastestRegion.speed}
+								region={fastestRegion?.displayName || fastestRegion?.name}
+								speed={fastestRegion?.speed}
 								showFriendCopy
 							/>
 						)}
 					</div>
 				)}
+
+				<Container>
+					<div className="banner d-md-none">
+						<div className="d-md-flex align-items-center">
+							<div>
+								<p className="text--m font-weight--700">
+									Curious to know your ping times?
+								</p>
+
+								<p className="text--s">
+									Get your ping map based on network connection
+								</p>
+							</div>
+						</div>
+
+						<div>
+							<Button type="link" theme="outline" href="/">
+								Get my pings
+							</Button>
+						</div>
+					</div>
+				</Container>
 			</section>
-		</StyledPricing>
+		</StyledPings>
 	)
 }
 
-export default Pricing
+export default Pings
