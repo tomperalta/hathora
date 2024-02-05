@@ -11,6 +11,7 @@ import { colors, gradients } from "utils/variables"
 import { ReactComponent as IconClipboard } from "assets/icons/icon-copy-clipboard.svg"
 import { ReactComponent as IconLink } from "assets/icons/icon-link.svg"
 import { ReactComponent as IconReload } from "assets/icons/icon-reload.svg"
+import { ReactComponent as IconCheck } from "assets/icons/pricing/icon-check.svg"
 import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
 
@@ -119,6 +120,7 @@ const Result = (props) => {
 		showFriendCopy,
 		screenshotFn,
 		isTakingPicture,
+		copied,
 	} = props
 
 	/**
@@ -167,9 +169,17 @@ const Result = (props) => {
 				{!showFriendCopy && (
 					<div className="actions">
 						<button type="button" onClick={() => screenshotFn()}>
-							{!isTakingPicture ? <IconClipboard /> : <IconLoader />}
+							{isTakingPicture ? (
+								<IconLoader />
+							) : copied ? (
+								<IconCheck />
+							) : (
+								<IconClipboard />
+							)}
 
-							<div className="tooltip">Copy map to clipboard</div>
+							<div className="tooltip">
+								{copied ? "Copied!" : "Copy map to clipboard"}
+							</div>
 						</button>
 						<button
 							type="button"

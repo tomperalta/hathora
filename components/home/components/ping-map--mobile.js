@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react"
 // Libraries
 import styled, { keyframes } from "styled-components"
 import Lottie from "lottie-react"
-import { useScreenshot, createFileName } from "use-react-screenshot"
+import { useScreenshot } from "use-react-screenshot"
 
 // Components
 import Container from "components/container"
@@ -220,6 +220,7 @@ const MobileMap = () => {
 	const [resolvedRegions, setResolvedRegions] = useState([])
 	const [fastestRegion, setFastestRegion] = useState({})
 	const [isTakingPicture, setIsTakingPicture] = useState(false)
+	const [imageHasBeenCopied, setImageHasBeenCopied] = useState(false)
 	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
 
@@ -230,6 +231,8 @@ const MobileMap = () => {
 	 */
 	const [image, takeScreenShot] = useScreenshot()
 	const mapRef = useRef()
+
+	console.log(image)
 
 	useEffect(() => {
 		setTimestamp(new Date())
@@ -376,27 +379,41 @@ const MobileMap = () => {
 		sendPings()
 	}, [])
 
-	const download = (iImage, { name = "img", extension = "png" } = {}) => {
-		const a = document.createElement("a")
-		a.href = iImage
-		a.download = createFileName(extension, name)
-		a.click()
-	}
-
 	const getImage = async () => {
-		setIsTakingPicture(true)
-		await takeScreenShot(mapRef.current)
-		setIsTakingPicture(false)
-	}
+		try {
+			setIsTakingPicture(true)
+			const base64Image = await takeScreenShot(mapRef.current)
 
-	useEffect(() => {
-		if (image) {
-			download(image, {
-				name: `hathora-ping-${timestamp.toISOString()}`,
-				extension: "png",
+			// Convert base64 to Blob using atob and Uint8Array
+			const blob = await new Promise((resolve) => {
+				const byteCharacters = atob(base64Image.split(",")[1])
+				const byteNumbers = new Array(byteCharacters.length)
+				for (let i = 0; i < byteCharacters.length; i += 1) {
+					byteNumbers[i] = byteCharacters.charCodeAt(i)
+				}
+				const byteArray = new Uint8Array(byteNumbers)
+				const blob = new Blob([byteArray], { type: "image/png" })
+				resolve(blob)
 			})
+
+			await navigator.clipboard.write([
+				/* eslint-disable no-undef */
+				new ClipboardItem({
+					[blob.type]: blob,
+				}),
+			])
+
+			setIsTakingPicture(false)
+			setImageHasBeenCopied(true)
+
+			setTimeout(() => {
+				setImageHasBeenCopied(false)
+			}, 1000)
+		} catch (error) {
+			console.log(`Error while taking the screenshot`, error)
+			setIsTakingPicture(false)
 		}
-	}, [image])
+	}
 
 	useEffect(() => {
 		if (resolvedRegions.length === regionsByOrderOfAppearance.length) {
@@ -462,6 +479,7 @@ const MobileMap = () => {
 						screenshotFn={getImage}
 						speed={fastestRegion?.speed}
 						reloadFn={reloadPings}
+						copied={imageHasBeenCopied}
 						encodedData={encodedData}
 					/>
 				</div>
