@@ -30,7 +30,7 @@ const FadeIn = keyframes`
 `
 
 const StyledResult = styled.div`
-	max-width: 246px;
+	max-width: 320px;
 	position: relative;
 	margin: 0 auto;
 	// background-color: ${colors.grey__700};
@@ -82,9 +82,10 @@ const StyledResult = styled.div`
 			}
 
 			.tooltip {
+				width: 180px;
 				position: absolute;
-				top: 0;
-				left: calc(100% + 6px);
+				top: calc(100% + 8px);
+				left: calc((-180px + 100%) / 2);
 				padding: 8px 12px;
 				background-color: ${colors.grey__700};
 				font-size: 14px;
@@ -154,7 +155,7 @@ const Result = (props) => {
 						style={{ gap: "4px" }}
 					>
 						<IconPing />
-						Your friend's best ping
+						Your closest region
 					</p>
 				)}
 
