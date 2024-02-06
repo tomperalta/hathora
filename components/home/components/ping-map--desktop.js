@@ -14,7 +14,6 @@ import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // COmponents
-import Container from "components/container"
 import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
 
@@ -279,13 +278,13 @@ const DesktopPingMap = (props) => {
 					/>
 				)}
 
-				<Container className="d-flex align-items-center justify-content-between">
+				<div className="d-flex align-items-center justify-content-between px-4">
 					<p className="text--xs color--grey__400 font-weight--700">
 						{timestamp && timestamp.toISOString()}
 					</p>
 
 					<Iso />
-				</Container>
+				</div>
 			</div>
 		</StyledPingMap>
 	)
