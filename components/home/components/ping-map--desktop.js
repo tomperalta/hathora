@@ -192,71 +192,44 @@ const DesktopPingMap = (props) => {
 		}, 100)
 	}
 
-	// const download = (iImage, { name = "img", extension = "png" } = {}) => {
-	// 	const a = document.createElement("a")
-	// 	a.href = iImage
-	// 	a.download = createFileName(extension, name)
-	// 	a.click()
-	// }
-
-	// const dataURLtoBlob = (dataURL) => {
-	// 	const parts = dataURL.split(";base64,")
-	// 	const contentType = parts[0].split(":")[1]
-	// 	const raw = window.atob(parts[1])
-	// 	const rawLength = raw.length
-	// 	const uInt8Array = new Uint8Array(rawLength)
-
-	// 	for (let i = 0; i < rawLength; i += 1) {
-	// 		uInt8Array[i] = raw.charCodeAt(i)
-	// 	}
-
-	// 	return new Blob([uInt8Array], { type: contentType })
-	// }
-
 	const getImage = async () => {
 		try {
 			setIsTakingPicture(true)
-			const base64Image = await takeScreenShot(mapRef.current)
 
-			// Convert base64 to Blob using atob and Uint8Array
-			const blob = await new Promise((resolve) => {
-				const byteCharacters = atob(base64Image.split(",")[1])
-				const byteNumbers = new Array(byteCharacters.length)
-				for (let i = 0; i < byteCharacters.length; i += 1) {
-					byteNumbers[i] = byteCharacters.charCodeAt(i)
-				}
-				const byteArray = new Uint8Array(byteNumbers)
-				const blob = new Blob([byteArray], { type: "image/png" })
-				resolve(blob)
-			})
+			setTimeout(async () => {
+				const base64Image = await takeScreenShot(mapRef.current)
 
-			await navigator.clipboard.write([
-				/* eslint-disable no-undef */
-				new ClipboardItem({
-					[blob.type]: blob,
-				}),
-			])
+				// Convert base64 to Blob using atob and Uint8Array
+				const blob = await new Promise((resolve) => {
+					const byteCharacters = atob(base64Image.split(",")[1])
+					const byteNumbers = new Array(byteCharacters.length)
+					for (let i = 0; i < byteCharacters.length; i += 1) {
+						byteNumbers[i] = byteCharacters.charCodeAt(i)
+					}
+					const byteArray = new Uint8Array(byteNumbers)
+					const blob = new Blob([byteArray], { type: "image/png" })
+					resolve(blob)
+				})
 
-			setIsTakingPicture(false)
-			setImageHasBeenCopied(true)
+				await navigator.clipboard.write([
+					/* eslint-disable no-undef */
+					new ClipboardItem({
+						[blob.type]: blob,
+					}),
+				])
 
-			setTimeout(() => {
-				setImageHasBeenCopied(false)
-			}, 1000)
+				setIsTakingPicture(false)
+				setImageHasBeenCopied(true)
+
+				setTimeout(() => {
+					setImageHasBeenCopied(false)
+				}, 1000)
+			}, 500)
 		} catch (error) {
 			console.log(`Error while taking the screenshot`, error)
 			setIsTakingPicture(false)
 		}
 	}
-
-	// useEffect(() => {
-	// 	if (image) {
-	// 		download(image, {
-	// 			name: `hathora-ping-${timestamp.toISOString()}`,
-	// 			extension: "png",
-	// 		})
-	// 	}
-	// }, [image])
 
 	useEffect(() => {
 		let fastest
@@ -288,6 +261,7 @@ const DesktopPingMap = (props) => {
 						{...location}
 						featured={fastestRegion?.name === location.region}
 						callbackFn={addResolvedRegion}
+						animation={!isTakingPicture}
 					/>
 				))}
 

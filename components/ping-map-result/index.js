@@ -136,7 +136,7 @@ const Result = (props) => {
 	const handleCopyLink = () => {
 		const pingsLink =
 			process.env.NODE_ENV === "production"
-				? `https://hathora.dev/pings?pings=${encodedData}&timestamp=${timestamp}`
+				? `https://hathora-git-86aymmwu4-tom-featureping-map-v2-indicius-team.vercel.app/pings?pings=${encodedData}&timestamp=${timestamp}`
 				: `http://localhost:3000/pings?pings=${encodedData}&timestamp=${timestamp}`
 		copyTextToClipboard(pingsLink)
 
@@ -164,7 +164,7 @@ const Result = (props) => {
 					{region} <span className="color--green__500">· {speed} ms</span>
 				</p>
 
-				{!showFriendCopy && (
+				{!showFriendCopy && !isTakingPicture && (
 					<div className="actions">
 						<button type="button" onClick={() => screenshotFn()}>
 							{isTakingPicture ? (

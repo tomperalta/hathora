@@ -323,6 +323,14 @@ const Pings = () => {
 					</div>
 				)}
 
+				<Container className="d-flex align-items-center justify-content-between">
+					<p className="text--xs color--grey__400 font-weight--700">
+						{timestamp && new Date(timestamp).toISOString()}
+					</p>
+
+					<Iso />
+				</Container>
+
 				<Container>
 					<div className="banner d-md-none">
 						<div className="d-md-flex align-items-center">
@@ -343,14 +351,6 @@ const Pings = () => {
 							</Button>
 						</div>
 					</div>
-				</Container>
-
-				<Container className="d-flex align-items-center justify-content-between">
-					<p className="text--xs color--grey__400 font-weight--700">
-						{timestamp && new Date(timestamp).toISOString()}
-					</p>
-
-					<Iso />
 				</Container>
 			</section>
 		</StyledPings>
