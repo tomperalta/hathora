@@ -8,6 +8,7 @@ import Lottie from "lottie-react"
 // Utils
 import breakpoints from "utils/breakpoints"
 import { decodePings } from "utils/functions"
+import { colors } from "utils/variables"
 
 // Components
 import SEO from "components/seo"
@@ -23,10 +24,10 @@ import regions from "data/regions.json"
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as IconPing } from "assets/icons/icon-ping.svg"
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
+import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
-import { colors } from "utils/variables"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -186,7 +187,7 @@ const Pings = () => {
 	 */
 	const router = useRouter()
 	const lottieRef = useRef()
-	const { pings } = router.query
+	const { pings, timestamp } = router.query
 
 	useEffect(() => {
 		if (pings) {
@@ -342,6 +343,14 @@ const Pings = () => {
 							</Button>
 						</div>
 					</div>
+				</Container>
+
+				<Container className="d-flex align-items-center justify-content-between">
+					<p className="text--xs color--grey__400 font-weight--700">
+						{timestamp && new Date(timestamp).toISOString()}
+					</p>
+
+					<Iso />
 				</Container>
 			</section>
 		</StyledPings>

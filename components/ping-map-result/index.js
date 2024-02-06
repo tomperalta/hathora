@@ -122,6 +122,7 @@ const Result = (props) => {
 		screenshotFn,
 		isTakingPicture,
 		copied,
+		timestamp,
 	} = props
 
 	/**
@@ -135,8 +136,8 @@ const Result = (props) => {
 	const handleCopyLink = () => {
 		const pingsLink =
 			process.env.NODE_ENV === "production"
-				? `https://hathora.dev/pings?pings=${encodedData}`
-				: `http://localhost:3000/pings?pings=${encodedData}`
+				? `https://hathora.dev/pings?pings=${encodedData}&timestamp=${timestamp}`
+				: `http://localhost:3000/pings?pings=${encodedData}&timestamp=${timestamp}`
 		copyTextToClipboard(pingsLink)
 
 		setCopyLinkText("Copied!")
