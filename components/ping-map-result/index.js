@@ -148,19 +148,15 @@ const Result = (props) => {
 	return (
 		<StyledResult className={className || undefined}>
 			<div className="wrapper">
-				<p
-					className="d-inline-flex align-items-center text--xs font-weight--700"
-					style={{ gap: "4px" }}
-				>
-					{showFriendCopy ? (
-						<>
-							<IconPing />
-							Your friend's best ping
-						</>
-					) : (
-						"Your closest region"
-					)}
-				</p>
+				{!showFriendCopy && (
+					<p
+						className="d-inline-flex align-items-center text--xs font-weight--700"
+						style={{ gap: "4px" }}
+					>
+						<IconPing />
+						Your friend's best ping
+					</p>
+				)}
 
 				<p className="text--m font-weight--700">
 					{region} <span className="color--green__500">· {speed} ms</span>

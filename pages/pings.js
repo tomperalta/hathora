@@ -75,18 +75,6 @@ const StyledPings = styled.main`
 	.map {
 		position: relative;
 
-		.result {
-			position: absolute;
-			right: 0;
-			bottom: 20%;
-			left: 0;
-			z-index: 999;
-
-			${breakpoints.large`
-				bottom: 31.3315926893%;
-			`}
-		}
-
 		.mobile-indicator {
 			width: 8px;
 			height: 8px;
@@ -265,6 +253,15 @@ const Pings = () => {
 								Your friend’s ping times
 							</h1>
 
+							{fastestRegion && (
+								<Result
+									className="result my-4"
+									region={fastestRegion?.displayName || fastestRegion?.name}
+									speed={fastestRegion?.speed}
+									showFriendCopy
+								/>
+							)}
+
 							<div className="banner d-none d-md-flex">
 								<div className="d-md-flex align-items-center">
 									<div className="icon">
@@ -318,18 +315,10 @@ const Pings = () => {
 										key={location.region}
 										{...location}
 										featured={fastestRegion?.name === location.region}
+										animation={false}
 									/>
 								))}
 						</div>
-
-						{fastestRegion && (
-							<Result
-								className="result"
-								region={fastestRegion?.displayName || fastestRegion?.name}
-								speed={fastestRegion?.speed}
-								showFriendCopy
-							/>
-						)}
 					</div>
 				)}
 

@@ -94,36 +94,41 @@ const StyledMapLocation = styled.div`
 
 			${(props) =>
 				props.featured &&
+				props.animation &&
 				css`
 					animation: ${RotateAnimation} 4s linear infinite;
 				`}
 		}
 
-		&:before {
-			content: "";
-			width: 120px;
-			height: 120px;
-			position: absolute;
-			top: -56px;
-			left: -56px;
-			background: radial-gradient(
-				circle,
-				var(--gradientColor) 0%,
-				rgba(9, 9, 121, 0) 65%
-			);
-			border-radius: 50%;
-			mix-blend-mode: hard-light;
-			opacity: ${(props) => (props.loading ? "0" : "0.6")};
-			animation: ${PulseAnimationSmall} 4s linear infinite;
-			transition: opacity 1s ease-in 1.2s;
-			z-index: -1;
+		${(props) =>
+			props.animation &&
+			css`
+				&:before {
+					content: "";
+					width: 120px;
+					height: 120px;
+					position: absolute;
+					top: -56px;
+					left: -56px;
+					background: radial-gradient(
+						circle,
+						var(--gradientColor) 0%,
+						rgba(9, 9, 121, 0) 65%
+					);
+					border-radius: 50%;
+					mix-blend-mode: hard-light;
+					opacity: ${(props) => (props.loading ? "0" : "0.6")};
+					animation: ${PulseAnimationSmall} 4s linear infinite;
+					transition: opacity 1s ease-in 1.2s;
+					z-index: -1;
 
-			${(props) =>
-				props.featured &&
-				css`
-					animation: ${PulseAnimation} 4s linear infinite;
-				`}
-		}
+					${(props) =>
+						props.featured &&
+						css`
+							animation: ${PulseAnimation} 4s linear infinite;
+						`}
+				}
+			`}
 	}
 
 	.label {
@@ -193,6 +198,7 @@ const MapLocation = (props) => {
 		callbackFn,
 		featured,
 		speed: staticSpeed,
+		animation = true,
 	} = props
 
 	/**
@@ -308,6 +314,7 @@ const MapLocation = (props) => {
 				top: `${coords.y}%`,
 				left: `${coords.x}%`,
 			}}
+			animation={animation}
 		>
 			<div className="indicator" />
 
