@@ -323,7 +323,7 @@ const Pings = () => {
 					</div>
 				)}
 
-				<div className="d-flex align-items-center justify-content-between">
+				<div className="d-flex align-items-center justify-content-between px-4">
 					<p className="text--xs color--grey__400 font-weight--700">
 						{timestamp && new Date(timestamp).toISOString()}
 					</p>

@@ -139,13 +139,12 @@ const DesktopPingMap = (props) => {
 	const [locations, setLocations] = useState(regions)
 	const [resolvedRegions, setResolvedRegions] = useState(pingData || [])
 	const [fastestRegion, setFastestRegion] = useState(null)
+	// eslint-disable-next-line
 	const [image, takeScreenShot] = useScreenshot()
 	const [isTakingPicture, setIsTakingPicture] = useState(false)
 	const [imageHasBeenCopied, setImageHasBeenCopied] = useState(false)
 	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
-
-	console.log(image)
 
 	/**
 	 * HOOKS
@@ -249,6 +248,8 @@ const DesktopPingMap = (props) => {
 	useEffect(() => {
 		setTimestamp(new Date())
 	}, [])
+
+	console.log(`Fastest region: `, fastestRegion)
 
 	return (
 		<StyledPingMap ref={mapRef}>
