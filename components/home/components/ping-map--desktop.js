@@ -279,13 +279,15 @@ const DesktopPingMap = (props) => {
 					/>
 				)}
 
-				<div className="d-flex align-items-center justify-content-between px-4">
-					<p className="text--xs color--grey__400 font-weight--700">
-						{timestamp && timestamp.toISOString()}
-					</p>
+				{isTakingPicture && (
+					<div className="d-flex align-items-center justify-content-between px-4">
+						<p className="text--xs color--grey__400 font-weight--700">
+							{timestamp && timestamp.toISOString()}
+						</p>
 
-					<Iso />
-				</div>
+						<Iso />
+					</div>
+				)}
 			</div>
 		</StyledPingMap>
 	)

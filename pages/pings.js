@@ -24,7 +24,6 @@ import regions from "data/regions.json"
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as IconPing } from "assets/icons/icon-ping.svg"
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
-import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
@@ -327,8 +326,6 @@ const Pings = () => {
 					<p className="text--xs color--grey__400 font-weight--700">
 						{timestamp && new Date(timestamp).toISOString()}
 					</p>
-
-					<Iso />
 				</div>
 
 				<Container>

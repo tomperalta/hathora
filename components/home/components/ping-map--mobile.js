@@ -484,16 +484,18 @@ const MobileMap = () => {
 					/>
 				</div>
 
-				<div
-					className="d-flex align-items-center justify-content-between"
-					style={{ marginTop: "32px" }}
-				>
-					<p className="text--xs color--grey__400 font-weight--700">
-						{timestamp && timestamp.toISOString()}
-					</p>
+				{isTakingPicture && (
+					<div
+						className="d-flex align-items-center justify-content-between"
+						style={{ marginTop: "32px" }}
+					>
+						<p className="text--xs color--grey__400 font-weight--700">
+							{timestamp && timestamp.toISOString()}
+						</p>
 
-					<Iso />
-				</div>
+						<Iso />
+					</div>
+				)}
 			</Container>
 		</StyledMobileMap>
 	)
