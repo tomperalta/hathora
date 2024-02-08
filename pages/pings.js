@@ -197,7 +197,6 @@ const Pings = () => {
 	useEffect(() => {
 		if (pings) {
 			const decodedPings = decodePings(pings)
-			console.log(`Decoded: `, decodedPings)
 			const newRegions = regions
 			let fastest
 
@@ -218,8 +217,6 @@ const Pings = () => {
 					}
 				})
 			}
-
-			console.log(`New regions: `, newRegions)
 
 			setData(decodedPings)
 			setLocations(newRegions)

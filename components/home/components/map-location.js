@@ -228,13 +228,9 @@ const MapLocation = (props) => {
 						const endTime = Date.now()
 						const pingSpeed = endTime - receivedTime
 
-						console.log(`Speed for ${region}: ${pingSpeed} ms`)
 						pingSpeeds.push(pingSpeed)
 
 						if (pingSpeeds.length === 5) {
-							console.log(`Speeds for ${region}`, pingSpeeds)
-
-							console.log(`Speeds for ${region}: `, pingSpeeds)
 							socket.close()
 							const lowestPingSpeed = Math.min(...pingSpeeds)
 							resolve(lowestPingSpeed)

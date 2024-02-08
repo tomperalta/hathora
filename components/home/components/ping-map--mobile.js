@@ -224,8 +224,6 @@ const MobileMap = () => {
 	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
 
-	// console.log(setTimestamp, setEncodedData)
-
 	/**
 	 * HOOKS
 	 */
@@ -352,12 +350,9 @@ const MobileMap = () => {
 			if (response.status === 200) {
 				const data = await response.json()
 
-				console.log(`This is the data: `, data)
-
 				const pingPromises = data.map((region) => sendPing(region))
 
 				const pingResults = await Promise.all(pingPromises)
-				console.log(`Results: `, pingResults)
 
 				pingResults.forEach((result) => addResolvedRegion(result))
 			}
@@ -367,7 +362,6 @@ const MobileMap = () => {
 	}
 
 	const reloadPings = () => {
-		console.log("Reload pings")
 		setLoading(true)
 		setResolvedRegions([])
 		setFastestRegion(null)
@@ -481,7 +475,7 @@ const MobileMap = () => {
 						reloadFn={reloadPings}
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
-						timestamp={timestamp.getTime()}
+						timestamp={timestamp?.getTime()}
 					/>
 				</div>
 

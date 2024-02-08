@@ -249,8 +249,6 @@ const DesktopPingMap = (props) => {
 		setTimestamp(new Date())
 	}, [])
 
-	console.log(`Fastest region: `, fastestRegion)
-
 	return (
 		<StyledPingMap ref={mapRef}>
 			<div className="map-wrapper">
@@ -275,7 +273,7 @@ const DesktopPingMap = (props) => {
 						reloadFn={reloadPings}
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
-						timestamp={timestamp.getTime()}
+						timestamp={timestamp?.getTime()}
 					/>
 				)}
 
