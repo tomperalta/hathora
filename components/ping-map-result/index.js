@@ -58,6 +58,7 @@ const StyledResult = styled.div`
 	}
 
 	.actions {
+		height: 24px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -164,7 +165,7 @@ const Result = (props) => {
 					{region} <span className="color--green__500">· {speed} ms</span>
 				</p>
 
-				{!showFriendCopy && !isTakingPicture && (
+				{!showFriendCopy && (
 					<div className="actions">
 						<button type="button" onClick={() => screenshotFn()}>
 							{isTakingPicture ? (

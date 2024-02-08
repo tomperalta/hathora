@@ -259,7 +259,6 @@ const DesktopPingMap = (props) => {
 						{...location}
 						featured={fastestRegion?.name === location.region}
 						callbackFn={addResolvedRegion}
-						animation={!isTakingPicture}
 					/>
 				))}
 
@@ -277,15 +276,22 @@ const DesktopPingMap = (props) => {
 					/>
 				)}
 
-				{isTakingPicture && (
-					<div className="d-flex align-items-center justify-content-between px-4">
-						<p className="text--xs color--grey__400 font-weight--700">
-							{timestamp && timestamp.toISOString()}
-						</p>
+				<div
+					className="timestamp d-flex align-items-center justify-content-between px-4"
+					style={{
+						height: "31px",
+					}}
+				>
+					{isTakingPicture && (
+						<>
+							<p className="text--xs color--grey__400 font-weight--700">
+								{timestamp && timestamp.toISOString()}
+							</p>
 
-						<Iso />
-					</div>
-				)}
+							<Iso />
+						</>
+					)}
+				</div>
 			</div>
 		</StyledPingMap>
 	)
