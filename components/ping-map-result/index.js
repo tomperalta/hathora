@@ -68,6 +68,13 @@ const StyledResult = styled.div`
 		button {
 			position: relative;
 			display: flex;
+			transition: opacity 0.3s ease;
+
+			&:disabled {
+				opacity: 0.5;
+				pointer-events: none;
+				cursor: not-allowed;
+			}
 
 			&:hover {
 				svg {
@@ -149,7 +156,10 @@ const Result = (props) => {
 	}
 
 	return (
-		<StyledResult className={className || undefined}>
+		<StyledResult
+			className={className || undefined}
+			isTakingPicture={isTakingPicture}
+		>
 			<div className="wrapper">
 				{!showFriendCopy && (
 					<p
@@ -167,7 +177,11 @@ const Result = (props) => {
 
 				{!showFriendCopy && (
 					<div className="actions">
-						<button type="button" onClick={() => screenshotFn()}>
+						<button
+							type="button"
+							onClick={() => screenshotFn()}
+							disabled={isTakingPicture}
+						>
 							{isTakingPicture ? (
 								<IconLoader />
 							) : copied ? (
@@ -182,14 +196,18 @@ const Result = (props) => {
 						</button>
 						<button
 							type="button"
-							disabled={!encodedData}
 							onClick={() => handleCopyLink()}
+							disabled={isTakingPicture || !encodedData}
 						>
 							<IconLink />
 
 							<div className="tooltip">{copyLinkText}</div>
 						</button>
-						<button type="button" onClick={() => reloadFn()}>
+						<button
+							type="button"
+							onClick={() => reloadFn()}
+							disabled={isTakingPicture}
+						>
 							<IconReload />
 
 							<div className="tooltip">Refresh Pings</div>
