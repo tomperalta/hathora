@@ -481,6 +481,7 @@ const MobileMap = () => {
 						reloadFn={reloadPings}
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
+						timestamp={timestamp.getTime()}
 					/>
 				</div>
 

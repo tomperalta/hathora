@@ -188,6 +188,12 @@ const Pings = () => {
 	const lottieRef = useRef()
 	const { pings, timestamp } = router.query
 
+	let timestampString
+
+	if (timestamp) {
+		timestampString = new Date(parseInt(timestamp, 10)).toISOString()
+	}
+
 	useEffect(() => {
 		if (pings) {
 			const decodedPings = decodePings(pings)
@@ -324,7 +330,7 @@ const Pings = () => {
 
 				<div className="d-flex align-items-center justify-content-between px-4">
 					<p className="text--xs color--grey__400 font-weight--700">
-						{timestamp && new Date(timestamp).toISOString()}
+						{timestampString && timestampString}
 					</p>
 				</div>
 

@@ -275,7 +275,7 @@ const DesktopPingMap = (props) => {
 						reloadFn={reloadPings}
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
-						timestamp={timestamp}
+						timestamp={timestamp.getTime()}
 					/>
 				)}
 

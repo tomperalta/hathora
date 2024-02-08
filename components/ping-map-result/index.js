@@ -130,6 +130,8 @@ const Result = (props) => {
 	 */
 	const [copyLinkText, setCopyLinkText] = useState("Copy link")
 
+	console.log(new Date(timestamp).getTime())
+
 	/**
 	 * METHODS
 	 */
