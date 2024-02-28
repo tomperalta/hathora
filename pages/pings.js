@@ -275,10 +275,6 @@ const Pings = () => {
 										<p className="text--m font-weight--700">
 											Curious to know your ping times?
 										</p>
-
-										<p className="text--s">
-											Get your ping map based on network connection
-										</p>
 									</div>
 								</div>
 
@@ -337,10 +333,6 @@ const Pings = () => {
 							<div>
 								<p className="text--m font-weight--700">
 									Curious to know your ping times?
-								</p>
-
-								<p className="text--s">
-									Get your ping map based on network connection
 								</p>
 							</div>
 						</div>
