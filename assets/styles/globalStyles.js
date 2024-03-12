@@ -1,5 +1,5 @@
 // Libraries
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -10,6 +10,14 @@ import { colors } from "utils/variables"
 import IconDottedSeparator from "assets/icons/icon-dotted-separator.svg"
 
 export default createGlobalStyle`
+  :root {
+    ${Object.entries(colors).map(
+			([name, color]) => css`
+      --${name}: ${color};
+    `
+		)}
+  }
+
   .no-scroll {
     overflow: hidden;
   }

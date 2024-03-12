@@ -1,0 +1,128 @@
+[
+	{
+		"title": "Support",
+		"features": [
+			{
+				"Type of support": {
+					"developer": "Community Support (Discord)",
+					"enterprise": "24/7 priority support with private channel on Slack/Discord"
+				}
+			},
+			{
+				"Dedicated Account Manager": {
+					"developer": null,
+					"enterprise": true
+				}
+			},
+			{
+				"Launch Planning": {
+					"developer": null,
+					"enterprise": true
+				}
+			},
+			{
+				"Load Testing": {
+					"developer": null,
+					"enterprise": true
+				}
+			}
+		]
+	},
+	{
+		"title": "Product Limits",
+		"features": [
+			{
+				"Max concurrent limit": {
+					"developer": "50 vCPU",
+					"enterprise": "No limits"
+				}
+			},
+			{
+				"Max container runtime": {
+					"developer": "24hr",
+					"enterprise": "24hr"
+				}
+			},
+			{
+				"Container Size Limit": {
+					"developer": "3GB",
+					"enterprise": "3GB"
+				}
+			},
+			{
+				"Custom Plans": {
+					"developer": "0.5-4 vCPU",
+					"enterprise": "0.5-4 vCPU"
+				}
+			},
+			{
+				"Logs + metrics": {
+					"developer": "3 days",
+					"enterprise": "3 days"
+				}
+			},
+			{
+				"Orgs": {
+					"developer": "Yes, limit to 3",
+					"enterprise": true
+				}
+			}
+		]
+	},
+	{
+		"title": "Compute Isolation",
+		"features": [
+			{
+				"Tenancy": {
+					"developer": "Shared",
+					"enterprise": "Dedicated"
+				}
+			},
+			{
+				"Bare Metal": {
+					"developer": null,
+					"enterprise": true
+				}
+			},
+			{
+				"Bring your own cloud (BYOC)": {
+					"developer": null,
+					"enterprise": true
+				}
+			}
+		]
+	},
+	{
+		"title": "Pricing",
+		"features": [
+			{
+				"Orchestration/hr": {
+					"subrow": {
+						"Cloud": {
+							"developer": "$0.08",
+							"enterprise": "$0.02 + Hardware"
+						},
+						"Bare Metal": {
+							"developer": null,
+							"enterprise": "$0.02 + Hardware"
+						}
+					}
+				}
+			},
+			{
+				"Bandwidth/GB": {
+					"subrow": {
+						"Cloud": {
+							"developer": "$0.12",
+							"enterprise": "$0.12"
+						},
+						"Bare Metal": {
+							"developer": null,
+							"enterprise": "$0.01"
+						}
+					}
+				}
+			}
+		]
+	}
+]
