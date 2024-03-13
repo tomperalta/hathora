@@ -123,7 +123,7 @@ const StyledPlanComparison = styled.section`
 const PlanComparison = () => (
 	<StyledPlanComparison>
 		<Container>
-			<div className="wrapper">
+			<div className="wrapper d-none d-md-block">
 				<table>
 					<thead className="text-uppercase">
 						<tr>
