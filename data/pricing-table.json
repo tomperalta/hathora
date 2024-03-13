@@ -1,0 +1,251 @@
+[
+	{
+		"title": "Support",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Type of support"
+					},
+					{
+						"text": "Community Support (Discord)"
+					},
+					{
+						"text": "24/7 priority support with private channel on Slack/Discord"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Dedicated Account Manager"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Launch Planning"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Load Testing"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Product Limits",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Max concurrent limit"
+					},
+					{
+						"text": "50 vCPU"
+					},
+					{
+						"text": "No limits"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Max container runtime"
+					},
+					{
+						"text": "24hr"
+					},
+					{
+						"text": "24hr"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Container Size Limit"
+					},
+					{
+						"text": "3GB"
+					},
+					{
+						"text": "3GB"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Custom Plans"
+					},
+					{
+						"text": "0.5-4 vCPU"
+					},
+					{
+						"text": "0.5-4 vCPU"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Logs + metrics"
+					},
+					{
+						"text": "3 days"
+					},
+					{
+						"text": "3 days"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Orgs"
+					},
+					{
+						"text": "Yes, limit to 3"
+					},
+					{
+						"text": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Compute Isolation",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Tenancy"
+					},
+					{
+						"text": "Shared"
+					},
+					{
+						"text": "Dedicated"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Bare Metal"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Bring your own cloud (BYOC)"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Pricing",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Orchestration/hr",
+						"subtext": "Cloud"
+					},
+					{
+						"text": "$0.08"
+					},
+					{
+						"text": "$0.02 + Hardware",
+						"tooltip": "Placeholder Text"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Orchestration/hr",
+						"subtext": "Bare Metal",
+						"hideText": true
+					},
+					{
+						"text": null
+					},
+					{
+						"text": "$0.02 + Hardware",
+						"tooltip": "Placeholder Text"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Bandwidth/GB",
+						"subtext": "Cloud"
+					},
+					{
+						"text": "$0.12"
+					},
+					{
+						"text": "$0.12"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Bandwidth/GB",
+						"subtext": "Bare Metal",
+						"hideText": true
+					},
+					{
+						"text": null
+					},
+					{
+						"text": "$0.01"
+					}
+				]
+			}
+		]
+	}
+]

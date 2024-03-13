@@ -14,6 +14,7 @@ import Features from "components/pricing/features"
 import DiscountBanner from "components/pricing/discount-banner"
 import Faqs from "components/pricing/faqs"
 import Hero from "components/pricing/hero"
+import PlanComparison from "components/pricing/plan-comparison"
 
 const StyledPricing = styled.main`
 	> section {
@@ -44,6 +45,7 @@ const Pricing = () => (
 		/>
 		<Hero />
 		{/* <Plans /> */}
+		<PlanComparison />
 		<Features />
 		<Faqs />
 		<DiscountBanner />
