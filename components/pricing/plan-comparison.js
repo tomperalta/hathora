@@ -11,6 +11,7 @@ import tableData from "data/pricing-table.json"
 
 // Icons
 import { ReactComponent as IconCheck } from "assets/icons/pricing/icon-check.svg"
+// import { ReactComponent as IconTooltip } from "assets/icons/icon-tooltip.svg"
 
 const StyledPlanComparison = styled.section`
 	.wrapper {
@@ -19,6 +20,7 @@ const StyledPlanComparison = styled.section`
 	table {
 		width: 100%;
 		/* border: 1px solid #2f2f38; */
+		font-weight: 700;
 		border-radius: 16px;
 		overflow: hidden;
 		outline: 1px solid #2f2f38;
@@ -54,19 +56,29 @@ const StyledPlanComparison = styled.section`
 						}
 					}
 				}
-
-				&:last-child {
-					/* border: 0; */
-				}
 			}
 
 			td {
 				width: 33.3%;
+				vertical-align: middle;
 				/* border: 1px solid #2F2F38; */
 				border-right: 1px solid #2f2f38;
 
 				&:not(:first-child) {
 					text-align: center;
+				}
+
+				&:first-child {
+					span {
+						&:has(+ span) {
+							width: 50%;
+							display: inline-block;
+						}
+					}
+				}
+
+				&:last-child {
+					border-right: 0;
 				}
 
 				&.title {
@@ -81,13 +93,24 @@ const StyledPlanComparison = styled.section`
 					width: 50%;
 					float: right;
 				}
+
+				.tooltip {
+					position: relative;
+					display: inline-flex;
+					margin-left: 8px;
+
+					.text {
+						position: absolute;
+						opacity: 0;
+					}
+				}
 			}
 		}
 
 		th,
 		td {
 			padding: 16px 24px;
-			vertical-align: middle;
+			/* vertical-align: middle; */
 
 			.check {
 				position: relative;
@@ -130,7 +153,7 @@ const PlanComparison = () => (
 												{cell.text === null ? (
 													<span className="color--grey__500	">-</span>
 												) : cell.text === true ? (
-													<span className="check d-inline-flex">
+													<span className="check d-inline-flex justify-content-center">
 														<IconCheck />
 													</span>
 												) : (

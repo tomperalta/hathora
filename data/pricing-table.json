@@ -1,64 +1,20 @@
 [
 	{
-		"title": "Support",
-		"rows": [
-			{
-				"cells": [
-					{
-						"text": "Type of support"
-					},
-					{
-						"text": "Community Support (Discord)"
-					},
-					{
-						"text": "24/7 priority support with private channel on Slack/Discord"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Dedicated Account Manager"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Launch Planning"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Load Testing"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			}
-		]
-	},
-	{
 		"title": "Product Limits",
 		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Container Size Limit"
+					},
+					{
+						"text": "3GB"
+					},
+					{
+						"text": "3GB"
+					}
+				]
+			},
 			{
 				"cells": [
 					{
@@ -82,19 +38,6 @@
 					},
 					{
 						"text": "24hr"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Container Size Limit"
-					},
-					{
-						"text": "3GB"
-					},
-					{
-						"text": "3GB"
 					}
 				]
 			},
@@ -131,6 +74,76 @@
 					},
 					{
 						"text": "Yes, limit to 3"
+					},
+					{
+						"text": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Support",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Type of support"
+					},
+					{
+						"text": "Community Support (Discord)"
+					},
+					{
+						"text": "24/7 priority support"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Response within"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": "30 minutes"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Dedicated Account Manager"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Launch Planning"
+					},
+					{
+						"text": null
+					},
+					{
+						"text": true
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Load Testing"
+					},
+					{
+						"text": null
 					},
 					{
 						"text": true
@@ -189,7 +202,7 @@
 			{
 				"cells": [
 					{
-						"text": "Orchestration/hr",
+						"text": "Orchestration/hr (per vCPU-hr)",
 						"subtext": "Cloud"
 					},
 					{
@@ -204,7 +217,7 @@
 			{
 				"cells": [
 					{
-						"text": "Orchestration/hr",
+						"text": "Orchestration/hr (per vCPU-hr)",
 						"subtext": "Bare Metal",
 						"hideText": true
 					},
@@ -220,7 +233,7 @@
 			{
 				"cells": [
 					{
-						"text": "Bandwidth/GB",
+						"text": "Bandwidth/GB (per GB-egressed)",
 						"subtext": "Cloud"
 					},
 					{
@@ -234,7 +247,7 @@
 			{
 				"cells": [
 					{
-						"text": "Bandwidth/GB",
+						"text": "Bandwidth/GB (per GB-egressed)",
 						"subtext": "Bare Metal",
 						"hideText": true
 					},
