@@ -100,10 +100,11 @@ const Hero = () => {
 			],
 			key_features_title: "Key Features",
 			key_features: [
-				"Custom plans ranging 0.5-4 vCPU",
-				"3 days of logs & metrics",
-				"Up to 3GB container size",
-				"Up to 24hrs of container runtime",
+				"Elastic Compute in 10+ Regions",
+				"Seamless Updates via CI",
+				"Logs, Metrics and Connection Analytics",
+				"Basic DDoS Protection",
+				"Pay-as-you-go Pricing",
 			],
 		},
 		{
@@ -117,11 +118,12 @@ const Hero = () => {
 			},
 			highlight_features: true,
 			features: [
-				"24/7 Priority Support + Slack Connect",
-				"No concurrent vCPU limits",
-				"Minimum 30 day commitment",
-				"$0.02 vCPU/hr",
-				"$0.01/GB bandwidth",
+				"Bare Metal Servers",
+				"Dedicated Compute Pools",
+				"No Concurrency Limits",
+				"24/7 Priority Support",
+				"Dedicated Account Manager",
+				"Launch Day War Room",
 			],
 			key_features_title: (
 				<span>
@@ -129,10 +131,10 @@ const Hero = () => {
 				</span>
 			),
 			key_features: [
-				"Enterprise support",
-				"Bare metal",
-				"Bring your own cloud (BYOC)",
-				"Advanced DDoS",
+				"Bare Metal starting at $0.01 per vCPU-hr",
+				"$0.01 per GB Egressed",
+				"Bring-your-own-cloud",
+				"Advanced DDoS Protection",
 			],
 		},
 	]
