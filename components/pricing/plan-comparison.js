@@ -11,19 +11,31 @@ import tableData from "data/pricing-table.json"
 
 // Icons
 import { ReactComponent as IconCheck } from "assets/icons/pricing/icon-check.svg"
+import breakpoints from "utils/breakpoints"
 // import { ReactComponent as IconTooltip } from "assets/icons/icon-tooltip.svg"
 
 const StyledPlanComparison = styled.section`
 	.wrapper {
 	}
 
+	.sticky-heading {
+		position: sticky;
+		top: 24px;
+		padding: 16px;
+		border-radius: 16px;
+		background-color: var(--grey__600);
+		text-align: center;
+	}
+
 	table {
 		width: 100%;
-		/* border: 1px solid #2f2f38; */
 		font-weight: 700;
 		border-radius: 16px;
 		overflow: hidden;
-		outline: 1px solid #2f2f38;
+
+		${breakpoints.medium`
+				outline: 1px solid #2f2f38;
+		`}
 
 		thead {
 			height: 64px;
@@ -47,10 +59,24 @@ const StyledPlanComparison = styled.section`
 			}
 
 			td {
-				width: 33.3%;
+				width: 50%;
 				vertical-align: middle;
-				border: 1px solid #2f2f38;
-				border-right: 1px solid #2f2f38;
+				/* border-bottom: 0; */
+
+				@media screen and (max-width: 1024px) {
+					border: 1px solid #2f2f38;
+					border-left: 0;
+
+					&:last-child {
+						border-right: 0;
+					}
+				}
+
+				${breakpoints.medium`
+					width: 33.3%;
+					border: 1px solid #2f2f38;
+					border-right: 1px solid #2f2f38;
+				`}
 
 				&:not(:first-child) {
 					text-align: center;
@@ -66,7 +92,7 @@ const StyledPlanComparison = styled.section`
 				}
 
 				&:last-child {
-					border-right: 0;
+					/* border-right: 0; */
 				}
 
 				&.title {
@@ -74,12 +100,18 @@ const StyledPlanComparison = styled.section`
 				}
 
 				.hidden {
-					opacity: 0;
+					${breakpoints.medium`
+						opacity: 0;
+					`}
 				}
 
 				.subtext {
-					width: 50%;
-					float: right;
+					display: block;
+
+					${breakpoints.medium`
+						width: 50%;
+						float: right;
+					`}
 				}
 
 				.tooltip {
@@ -97,8 +129,11 @@ const StyledPlanComparison = styled.section`
 
 		th,
 		td {
-			padding: 16px 24px;
-			/* vertical-align: middle; */
+			padding: 16px 0;
+
+			${breakpoints.medium`
+					padding: 16px 24px;
+			`}
 
 			.check {
 				position: relative;
@@ -111,6 +146,125 @@ const StyledPlanComparison = styled.section`
 const PlanComparison = () => (
 	<StyledPlanComparison>
 		<Container>
+			{/* Mobile Table:start */}
+			<div className="d-md-none">
+				{/* Developer Table:start */}
+				<div className="sticky-heading mb-4">
+					<p className="text--l text--uppercase font-weight--600">Developer</p>
+				</div>
+
+				<table>
+					<tbody>
+						{tableData.map((data) => (
+							<>
+								<tr>
+									<td className="title text--m color--purple__500 font-weight--600">
+										{data.title}
+									</td>
+								</tr>
+
+								{data.rows.map((row) => (
+									// eslint-disable-next-line
+									<tr key={row.length + "row"}>
+										{row.cells.slice(0, 2).map((cell) => (
+											<td key={cell.text} className="text--s">
+												{cell.text === null ? (
+													<span className="color--grey__500	">-</span>
+												) : cell.text === true ? (
+													<span className="check d-inline-flex justify-content-center">
+														<IconCheck />
+													</span>
+												) : (
+													<span className={cell.hideText && "hidden"}>
+														{cell.text}
+													</span>
+												)}
+
+												{cell.subtext && (
+													<span className="subtext color--purple__300 font-weight--600">
+														{cell.subtext}
+													</span>
+												)}
+											</td>
+										))}
+									</tr>
+								))}
+							</>
+						))}
+					</tbody>
+				</table>
+				{/* Developer Table:end */}
+
+				{/* Enterprise Table:start */}
+				<div className="sticky-heading mt-5">
+					<p className="text--l text--uppercase font-weight--600">Enterprise</p>
+				</div>
+
+				<table>
+					<tbody>
+						{tableData.map((data) => (
+							<>
+								<tr>
+									<td className="title text--m color--purple__500 font-weight--600">
+										{data.title}
+									</td>
+									{/* <td />
+									<td /> */}
+								</tr>
+
+								{data.rows.map((row) => (
+									// eslint-disable-next-line
+									<tr key={row.length + "row"}>
+										<td className="text--s">
+											{row.cells[0]?.text === null ? (
+												<span className="color--grey__500	">-</span>
+											) : row.cells[0]?.text === true ? (
+												<span className="check d-inline-flex justify-content-center">
+													<IconCheck />
+												</span>
+											) : (
+												<span className={row.cells[0]?.hideText && "hidden"}>
+													{row.cells[0]?.text}
+												</span>
+											)}
+
+											{row.cells[0]?.subtext && (
+												<span className="subtext color--purple__300 font-weight--600">
+													{row.cells[0]?.subtext}
+												</span>
+											)}
+										</td>
+
+										<td className="text--s">
+											{row.cells[2]?.text === null ? (
+												<span className="color--grey__500	">-</span>
+											) : row.cells[2]?.text === true ? (
+												<span className="check d-inline-flex justify-content-center">
+													<IconCheck />
+												</span>
+											) : (
+												<span className={row.cells[2]?.hideText && "hidden"}>
+													{row.cells[2]?.text}
+												</span>
+											)}
+
+											{row.cells[2]?.subtext && (
+												<span className="subtext color--purple__300 font-weight--600">
+													{row.cells[2]?.subtext}
+												</span>
+											)}
+										</td>
+									</tr>
+								))}
+							</>
+						))}
+					</tbody>
+				</table>
+				{/* Enterprise Table:end */}
+			</div>
+			{/* Mobile Table:end */}
+
+			{/* Desktop Table:start */}
 			<div className="wrapper d-none d-md-block">
 				<table>
 					<thead className="text-uppercase">
@@ -164,6 +318,7 @@ const PlanComparison = () => (
 					</tbody>
 				</table>
 			</div>
+			{/* Desktop Table:end */}
 		</Container>
 	</StyledPlanComparison>
 )
