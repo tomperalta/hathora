@@ -146,7 +146,8 @@ const Hero = () => {
 					<div className="col-12 col-md-10">
 						<div className="text-center">
 							<h1 className="heading--l font-weight--500 mb-3 dotted-separator">
-								Onboard with Starter, launch with Enterprise
+								Onboard with Starter, <br />
+								launch with Enterprise
 							</h1>
 
 							<p className="text--l">
@@ -177,7 +178,11 @@ const Hero = () => {
 											Credit valid for 24 months from sign up
 										</p>
 
-										<Button type="link" href="/" theme="borderless">
+										<Button
+											type="link"
+											href="https://hathora.dev/docs/guides/deploy-hathora"
+											theme="borderless"
+										>
 											Get Started
 											<IconArrow />
 										</Button>

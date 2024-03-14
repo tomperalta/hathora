@@ -35,18 +35,6 @@ const StyledPlanComparison = styled.section`
 			width: 100%;
 
 			tr {
-				position: relative;
-
-				&::after {
-					content: "";
-					width: calc(100% - 48px);
-					height: 1px;
-					background-color: #2f2f38;
-					position: absolute;
-					left: 24px;
-					top: 100%;
-				}
-
 				&:first-child {
 					td {
 						border-top: 0;
@@ -61,7 +49,7 @@ const StyledPlanComparison = styled.section`
 			td {
 				width: 33.3%;
 				vertical-align: middle;
-				/* border: 1px solid #2F2F38; */
+				border: 1px solid #2f2f38;
 				border-right: 1px solid #2f2f38;
 
 				&:not(:first-child) {
