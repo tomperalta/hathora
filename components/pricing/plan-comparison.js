@@ -170,9 +170,9 @@ const PlanComparison = () => (
 		<Container>
 			{/* Mobile Table:start */}
 			<div className="d-md-none">
-				{/* Developer Table:start */}
+				{/* Starter Table:start */}
 				<div className="sticky-heading mb-4">
-					<p className="text--l text--uppercase font-weight--600">Developer</p>
+					<p className="text--l text--uppercase font-weight--600">Starter</p>
 				</div>
 
 				<table>
@@ -225,7 +225,7 @@ const PlanComparison = () => (
 						))}
 					</tbody>
 				</table>
-				{/* Developer Table:end */}
+				{/* Starter Table:end */}
 
 				{/* Enterprise Table:start */}
 				<div className="sticky-heading mt-5">
@@ -315,7 +315,7 @@ const PlanComparison = () => (
 						<tr>
 							{/* eslint-disable-next-line */}
 							<th />
-							<th>Developer</th>
+							<th>Starter</th>
 							<th>Enterprise</th>
 						</tr>
 					</thead>
