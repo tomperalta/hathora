@@ -95,79 +95,61 @@ const StyledPlans = styled.section`
 	}
 `
 
-const Plans = () => {
-	const features = [
-		"Compute scheduling in 10+ regions",
-		"Compute scheduling in 10+ regions",
-		"Compute scheduling in 10+ regions",
-		"Compute scheduling in 10+ regions",
-		"Compute scheduling in 10+ regions",
-	]
+const Plans = () => (
+	<StyledPlans>
+		<Container>
+			<div className="row justify-content-center">
+				<div className="col-12 col-md-8 text-center">
+					<h1 className="heading--l mb-3 mb-md-4">Go global with one price</h1>
 
-	console.log(features, plans)
-	return (
-		<StyledPlans>
-			<Container>
-				<div className="row justify-content-center">
-					<div className="col-12 col-md-8 text-center">
-						<h1 className="heading--l mb-3 mb-md-4">
-							Go global with one price
-						</h1>
+					<p className="text--l" style={{ marginBottom: "32px" }}>
+						Hathora's dynamic compute scheduling means you can stop paying to
+						run your servers 24/7
+					</p>
 
-						<p className="text--l" style={{ marginBottom: "32px" }}>
-							Hathora's dynamic compute scheduling means you can stop paying to
-							run your servers 24/7
+					<Button type="link" theme="gradient" href="https://hathora.dev/docs">
+						Get Started
+					</Button>
+				</div>
+			</div>
+
+			<div className="plans d-flex flex-wrap mb-3 bg--grey__600">
+				{plans.map((plan) => (
+					<div className="plan">
+						<p className="text--l mb-2 color--purple__500 font-weight--600">
+							{plan.name}
 						</p>
 
-						<Button
-							type="link"
-							theme="gradient"
-							href="https://hathora.dev/docs"
-						>
-							Get Started
-						</Button>
+						<p className="mb-2" style={{ whiteSpace: "nowrap" }}>
+							<span
+								className="text--m font-weight--700"
+								style={{ position: "relative", top: "-4px" }}
+							>
+								$
+							</span>
+							<span className="price mx-1">{plan.price}</span>
+							<span
+								className="text--s font-weight--500"
+								style={{ position: "relative", top: "-4px" }}
+							>
+								/hr active
+							</span>
+						</p>
+						<ul className="text--m color--grey__400">
+							{plan.features.map((feature) => (
+								<li key={feature}>{feature}</li>
+							))}
+						</ul>
 					</div>
-				</div>
+				))}
+			</div>
 
-				<div className="plans d-flex flex-wrap mb-3 bg--grey__600">
-					{plans.map((plan) => (
-						<div className="plan">
-							<p className="text--l mb-2 color--purple__500 font-weight--600">
-								{plan.name}
-							</p>
-
-							<p className="mb-2" style={{ whiteSpace: "nowrap" }}>
-								<span
-									className="text--m font-weight--700"
-									style={{ position: "relative", top: "-4px" }}
-								>
-									$
-								</span>
-								<span className="price mx-1">{plan.price}</span>
-								<span
-									className="text--s font-weight--500"
-									style={{ position: "relative", top: "-4px" }}
-								>
-									/hr active
-								</span>
-							</p>
-							<ul className="text--m color--grey__400">
-								{plan.features.map((feature) => (
-									<li key={feature}>{feature}</li>
-								))}
-							</ul>
-						</div>
-					))}
-				</div>
-
-				<p className="text--m text-center color--grey__400">
-					All plans have a flat cost of{" "}
-					<span className="font-weight--700">$0.12/GB</span> for egress
-					bandwidth
-				</p>
-			</Container>
-		</StyledPlans>
-	)
-}
+			<p className="text--m text-center color--grey__400">
+				All plans have a flat cost of{" "}
+				<span className="font-weight--700">$0.12/GB</span> for egress bandwidth
+			</p>
+		</Container>
+	</StyledPlans>
+)
 
 export default Plans

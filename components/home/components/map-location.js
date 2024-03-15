@@ -5,7 +5,7 @@ import styled, { css, keyframes } from "styled-components"
 import { MapLocationProps } from "utils/prop-types"
 
 // Utils
-import { colors, gradients } from "utils/variables"
+import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
@@ -94,36 +94,41 @@ const StyledMapLocation = styled.div`
 
 			${(props) =>
 				props.featured &&
+				props.animation &&
 				css`
 					animation: ${RotateAnimation} 4s linear infinite;
 				`}
 		}
 
-		&:before {
-			content: "";
-			width: 120px;
-			height: 120px;
-			position: absolute;
-			top: -56px;
-			left: -56px;
-			background: radial-gradient(
-				circle,
-				var(--gradientColor) 0%,
-				rgba(9, 9, 121, 0) 65%
-			);
-			border-radius: 50%;
-			mix-blend-mode: hard-light;
-			opacity: ${(props) => (props.loading ? "0" : "0.6")};
-			animation: ${PulseAnimationSmall} 4s linear infinite;
-			transition: opacity 1s ease-in 1.2s;
-			z-index: -1;
+		${(props) =>
+			props.animation &&
+			css`
+				&:before {
+					content: "";
+					width: 120px;
+					height: 120px;
+					position: absolute;
+					top: -56px;
+					left: -56px;
+					background: radial-gradient(
+						circle,
+						var(--gradientColor) 0%,
+						rgba(9, 9, 121, 0) 65%
+					);
+					border-radius: 50%;
+					mix-blend-mode: hard-light;
+					opacity: ${(props) => (props.loading ? "0" : "0.6")};
+					animation: ${PulseAnimationSmall} 4s linear infinite;
+					transition: opacity 1s ease-in 1.2s;
+					z-index: -1;
 
-			${(props) =>
-				props.featured &&
-				css`
-					animation: ${PulseAnimation} 4s linear infinite;
-				`}
-		}
+					${(props) =>
+						props.featured &&
+						css`
+							animation: ${PulseAnimation} 4s linear infinite;
+						`}
+				}
+			`}
 	}
 
 	.label {
@@ -135,29 +140,11 @@ const StyledMapLocation = styled.div`
 		transition: font-size: 0.3s ease;
 		white-space: nowrap;
 
-		&:before {
-			content: "";
-			width: calc(100% + 4px);
-			height: calc(100% + 4px);
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			background: ${gradients.primary};
-			border-radius: 9px;
-			transform: scale(0);
-			transition: transform 0.3s ease 0.3s;
-			z-index: -1;
-		}
-
 		${(props) =>
 			props.featured &&
 			css`
 				font-size: 1.25rem;
 				line-height: 1.4em;
-
-				&:before {
-					transform: scale(1);
-				}
 			`}
 
 		${(props) =>
@@ -203,15 +190,22 @@ const MapLocation = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { region, displayName, labelPosition, coords, callbackFn, featured } =
-		props
+	const {
+		region,
+		displayName,
+		labelPosition,
+		coords,
+		callbackFn,
+		featured,
+		speed: staticSpeed,
+		animation = true,
+	} = props
 
 	/**
 	 * STATE
 	 */
 	const [url, setUrl] = useState(null)
-	// const [socket, setSocket] = useState(null)
-	const [speed, setSpeed] = useState(null)
+	const [speed, setSpeed] = useState(staticSpeed)
 
 	/**
 	 * METHODS
@@ -234,13 +228,9 @@ const MapLocation = (props) => {
 						const endTime = Date.now()
 						const pingSpeed = endTime - receivedTime
 
-						console.log(`Speed for ${region}: ${pingSpeed} ms`)
 						pingSpeeds.push(pingSpeed)
 
 						if (pingSpeeds.length === 5) {
-							console.log(`Speeds for ${region}`, pingSpeeds)
-
-							console.log(`Speeds for ${region}: `, pingSpeeds)
 							socket.close()
 							const lowestPingSpeed = Math.min(...pingSpeeds)
 							resolve(lowestPingSpeed)
@@ -288,7 +278,7 @@ const MapLocation = (props) => {
 			}
 		}
 
-		if (!url) {
+		if (!url && !staticSpeed) {
 			getRegionUrl()
 		}
 	}, [url])
@@ -302,7 +292,7 @@ const MapLocation = (props) => {
 	}, [url, speed])
 
 	useEffect(() => {
-		if (speed) {
+		if (speed && callbackFn) {
 			callbackFn({
 				name: region,
 				speed,
@@ -320,6 +310,7 @@ const MapLocation = (props) => {
 				top: `${coords.y}%`,
 				left: `${coords.x}%`,
 			}}
+			animation={animation}
 		>
 			<div className="indicator" />
 

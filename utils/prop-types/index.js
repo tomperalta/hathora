@@ -42,4 +42,14 @@ export const InputWithSuggestionsProps = {
 	suggestions: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
-export default ButtonProps
+export const PingMapsProps = {
+	pingData: PropTypes.shape({}),
+	staticPings: PropTypes.shape({}),
+}
+
+export const MapResultProps = {
+	region: PropTypes.string.isRequired,
+	speed: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired,
+	reloadFn: PropTypes.func.isRequired,
+}

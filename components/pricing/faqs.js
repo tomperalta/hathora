@@ -32,20 +32,6 @@ const Faqs = () => {
 			),
 		},
 		{
-			id: "hcu",
-			title: "What is a Hathora Compute Unit (HCU)?",
-			content: (
-				<p>
-					Hathora Compute Unit (HCU) is a normalized unit of compute power on
-					Hathora Cloud used for measurement and pricing purposes. The number of
-					HCUs your application consumes is driven by how long a compute
-					resource is utilized and how many matches it can concurrently run (HCU
-					= vCPU*MatchLength/Rooms Per Process). For a full breakdown of the HCU
-					checkout our <a href="/docs/pricing-billing">docs</a>.
-				</p>
-			),
-		},
-		{
 			id: "credit",
 			title: "How does the $500 credit work?",
 			content:
