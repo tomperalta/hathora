@@ -73,10 +73,10 @@
 						"text": "Orgs"
 					},
 					{
-						"text": "Yes, limit to 3"
+						"text": "Up to 3"
 					},
 					{
-						"text": true
+						"text": "Unlimited"
 					}
 				]
 			}
