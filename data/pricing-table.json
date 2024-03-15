@@ -210,7 +210,7 @@
 					},
 					{
 						"text": "$0.02 + Hardware",
-						"tooltip": "Placeholder Text"
+						"tooltip": "Starting at $0.04/vCPU-hr"
 					}
 				]
 			},
@@ -226,7 +226,7 @@
 					},
 					{
 						"text": "$0.02 + Hardware",
-						"tooltip": "Placeholder Text"
+						"tooltip": "Starting at $0.01/vCPU-hr"
 					}
 				]
 			},
