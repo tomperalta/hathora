@@ -83,6 +83,10 @@ const StyledPlanComparison = styled.section`
 				}
 
 				&:first-child {
+					> div {
+						justify-content: flex-start !important;
+					}
+
 					span {
 						&:has(+ span) {
 							width: 50%;
