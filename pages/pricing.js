@@ -21,17 +21,11 @@ const StyledPricing = styled.main`
 		padding: 60px 0;
 
 		&:first-child {
-			//padding-top: 120px;
-
-			// ${breakpoints.medium`
-      //   padding-top: 148px;
-      // `}
-
 			// Space for banner
-			padding-top: 176px;
+			padding-top: 148px;
 
 			${breakpoints.medium`
-        padding-top: 204px;
+        padding-top: 196px;
       `}
 		}
 	}
