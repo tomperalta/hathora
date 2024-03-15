@@ -143,11 +143,10 @@ const Hero = () => {
 		<StyledHero>
 			<Container>
 				<div className="row justify-content-center">
-					<div className="col-12 col-md-10">
+					<div className="col-12 col-md-12">
 						<div className="text-center">
-							<h1 className="heading--l font-weight--500 mb-3 dotted-separator">
-								Onboard with Starter, <br />
-								launch with Enterprise
+							<h1 className="heading heading--m font-weight--500 mb-3">
+								Onboard with Starter, launch with Enterprise
 							</h1>
 
 							<p className="text--l">
