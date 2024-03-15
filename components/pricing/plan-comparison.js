@@ -128,13 +128,18 @@ const StyledPlanComparison = styled.section`
 					.text {
 						width: 160px;
 						position: absolute;
-						top: -8px;
-						left: calc(100% + 8px);
+						top: calc(100% + 8px);
+						right: calc((100% - 24px) / 2);
 						padding: 8px 16px;
 						border-radius: 8px;
 						opacity: 0;
 						background-color: var(--grey__700);
 						border: 1px solid var(--grey__600);
+
+						${breakpoints.medium`
+							top: -8px;
+							left: calc(100% + 8px);
+						`}
 					}
 				}
 			}
@@ -198,6 +203,16 @@ const PlanComparison = () => (
 														{cell.subtext}
 													</span>
 												)}
+
+												{cell.tooltip && (
+													<span className="tooltip">
+														<IconTooltip />
+
+														<span className="text text--xs">
+															{cell.tooltip}
+														</span>
+													</span>
+												)}
 											</td>
 										))}
 									</tr>
@@ -249,23 +264,35 @@ const PlanComparison = () => (
 										</td>
 
 										<td className="text--s">
-											{row.cells[2]?.text === null ? (
-												<span className="color--grey__500	">-</span>
-											) : row.cells[2]?.text === true ? (
-												<span className="check d-inline-flex justify-content-center">
-													<IconCheck />
-												</span>
-											) : (
-												<span className={row.cells[2]?.hideText && "hidden"}>
-													{row.cells[2]?.text}
-												</span>
-											)}
+											<div className="d-flex align-items-center justify-content-center">
+												{row.cells[2]?.text === null ? (
+													<span className="color--grey__500	">-</span>
+												) : row.cells[2]?.text === true ? (
+													<span className="check d-inline-flex justify-content-center">
+														<IconCheck />
+													</span>
+												) : (
+													<span className={row.cells[2]?.hideText && "hidden"}>
+														{row.cells[2]?.text}
+													</span>
+												)}
 
-											{row.cells[2]?.subtext && (
-												<span className="subtext color--purple__300 font-weight--600">
-													{row.cells[2]?.subtext}
-												</span>
-											)}
+												{row.cells[2]?.subtext && (
+													<span className="subtext color--purple__300 font-weight--600">
+														{row.cells[2]?.subtext}
+													</span>
+												)}
+
+												{row.cells[2]?.tooltip && (
+													<span className="tooltip">
+														<IconTooltip />
+
+														<span className="text text--xs">
+															{row.cells[2]?.tooltip}
+														</span>
+													</span>
+												)}
+											</div>
 										</td>
 									</tr>
 								))}
