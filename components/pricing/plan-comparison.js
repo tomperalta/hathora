@@ -12,7 +12,7 @@ import tableData from "data/pricing-table.json"
 // Icons
 import { ReactComponent as IconCheck } from "assets/icons/pricing/icon-check.svg"
 import breakpoints from "utils/breakpoints"
-// import { ReactComponent as IconTooltip } from "assets/icons/icon-tooltip.svg"
+import { ReactComponent as IconTooltip } from "assets/icons/icon-tooltip.svg"
 
 const StyledPlanComparison = styled.section`
 	.wrapper {
@@ -31,7 +31,7 @@ const StyledPlanComparison = styled.section`
 		width: 100%;
 		font-weight: 700;
 		border-radius: 16px;
-		overflow: hidden;
+		/* overflow: hidden; */
 
 		${breakpoints.medium`
 				outline: 1px solid #2f2f38;
@@ -119,9 +119,22 @@ const StyledPlanComparison = styled.section`
 					display: inline-flex;
 					margin-left: 8px;
 
+					&:hover {
+						.text {
+							opacity: 1;
+						}
+					}
+
 					.text {
+						width: 160px;
 						position: absolute;
+						top: -8px;
+						left: calc(100% + 8px);
+						padding: 8px 16px;
+						border-radius: 8px;
 						opacity: 0;
+						background-color: var(--grey__700);
+						border: 1px solid var(--grey__600);
 					}
 				}
 			}
@@ -292,23 +305,35 @@ const PlanComparison = () => (
 									<tr key={row.length + "row"}>
 										{row.cells.map((cell) => (
 											<td key={cell.text} className="text--s">
-												{cell.text === null ? (
-													<span className="color--grey__500	">-</span>
-												) : cell.text === true ? (
-													<span className="check d-inline-flex justify-content-center">
-														<IconCheck />
-													</span>
-												) : (
-													<span className={cell.hideText && "hidden"}>
-														{cell.text}
-													</span>
-												)}
+												<div className="d-flex align-items-center justify-content-center">
+													{cell.text === null ? (
+														<span className="color--grey__500	">-</span>
+													) : cell.text === true ? (
+														<span className="check d-inline-flex justify-content-center">
+															<IconCheck />
+														</span>
+													) : (
+														<span className={cell.hideText && "hidden"}>
+															{cell.text}
+														</span>
+													)}
 
-												{cell.subtext && (
-													<span className="subtext color--purple__300 font-weight--600">
-														{cell.subtext}
-													</span>
-												)}
+													{cell.subtext && (
+														<span className="subtext color--purple__300 font-weight--600">
+															{cell.subtext}
+														</span>
+													)}
+
+													{cell.tooltip && (
+														<span className="tooltip">
+															<IconTooltip />
+
+															<span className="text text--xs">
+																{cell.tooltip}
+															</span>
+														</span>
+													)}
+												</div>
 											</td>
 										))}
 									</tr>
