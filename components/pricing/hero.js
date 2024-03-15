@@ -89,32 +89,32 @@ const Hero = () => {
 			cta: {
 				label: "Sign up for free",
 				url: "https://console.hathora.dev/login",
-				theme: "fill",
+				theme: "outline",
 			},
 			features: [
-				"Community Support (Discord)",
-				"50 vCPU limit",
-				"Pay-as-you-go ",
-				"$0.08 vCPU/hr",
-				"$0.12/GB bandwidth",
-			],
-			key_features_title: "Key Features",
-			key_features: [
 				"Elastic Compute in 10+ Regions",
 				"Seamless Updates via CI",
 				"Logs, Metrics and Connection Analytics",
 				"Basic DDoS Protection",
 				"Pay-as-you-go Pricing",
 			],
+			key_features_title: "Key Features",
+			key_features: [
+				"$0.08 per vCPU-hour Active",
+				"$0.12 per GB Egressed",
+				"Community Support (Discord)",
+				"Concurrent Max of 50 vCPUs",
+				"Shared Compute Pools  ",
+			],
 		},
 		{
-			hightlight: true,
 			title: "Enterprise",
+			hightlight: true,
 			tagline: "Launch and Scale",
 			cta: {
 				label: "Book a call",
 				url: "https://calendly.com/gabi-zx8/try-hathora",
-				theme: "outline",
+				theme: "fill",
 			},
 			highlight_features: true,
 			features: [
@@ -123,7 +123,6 @@ const Hero = () => {
 				"No Concurrency Limits",
 				"24/7 Priority Support",
 				"Dedicated Account Manager",
-				"Launch Day War Room",
 			],
 			key_features_title: (
 				<span>
@@ -135,6 +134,7 @@ const Hero = () => {
 				"$0.01 per GB Egressed",
 				"Bring-your-own-cloud",
 				"Advanced DDoS Protection",
+				"Launch Day War Room",
 			],
 		},
 	]
