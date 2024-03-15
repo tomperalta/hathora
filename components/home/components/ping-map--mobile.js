@@ -3,10 +3,11 @@ import React, { useState, useEffect, useRef } from "react"
 // Libraries
 import styled, { keyframes } from "styled-components"
 import Lottie from "lottie-react"
+import { useScreenshot } from "use-react-screenshot"
 
 // Components
 import Container from "components/container"
-import Button from "components/button"
+import Result from "components/ping-map-result"
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
@@ -14,8 +15,9 @@ import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
-import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
-import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
+// import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
+import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
+import { encodePings } from "utils/functions"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -43,6 +45,8 @@ const RotateAnimation = keyframes`
 
 const StyledMobileMap = styled.div`
 	--indicatorColor: ${colors.green__500};
+	padding-bottom: 32px;
+	background-color: ${colors.grey__700};
 
 	.map-wrapper {
 		width: 334px;
@@ -114,17 +118,13 @@ const StyledMobileMap = styled.div`
 		}
 
 		.region {
-			width: 192px;
 			position: absolute;
 			top: calc(50% + 14px + 24px);
 			right: 0;
 			left: 0;
-			display: flex;
 			gap: 8px;
 			margin: auto;
-			padding: 24px;
 			background-color: ${colors.grey__700};
-			border-radius: 4px;
 
 			svg {
 				position: relative;
@@ -219,6 +219,22 @@ const MobileMap = () => {
 	const [loading, setLoading] = useState(true)
 	const [resolvedRegions, setResolvedRegions] = useState([])
 	const [fastestRegion, setFastestRegion] = useState({})
+	const [isTakingPicture, setIsTakingPicture] = useState(false)
+	const [imageHasBeenCopied, setImageHasBeenCopied] = useState(false)
+	const [timestamp, setTimestamp] = useState(null)
+	const [encodedData, setEncodedData] = useState(null)
+
+	/**
+	 * HOOKS
+	 */
+	const [image, takeScreenShot] = useScreenshot()
+	const mapRef = useRef()
+
+	console.log(image)
+
+	useEffect(() => {
+		setTimestamp(new Date())
+	}, [])
 
 	/**
 	 * METHODS
@@ -290,69 +306,108 @@ const MobileMap = () => {
 	 */
 	const lottieRef = useRef()
 
-	useEffect(() => {
-		const addResolvedRegion = (newRegion) => {
-			const exists = resolvedRegions.some(
-				(resolvedRegion) => resolvedRegion.name === newRegion.name
+	const addResolvedRegion = (newRegion) => {
+		const exists = resolvedRegions.some(
+			(resolvedRegion) => resolvedRegion.name === newRegion.name
+		)
+
+		// If exists, I update the `speed` value of the region's object
+		if (exists) {
+			setResolvedRegions((prevState) =>
+				prevState.map((region) => {
+					if (region.name === newRegion.name) {
+						return {
+							...region,
+							speed: newRegion.speed,
+						}
+					}
+
+					return region
+				})
+			)
+		} else {
+			const regionInLottie = regionsByOrderOfAppearance.find(
+				(region) => region.name === newRegion.name
 			)
 
-			// If exists, I update the `speed` value of the region's object
-			if (exists) {
-				setResolvedRegions((prevState) =>
-					prevState.map((region) => {
-						if (region.name === newRegion.name) {
-							return {
-								...region,
-								speed: newRegion.speed,
-							}
-						}
-
-						return region
-					})
-				)
-			} else {
-				const regionInLottie = regionsByOrderOfAppearance.find(
-					(region) => region.name === newRegion.name
-				)
-
-				// If it doesn't exist, add the location to the resolvedRegions array
-				setResolvedRegions((prevState) => [
-					...prevState,
-					{
-						...newRegion,
-						displayName: regionInLottie.displayName,
-						startFrame: regionInLottie.startFrame,
-						endFrame: regionInLottie.endFrame,
-					},
-				])
-			}
+			// If it doesn't exist, add the location to the resolvedRegions array
+			setResolvedRegions((prevState) => [
+				...prevState,
+				{
+					...newRegion,
+					displayName: regionInLottie.displayName,
+					startFrame: regionInLottie.startFrame,
+					endFrame: regionInLottie.endFrame,
+				},
+			])
 		}
+	}
 
-		const sendPings = async () => {
-			try {
-				const response = await fetch(
-					"https://api.hathora.dev/discovery/v1/ping"
-				)
+	const sendPings = async () => {
+		try {
+			const response = await fetch("https://api.hathora.dev/discovery/v1/ping")
 
-				if (response.status === 200) {
-					const data = await response.json()
+			if (response.status === 200) {
+				const data = await response.json()
 
-					console.log(`This is the data: `, data)
+				const pingPromises = data.map((region) => sendPing(region))
 
-					const pingPromises = data.map((region) => sendPing(region))
+				const pingResults = await Promise.all(pingPromises)
 
-					const pingResults = await Promise.all(pingPromises)
-					console.log(`Results: `, pingResults)
-
-					pingResults.forEach((result) => addResolvedRegion(result))
-				}
-			} catch (error) {
-				console.log(error)
+				pingResults.forEach((result) => addResolvedRegion(result))
 			}
+		} catch (error) {
+			console.log(error)
 		}
+	}
 
+	const reloadPings = () => {
+		setLoading(true)
+		setResolvedRegions([])
+		setFastestRegion(null)
+		sendPings()
+	}
+
+	// Starts calculating the pings
+	useEffect(() => {
 		sendPings()
 	}, [])
+
+	const getImage = async () => {
+		try {
+			setIsTakingPicture(true)
+			const base64Image = await takeScreenShot(mapRef.current)
+
+			// Convert base64 to Blob using atob and Uint8Array
+			const blob = await new Promise((resolve) => {
+				const byteCharacters = atob(base64Image.split(",")[1])
+				const byteNumbers = new Array(byteCharacters.length)
+				for (let i = 0; i < byteCharacters.length; i += 1) {
+					byteNumbers[i] = byteCharacters.charCodeAt(i)
+				}
+				const byteArray = new Uint8Array(byteNumbers)
+				const blob = new Blob([byteArray], { type: "image/png" })
+				resolve(blob)
+			})
+
+			await navigator.clipboard.write([
+				/* eslint-disable no-undef */
+				new ClipboardItem({
+					[blob.type]: blob,
+				}),
+			])
+
+			setIsTakingPicture(false)
+			setImageHasBeenCopied(true)
+
+			setTimeout(() => {
+				setImageHasBeenCopied(false)
+			}, 1000)
+		} catch (error) {
+			console.log(`Error while taking the screenshot`, error)
+			setIsTakingPicture(false)
+		}
+	}
 
 	useEffect(() => {
 		if (resolvedRegions.length === regionsByOrderOfAppearance.length) {
@@ -368,7 +423,6 @@ const MobileMap = () => {
 			}
 
 			setFastestRegion(fastest)
-
 			setLoading(false)
 		}
 	}, [resolvedRegions])
@@ -376,16 +430,27 @@ const MobileMap = () => {
 	useEffect(() => {
 		const { current: lottieElem } = lottieRef
 
-		if (lottieElem && fastestRegion) {
-			const { startFrame, endFrame } = fastestRegion
+		if (lottieElem) {
+			if (fastestRegion) {
+				const { startFrame, endFrame } = fastestRegion
 
-			lottieElem.playSegments([startFrame, endFrame], true)
-			lottieElem.setSpeed(2)
+				lottieElem.playSegments([startFrame, endFrame], true)
+				lottieElem.setSpeed(2)
+
+				setEncodedData(encodePings([fastestRegion]))
+			} else {
+				lottieElem.play()
+				lottieElem.setSpeed(2)
+			}
 		}
 	}, [fastestRegion])
 
 	return (
-		<StyledMobileMap loading={loading} speed={fastestRegion.speed}>
+		<StyledMobileMap
+			ref={mapRef}
+			loading={loading}
+			speed={fastestRegion?.speed}
+		>
 			<Container>
 				<div className="map-wrapper">
 					<Lottie
@@ -401,35 +466,31 @@ const MobileMap = () => {
 						<IconLoader />
 					</div>
 
-					<div className="region">
-						<IconPing />
-
-						<div>
-							<p className="text--s font-weight--700">
-								{!loading ? "Your best ping" : "Calculating your ping..."}
-							</p>
-
-							<div className="speed">{fastestRegion.speed} ms</div>
-
-							<p className="name text--xs font-weight--500 color--grey__400">
-								{fastestRegion.displayName || fastestRegion.name}
-							</p>
-						</div>
-					</div>
+					<Result
+						className="region"
+						region={fastestRegion?.displayName || fastestRegion?.name}
+						isTakingPicture={isTakingPicture}
+						screenshotFn={getImage}
+						speed={fastestRegion?.speed}
+						reloadFn={reloadPings}
+						copied={imageHasBeenCopied}
+						encodedData={encodedData}
+						timestamp={timestamp?.getTime()}
+					/>
 				</div>
 
-				<div className="mt-4 text-center">
-					<Button
-						theme="outline"
-						type="link"
-						href={`https://twitter.com/intent/tweet?text=My closest @HathoraDev region is ${fastestRegion.name} with a ${fastestRegion.speed} ms ping 📍 https://hathora.dev/#ping`}
-						disabled={!fastestRegion}
-						external
+				{isTakingPicture && (
+					<div
+						className="d-flex align-items-center justify-content-between"
+						style={{ marginTop: "32px" }}
 					>
-						Share your ping
-						<IconShare className="ml--16" />
-					</Button>
-				</div>
+						<p className="text--xs color--grey__400 font-weight--700">
+							{timestamp && timestamp.toISOString()}
+						</p>
+
+						<Iso />
+					</div>
+				)}
 			</Container>
 		</StyledMobileMap>
 	)

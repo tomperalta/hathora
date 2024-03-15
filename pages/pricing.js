@@ -10,10 +10,11 @@ import breakpoints from "utils/breakpoints"
 import SEO from "components/seo"
 // import Plans from "components/pricing/plans"
 import GetInTouch from "components/pricing/get-in-touch"
-import Features from "components/pricing/features"
-import DiscountBanner from "components/pricing/discount-banner"
+// import Features from "components/pricing/features"
+// import DiscountBanner from "components/pricing/discount-banner"
 import Faqs from "components/pricing/faqs"
 import Hero from "components/pricing/hero"
+import PlanComparison from "components/pricing/plan-comparison"
 
 const StyledPricing = styled.main`
 	> section {
@@ -44,9 +45,10 @@ const Pricing = () => (
 		/>
 		<Hero />
 		{/* <Plans /> */}
-		<Features />
+		<PlanComparison />
+		{/* <Features /> */}
 		<Faqs />
-		<DiscountBanner />
+		{/* <DiscountBanner /> */}
 		<GetInTouch />
 	</StyledPricing>
 )

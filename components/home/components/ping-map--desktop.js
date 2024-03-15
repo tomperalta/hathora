@@ -1,126 +1,155 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 // Libraries
 import styled from "styled-components"
+import { useScreenshot } from "use-react-screenshot"
+
+// Utils
+import { PingMapsProps } from "utils/prop-types"
+import { encodePings } from "utils/functions"
+import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
-import { ReactComponent as IconShare } from "assets/icons/icon-share.svg"
+import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // COmponents
-import Container from "components/container"
-import Button from "components/button"
+import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
+	padding-bottom: 32px;
+	background-color: ${colors.grey__700};
+
 	.map-wrapper {
 		position: relative;
+
+		.result {
+			position: absolute;
+			right: 0;
+			bottom: 31.3315926893%;
+			left: 0;
+		}
 	}
 `
 
-const DesktopPingMap = () => {
+const regions = [
+	{
+		region: "Seattle",
+		labelPosition: "right",
+		coords: {
+			y: 25.9438642298,
+			x: 10.5034722222,
+		},
+	},
+	{
+		region: "Chicago",
+		labelPosition: "left",
+		coords: {
+			y: 30.8206266319,
+			x: 19.4194444444,
+		},
+	},
+	{
+		region: "Washington_DC",
+		displayName: "Washington DC",
+		labelPosition: "right",
+		coords: {
+			y: 32.8498694517,
+			x: 22.1006944444,
+		},
+	},
+	{
+		region: "Los_Angeles",
+		displayName: "Los Angeles",
+		labelPosition: "right",
+		coords: {
+			y: 34.9438642298,
+			x: 9.0034722222,
+		},
+	},
+	{
+		region: "Sao_Paulo",
+		displayName: "São Paulo",
+		labelPosition: "right",
+		coords: {
+			y: 74.5430809399,
+			x: 30.2083333333,
+		},
+	},
+	{
+		region: "London",
+		labelPosition: "left",
+		coords: {
+			y: 24.0652741514,
+			x: 44.8444444444,
+		},
+	},
+	{
+		region: "Frankfurt",
+		labelPosition: "right",
+		coords: {
+			y: 25.637075718,
+			x: 47.29375,
+		},
+	},
+	{
+		region: "Mumbai",
+		labelPosition: "left",
+		coords: {
+			y: 45.3315926893,
+			x: 67.2458333333,
+		},
+	},
+	{
+		region: "Singapore",
+		labelPosition: "left",
+		coords: {
+			y: 57.591383812,
+			x: 77.3993055556,
+		},
+	},
+	{
+		region: "Tokyo",
+		labelPosition: "right",
+		coords: {
+			y: 34.725848564,
+			x: 85.6944444444,
+		},
+	},
+	{
+		region: "Sydney",
+		labelPosition: "left",
+		coords: {
+			y: 80.2506527415,
+			x: 90.6666666667,
+		},
+	},
+]
+
+const DesktopPingMap = (props) => {
+	/**
+	 * PROPS
+	 */
+	const { pingData } = props
+
 	/**
 	 * STATES
 	 */
-	const [resolvedRegions, setResolvedRegions] = useState([])
+	const [locations, setLocations] = useState(regions)
+	const [resolvedRegions, setResolvedRegions] = useState(pingData || [])
 	const [fastestRegion, setFastestRegion] = useState(null)
+	// eslint-disable-next-line
+	const [image, takeScreenShot] = useScreenshot()
+	const [isTakingPicture, setIsTakingPicture] = useState(false)
+	const [imageHasBeenCopied, setImageHasBeenCopied] = useState(false)
+	const [timestamp, setTimestamp] = useState(null)
+	const [encodedData, setEncodedData] = useState(null)
 
 	/**
-	 * VARIABLES
+	 * HOOKS
 	 */
-	const locations = [
-		{
-			region: "Seattle",
-			labelPosition: "right",
-			coords: {
-				y: 25.9438642298,
-				x: 10.5034722222,
-			},
-		},
-		{
-			region: "Chicago",
-			labelPosition: "left",
-			coords: {
-				y: 30.8206266319,
-				x: 19.4194444444,
-			},
-		},
-		{
-			region: "Washington_DC",
-			displayName: "Washington DC",
-			labelPosition: "right",
-			coords: {
-				y: 32.8498694517,
-				x: 22.1006944444,
-			},
-		},
-		{
-			region: "Los_Angeles",
-			displayName: "Los Angeles",
-			labelPosition: "right",
-			coords: {
-				y: 34.9438642298,
-				x: 9.0034722222,
-			},
-		},
-		{
-			region: "Sao_Paulo",
-			displayName: "São Paulo",
-			labelPosition: "right",
-			coords: {
-				y: 74.5430809399,
-				x: 30.2083333333,
-			},
-		},
-		{
-			region: "London",
-			labelPosition: "left",
-			coords: {
-				y: 24.0652741514,
-				x: 44.8444444444,
-			},
-		},
-		{
-			region: "Frankfurt",
-			labelPosition: "right",
-			coords: {
-				y: 25.637075718,
-				x: 47.29375,
-			},
-		},
-		{
-			region: "Mumbai",
-			labelPosition: "left",
-			coords: {
-				y: 45.3315926893,
-				x: 67.2458333333,
-			},
-		},
-		{
-			region: "Singapore",
-			labelPosition: "left",
-			coords: {
-				y: 57.591383812,
-				x: 77.3993055556,
-			},
-		},
-		{
-			region: "Tokyo",
-			labelPosition: "right",
-			coords: {
-				y: 34.725848564,
-				x: 85.6944444444,
-			},
-		},
-		{
-			region: "Sydney",
-			labelPosition: "left",
-			coords: {
-				y: 80.2506527415,
-				x: 90.6666666667,
-			},
-		},
-	]
+	const mapRef = useRef()
 
 	/**
 	 * METHODS
@@ -151,6 +180,55 @@ const DesktopPingMap = () => {
 		}
 	}
 
+	const reloadPings = () => {
+		setLocations([])
+		setFastestRegion(null)
+
+		setTimeout(() => {
+			setLocations(regions)
+			setTimestamp(new Date())
+		}, 100)
+	}
+
+	const getImage = async () => {
+		try {
+			setIsTakingPicture(true)
+
+			setTimeout(async () => {
+				const base64Image = await takeScreenShot(mapRef.current)
+
+				// Convert base64 to Blob using atob and Uint8Array
+				const blob = await new Promise((resolve) => {
+					const byteCharacters = atob(base64Image.split(",")[1])
+					const byteNumbers = new Array(byteCharacters.length)
+					for (let i = 0; i < byteCharacters.length; i += 1) {
+						byteNumbers[i] = byteCharacters.charCodeAt(i)
+					}
+					const byteArray = new Uint8Array(byteNumbers)
+					const blob = new Blob([byteArray], { type: "image/png" })
+					resolve(blob)
+				})
+
+				await navigator.clipboard.write([
+					/* eslint-disable no-undef */
+					new ClipboardItem({
+						[blob.type]: blob,
+					}),
+				])
+
+				setIsTakingPicture(false)
+				setImageHasBeenCopied(true)
+
+				setTimeout(() => {
+					setImageHasBeenCopied(false)
+				}, 1000)
+			}, 500)
+		} catch (error) {
+			console.log(`Error while taking the screenshot`, error)
+			setIsTakingPicture(false)
+		}
+	}
+
 	useEffect(() => {
 		let fastest
 
@@ -164,10 +242,15 @@ const DesktopPingMap = () => {
 		}
 
 		setFastestRegion(fastest)
+		setEncodedData(encodePings(resolvedRegions))
 	}, [resolvedRegions])
 
+	useEffect(() => {
+		setTimestamp(new Date())
+	}, [])
+
 	return (
-		<StyledPingMap>
+		<StyledPingMap ref={mapRef}>
 			<div className="map-wrapper">
 				<Map />
 				{locations.map((location) => (
@@ -178,28 +261,42 @@ const DesktopPingMap = () => {
 						callbackFn={addResolvedRegion}
 					/>
 				))}
-			</div>
 
-			<Container>
-				<div className="footer text-center">
-					<Button
-						theme="outline"
-						type="link"
-						href={`https://twitter.com/intent/tweet?text=My closest @HathoraDev region is ${
-							fastestRegion?.displayName || fastestRegion?.name
-						} with a ${
-							fastestRegion?.speed
-						} ms ping 📍 https://hathora.dev/#ping`}
-						disabled={!fastestRegion}
-						external
-					>
-						Share your ping
-						<IconShare className="ml--16" />
-					</Button>
+				{fastestRegion && (
+					<Result
+						className="result"
+						region={fastestRegion.displayName || fastestRegion.name}
+						isTakingPicture={isTakingPicture}
+						screenshotFn={getImage}
+						speed={fastestRegion.speed}
+						reloadFn={reloadPings}
+						copied={imageHasBeenCopied}
+						encodedData={encodedData}
+						timestamp={timestamp?.getTime()}
+					/>
+				)}
+
+				<div
+					className="timestamp d-flex align-items-center justify-content-between px-4"
+					style={{
+						height: "31px",
+					}}
+				>
+					{isTakingPicture && (
+						<>
+							<p className="text--xs color--grey__400 font-weight--700">
+								{timestamp && timestamp.toISOString()}
+							</p>
+
+							<Iso />
+						</>
+					)}
 				</div>
-			</Container>
+			</div>
 		</StyledPingMap>
 	)
 }
 
 export default DesktopPingMap
+
+DesktopPingMap.propTypes = PingMapsProps
