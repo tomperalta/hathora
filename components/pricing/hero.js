@@ -132,9 +132,9 @@ const Hero = () => {
 			key_features: [
 				"Bare Metal starting at $0.01 per vCPU-hr",
 				"$0.01 per GB Egressed",
+				"Launch Day War Room",
 				"Bring-your-own-cloud",
 				"Advanced DDoS Protection",
-				"Launch Day War Room",
 			],
 		},
 	]
