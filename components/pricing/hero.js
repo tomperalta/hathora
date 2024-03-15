@@ -85,7 +85,7 @@ const Hero = () => {
 	const plans = [
 		{
 			title: "Starter",
-			tagline: "Deploy, Evaluate and Playtest",
+			tagline: "Deploy, Evaluate, and Playtest",
 			cta: {
 				label: "Sign up for free",
 				url: "https://console.hathora.dev/login",
@@ -94,7 +94,7 @@ const Hero = () => {
 			features: [
 				"Elastic Compute in 10+ Regions",
 				"Seamless Updates via CI",
-				"Logs, Metrics and Connection Analytics",
+				"Logs, Metrics, and Connection Analytics",
 				"Basic DDoS Protection",
 				"Pay-as-you-go Pricing",
 			],
