@@ -46,7 +46,7 @@ const FundraiseBanner = () => (
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				🎉 Announcing our bare metal server offering 🎉 
+				Announcing our bare metal server offering
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
