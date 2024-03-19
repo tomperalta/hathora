@@ -41,12 +41,12 @@ const FundraiseBanner = () => (
 	>
 		<Container>
 			<a
-				href="https://blog.hathora.dev/1-million-ccu/"
+				href="https://blog.hathora.dev/our-bare-metal-journey/"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text--s font-weight--700"
 			>
-				Scaling Hathora to 1 million CCU with Frost Giant
+				🎉 Announcing our bare metal server offering 🎉 
 			</a>
 		</Container>
 	</StyledFundraiseBanner>
