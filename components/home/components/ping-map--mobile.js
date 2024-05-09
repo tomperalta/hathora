@@ -176,40 +176,45 @@ const MobileMap = () => {
 			endFrame: 30,
 		},
 		{
-			name: "Sao_Paulo",
-			displayName: "São Paulo",
+			name: "Dallas",
 			startFrame: 90,
 			endFrame: 120,
 		},
 		{
-			name: "London",
+			name: "Sao_Paulo",
+			displayName: "São Paulo",
 			startFrame: 120,
 			endFrame: 150,
 		},
 		{
-			name: "Frankfurt",
+			name: "London",
 			startFrame: 150,
 			endFrame: 180,
 		},
 		{
-			name: "Mumbai",
+			name: "Frankfurt",
 			startFrame: 180,
 			endFrame: 210,
 		},
 		{
-			name: "Singapore",
+			name: "Mumbai",
 			startFrame: 210,
 			endFrame: 240,
 		},
 		{
-			name: "Sydney",
+			name: "Singapore",
 			startFrame: 240,
 			endFrame: 270,
 		},
 		{
-			name: "Tokyo",
+			name: "Sydney",
 			startFrame: 270,
 			endFrame: 300,
+		},
+		{
+			name: "Tokyo",
+			startFrame: 300,
+			endFrame: 330,
 		},
 	]
 
@@ -230,6 +235,7 @@ const MobileMap = () => {
 	const [image, takeScreenShot] = useScreenshot()
 	const mapRef = useRef()
 
+	// Oddly, this appears to be needed for copy map button to work?
 	console.log(image)
 
 	useEffect(() => {
@@ -345,7 +351,7 @@ const MobileMap = () => {
 
 	const sendPings = async () => {
 		try {
-			const response = await fetch("https://api.hathora.dev/discovery/v1/ping")
+			const response = await fetch("https://api.hathora.dev/discovery/v2/ping")
 
 			if (response.status === 200) {
 				const data = await response.json()
@@ -468,10 +474,10 @@ const MobileMap = () => {
 
 					<Result
 						className="region"
-						region={fastestRegion?.displayName || fastestRegion?.name}
+						region={fastestRegion?.displayName || fastestRegion?.name || ""}
 						isTakingPicture={isTakingPicture}
 						screenshotFn={getImage}
-						speed={fastestRegion?.speed}
+						speed={fastestRegion?.speed || ""}
 						reloadFn={reloadPings}
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}

@@ -133,12 +133,13 @@ const StyledMapLocation = styled.div`
 
 	.label {
 		position: absolute;
-		padding: 4px 8px;
+		padding: 4px 6px;
 		background-color: ${colors.grey__700};
 		color: white;
 		border-radius: 9px;
 		transition: font-size: 0.3s ease;
 		white-space: nowrap;
+		z-index: 60;
 
 		${(props) =>
 			props.featured &&
@@ -258,7 +259,7 @@ const MapLocation = (props) => {
 		const getRegionUrl = async () => {
 			try {
 				const response = await fetch(
-					"https://api.hathora.dev/discovery/v1/ping"
+					"https://api.hathora.dev/discovery/v2/ping"
 				)
 
 				if (response.status === 200) {
