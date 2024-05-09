@@ -13,7 +13,7 @@ import { colors } from "utils/variables"
 import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
-// COmponents
+// Components
 import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
 
@@ -36,18 +36,27 @@ const StyledPingMap = styled.div`
 const regions = [
 	{
 		region: "Seattle",
-		labelPosition: "right",
+		labelPosition: "left",
 		coords: {
 			y: 25.9438642298,
-			x: 10.5034722222,
+			x: 12.5034722222,
 		},
 	},
 	{
 		region: "Chicago",
+		labelPosition: "right",
+		coords: {
+			y: 26.8206266319,
+			x: 18.4194444444,
+		},
+	},
+	{
+		region: "Los_Angeles",
+		displayName: "LA",
 		labelPosition: "left",
 		coords: {
-			y: 30.8206266319,
-			x: 19.4194444444,
+			y: 32.9438642298,
+			x: 9.8034722222,
 		},
 	},
 	{
@@ -55,17 +64,16 @@ const regions = [
 		displayName: "Washington DC",
 		labelPosition: "right",
 		coords: {
-			y: 32.8498694517,
-			x: 22.1006944444,
+			y: 31.2498694517,
+			x: 22.8006944444,
 		},
 	},
 	{
-		region: "Los_Angeles",
-		displayName: "Los Angeles",
+		region: "Dallas",
 		labelPosition: "right",
 		coords: {
-			y: 34.9438642298,
-			x: 9.0034722222,
+			y: 35.6438642298,
+			x: 14.0034722222,
 		},
 	},
 	{
