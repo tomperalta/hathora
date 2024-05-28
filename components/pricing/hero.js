@@ -113,7 +113,7 @@ const Hero = () => {
 			tagline: "Launch and Scale",
 			cta: {
 				label: "Book a call",
-				url: "https://calendly.com/gabi-zx8/try-hathora",
+				url: "https://calendly.com/aveline-xp96/30min",
 				theme: "fill",
 			},
 			highlight_features: true,

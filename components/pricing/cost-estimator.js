@@ -702,7 +702,7 @@ const CostEstimator = () => {
 											<div className="book-a-call-link d-inline-flex">
 												<Button
 													type="link"
-													href="https://calendly.com/gabi-zx8/try-hathora"
+													href="https://calendly.com/aveline-xp96/30min"
 													theme="borderless"
 												>
 													Call us for volume discounts
@@ -900,7 +900,7 @@ const CostEstimator = () => {
 											<div className="book-a-call-link d-inline-flex">
 												<Button
 													type="link"
-													href="https://calendly.com/gabi-zx8/try-hathora"
+													href="https://calendly.com/aveline-xp96/30min"
 													theme="borderless"
 												>
 													Call us for scale rates

@@ -71,7 +71,7 @@ const GetInTouch = () => {
 
 				<Button
 					type="link"
-					href="https://calendly.com/gabi-zx8/try-hathora?month=2023-10"
+					href="https://calendly.com/aveline-xp96/30min"
 					external
 					theme="borderless"
 				>
