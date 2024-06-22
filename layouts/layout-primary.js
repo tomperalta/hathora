@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { useRouter } from "next/router"
 
 // Libraries
 import PropTypes from "prop-types"
@@ -14,6 +15,8 @@ import Footer from "components/footer"
 import FundraiseBanner from "components/fundraise-banner"
 
 const PrimaryLayout = ({ children }) => {
+	const router = useRouter()
+
 	useEffect(() => {
 		AOS.init({
 			duration: 400,
@@ -21,7 +24,10 @@ const PrimaryLayout = ({ children }) => {
 		})
 	}, [])
 
-	return (
+	// List of pages that should not use the layout
+	const noLayoutPages = ["/mountaintop"]
+	const useLayout = !noLayoutPages.includes(router.pathname)
+	return useLayout ? (
 		<>
 			<GlobalStyles />
 			<FundraiseBanner />
@@ -29,6 +35,11 @@ const PrimaryLayout = ({ children }) => {
 			<main>{children}</main>
 			<Footer />
 			<SignUpModal />
+		</>
+	) : (
+		<>
+			<GlobalStyles />
+			<main>{children}</main>
 		</>
 	)
 }

@@ -45,6 +45,12 @@ export const InputWithSuggestionsProps = {
 export const PingMapsProps = {
 	pingData: PropTypes.shape({}),
 	staticPings: PropTypes.shape({}),
+	limitedRegions: PropTypes.arrayOf(PropTypes.string),
+}
+
+export const PingMapsWrapperProps = {
+	disabledMobileMap: PropTypes.bool,
+	limitedRegions: PropTypes.arrayOf(PropTypes.string),
 }
 
 export const MapResultProps = {

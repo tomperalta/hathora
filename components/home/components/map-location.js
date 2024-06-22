@@ -159,6 +159,20 @@ const StyledMapLocation = styled.div`
 			css`
 				left: calc(100% + 16px);
 			`}
+		
+		${(props) =>
+			props.labelPosition === "top" &&
+			css`
+				top: calc(100% - 60px);
+				left: calc(100% - 78px);
+			`}
+		
+		${(props) =>
+			props.labelPosition === "bottom" &&
+			css`
+				bottom: calc(100% - 60px);
+				left: calc(100% - 78px);
+			`}
 
 		.speed {
 			color: var(--speedColor);
