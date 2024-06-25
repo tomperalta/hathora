@@ -10,6 +10,7 @@ import { colors } from "utils/variables"
 // Components
 import SEO from "components/seo"
 import PingMap from "components/home/ping-map"
+import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -153,6 +154,15 @@ const StyledPings = styled.main`
 			`}
 		}
 	}
+
+	.anchor-iso {
+		position: absolute;
+		bottom: 12px;
+		right: 24px;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
 `
 
 const regions = [
@@ -228,6 +238,9 @@ const SpectreDivide = () => (
 			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
 		/>
 		<PingMap disabledMobileMap limitedRegions={regions} />
+		<a href="https://hathora.dev" className="anchor-iso">
+			<Iso />
+		</a>
 	</StyledPings>
 )
 
