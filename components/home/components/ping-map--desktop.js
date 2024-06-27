@@ -139,7 +139,7 @@ const DesktopPingMap = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { pingData, limitedRegions } = props
+	const { pingData, limitedRegions, disabledCopyBtns } = props
 
 	/**
 	 * STATES
@@ -295,6 +295,8 @@ const DesktopPingMap = (props) => {
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
 						timestamp={timestamp?.getTime()}
+						hideCopyScreenshot={disabledCopyBtns}
+						hideCopyLink={disabledCopyBtns}
 					/>
 				)}
 

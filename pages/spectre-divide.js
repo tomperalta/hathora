@@ -158,7 +158,7 @@ const StyledPings = styled.main`
 	.anchor-iso {
 		position: absolute;
 		bottom: 12px;
-		right: 24px;
+		left: 24px;
 		display: flex;
 		align-items: center;
 		gap: 4px;
@@ -168,76 +168,93 @@ const StyledPings = styled.main`
 const regions = [
 	{
 		region: "Chicago",
-		displayName: "US Central",
+		displayName: "Central US",
 		labelPosition: "top",
 		coords: {
 			y: 26.8206266319,
 			x: 18.4194444444,
 		},
+		compact: true,
 	},
 	{
 		region: "Los_Angeles",
-		displayName: "US West",
+		displayName: "Western US",
 		labelPosition: "top",
 		coords: {
 			y: 32.9438642298,
 			x: 9.8034722222,
 		},
+		compact: true,
 	},
 	{
 		region: "Washington_DC",
-		displayName: "US East",
+		displayName: "Eastern US",
 		labelPosition: "right",
 		coords: {
 			y: 31.2498694517,
 			x: 22.8006944444,
 		},
+		compact: true,
 	},
 	{
 		region: "Dallas",
-		displayName: "US South",
+		displayName: "Southern US",
 		labelPosition: "bottom",
 		coords: {
 			y: 35.6438642298,
 			x: 14.0034722222,
 		},
+		compact: true,
 	},
 	{
-		region: "Frankfurt",
-		displayName: "EU",
+		region: "London",
+		displayName: "Central EU",
 		labelPosition: "right",
 		coords: {
-			y: 25.637075718,
-			x: 47.29375,
+			y: 24.0652741514,
+			x: 44.8444444444,
 		},
+		compact: true,
 	},
 	{
 		region: "Singapore",
-		displayName: "AP South",
+		displayName: "Southern APAC",
 		labelPosition: "top",
 		coords: {
 			y: 57.591383812,
 			x: 77.3993055556,
 		},
+		compact: true,
 	},
 	{
 		region: "Tokyo",
-		displayName: "AP North",
+		displayName: "Northern APAC",
 		labelPosition: "left",
 		coords: {
 			y: 34.725848564,
 			x: 85.6944444444,
 		},
+		compact: true,
+	},
+	{
+		region: "Sydney",
+		displayName: "Western APAC",
+		labelPosition: "left",
+		coords: {
+			y: 75.2506527415,
+			x: 89.6666666667,
+		},
+		compact: true,
 	},
 ]
 
 const SpectreDivide = () => (
-	<StyledPings>
+	<StyledPings className="customer-dashboard">
 		<SEO
 			title="Hathora | Server Orchestration for Multiplayer Games"
 			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
 		/>
-		<PingMap disabledMobileMap limitedRegions={regions} />
+		<PingMap disabledMobileMap disabledCopyBtns limitedRegions={regions} />
 		<a href="https://hathora.dev" className="anchor-iso">
 			<Iso />
 		</a>

@@ -173,6 +173,26 @@ const StyledMapLocation = styled.div`
 				bottom: calc(100% - 60px);
 				left: calc(100% - 78px);
 			`}
+		
+		${(props) =>
+			props.compact &&
+			css`
+				background-color: ${colors.grey__700_t};
+				border-radius: 6px;
+				border: 1px solid ${colors.grey__550};
+				font-size: 1rem;
+				line-height: 1.1em;
+			`}
+
+    ${(props) =>
+			props.featured &&
+			props.compact &&
+			css`
+				font-size: 1.15rem;
+				line-height: 1.28em;
+				border: 1px solid ${colors.green__400};
+				z-index: 65;
+			`}
 
 		.speed {
 			color: var(--speedColor);
@@ -213,6 +233,7 @@ const MapLocation = (props) => {
 		callbackFn,
 		featured,
 		speed: staticSpeed,
+		compact,
 		animation = true,
 	} = props
 
@@ -326,6 +347,7 @@ const MapLocation = (props) => {
 				left: `${coords.x}%`,
 			}}
 			animation={animation}
+			compact={compact}
 		>
 			<div className="indicator" />
 
