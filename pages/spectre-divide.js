@@ -218,7 +218,7 @@ const regions = [
 	},
 	{
 		region: "Singapore",
-		displayName: "Southern APAC",
+		displayName: "Western APAC",
 		labelPosition: "top",
 		coords: {
 			y: 57.591383812,
@@ -238,7 +238,7 @@ const regions = [
 	},
 	{
 		region: "Sydney",
-		displayName: "Western APAC",
+		displayName: "Oceania",
 		labelPosition: "left",
 		coords: {
 			y: 75.2506527415,
