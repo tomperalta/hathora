@@ -248,7 +248,7 @@ const regions = [
 	},
 ]
 
-const SpectreDivide = () => (
+const MountaintopStudios = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
 			title="Hathora | Server Orchestration for Multiplayer Games"
@@ -261,4 +261,4 @@ const SpectreDivide = () => (
 	</StyledPings>
 )
 
-export default SpectreDivide
+export default MountaintopStudios
