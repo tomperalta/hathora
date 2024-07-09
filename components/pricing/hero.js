@@ -85,7 +85,7 @@ const Hero = () => {
 	const plans = [
 		{
 			title: "Starter",
-			tagline: "Deploy, Evaluate, and Playtest",
+			tagline: "Deploy, Evaluate, and Test",
 			cta: {
 				label: "Sign up for free",
 				url: "https://console.hathora.dev/login",
