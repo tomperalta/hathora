@@ -4,20 +4,34 @@ import { colors } from "utils/variables"
 // Components
 import DesktopPingMap from "./components/ping-map--desktop"
 import MobileMap from "./components/ping-map--mobile"
+import { PingMapsWrapperProps } from "../../utils/prop-types"
 
-const PingMap = () => (
-	<div
-		id="ping"
-		style={{
-			backgroundColor: colors.grey__700,
-		}}
-	>
-		<div className="d-lg-none">
-			<MobileMap />
+const PingMap = (props) => {
+	/**
+	 * PROPS
+	 */
+	const { disabledMobileMap, disabledCopyBtns, limitedRegions } = props
+	return (
+		<div
+			id="ping"
+			style={{
+				backgroundColor: colors.grey__700,
+			}}
+		>
+			{!disabledMobileMap && (
+				<div className="d-lg-none">
+					<MobileMap />
+				</div>
+			)}
+			<div className={`${disabledMobileMap ? "d-block" : "d-none d-lg-block"}`}>
+				<DesktopPingMap
+					disabledCopyBtns={disabledCopyBtns}
+					limitedRegions={limitedRegions}
+				/>
+			</div>
 		</div>
-		<div className="d-none d-lg-block">
-			<DesktopPingMap />
-		</div>
-	</div>
-)
+	)
+}
 export default PingMap
+
+PingMap.propTypes = PingMapsWrapperProps

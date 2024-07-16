@@ -45,6 +45,14 @@ export const InputWithSuggestionsProps = {
 export const PingMapsProps = {
 	pingData: PropTypes.shape({}),
 	staticPings: PropTypes.shape({}),
+	disabledCopyBtns: PropTypes.bool,
+	limitedRegions: PropTypes.arrayOf(PropTypes.string),
+}
+
+export const PingMapsWrapperProps = {
+	disabledMobileMap: PropTypes.bool,
+	disabledCopyBtns: PropTypes.bool,
+	limitedRegions: PropTypes.arrayOf(PropTypes.string),
 }
 
 export const MapResultProps = {
@@ -52,4 +60,6 @@ export const MapResultProps = {
 	speed: PropTypes.string.isRequired,
 	className: PropTypes.string.isRequired,
 	reloadFn: PropTypes.func.isRequired,
+	hideCopyScreenshot: PropTypes.bool,
+	hideCopyLink: PropTypes.bool,
 }

@@ -139,12 +139,14 @@ const DesktopPingMap = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { pingData } = props
+	const { pingData, limitedRegions, disabledCopyBtns } = props
 
 	/**
 	 * STATES
 	 */
-	const [locations, setLocations] = useState(regions)
+	const [locations, setLocations] = useState(
+		limitedRegions && limitedRegions.length > 0 ? limitedRegions : regions
+	)
 	const [resolvedRegions, setResolvedRegions] = useState(pingData || [])
 	const [fastestRegion, setFastestRegion] = useState(null)
 	// eslint-disable-next-line
@@ -193,7 +195,9 @@ const DesktopPingMap = (props) => {
 		setFastestRegion(null)
 
 		setTimeout(() => {
-			setLocations(regions)
+			setLocations(
+				limitedRegions && limitedRegions.length > 0 ? limitedRegions : regions
+			)
 			setTimestamp(new Date())
 		}, 100)
 	}
@@ -249,6 +253,16 @@ const DesktopPingMap = (props) => {
 			}
 		}
 
+		if (fastest) {
+			// Get display name of fastest region
+			const displayNameSource =
+				limitedRegions && limitedRegions.length > 0 ? limitedRegions : regions
+			const region = displayNameSource.find((r) => r.region === fastest.name)
+			if (region) {
+				fastest.displayName = region.displayName
+			}
+		}
+
 		setFastestRegion(fastest)
 		setEncodedData(encodePings(resolvedRegions))
 	}, [resolvedRegions])
@@ -281,6 +295,8 @@ const DesktopPingMap = (props) => {
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
 						timestamp={timestamp?.getTime()}
+						hideCopyScreenshot={disabledCopyBtns}
+						hideCopyLink={disabledCopyBtns}
 					/>
 				)}
 

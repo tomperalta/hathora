@@ -131,6 +131,8 @@ const Result = (props) => {
 		isTakingPicture,
 		copied,
 		timestamp,
+		hideCopyScreenshot,
+		hideCopyLink,
 	} = props
 
 	/**
@@ -177,32 +179,35 @@ const Result = (props) => {
 
 				{!showFriendCopy && (
 					<div className="actions">
-						<button
-							type="button"
-							onClick={() => screenshotFn()}
-							disabled={isTakingPicture}
-						>
-							{isTakingPicture ? (
-								<IconLoader />
-							) : copied ? (
-								<IconCheck />
-							) : (
-								<IconClipboard />
-							)}
+						{!hideCopyScreenshot && (
+							<button
+								type="button"
+								onClick={() => screenshotFn()}
+								disabled={isTakingPicture}
+							>
+								{isTakingPicture ? (
+									<IconLoader />
+								) : copied ? (
+									<IconCheck />
+								) : (
+									<IconClipboard />
+								)}
 
-							<div className="tooltip">
-								{copied ? "Copied!" : "Copy map to clipboard"}
-							</div>
-						</button>
-						<button
-							type="button"
-							onClick={() => handleCopyLink()}
-							disabled={isTakingPicture || !encodedData}
-						>
-							<IconLink />
-
-							<div className="tooltip">{copyLinkText}</div>
-						</button>
+								<div className="tooltip">
+									{copied ? "Copied!" : "Copy map to clipboard"}
+								</div>
+							</button>
+						)}
+						{!hideCopyLink && (
+							<button
+								type="button"
+								onClick={() => handleCopyLink()}
+								disabled={isTakingPicture || !encodedData}
+							>
+								<IconLink />
+								<div className="tooltip">{copyLinkText}</div>
+							</button>
+						)}
 						<button
 							type="button"
 							onClick={() => reloadFn()}
