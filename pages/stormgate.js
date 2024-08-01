@@ -177,6 +177,9 @@ const StyledPings = styled.main`
 		gap: 1px;
 	}
 	.logo-wrapper {
+		width: 709px;
+		height: 123px;
+		resize: both;
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -186,6 +189,12 @@ const StyledPings = styled.main`
 		align-items: center;
 		justify-content: center;
 		z-index: 99999;
+	}
+	@media screen and (max-width: 1024px) {
+		.logo-wrapper {
+			width: 425px;
+			height: 74px;
+		}
 	}
 	.sublogo-text {
 		font-weight: 400;
@@ -315,7 +324,7 @@ const StormgateMap = () => (
 			rel="noreferrer"
 			href="https://store.steampowered.com/app/2012510/Stormgate/"
 		>
-			<StormgateLogo width={709} height={123} />
+			<StormgateLogo />
 		</a>
 		<div className="spacer-div">&nbsp;</div>
 		<PingMap
