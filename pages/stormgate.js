@@ -307,7 +307,7 @@ const StormgateMap = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
 			title="Hathora | Premium Game Servers for Stormgate"
-			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
+			description="Check your ping for Stormgate powered by Hathora."
 		/>
 		<a
 			className="logo-wrapper"
