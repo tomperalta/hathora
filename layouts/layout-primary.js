@@ -25,7 +25,7 @@ const PrimaryLayout = ({ children }) => {
 	}, [])
 
 	// List of pages that should not use the layout
-	const noLayoutPages = ["/mountaintop-studios"]
+	const noLayoutPages = ["/mountaintop-studios", "/stormgate"]
 	const useLayout = !noLayoutPages.includes(router.pathname)
 	return useLayout ? (
 		<>

@@ -163,14 +163,14 @@ const StyledMapLocation = styled.div`
 		${(props) =>
 			props.labelPosition === "top" &&
 			css`
-				top: calc(100% - 60px);
+				top: calc(100% - 52px);
 				left: calc(100% - 78px);
 			`}
 		
 		${(props) =>
 			props.labelPosition === "bottom" &&
 			css`
-				bottom: calc(100% - 60px);
+				bottom: calc(100% - 52px);
 				left: calc(100% - 78px);
 			`}
 		
