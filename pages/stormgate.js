@@ -10,10 +10,9 @@ import { colors } from "utils/variables"
 // Components
 import SEO from "components/seo"
 import PingMap from "components/home/ping-map"
-// import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 import { ReactComponent as Logo } from "assets/icons/icon-logo.svg"
-// import { ReactComponent as Steam } from "assets/icons/social-media/icon-steam.svg"
-import StormgateLogoSrc from "assets/images/customer-logos/Stormgate_Logo_transparent.png"
+import { ReactComponent as StormgateLogo } from "assets/images/customer-logos/stormgate_logo.svg"
+import SteamButtonPng from "assets/images/customer-logos/steam_button.png"
 import Image from "next/image"
 
 const PulseAnimation = keyframes`
@@ -168,6 +167,15 @@ const StyledPings = styled.main`
 		align-items: center;
 		gap: 1px;
 	}
+	.anchor-steam {
+		position: absolute;
+		bottom: 0;
+		right: 12px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1px;
+	}
 	.logo-wrapper {
 		position: absolute;
 		left: 50%;
@@ -295,37 +303,20 @@ const regions = [
 	},
 ]
 
-// const Buttons = () => (
-// 	<div className="buttons-container stormgate-cta">
-// 		<a
-// 			className="play-early-button"
-// 			href="https://store.steampowered.com/app/2012510/Stormgate/"
-// 		>
-// 			<Steam width={20} height={20} /> PLAY EARLY
-// 		</a>
-// 		<a
-// 			className="early-access-packs-button"
-// 			href="https://playstormgate.com/prepurchase"
-// 		>
-// 			EARLY ACCESS PACKS
-// 		</a>
-// 	</div>
-// )
-
 const StormgateMap = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
 			title="Hathora | Premium Game Servers for Stormgate"
 			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
 		/>
-		<div className="logo-wrapper">
-			<Image
-				src={StormgateLogoSrc}
-				alt="Description"
-				width={556}
-				height={100}
-			/>
-		</div>
+		<a
+			className="logo-wrapper"
+			target="_blank"
+			rel="noreferrer"
+			href="https://store.steampowered.com/app/2012510/Stormgate/"
+		>
+			<StormgateLogo width={709} height={123} />
+		</a>
 		<div className="spacer-div">&nbsp;</div>
 		<PingMap
 			className="stormgate-map"
@@ -333,10 +324,23 @@ const StormgateMap = () => (
 			disabledCopyBtns
 			limitedRegions={regions}
 		/>
-		{/* <Buttons /> */}
 		<a href="https://hathora.dev" className="anchor-iso">
 			<div className="sublogo-text">powered by</div>
 			<Logo width={180} />
+		</a>
+
+		<a
+			target="_blank"
+			rel="noreferrer"
+			href="https://store.steampowered.com/app/2012510/Stormgate/"
+			className="anchor-steam"
+		>
+			<Image
+				src={SteamButtonPng}
+				alt="Stormgate on Steam"
+				width={242}
+				height={94}
+			/>
 		</a>
 	</StyledPings>
 )
