@@ -47,12 +47,14 @@ export const PingMapsProps = {
 	staticPings: PropTypes.shape({}),
 	disabledCopyBtns: PropTypes.bool,
 	limitedRegions: PropTypes.arrayOf(PropTypes.string),
+	mobileRegions: PropTypes.arrayOf(PropTypes.string),
 }
 
 export const PingMapsWrapperProps = {
 	disabledMobileMap: PropTypes.bool,
 	disabledCopyBtns: PropTypes.bool,
 	limitedRegions: PropTypes.arrayOf(PropTypes.string),
+	mobileRegions: PropTypes.arrayOf(PropTypes.string),
 }
 
 export const MapResultProps = {

@@ -159,26 +159,46 @@ const StyledPings = styled.main`
 	}
 
 	.anchor-iso {
-		position: absolute;
-		bottom: 12px;
-		left: 24px;
+		//position: absolute;
+		//bottom: 12px;
+		//left: 24px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 1px;
 	}
 	.anchor-steam {
-		position: absolute;
-		bottom: 0;
-		right: 12px;
+		//position: absolute;
+		//bottom: 0;
+		//right: 12px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 1px;
 	}
+	.bottom-tray {
+		display: flex;
+		flex-direction: column;
+		margin-top: -16px;
+		gap: 12px;
+
+		${breakpoints.small`
+			flex-direction: row;
+			margin-top: -44px;
+			padding: 0 124px;
+			justify-content: space-between;
+			align-items: center;
+			gap: 0px;
+		`}
+
+		${breakpoints.large`
+			margin-top: -124px;
+			padding: 0 24px;
+		`}
+	}
 	.logo-wrapper {
-		width: 709px;
-		height: 123px;
+		width: 287px;
+		height: 50px;
 		resize: both;
 		position: absolute;
 		left: 50%;
@@ -189,13 +209,21 @@ const StyledPings = styled.main`
 		align-items: center;
 		justify-content: center;
 		z-index: 99999;
-	}
-	@media screen and (max-width: 1024px) {
-		.logo-wrapper {
+		${breakpoints.small`
 			width: 425px;
 			height: 74px;
-		}
+		`}
+		${breakpoints.large`
+			width: 709px;
+			height: 123px;
+		`}
 	}
+	//@media screen and (max-width: 1024px) {
+	//	.logo-wrapper {
+	//		width: 425px;
+	//		height: 74px;
+	//	}
+	//}
 	.sublogo-text {
 		font-weight: 400;
 		font-size: 16px;
@@ -312,6 +340,67 @@ const regions = [
 	},
 ]
 
+const mobileRegions = [
+	{
+		name: "Los_Angeles",
+		displayName: "Los Angeles",
+		startFrame: 0,
+		endFrame: 30,
+	},
+	{
+		name: "Chicago",
+		startFrame: 30,
+		endFrame: 60,
+	},
+	{
+		name: "Washington_DC",
+		displayName: "Washington DC",
+		startFrame: 60,
+		endFrame: 90,
+	},
+	{
+		name: "Dallas",
+		startFrame: 90,
+		endFrame: 120,
+	},
+	{
+		name: "Sao_Paulo",
+		displayName: "São Paulo",
+		startFrame: 120,
+		endFrame: 150,
+	},
+	{
+		name: "London",
+		startFrame: 150,
+		endFrame: 180,
+	},
+	{
+		name: "Frankfurt",
+		startFrame: 180,
+		endFrame: 210,
+	},
+	{
+		name: "Mumbai",
+		startFrame: 210,
+		endFrame: 240,
+	},
+	{
+		name: "Singapore",
+		startFrame: 240,
+		endFrame: 270,
+	},
+	{
+		name: "Sydney",
+		startFrame: 270,
+		endFrame: 300,
+	},
+	{
+		name: "Tokyo",
+		startFrame: 300,
+		endFrame: 330,
+	},
+]
+
 const StormgateMap = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
@@ -329,28 +418,29 @@ const StormgateMap = () => (
 		<div className="spacer-div">&nbsp;</div>
 		<PingMap
 			className="stormgate-map"
-			disabledMobileMap
 			disabledCopyBtns
 			limitedRegions={regions}
+			mobileRegions={mobileRegions}
 		/>
-		<a href="https://hathora.dev" className="anchor-iso">
-			<div className="sublogo-text">powered by</div>
-			<Logo width={180} />
-		</a>
-
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://store.steampowered.com/app/2012510/Stormgate/"
-			className="anchor-steam"
-		>
-			<Image
-				src={SteamButtonPng}
-				alt="Stormgate on Steam"
-				width={242}
-				height={94}
-			/>
-		</a>
+		<div className="bottom-tray">
+			<a href="https://hathora.dev" className="anchor-iso">
+				<div className="sublogo-text">powered by</div>
+				<Logo width={180} />
+			</a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://store.steampowered.com/app/2012510/Stormgate/"
+				className="anchor-steam"
+			>
+				<Image
+					src={SteamButtonPng}
+					alt="Stormgate on Steam"
+					width={242}
+					height={94}
+				/>
+			</a>
+		</div>
 	</StyledPings>
 )
 

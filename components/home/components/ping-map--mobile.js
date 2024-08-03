@@ -18,6 +18,7 @@ import { ReactComponent as IconLoader } from "assets/icons/components/map-locati
 // import { ReactComponent as IconPing } from "assets/icons/home/ping-map/icon-ping.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 import { encodePings } from "utils/functions"
+import { PingMapsProps } from "utils/prop-types"
 
 const PulseAnimation = keyframes`
 	0% {
@@ -148,11 +149,12 @@ const StyledMobileMap = styled.div`
 	}
 `
 
-const MobileMap = () => {
+const MobileMap = (props) => {
+	const { mobileRegions, disabledCopyBtns } = props
 	/**
 	 * VARIABLES
 	 */
-	const regionsByOrderOfAppearance = [
+	const defaultRegionsByOrderOfAppearance = [
 		{
 			name: "Seattle",
 			startFrame: 0,
@@ -222,6 +224,11 @@ const MobileMap = () => {
 	 * STATE
 	 */
 	const [loading, setLoading] = useState(true)
+	const [regionsByOrderOfAppearance, setRegionsByOrderOfAppearance] = useState(
+		mobileRegions && mobileRegions.length > 0
+			? mobileRegions
+			: defaultRegionsByOrderOfAppearance
+	)
 	const [resolvedRegions, setResolvedRegions] = useState([])
 	const [fastestRegion, setFastestRegion] = useState({})
 	const [isTakingPicture, setIsTakingPicture] = useState(false)
@@ -336,16 +343,18 @@ const MobileMap = () => {
 				(region) => region.name === newRegion.name
 			)
 
-			// If it doesn't exist, add the location to the resolvedRegions array
-			setResolvedRegions((prevState) => [
-				...prevState,
-				{
-					...newRegion,
-					displayName: regionInLottie.displayName,
-					startFrame: regionInLottie.startFrame,
-					endFrame: regionInLottie.endFrame,
-				},
-			])
+			if (regionInLottie) {
+				// If it doesn't exist, add the location to the resolvedRegions array
+				setResolvedRegions((prevState) => [
+					...prevState,
+					{
+						...newRegion,
+						displayName: regionInLottie.displayName,
+						startFrame: regionInLottie.startFrame,
+						endFrame: regionInLottie.endFrame,
+					},
+				])
+			}
 		}
 	}
 
@@ -370,6 +379,11 @@ const MobileMap = () => {
 	const reloadPings = () => {
 		setLoading(true)
 		setResolvedRegions([])
+		setRegionsByOrderOfAppearance(
+			mobileRegions && mobileRegions.length > 0
+				? mobileRegions
+				: defaultRegionsByOrderOfAppearance
+		)
 		setFastestRegion(null)
 		sendPings()
 	}
@@ -482,6 +496,8 @@ const MobileMap = () => {
 						copied={imageHasBeenCopied}
 						encodedData={encodedData}
 						timestamp={timestamp?.getTime()}
+						hideCopyScreenshot={disabledCopyBtns}
+						hideCopyLink={disabledCopyBtns}
 					/>
 				</div>
 
@@ -503,3 +519,4 @@ const MobileMap = () => {
 }
 
 export default MobileMap
+MobileMap.propTypes = PingMapsProps
