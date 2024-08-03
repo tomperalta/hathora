@@ -10,7 +10,8 @@ const PingMap = (props) => {
 	/**
 	 * PROPS
 	 */
-	const { disabledMobileMap, disabledCopyBtns, limitedRegions } = props
+	const { disabledMobileMap, disabledCopyBtns, limitedRegions, mobileRegions } =
+		props
 	return (
 		<div
 			id="ping"
@@ -20,7 +21,10 @@ const PingMap = (props) => {
 		>
 			{!disabledMobileMap && (
 				<div className="d-lg-none">
-					<MobileMap />
+					<MobileMap
+						disabledCopyBtns={disabledCopyBtns}
+						mobileRegions={mobileRegions}
+					/>
 				</div>
 			)}
 			<div className={`${disabledMobileMap ? "d-block" : "d-none d-lg-block"}`}>
