@@ -4,6 +4,7 @@ export const breakpoints = {
 	medium: "1024",
 	large: "1200",
 	extraLarge: "1440",
+	xxLarge: "1600",
 	wide: "2000",
 }
 // Breakpoints:end
