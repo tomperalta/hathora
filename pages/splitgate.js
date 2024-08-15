@@ -11,7 +11,8 @@ import { colors } from "utils/variables"
 import SEO from "components/seo"
 import PingMap from "components/home/ping-map"
 import { ReactComponent as Logo } from "assets/icons/icon-logo.svg"
-import { ReactComponent as StormgateLogo } from "assets/images/customer-logos/stormgate_logo.svg"
+import { ReactComponent as SplitgateLogo } from "assets/images/customer-logos/splitgate2_logo.svg"
+import SplitgateLogomarkPng from "assets/images/customer-logos/splitgate2_logomark.png"
 import SteamButtonPng from "assets/images/customer-logos/steam_button.png"
 import Image from "next/image"
 
@@ -233,7 +234,7 @@ const StyledPings = styled.main`
 		font-size: 16px;
 		margin-top: -10px;
 	}
-	.stormgate-cta {
+	.splitgate-cta {
 		position: absolute;
 		bottom: 88px;
 		left: 50%;
@@ -245,6 +246,15 @@ const StyledPings = styled.main`
 	}
 	.spacer-div {
 		height: 18px;
+	}
+	.customer-logomark {
+		display: none !important;
+		${breakpoints.small`
+			display: block !important;
+		`}
+		img {
+			border-radius: 8px;
+		}
 	}
 `
 
@@ -405,23 +415,23 @@ const mobileRegions = [
 	},
 ]
 
-const StormgateMap = () => (
+const SplitgateMap = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
-			title="Hathora | Premium Game Servers for Stormgate"
-			description="Check your ping for Stormgate powered by Hathora."
+			title="Hathora | Premium Game Servers for Splitgate 2"
+			description="Check your ping for Splitgate 2 powered by Hathora."
 		/>
 		<a
 			className="logo-wrapper"
 			target="_blank"
 			rel="noreferrer"
-			href="https://store.steampowered.com/app/2012510/Stormgate/"
+			href="https://store.steampowered.com/app/2918300/Splitgate_2/"
 		>
-			<StormgateLogo />
+			<SplitgateLogo />
 		</a>
 		<div className="spacer-div">&nbsp;</div>
 		<PingMap
-			className="stormgate-map"
+			className="splitgate-map"
 			disabledCopyBtns
 			limitedRegions={regions}
 			mobileRegions={mobileRegions}
@@ -434,12 +444,25 @@ const StormgateMap = () => (
 			<a
 				target="_blank"
 				rel="noreferrer"
-				href="https://store.steampowered.com/app/2012510/Stormgate/"
+				href="https://store.steampowered.com/app/2918300/Splitgate_2/"
+				className="customer-logomark"
+			>
+				<Image
+					src={SplitgateLogomarkPng}
+					alt="Splitgate 2 Logo"
+					width={60}
+					height={60}
+				/>
+			</a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://store.steampowered.com/app/2918300/Splitgate_2/"
 				className="anchor-steam"
 			>
 				<Image
 					src={SteamButtonPng}
-					alt="Stormgate on Steam"
+					alt="Splitgate 2 on Steam"
 					width={188}
 					height={56}
 				/>
@@ -448,4 +471,4 @@ const StormgateMap = () => (
 	</StyledPings>
 )
 
-export default StormgateMap
+export default SplitgateMap

@@ -11,7 +11,8 @@ import { colors } from "utils/variables"
 import SEO from "components/seo"
 import PingMap from "components/home/ping-map"
 import { ReactComponent as Logo } from "assets/icons/icon-logo.svg"
-import { ReactComponent as StormgateLogo } from "assets/images/customer-logos/stormgate_logo.svg"
+import SpectreLogoPng from "assets/images/customer-logos/spectre_logo.png"
+import SpectreLogomarkPng from "assets/images/customer-logos/spectre_logomark.png"
 import SteamButtonPng from "assets/images/customer-logos/steam_button.png"
 import Image from "next/image"
 
@@ -188,7 +189,7 @@ const StyledPings = styled.main`
 
 		${breakpoints.small`
 			flex-direction: row;
-			margin-top: -44px;
+			margin-top: -24px;
 			padding: 0 124px;
 			justify-content: space-between;
 			align-items: center;
@@ -233,7 +234,13 @@ const StyledPings = styled.main`
 		font-size: 16px;
 		margin-top: -10px;
 	}
-	.stormgate-cta {
+	.customer-logomark {
+		display: none !important;
+		${breakpoints.small`
+			display: block !important;
+		`}
+	}
+	.spectre-cta {
 		position: absolute;
 		bottom: 88px;
 		left: 50%;
@@ -251,6 +258,7 @@ const StyledPings = styled.main`
 const regions = [
 	{
 		region: "Chicago",
+		displayName: "Central US",
 		labelPosition: "top",
 		coords: {
 			y: 26.8206266319,
@@ -260,8 +268,8 @@ const regions = [
 	},
 	{
 		region: "Los_Angeles",
-		displayName: "Los Angeles",
-		labelPosition: "bottom",
+		displayName: "Western US",
+		labelPosition: "top",
 		coords: {
 			y: 32.9438642298,
 			x: 9.8034722222,
@@ -270,7 +278,7 @@ const regions = [
 	},
 	{
 		region: "Washington_DC",
-		displayName: "Washington DC",
+		displayName: "Eastern US",
 		labelPosition: "right",
 		coords: {
 			y: 31.2498694517,
@@ -279,18 +287,19 @@ const regions = [
 		compact: true,
 	},
 	{
-		region: "Sao_Paulo",
-		displayName: "São Paulo",
-		labelPosition: "right",
+		region: "Dallas",
+		displayName: "Southern US",
+		labelPosition: "bottom",
 		coords: {
-			y: 74.5430809399,
-			x: 30.2083333333,
+			y: 35.6438642298,
+			x: 14.0034722222,
 		},
 		compact: true,
 	},
 	{
 		region: "London",
-		labelPosition: "top",
+		displayName: "Central EU",
+		labelPosition: "right",
 		coords: {
 			y: 24.0652741514,
 			x: 44.8444444444,
@@ -298,25 +307,8 @@ const regions = [
 		compact: true,
 	},
 	{
-		region: "Frankfurt",
-		labelPosition: "right",
-		coords: {
-			y: 25.637075718,
-			x: 47.29375,
-		},
-		compact: true,
-	},
-	{
-		region: "Mumbai",
-		labelPosition: "top",
-		coords: {
-			y: 45.3315926893,
-			x: 67.2458333333,
-		},
-		compact: true,
-	},
-	{
 		region: "Singapore",
+		displayName: "Western APAC",
 		labelPosition: "top",
 		coords: {
 			y: 57.591383812,
@@ -326,7 +318,8 @@ const regions = [
 	},
 	{
 		region: "Tokyo",
-		labelPosition: "top",
+		displayName: "Northern APAC",
+		labelPosition: "left",
 		coords: {
 			y: 34.725848564,
 			x: 85.6944444444,
@@ -335,10 +328,11 @@ const regions = [
 	},
 	{
 		region: "Sydney",
+		displayName: "Oceania",
 		labelPosition: "left",
 		coords: {
-			y: 80.2506527415,
-			x: 90.6666666667,
+			y: 75.2506527415,
+			x: 89.6666666667,
 		},
 		compact: true,
 	},
@@ -347,81 +341,71 @@ const regions = [
 const mobileRegions = [
 	{
 		name: "Los_Angeles",
-		displayName: "Los Angeles",
+		displayName: "Western US",
 		startFrame: 0,
 		endFrame: 30,
 	},
 	{
 		name: "Chicago",
+		displayName: "Central US",
 		startFrame: 30,
 		endFrame: 60,
 	},
 	{
 		name: "Washington_DC",
-		displayName: "Washington DC",
+		displayName: "Eastern US",
 		startFrame: 60,
 		endFrame: 90,
 	},
 	{
 		name: "Dallas",
+		displayName: "Southern US",
 		startFrame: 90,
 		endFrame: 120,
 	},
 	{
-		name: "Sao_Paulo",
-		displayName: "São Paulo",
-		startFrame: 120,
-		endFrame: 150,
-	},
-	{
 		name: "London",
+		displayName: "Central EU",
 		startFrame: 150,
 		endFrame: 180,
 	},
 	{
-		name: "Frankfurt",
-		startFrame: 180,
-		endFrame: 210,
-	},
-	{
-		name: "Mumbai",
-		startFrame: 210,
-		endFrame: 240,
-	},
-	{
 		name: "Singapore",
+		displayName: "Western APAC",
 		startFrame: 240,
 		endFrame: 270,
 	},
 	{
 		name: "Sydney",
+		displayName: "Oceania",
 		startFrame: 270,
 		endFrame: 300,
 	},
 	{
 		name: "Tokyo",
+		displayName: "Northern APAC",
 		startFrame: 300,
 		endFrame: 330,
 	},
 ]
 
-const StormgateMap = () => (
+const SpectreMap = () => (
 	<StyledPings className="customer-dashboard">
 		<SEO
-			title="Hathora | Premium Game Servers for Stormgate"
-			description="Check your ping for Stormgate powered by Hathora."
+			title="Hathora | Premium Game Servers for Spectre Divide"
+			description="Check your ping for Spectre powered by Hathora."
 		/>
 		<a
 			className="logo-wrapper"
 			target="_blank"
 			rel="noreferrer"
-			href="https://store.steampowered.com/app/2012510/Stormgate/"
+			href="https://store.steampowered.com/app/2641470/Spectre_Divide/"
 		>
-			<StormgateLogo />
+			<Image src={SpectreLogoPng} alt="Spectre Divide on Steam" />
 		</a>
 		<div className="spacer-div">&nbsp;</div>
 		<PingMap
-			className="stormgate-map"
+			className="spectre-map"
 			disabledCopyBtns
 			limitedRegions={regions}
 			mobileRegions={mobileRegions}
@@ -434,12 +418,25 @@ const StormgateMap = () => (
 			<a
 				target="_blank"
 				rel="noreferrer"
-				href="https://store.steampowered.com/app/2012510/Stormgate/"
+				href="https://store.steampowered.com/app/2641470/Spectre_Divide/"
+				className="customer-logomark"
+			>
+				<Image
+					src={SpectreLogomarkPng}
+					alt="Spectre Divide Logo"
+					width={58.5}
+					height={50}
+				/>
+			</a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://store.steampowered.com/app/2641470/Spectre_Divide/"
 				className="anchor-steam"
 			>
 				<Image
 					src={SteamButtonPng}
-					alt="Stormgate on Steam"
+					alt="Spectre Divide on Steam"
 					width={188}
 					height={56}
 				/>
@@ -448,4 +445,4 @@ const StormgateMap = () => (
 	</StyledPings>
 )
 
-export default StormgateMap
+export default SpectreMap
