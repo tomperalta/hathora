@@ -40,6 +40,14 @@
 		}
 	},
 	{
+		"region": "Dallas",
+		"labelPosition": "right",
+		"coords": {
+			"y": 35.6438642298,
+			"x": 14.0034722222
+		}
+	},
+	{
 		"region": "Sao_Paulo",
 		"displayName": "São Paulo",
 		"labelPosition": "right",

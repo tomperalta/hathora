@@ -29,6 +29,7 @@ const PrimaryLayout = ({ children }) => {
 		"/mountaintop-studios",
 		"/spectre-divide",
 		"/stormgate",
+		"/splitgate",
 	]
 	const useLayout = !noLayoutPages.includes(router.pathname)
 	return useLayout ? (
