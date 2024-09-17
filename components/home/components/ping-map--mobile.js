@@ -253,10 +253,10 @@ const MobileMap = (props) => {
 	 * METHODS
 	 */
 	// Function to send a ping via WebSocket and return the ping speed
-	const sendPing = (location) => {
-		const { region, host, port } = location
-
-		const url = `wss://${host}:${port}/ws`
+	const sendPing = (regionName) => {
+		const url = `wss://${regionName
+			.toLowerCase()
+			.replace("_", "")}.ping.hathora.dev`
 
 		return new Promise((resolve, reject) => {
 			const socket = new WebSocket(url)
@@ -286,7 +286,7 @@ const MobileMap = (props) => {
 
 							const lowestSpeed = Math.min(...speeds)
 							resolve({
-								name: region,
+								name: regionName,
 								speed: lowestSpeed,
 							})
 						}
@@ -360,17 +360,13 @@ const MobileMap = (props) => {
 
 	const sendPings = async () => {
 		try {
-			const response = await fetch("https://api.hathora.dev/discovery/v2/ping")
+			const pingPromises = regionsByOrderOfAppearance.map((region) =>
+				sendPing(region.name)
+			)
 
-			if (response.status === 200) {
-				const data = await response.json()
+			const pingResults = await Promise.all(pingPromises)
 
-				const pingPromises = data.map((region) => sendPing(region))
-
-				const pingResults = await Promise.all(pingPromises)
-
-				pingResults.forEach((result) => addResolvedRegion(result))
-			}
+			pingResults.forEach((result) => addResolvedRegion(result))
 		} catch (error) {
 			console.log(error)
 		}

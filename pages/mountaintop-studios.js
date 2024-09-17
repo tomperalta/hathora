@@ -169,9 +169,9 @@ const regions = [
 	{
 		region: "Chicago",
 		displayName: "Central US",
-		labelPosition: "top",
+		labelPosition: "right",
 		coords: {
-			y: 26.8206266319,
+			y: 25.8206266319,
 			x: 18.4194444444,
 		},
 		compact: true,
@@ -243,6 +243,26 @@ const regions = [
 		coords: {
 			y: 75.2506527415,
 			x: 89.6666666667,
+		},
+		compact: true,
+	},
+	{
+		region: "Johannesburg",
+		displayName: "South Africa",
+		labelPosition: "bottom",
+		coords: {
+			y: 71.2506527415,
+			x: 52.6666666667,
+		},
+		compact: true,
+	},
+	{
+		region: "Seattle",
+		displayName: "Northwestern US",
+		labelPosition: "top",
+		coords: {
+			y: 23.9438642298,
+			x: 9.5034722222,
 		},
 		compact: true,
 	},
