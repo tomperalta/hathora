@@ -293,22 +293,9 @@ const MapLocation = (props) => {
 	useEffect(() => {
 		const getRegionUrl = async () => {
 			try {
-				const response = await fetch(
-					"https://api.hathora.dev/discovery/v2/ping"
+				setUrl(
+					`wss://${region.toLowerCase().replace("_", "")}.ping.hathora.dev`
 				)
-
-				if (response.status === 200) {
-					const data = await response.json()
-
-					// We filter the response by `regions`
-					const regionData = data.find((location) => location.region === region)
-
-					if (regionData) {
-						const { host, port } = regionData
-
-						setUrl(`wss://${host}:${port}/ws`)
-					}
-				}
 			} catch (error) {
 				console.log(error)
 			}
