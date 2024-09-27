@@ -218,6 +218,16 @@ const MobileMap = (props) => {
 			startFrame: 270,
 			endFrame: 300,
 		},
+		{
+			name: "Dubai",
+			startFrame: 300,
+			endFrame: 330, // We need to augment the mobile map animation to add new regions
+		},
+		{
+			name: "Johannesburg",
+			startFrame: 300,
+			endFrame: 330, // We need to augment the mobile map animation to add new regions
+		},
 	]
 
 	/**

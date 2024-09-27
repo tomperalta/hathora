@@ -133,6 +133,22 @@ const regions = [
 			x: 90.6666666667,
 		},
 	},
+	{
+		region: "Dubai",
+		labelPosition: "top",
+		coords: {
+			y: 40.2806527415,
+			x: 60.9666666667,
+		},
+	},
+	{
+		region: "Johannesburg",
+		labelPosition: "bottom",
+		coords: {
+			y: 71.2506527415,
+			x: 52.6666666667,
+		},
+	},
 ]
 
 const DesktopPingMap = (props) => {
