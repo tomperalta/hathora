@@ -410,8 +410,8 @@ const mobileRegions = [
 	{
 		name: "Johannesburg",
 		displayName: "South Africa",
-		startFrame: 180,
-		endFrame: 210,
+		startFrame: 300,
+		endFrame: 330, // We need to augment the mobile map animation to add new regions
 	},
 	{
 		name: "Seattle",
