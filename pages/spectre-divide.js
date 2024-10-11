@@ -299,7 +299,7 @@ const regions = [
 	{
 		region: "London",
 		displayName: "Central EU",
-		labelPosition: "right",
+		labelPosition: "top",
 		coords: {
 			y: 24.0652741514,
 			x: 44.8444444444,
@@ -319,7 +319,7 @@ const regions = [
 	{
 		region: "Tokyo",
 		displayName: "Northern APAC",
-		labelPosition: "left",
+		labelPosition: "top",
 		coords: {
 			y: 34.725848564,
 			x: 85.6944444444,
@@ -356,6 +356,36 @@ const regions = [
 		},
 		compact: true,
 	},
+	{
+		region: "Sao_Paulo",
+		displayName: "South America",
+		labelPosition: "bottom",
+		coords: {
+			y: 74.5430809399,
+			x: 30.2083333333,
+		},
+		compact: true,
+	},
+	{
+		region: "Frankfurt",
+		displayName: "Eastern EU",
+		labelPosition: "right",
+		coords: {
+			y: 25.637075718,
+			x: 47.29375,
+		},
+		compact: true,
+	},
+	{
+		region: "Dubai",
+		displayName: "Middle East",
+		labelPosition: "left",
+		coords: {
+			y: 40.2806527415,
+			x: 60.9666666667,
+		},
+		compact: true,
+	},
 ]
 
 const mobileRegions = [
@@ -384,10 +414,22 @@ const mobileRegions = [
 		endFrame: 60,
 	},
 	{
+		name: "Sao_Paulo",
+		displayName: "South America",
+		startFrame: 90,
+		endFrame: 120,
+	},
+	{
 		name: "London",
 		displayName: "Central EU",
 		startFrame: 120,
 		endFrame: 150,
+	},
+	{
+		name: "Frankfurt",
+		displayName: "Eastern EU",
+		startFrame: 150,
+		endFrame: 180,
 	},
 	{
 		name: "Singapore",
@@ -418,6 +460,12 @@ const mobileRegions = [
 		displayName: "Northwestern US",
 		startFrame: 0,
 		endFrame: 30,
+	},
+	{
+		name: "Dubai",
+		displayName: "Middle East",
+		startFrame: 300,
+		endFrame: 330, // We need to augment the mobile map animation to add new regions
 	},
 ]
 

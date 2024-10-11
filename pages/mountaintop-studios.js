@@ -209,7 +209,7 @@ const regions = [
 	{
 		region: "London",
 		displayName: "Central EU",
-		labelPosition: "right",
+		labelPosition: "top",
 		coords: {
 			y: 24.0652741514,
 			x: 44.8444444444,
@@ -229,7 +229,7 @@ const regions = [
 	{
 		region: "Tokyo",
 		displayName: "Northern APAC",
-		labelPosition: "left",
+		labelPosition: "top",
 		coords: {
 			y: 34.725848564,
 			x: 85.6944444444,
@@ -263,6 +263,36 @@ const regions = [
 		coords: {
 			y: 23.9438642298,
 			x: 9.5034722222,
+		},
+		compact: true,
+	},
+	{
+		region: "Sao_Paulo",
+		displayName: "South America",
+		labelPosition: "bottom",
+		coords: {
+			y: 74.5430809399,
+			x: 30.2083333333,
+		},
+		compact: true,
+	},
+	{
+		region: "Frankfurt",
+		displayName: "Eastern EU",
+		labelPosition: "right",
+		coords: {
+			y: 25.637075718,
+			x: 47.29375,
+		},
+		compact: true,
+	},
+	{
+		region: "Dubai",
+		displayName: "Middle East",
+		labelPosition: "left",
+		coords: {
+			y: 40.2806527415,
+			x: 60.9666666667,
 		},
 		compact: true,
 	},
