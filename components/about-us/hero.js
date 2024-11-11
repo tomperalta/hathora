@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components"
 import Image from "next/image"
 
 // Components
-import Container from "components/container/"
+import Container from "components/container-new/"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -117,7 +117,7 @@ const Hero = () => {
 					<div className="col-12 col-md-7 p-md-0">
 						<div className="text-sm-center text-md-start">
 							<h1 className="heading--l font-weight--500 mb-4">
-								Hathora is bringing infrastructure expertise to the gaming world
+								Meet the team that powers the most ambitious games
 							</h1>
 						</div>
 
