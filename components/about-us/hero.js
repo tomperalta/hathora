@@ -65,7 +65,7 @@ const StyledHero = styled.section`
 		height: 40px;
 		position: absolute;
 		right: 0;
-		bottom: 48px;
+		bottom: 0;
 		left: 0;
 		margin: auto;
 
