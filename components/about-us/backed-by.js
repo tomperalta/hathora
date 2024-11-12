@@ -8,8 +8,9 @@ import Image from "next/image"
 import Container from "components/container"
 
 // Images
-import FoundersImage from "../../assets/images/about-us/founders.svg"
-import LunarVenturesImage from "../../assets/images/about-us/lunar-ventures.svg"
+import FoundersFund from "../../assets/images/about-us/founders-fund.svg"
+import UpfrontVentures from "../../assets/images/about-us/upfront-ventures.svg"
+import LunarVentures from "../../assets/images/about-us/lunar-ventures.svg"
 
 const StyledBackedBy = styled.section`
 	padding: 32px 0;
@@ -22,6 +23,21 @@ const StyledBackedBy = styled.section`
 	}
 `
 
+const cards = [
+	{
+		image: FoundersFund,
+		title: "Founders Fund",
+	},
+	{
+		image: UpfrontVentures,
+		title: "Upfront Ventures",
+	},
+	{
+		image: LunarVentures,
+		title: "Lunar Ventures",
+	},
+]
+
 const BackedBy = () => (
 	<StyledBackedBy>
 		<Container>
@@ -29,17 +45,11 @@ const BackedBy = () => (
 				Backed by
 			</h2>
 			<div className="row text-center justify-content-center">
-				<div className="col-12 col-sm-4 col-md-2">
-					<Image src={FoundersImage} alt="Backed by" width="180" height="180" />
-				</div>
-				<div className="col-12 col-sm-4 col-md-2">
-					<Image
-						src={LunarVenturesImage}
-						alt="Backed by"
-						width="180"
-						height="180"
-					/>
-				</div>
+				{cards.map((card) => (
+					<div className="col-12 col-sm-4 col-md-2" key={card.title}>
+						<Image src={card.image} alt={card.title} width="180" height="180" />
+					</div>
+				))}
 			</div>
 		</Container>
 	</StyledBackedBy>
