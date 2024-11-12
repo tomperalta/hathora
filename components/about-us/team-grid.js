@@ -25,7 +25,6 @@ const StyledTeamCard = styled.div`
 	color: ${colors.grey__400};
 	font-weight: 700;
 	text-align: center;
-	border: 1px solid gold;
 `
 
 const StyledTeamName = styled.p`
