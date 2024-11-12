@@ -51,7 +51,7 @@ const Line = () => (
 	</svg>
 )
 
-const Mission = () => (
+const OurTeam = () => (
 	<Container>
 		<div className="row justify-content-center align-items-center mt-24">
 			<Line />
@@ -76,4 +76,4 @@ const Mission = () => (
 	</Container>
 )
 
-export default Mission
+export default OurTeam

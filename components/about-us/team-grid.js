@@ -1,79 +1,116 @@
 import React from "react"
+import Image from "next/image"
 
 // Layout
 import Container from "components/container-new"
 import styled from "styled-components"
+import { colors } from "utils/variables"
 
-const StyledH2 = styled.h2`
-	padding-top: 24px;
+// Images
+import Sid from "../../assets/images/about-us/sid.webp"
+import Harsh from "../../assets/images/about-us/harsh.webp"
+import Taruni from "../../assets/images/about-us/taruni.webp"
+import Justin from "../../assets/images/about-us/justin.webp"
+import George from "../../assets/images/about-us/george.webp"
+import Gabi from "../../assets/images/about-us/gabi.webp"
+import Zach from "../../assets/images/about-us/zach.webp"
+import Jared from "../../assets/images/about-us/jared.webp"
+import Natacha from "../../assets/images/about-us/natacha.webp"
+import Sam from "../../assets/images/about-us/sam.webp"
+
+const StyledTeamCard = styled.div`
+	background: #151521;
+	padding: 24px;
+	border-radius: 10px;
+	color: ${colors.grey__400};
+	font-weight: 700;
+	text-align: center;
+	border: 1px solid gold;
 `
 
-const LaunchingGamesAtScale = styled.div`
-	margin: 64px 0;
+const StyledTeamName = styled.p`
+	color: ${colors.grey__200};
 `
 
-const StyledP = styled.p`
-	margin-top: 8px;
+const StyledTeamTitle = styled.p`
+	color: ${colors.grey__400};
 `
 
-const Line = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		width="224"
-		height="4"
-		viewBox="0 0 224 4"
-		fill="none"
-	>
-		<path
-			d="M0 2L224 2"
-			stroke="url(#paint0_linear_703_2110)"
-			strokeWidth="2.2"
-			strokeMiterlimit="10"
-			strokeLinejoin="round"
-			strokeDasharray="0.65 6.5"
-		/>
-		<defs>
-			<linearGradient
-				id="paint0_linear_703_2110"
-				x1="1.74829"
-				y1="2.00001"
-				x2="224.509"
-				y2="1.99999"
-				gradientUnits="userSpaceOnUse"
-			>
-				<stop stopColor="#AF64EE" stopOpacity="0" />
-				<stop offset="0.291667" stopColor="#AF64EE" />
-				<stop offset="0.5" stopColor="#02FE57" />
-				<stop offset="0.776042" stopColor="#AF64EE" />
-				<stop offset="1" stopColor="#AF64EE" stopOpacity="0" />
-			</linearGradient>
-		</defs>
-	</svg>
-)
+const teamMembers = [
+	{
+		name: "Siddharth Dhulipalla",
+		image: Sid,
+		title: "CEO",
+	},
+	{
+		name: "Harsh Pandey",
+		image: Harsh,
+		title: "CTO",
+	},
+	{
+		name: "Taruni Paleru",
+		image: Taruni,
+		title: "Product",
+	},
+	{
+		name: "Justin Chu",
+		image: Justin,
+		title: "Software Engineer",
+	},
+	{
+		name: "George Price",
+		image: George,
+		title: "Software Engineer",
+	},
+	{
+		name: "Gabi Weinberg",
+		image: Gabi,
+		title: "Growth",
+	},
+	{
+		name: "Zach Graziano",
+		image: Zach,
+		title: "Software Engineer",
+	},
+	{
+		name: "Jared Davenport",
+		image: Jared,
+		title: "Software Engineer",
+	},
+	{
+		name: "Natacha Gabbamonte",
+		image: Natacha,
+		title: "Product",
+	},
+	{
+		name: "Sam Szuflita",
+		image: Sam,
+		title: "Software Engineer",
+	},
+]
 
-const Mission = () => (
-	<Container>
-		<div className="row justify-content-center align-items-center">
-			<Line />
-			<div className="col-12 col-md-10">
-				<StyledH2 className="heading--m text-center font-weight--500">
-					Our Team
-				</StyledH2>
-				<LaunchingGamesAtScale>
-					<h3 className="heading--m font-weight--500">
-						Launching games at Scale
-					</h3>
-					<StyledP className="text--s">
-						Hathora has enabled millions of players to join live games like
-						Spectre Divide, Splitgate 2, and Stormgate. Improving the
-						operational experience with our marquee orchestration product, game
-						studios save years of engineering time and millions of dollars on
-						building and maintaining their dedicated server infrastructure.
-					</StyledP>
-				</LaunchingGamesAtScale>
-			</div>
+const TeamGrid = () => (
+	<Container className="overflow-hidden">
+		<div className="row row-cols-2 g-2">
+			{teamMembers.map((member) => (
+				<div className="col" key={member.name}>
+					<StyledTeamCard className="h-100">
+						<Image
+							src={member.image}
+							alt={member.name}
+							width="100"
+							height="100"
+							key={member.name}
+						/>
+						<StyledTeamName className="text--s">{member.name}</StyledTeamName>
+						<StyledTeamTitle className="text--s">
+							{member.title}
+						</StyledTeamTitle>
+					</StyledTeamCard>
+				</div>
+			))}
 		</div>
 	</Container>
 )
 
-export default Mission
+export default TeamGrid

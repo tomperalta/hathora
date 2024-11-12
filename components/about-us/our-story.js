@@ -139,7 +139,7 @@ const OurStory = () => {
 							</p>
 						</div>
 
-						<div className="row justify-content-start justify-content-md-center founders">
+						<div className="row justify-content-start justify-content-md-center">
 							{founders.map((founder) => (
 								<div className="col-6 col-md-4 founder mt-5" key={founder.name}>
 									<div className="text-center">
