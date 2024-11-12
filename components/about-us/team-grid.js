@@ -89,7 +89,7 @@ const teamMembers = [
 ]
 
 const TeamGrid = () => (
-	<Container className="overflow-hidden">
+	<Container>
 		<div className="row row-cols-2 g-2">
 			{teamMembers.map((member) => (
 				<div className="col" key={member.name}>

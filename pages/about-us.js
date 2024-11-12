@@ -17,8 +17,6 @@ import Hero from "components/about-us/hero"
 import OurTeam from "components/about-us/our-team"
 import TeamGrid from "components/about-us/team-grid"
 import OurCommitment from "components/about-us/our-commitment"
-// import OurVision from "components/about-us/our-vision"
-// import OurValues from "components/about-us/our-values"
 import BackedBy from "components/about-us/backed-by"
 
 // Sections
@@ -43,9 +41,6 @@ const AboutUs = () => (
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
-		{/* <OurStory /> */}
-		{/* <OurVision /> */}
-		{/* <OurValues /> */}
 		<BackedBy />
 	</StyledAboutUs>
 )
