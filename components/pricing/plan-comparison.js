@@ -53,6 +53,7 @@ const StyledPlanComparison = styled.section`
 
 						&.title {
 							padding-top: 24px;
+							padding-bottom: 24px;
 						}
 					}
 				}
@@ -73,7 +74,7 @@ const StyledPlanComparison = styled.section`
 				}
 
 				${breakpoints.medium`
-					width: 33.3%;
+					width: 25%;
 					border: 1px solid #2f2f38;
 					border-right: 1px solid #2f2f38;
 				`}
@@ -100,7 +101,8 @@ const StyledPlanComparison = styled.section`
 				}
 
 				&.title {
-					padding-top: 36px;
+					padding-top: 24px;
+					padding-bottom: 24px;
 				}
 
 				.hidden {
@@ -315,7 +317,8 @@ const PlanComparison = () => (
 						<tr>
 							{/* eslint-disable-next-line */}
 							<th />
-							<th>Starter</th>
+							<th>Explore</th>
+							<th>Pro</th>
 							<th>Enterprise</th>
 						</tr>
 					</thead>
@@ -323,13 +326,16 @@ const PlanComparison = () => (
 					<tbody>
 						{tableData.map((data) => (
 							<>
-								<tr>
-									<td className="title text--m color--purple__500 font-weight--600">
-										{data.title}
-									</td>
-									<td />
-									<td />
-								</tr>
+								{data.title && (
+									<tr>
+										<td
+											colSpan="4"
+											className="title text--m color--purple__500 font-weight--600"
+										>
+											{data.title}
+										</td>
+									</tr>
+								)}
 
 								{data.rows.map((row) => (
 									// eslint-disable-next-line

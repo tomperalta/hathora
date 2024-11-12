@@ -99,6 +99,15 @@ export default createGlobalStyle`
       `}
     }
 
+    .text--xl {
+      font-size: 1.5rem;
+      line-height: 1.45em;
+
+      ${breakpoint.medium`
+        font-size: 1.8rem;
+      `}
+    }
+
     .dotted-separator {
       &::before {
         content: '';
@@ -107,7 +116,8 @@ export default createGlobalStyle`
         height: 4px;
         display: block;
         margin-right: auto;
-        margin-bottom: 24px;
+        margin-top: 16px;
+        margin-bottom: 16px;
         margin-left: auto;
         background-image: url('${IconDottedSeparator}');
         background-repeat: no-repeat;

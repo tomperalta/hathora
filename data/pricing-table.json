@@ -1,7 +1,299 @@
 [
 	{
+		"title": "",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Price"
+					},
+					{
+						"text": "Free"
+					},
+					{
+						"text": "Usage-based pricing     (Contact us for rates)"
+					},
+					{
+						"text": "Usage-based pricing     (Contact us for rates)"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Core Features",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Unlimited team members"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Best-in-class onboarding experience"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Simple CI/CD integration"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Optimized deployments"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Real-time logs & metrics"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Global availability"
+					},
+					{
+						"text": "Full global coverage"
+					},
+					{
+						"text": "Full global coverage"
+					},
+					{
+						"text": "Full global coverage"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Fleet Management & Autoscaling",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "Hardware isolation"
+					},
+					{
+						"text": "Multi-tenant (shared)"
+					},
+					{
+						"text": "Single-tenant"
+					},
+					{
+						"text": "Single-tenant"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Fleet provisioning"
+					},
+					{
+						"text": "-"
+					},
+					{
+						"text": "Cloud"
+					},
+					{
+						"text": "Bare metal, Cloud"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Intelligent autoscaling"
+					},
+					{
+						"text": "-"
+					},
+					{
+						"text": "Preemptive autoscaling, rapid parallelized scale up, intelligent scale down"
+					},
+					{
+						"text": "Preemptive autoscaling, rapid parallelized scale up, intelligent scale down"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "One fleet → multiple apps"
+					},
+					{
+						"text": "-"
+					},
+					{
+						"text": "✓"
+					},
+					{
+						"text": "✓"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Accelerated container start time"
+					},
+					{
+						"text": "Fast (<5s), cold start after new deployment"
+					},
+					{
+						"text": "Accelerated (<3s), eager caching for builds"
+					},
+					{
+						"text": "Accelerated (<3s), eager caching for builds"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Platform Configuration",
+		"rows": [
+			{
+				"cells": [
+					{
+						"text": "DDoS Protection"
+					},
+					{
+						"text": "Limited"
+					},
+					{
+						"text": "Basic DDoS Protection"
+					},
+					{
+						"text": "Advanced DDoS Protection"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "Instance sizing"
+					},
+					{
+						"text": "0.5vCPU - 4vCPU"
+					},
+					{
+						"text": "0.5vCPU - 4vCPU"
+					},
+					{
+						"text": "0.3vCPU - 20vCPU"
+					}
+				]
+			},
+			{
+				"cells": [
+					{
+						"text": "CPU:Memory ratio"
+					},
+					{
+						"text": "1:2"
+					},
+					{
+						"text": "1:2"
+					},
+					{
+						"text": "1:1, 1:2, 1:4, 1:8"
+					}
+				]
+			}
+		]
+	},
+	{
 		"title": "Product Limits",
 		"rows": [
+		{
+			"cells": [
+				{
+					"text": "Monthly vCPU hours limit"
+				},
+				{
+					"text": "100 hours"
+				},
+				{
+					"text": "Unlimited"
+				},
+				{
+					"text": "Unlimited"
+				}
+			]
+		},
+			{
+				"cells": [
+					{
+						"text": "Max concurrent vCPU limit"
+					},
+					{
+						"text": "32 vCPU"
+					},
+					{
+						"text": "Unlimited"
+					},
+					{
+						"text": "Unlimited"
+					}
+				]
+			},
 			{
 				"cells": [
 					{
@@ -12,19 +304,9 @@
 					},
 					{
 						"text": "10GB"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Max concurrent limit"
 					},
 					{
-						"text": "50 vCPU"
-					},
-					{
-						"text": "No limits"
+						"text": "10GB"
 					}
 				]
 			},
@@ -38,224 +320,9 @@
 					},
 					{
 						"text": "24hr"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Custom Plans"
 					},
 					{
-						"text": "0.5-4 vCPU"
-					},
-					{
-						"text": "0.5-4 vCPU"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Logs + metrics"
-					},
-					{
-						"text": "3 days"
-					},
-					{
-						"text": "3 days"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Orgs"
-					},
-					{
-						"text": "Up to 3"
-					},
-					{
-						"text": "Unlimited"
-					}
-				]
-			}
-		]
-	},
-	{
-		"title": "Support",
-		"rows": [
-			{
-				"cells": [
-					{
-						"text": "Type of support"
-					},
-					{
-						"text": "Community Support (Discord)"
-					},
-					{
-						"text": "24/7 priority support"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Response within"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": "30 minutes"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Dedicated Account Manager"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Launch Planning"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Load Testing"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			}
-		]
-	},
-	{
-		"title": "Compute Isolation",
-		"rows": [
-			{
-				"cells": [
-					{
-						"text": "Tenancy"
-					},
-					{
-						"text": "Shared"
-					},
-					{
-						"text": "Dedicated"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Bare Metal"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Bring your own cloud (BYOC)"
-					},
-					{
-						"text": null
-					},
-					{
-						"text": true
-					}
-				]
-			}
-		]
-	},
-	{
-		"title": "Pricing",
-		"rows": [
-			{
-				"cells": [
-					{
-						"text": "Orchestration/hr (per vCPU-hr)",
-						"subtext": "Cloud"
-					},
-					{
-						"text": "$0.08"
-					},
-					{
-						"text": "$0.02 + Hardware",
-						"tooltip": "Starting at $0.04/vCPU-hr"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Orchestration/hr (per vCPU-hr)",
-						"subtext": "Bare Metal",
-						"hideText": true
-					},
-					{
-						"text": null
-					},
-					{
-						"text": "$0.02 + Hardware",
-						"tooltip": "Starting at $0.01/vCPU-hr"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Bandwidth/GB (per GB-egressed)",
-						"subtext": "Cloud"
-					},
-					{
-						"text": "$0.12"
-					},
-					{
-						"text": "$0.12"
-					}
-				]
-			},
-			{
-				"cells": [
-					{
-						"text": "Bandwidth/GB (per GB-egressed)",
-						"subtext": "Bare Metal",
-						"hideText": true
-					},
-					{
-						"text": null
-					},
-					{
-						"text": "$0.01"
+						"text": "24hr - 72hr"
 					}
 				]
 			}
