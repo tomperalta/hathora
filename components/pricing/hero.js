@@ -7,8 +7,35 @@ import styled from "styled-components"
 import Container from "components/container"
 import Button from "components/button"
 import breakpoints from "utils/breakpoints"
+import { colors } from "utils/variables"
 
 const StyledHero = styled.section`
+	.inline-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		border-bottom: 1px solid ${colors.green__500};
+		border-radius: 2px;
+		line-height: 1.1;
+		transition: all 0.2s ease;
+
+		&:focus-visible,
+		&:hover {
+			color: ${colors.green__500};
+
+			.svg--stroke {
+				* {
+					stroke: ${colors.green__500};
+				}
+			}
+
+			.svg--fill {
+				* {
+					fill: ${colors.green__500};
+				}
+			}
+		}
+	}
 	.cards {
 		display: flex;
 		flex-direction: column;
@@ -97,8 +124,20 @@ const Hero = () => {
 				theme: "outline",
 			},
 			features: ["Free, always", "Multi-tenant", "   "],
-			key_features_title: "Usage limits",
-			key_features: ["100 vCPU-hours per month", "32 vCPU max concurrent"],
+			key_features_title: "Key Features",
+			key_features: [
+				"Up to 100 vCPU-hours per month",
+				"Up to 32 concurrent vCPUs",
+				<span>
+					<a href="https://hathora.dev/docs" className="inline-link">
+						Public docs
+					</a>{" "}
+					<span>&</span>{" "}
+					<a href="https://discord.gg/hathora" className="inline-link">
+						community support
+					</a>
+				</span>,
+			],
 		},
 		{
 			title: "Pro",
@@ -127,23 +166,19 @@ const Hero = () => {
 				url: "https://calendly.com/aveline-xp96/30min",
 				theme: "fill",
 			},
-			highlight_features: true,
 			features: [
 				"Usage-based pricing",
 				"Single-tenant",
 				"Bare Metal + Cloud burst",
 			],
-			key_features_title: (
-				<span>
-					Everything in Pro <span className="color--green__500">+</span>
-				</span>
-			),
+			key_features_title: "Key Features",
 			key_features: [
+				"Includes all Pro tier features",
 				"Dedicated account team",
 				"Priority technical support",
 				"Advanced DDoS protection",
 				"Custom hardware profiles",
-				"Advanced customization",
+				"Advanced configuration",
 			],
 		},
 	]
