@@ -145,7 +145,7 @@ const Hero = () => {
 			tagline: "Develop & playtest",
 			cta: {
 				label: "Book a call",
-				url: "https://calendly.com/aveline-xp96/30min",
+				url: "https://calendly.com/dsiddharth/30min",
 				theme: "fill",
 			},
 			features: ["Usage-based pricing", "Single-tenant", "Cloud"],

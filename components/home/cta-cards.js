@@ -99,7 +99,7 @@ const CTACards = () => (
 
 							<Button
 								type="link"
-								href="https://calendly.com/aveline-xp96/30min"
+								href="https://calendly.com/dsiddharth/30min"
 								theme="borderless"
 								external
 							>
