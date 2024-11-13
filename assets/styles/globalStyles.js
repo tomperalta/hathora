@@ -55,6 +55,16 @@ export default createGlobalStyle`
       `}
     }
 
+    .heading--sm {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+
+      ${breakpoint.medium`
+        font-size: 2.2rem;
+        line-height: 2.8rem;
+      `}
+    }
+
     .heading--m {
       font-size: 1.5rem;
       line-height: 2rem;

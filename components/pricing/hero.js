@@ -36,16 +36,29 @@ const StyledHero = styled.section`
 			}
 		}
 	}
+	.info-card {
+		flex-shrink: 0;
+		background-color: var(--grey__600);
+		padding: 24px;
+		border-radius: 24px;
+		display: block;
+		max-width: 360px !important;
+
+		${breakpoints.medium`
+			max-width: 460px !important;
+		`}
+	}
 	.cards {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: stretch;
+		align-items: center;
 		flex-wrap: wrap;
 		gap: 16px;
 
 		${breakpoints.medium`
 			flex-direction: row;
+			align-items: stretch;
 		`}
 
 		.gradient-text {
@@ -61,8 +74,9 @@ const StyledHero = styled.section`
 			background-color: var(--grey__600);
 			padding: 24px;
 			border-radius: 24px;
-			//display: flex;
-			//flex-direction: column;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			max-width: 314px !important;
 
 			@media screen and (max-width: 1023px) {
@@ -105,6 +119,7 @@ const StyledHero = styled.section`
 				display: flex;
 				flex-direction: column;
 				gap: 12px;
+				min-height: 96px;
 			}
 		}
 	}
@@ -123,7 +138,7 @@ const Hero = () => {
 				url: "https://console.hathora.dev/login",
 				theme: "outline",
 			},
-			features: ["Free, always", "Multi-tenant", "   "],
+			features: ["Free, always", "Shared hardware", "   "],
 			key_features_title: "Key Features",
 			key_features: [
 				"Up to 100 vCPU-hours per month",
@@ -148,7 +163,7 @@ const Hero = () => {
 				url: "https://calendly.com/dsiddharth/30min",
 				theme: "fill",
 			},
-			features: ["Usage-based pricing", "Single-tenant", "Cloud"],
+			features: ["Usage-based pricing", "Dedicated hardware", "Cloud"],
 			key_features_title: "Key Features",
 			key_features: [
 				"Uncapped usage",
@@ -163,12 +178,12 @@ const Hero = () => {
 			tagline: "Scale",
 			cta: {
 				label: "Book a call",
-				url: "https://calendly.com/aveline-xp96/30min",
+				url: "https://calendly.com/dsiddharth/30min",
 				theme: "fill",
 			},
 			features: [
 				"Usage-based pricing",
-				"Single-tenant",
+				"Dedicated hardware",
 				"Bare Metal + Cloud burst",
 			],
 			key_features_title: "Key Features",
@@ -186,17 +201,31 @@ const Hero = () => {
 	return (
 		<StyledHero>
 			<Container>
-				<div className="row justify-content-center">
+				<div className="row justify-content-center text-center">
 					<div className="col-12 col-md-12">
-						<div className="text-center">
+						<div className="t">
 							<h1 className="heading heading--m font-weight--500 mb-3">
 								AAA quality scale, usage-based pricing
 							</h1>
 
-							<p className="text--l">
-								Get started for free in minutes, launch with hybrid capacity
-								(bare metal + cloud burst)
+							<p className="text--l mb-3">
+								Get started for free in minutes, unlock more savings as your
+								game scales
 							</p>
+						</div>
+					</div>
+					<div className="col-12">
+						<div className="d-flex align-items-center justify-content-center mt-5 mb-3">
+							<div className="info-card">
+								Learn{" "}
+								<a href="#pricing-faq" className="inline-link">
+									how our pricing works
+								</a>{" "}
+								or{" "}
+								<a href="#cost-faq" className="inline-link">
+									how Hathora helps optimize costs
+								</a>
+							</div>
 						</div>
 					</div>
 
@@ -207,44 +236,46 @@ const Hero = () => {
 									<div
 										className={`card ${plan.highlight && "card--highlighted"}`}
 									>
-										<p
-											className={`text--xl mb-2 font-weight--600 text-uppercase text-center ${
-												plan.highlight && "gradient-text"
-											}`}
-										>
-											{plan.title}
-										</p>
-
-										<p className="text--m mb-2 text-center color--grey__400">
-											{plan.tagline}
-										</p>
-
-										<div className="text-center mb-4 dotted-separator">
-											<ul className="mt-2 mb-4">
-												{plan.features.map((feature) => (
-													<li key={feature}>
-														<p
-															className={`text--s ${
-																plan.highlight_features && "font-weight--700"
-															}`}
-														>
-															{feature}
-														</p>
-													</li>
-												))}
-											</ul>
-
-											<p className="text--s text-uppercase color--purple__400">
-												{plan.key_features_title || "Key features"}
+										<div>
+											<p
+												className={`text--xl mb-2 font-weight--600 text-uppercase text-center ${
+													plan.highlight && "gradient-text"
+												}`}
+											>
+												{plan.title}
 											</p>
 
-											<ul className="mt-3">
-												{plan.key_features.map((feature) => (
-													<li key={feature}>
-														<p className="text--s">{feature}</p>
-													</li>
-												))}
-											</ul>
+											<p className="text--m mb-2 text-center color--grey__400">
+												{plan.tagline}
+											</p>
+
+											<div className="text-center mb-4 dotted-separator">
+												<ul className="mt-2 mb-4">
+													{plan.features.map((feature) => (
+														<li key={feature}>
+															<p
+																className={`text--s ${
+																	plan.highlight_features && "font-weight--700"
+																}`}
+															>
+																{feature}
+															</p>
+														</li>
+													))}
+												</ul>
+
+												<p className="text--s text-uppercase color--purple__400">
+													{plan.key_features_title || "Key features"}
+												</p>
+
+												<ul className="mt-3">
+													{plan.key_features.map((feature) => (
+														<li key={feature}>
+															<p className="text--s">{feature}</p>
+														</li>
+													))}
+												</ul>
+											</div>
 										</div>
 
 										<Button

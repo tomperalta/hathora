@@ -130,13 +130,13 @@
 						"text": "Hardware isolation"
 					},
 					{
-						"text": "Multi-tenant (shared)"
+						"text": "Shared hardware (multitenant)"
 					},
 					{
-						"text": "Single-tenant"
+						"text": "Dedicated hardware (single tenant)"
 					},
 					{
-						"text": "Single-tenant"
+						"text": "Dedicated hardware (single tenant)"
 					}
 				]
 			},

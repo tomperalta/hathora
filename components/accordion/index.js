@@ -33,11 +33,11 @@ const StyledAccordion = styled.div`
 		overflow: hidden;
 
 		a {
-			color: ${colors.green__500};
-			text-decoration: underline;
+			//color: ${colors.green__500};
+			//text-decoration: underline;
 
 			&:hover {
-				color: ${colors.purple__500};
+				//color: ${colors.purple__500};
 			}
 		}
 	}
