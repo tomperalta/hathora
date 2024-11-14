@@ -7,16 +7,16 @@ import styled from "styled-components"
 import { colors } from "utils/variables"
 
 // Images
-import Sid from "../../assets/images/about-us/sid.webp"
-import Harsh from "../../assets/images/about-us/harsh.webp"
-import Taruni from "../../assets/images/about-us/taruni.webp"
-import Justin from "../../assets/images/about-us/justin.webp"
-import George from "../../assets/images/about-us/george.webp"
-import Gabi from "../../assets/images/about-us/gabi.webp"
-import Zach from "../../assets/images/about-us/zach.webp"
-import Jared from "../../assets/images/about-us/jared.webp"
-import Natacha from "../../assets/images/about-us/natacha.webp"
-import Sam from "../../assets/images/about-us/sam.webp"
+import Siddharth from "../../assets/images/about-us/siddharth.png"
+import Harsh from "../../assets/images/about-us/harsh.png"
+import Taruni from "../../assets/images/about-us/taruni.png"
+import Justin from "../../assets/images/about-us/justin.png"
+import George from "../../assets/images/about-us/george.png"
+import Gabi from "../../assets/images/about-us/gabi.png"
+import Zach from "../../assets/images/about-us/zach.png"
+import Jared from "../../assets/images/about-us/jared.png"
+import Natacha from "../../assets/images/about-us/natacha.png"
+import Sam from "../../assets/images/about-us/sam.png"
 
 const StyledTeamCard = styled.div`
 	background: #151521;
@@ -38,7 +38,7 @@ const StyledTeamTitle = styled.p`
 const teamMembers = [
 	{
 		name: "Siddharth Dhulipalla",
-		image: Sid,
+		image: Siddharth,
 		title: "CEO",
 	},
 	{
