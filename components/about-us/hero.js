@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components"
 import Image from "next/image"
 
 // Components
-import Container from "components/container-new/"
+import Container from "components/container"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -112,7 +112,7 @@ const Hero = () => {
 
 	return (
 		<StyledHero className="about__hero">
-			<Container>
+			<Container padding="0 28px">
 				<div className="row justify-content-center justify-content-md-start align-items-center">
 					<div className="col-12 col-md-7 p-md-0">
 						<div className="text-sm-center text-md-start">

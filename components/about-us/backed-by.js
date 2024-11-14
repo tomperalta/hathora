@@ -5,7 +5,7 @@ import styled from "styled-components"
 import Image from "next/image"
 
 // Layout
-import Container from "components/container-new"
+import Container from "components/container"
 import Line from "components/about-us/divider"
 import { colors } from "utils/variables"
 
@@ -44,7 +44,7 @@ const cards = [
 ]
 
 const BackedBy = () => (
-	<Container>
+	<Container padding="0 28px">
 		<div className="row justify-content-center align-items-center mt-24">
 			<Line />
 			<StyledH2 className="heading--m text-center font-weight--500">

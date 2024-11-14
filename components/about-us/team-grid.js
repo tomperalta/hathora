@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 
 // Layout
-import Container from "components/container-new"
+import Container from "components/container"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 
@@ -89,7 +89,7 @@ const teamMembers = [
 ]
 
 const TeamGrid = () => (
-	<Container>
+	<Container padding="0 28px">
 		<div className="row row-cols-2 g-2">
 			{teamMembers.map((member) => (
 				<div className="col" key={member.name}>
