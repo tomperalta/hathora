@@ -20,7 +20,10 @@ const StyledP = styled.p`
 const OurTeam = () => (
 	<Container padding="0 28px">
 		<div className="row justify-content-center align-items-center mt-24">
-			<Line />
+			<div className="d-lg-none text-center">
+				<Line />
+			</div>
+
 			<div className="col-12 col-md-10">
 				<StyledH2 className="heading--m text-center font-weight--500">
 					Our Team
