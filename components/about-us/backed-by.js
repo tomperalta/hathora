@@ -28,6 +28,12 @@ const StyledCard = styled.div`
 	margin-bottom: 24px;
 `
 
+const ImageWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+`
+
 const cards = [
 	{
 		image: FoundersFund,
@@ -45,16 +51,33 @@ const cards = [
 
 const BackedBy = () => (
 	<Container padding="0 28px">
-		<div className="row justify-content-center align-items-center mt-5">
+		<div className="text-center">
 			<Line />
-			<StyledH2 className="heading--m text-center font-weight--500">
-				Backed by
-			</StyledH2>
-			<div className="row text-center justify-content-center">
+		</div>
+
+		<div className="container">
+			<div className="row">
+				<StyledH2 className="heading--m text-center col-8 mx-auto">
+					Backed by
+				</StyledH2>
+			</div>
+		</div>
+
+		<div className="container mt-5">
+			<div className="row row-cols-1 row-cols-lg-3 g-4">
 				{cards.map((card) => (
-					<StyledCard className="col-12 col-sm-4 col-md-2" key={card.title}>
-						<Image src={card.image} alt={card.title} width="180" height="180" />
-					</StyledCard>
+					<div className="col" key={card.title}>
+						<StyledCard>
+							<ImageWrapper>
+								<Image
+									src={card.image}
+									alt={card.title}
+									width="192"
+									height="165"
+								/>
+							</ImageWrapper>
+						</StyledCard>
+					</div>
 				))}
 			</div>
 		</div>
