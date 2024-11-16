@@ -27,7 +27,7 @@ const StyledP = styled.p`
 const OurTeam = () => (
 	<Container padding="0 28px" className="mt-5 my-lg-5">
 		<div>
-			<div className="d-lg-none text-center">
+			<div className="text-center d-lg-none">
 				<Line />
 			</div>
 

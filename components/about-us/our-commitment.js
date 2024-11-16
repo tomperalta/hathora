@@ -60,12 +60,11 @@ const cards = [
 
 const OurCommitment = () => (
 	<Container padding="0 28px" className="mt-5">
-		<div className="text-center">
-			<Line />
-		</div>
-
 		<div className="container">
 			<div className="row">
+				<div className="text-center">
+					<Line />
+				</div>
 				<StyledH2 className="heading--m text-center col-8 mx-auto">
 					We're committed to building a platform that works for you
 				</StyledH2>
