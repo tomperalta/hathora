@@ -5,12 +5,19 @@ import Container from "components/container"
 import styled from "styled-components"
 import Line from "components/about-us/divider"
 
+// Utils
+import breakpoint from "utils/breakpoints/"
+
 const StyledH2 = styled.h2`
 	padding-top: 24px;
 `
 
 const LaunchingGamesAtScale = styled.div`
 	margin: 64px 0;
+
+	${breakpoint.large`
+		margin: 0;
+	`}
 `
 
 const StyledP = styled.p`
@@ -18,28 +25,31 @@ const StyledP = styled.p`
 `
 
 const OurTeam = () => (
-	<Container padding="0 28px">
-		<div className="row justify-content-center align-items-center mt-24">
+	<Container padding="0 28px" className="mt-5 my-lg-5">
+		<div>
 			<div className="d-lg-none text-center">
 				<Line />
 			</div>
 
-			<div className="col-12 col-md-10">
-				<StyledH2 className="heading--m text-center font-weight--500">
-					Our Team
-				</StyledH2>
-				<LaunchingGamesAtScale>
-					<h3 className="heading--m font-weight--500">
-						Launching games at Scale
-					</h3>
-					<StyledP className="text--s">
-						Hathora has enabled millions of players to join live games like
-						Spectre Divide, Splitgate 2, and Stormgate. Improving the
-						operational experience with our marquee orchestration product, game
-						studios save years of engineering time and millions of dollars on
-						building and maintaining their dedicated server infrastructure.
-					</StyledP>
-				</LaunchingGamesAtScale>
+			<div className="container">
+				<div className="row">
+					<StyledH2 className="heading--m text-center font-weight--500 col-lg-3 d-lg-flex align-items-center">
+						Our Team
+					</StyledH2>
+					<LaunchingGamesAtScale className="col-lg-9">
+						<h3 className="heading--s font-weight--500">
+							Launching games at Scale
+						</h3>
+						<StyledP className="text--s">
+							Hathora has enabled millions of players to join live games like
+							Spectre Divide, Splitgate 2, and Stormgate. Improving the
+							operational experience with our marquee orchestration product,
+							game studios save years of engineering time and millions of
+							dollars on building and maintaining their dedicated server
+							infrastructure.
+						</StyledP>
+					</LaunchingGamesAtScale>
+				</div>
 			</div>
 		</div>
 	</Container>
