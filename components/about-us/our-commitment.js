@@ -31,6 +31,12 @@ const StyledCard = styled.div`
 	color: ${colors.grey__200};
 `
 
+const ImageWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+`
+
 const cards = [
 	{
 		image: InventSimplify,
@@ -71,12 +77,14 @@ const OurCommitment = () => (
 				{cards.map((card) => (
 					<div className="col" key={card.title}>
 						<StyledCard>
-							<Image
-								src={card.image}
-								alt={card.title}
-								width="192"
-								height="165"
-							/>
+							<ImageWrapper>
+								<Image
+									src={card.image}
+									alt={card.title}
+									width="192"
+									height="165"
+								/>
+							</ImageWrapper>
 							<StyledH3 className="heading--s">{card.title}</StyledH3>
 							<StyledP className="text--s">{card.description}</StyledP>
 						</StyledCard>
