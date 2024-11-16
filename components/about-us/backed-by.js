@@ -15,6 +15,7 @@ import UpfrontVentures from "../../assets/images/about-us/upfront-ventures.svg"
 import LunarVentures from "../../assets/images/about-us/lunar-ventures.svg"
 
 const StyledH2 = styled.h2`
+	font-size: 2rem;
 	padding: 24px 0 32px 0;
 `
 
@@ -51,15 +52,13 @@ const cards = [
 
 const BackedBy = () => (
 	<Container padding="0 28px">
-		<div className="text-center">
+		<div className="text-center mt-5">
 			<Line />
 		</div>
 
 		<div className="container">
 			<div className="row">
-				<StyledH2 className="heading--m text-center col-8 mx-auto">
-					Backed by
-				</StyledH2>
+				<StyledH2 className="text-center col-8 mx-auto">Backed by</StyledH2>
 			</div>
 		</div>
 
