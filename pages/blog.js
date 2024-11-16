@@ -14,6 +14,7 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/blog/hero"
+import Category from "components/blog/category"
 
 // Sections
 
@@ -34,6 +35,7 @@ const Blog = () => (
 			description="Multiplayer gaming infrastructure"
 		/>
 		<Hero />
+		<Category />
 	</StyledBlog>
 )
 

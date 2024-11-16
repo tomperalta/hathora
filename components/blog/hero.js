@@ -36,12 +36,12 @@ const SubscribeButton = styled.button`
 	color: black;
 	border: none;
 	border-radius: 0.375rem;
-	padding: 0.75rem 1.5rem;
+	// padding: 0.75rem 1.5rem;
 	display: flex;
 	align-items: center;
 `
 
-const HathoraBlog = () => {
+const Hero = () => {
 	const [email, setEmail] = useState("")
 
 	const handleSubmit = (e) => {
@@ -65,22 +65,11 @@ const HathoraBlog = () => {
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-					<SubscribeButton type="submit">
-						Subscribe
-						<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-							<path
-								d="M1 8h14M8 1l7 7-7 7"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
-					</SubscribeButton>
+					<SubscribeButton type="submit">Subscribe</SubscribeButton>
 				</EmailForm>
 			</form>
 		</HeroContainer>
 	)
 }
 
-export default HathoraBlog
+export default Hero
