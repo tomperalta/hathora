@@ -18,10 +18,6 @@ export default createGlobalStyle`
 		)}
   }
 
-  .mt-24 {
-    margin-top: 6rem;
-  } 
-
   .no-scroll {
     overflow: hidden;
   }

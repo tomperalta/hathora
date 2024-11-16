@@ -53,28 +53,34 @@ const cards = [
 ]
 
 const OurCommitment = () => (
-	<Container padding="0 28px">
-		<div className="row justify-content-center align-items-center mt-24">
+	<Container padding="0 28px" className="mt-5">
+		<div className="text-center">
 			<Line />
-			<div className="col-12">
-				<StyledH2 className="heading--m text-center font-weight--500">
+		</div>
+
+		<div className="container">
+			<div className="row">
+				<StyledH2 className="heading--m text-center col-8 mx-auto">
 					We're committed to building a platform that works for you
 				</StyledH2>
 			</div>
-			<div className="row row-cols-2 g-4 mt-24">
+		</div>
+
+		<div className="container mt-5">
+			<div className="row row-cols-1 row-cols-lg-3 g-4">
 				{cards.map((card) => (
-					<StyledCard className="col-12" key={card.title}>
-						<div className="text-center">
+					<div className="col" key={card.title}>
+						<StyledCard>
 							<Image
 								src={card.image}
 								alt={card.title}
 								width="192"
 								height="165"
 							/>
-						</div>
-						<StyledH3 className="heading--m">{card.title}</StyledH3>
-						<StyledP className="text--s">{card.description}</StyledP>
-					</StyledCard>
+							<StyledH3 className="heading--s">{card.title}</StyledH3>
+							<StyledP className="text--s">{card.description}</StyledP>
+						</StyledCard>
+					</div>
 				))}
 			</div>
 		</div>

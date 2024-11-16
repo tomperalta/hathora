@@ -45,7 +45,7 @@ const cards = [
 
 const BackedBy = () => (
 	<Container padding="0 28px">
-		<div className="row justify-content-center align-items-center mt-24">
+		<div className="row justify-content-center align-items-center mt-5">
 			<Line />
 			<StyledH2 className="heading--m text-center font-weight--500">
 				Backed by

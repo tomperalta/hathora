@@ -54,7 +54,7 @@ const teamMembers = [
 	{
 		name: "Justin Chu",
 		image: Justin,
-		title: "Software Engineer",
+		title: "Solutions Engineer",
 	},
 	{
 		name: "George Price",
