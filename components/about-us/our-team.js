@@ -38,7 +38,7 @@ const OurTeam = () => (
 					</StyledH2>
 					<LaunchingGamesAtScale className="col-lg-9">
 						<h3 className="heading--s font-weight--500">
-							Launching games at Scale
+							Launching Games at Scale
 						</h3>
 						<StyledP className="text--s">
 							Hathora has enabled millions of players to join live games like
