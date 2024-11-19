@@ -87,7 +87,7 @@ const CardContent = styled.div`
 const CardTitle = styled.h3`
 	color: ${colors.white};
 	font-size: 1.5rem;
-	margin-bottom: 1rem;
+	margin: 24px 0;
 `
 
 const CardDescription = styled.p`
@@ -109,6 +109,8 @@ const PostAuthor = styled.span`
 
 const PostDate = styled.span`
 	color: ${colors.purple__400};
+	border-left: 2px solid ${colors.purple__400};
+	padding-left: 10px;
 `
 
 const PLACEHOLDER_POSTS = [
@@ -228,9 +230,13 @@ const Category = () => (
 							{post.description}
 						</CardDescription>
 						<CardFooter>
-							<PostAuthor>{post.author}</PostAuthor>
-							<span>|</span>
-							<PostDate>{post.authorDate}</PostDate>
+							<PostAuthor className="text--s font-weight--700">
+								{post.author}
+							</PostAuthor>
+
+							<PostDate className="text--s font-weight--400">
+								{post.authorDate}
+							</PostDate>
 						</CardFooter>
 					</CardContent>
 				</BlogCard>
