@@ -7,6 +7,9 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "assets/styles")],
 	},
+	images: {
+		domains: ["placehold.co"],
+	},
 	async rewrites() {
 		return [
 			{
