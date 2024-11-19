@@ -9,7 +9,7 @@ import styled from "styled-components"
 const NavContainer = styled(Container)`
 	border: 1px solid coral;
 	margin-top: 143px;
-	padding: 24px 0;
+	padding: 1.5rem 0;
 `
 
 export default function Nav() {

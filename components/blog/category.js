@@ -6,13 +6,14 @@ import Divider from "components/divider"
 import Image from "next/image"
 
 const CategoryContainer = styled(Container)`
-	padding: 0 24px;
+	padding: 0 1.5rem;
 `
 
 const CategoryHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 1.5rem;
 `
 
 const CategoryTitle = styled.h2`
@@ -56,18 +57,17 @@ const CardImage = styled.div`
 const BlogGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 2rem;
+	gap: 1.5rem;
 `
 
 const BlogCard = styled.div`
 	background: #151521;
-	border-radius: 24px;
+	border-radius: 1.5rem;
 	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
 	border: 1px solid yellow;
-	padding: 24px;
-	margin-top: 24px;
+	padding: 1.5rem;
 
 	&:hover {
 		transform: translateY(-4px);
@@ -77,7 +77,7 @@ const BlogCard = styled.div`
 const CardHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
 `
 
 const CardContent = styled.div`
@@ -87,7 +87,7 @@ const CardContent = styled.div`
 const CardTitle = styled.h3`
 	color: ${colors.white};
 	font-size: 1.5rem;
-	margin: 24px 0;
+	margin: 1.5rem 0;
 `
 
 const CardDescription = styled.p`

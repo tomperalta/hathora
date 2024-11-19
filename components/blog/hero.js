@@ -9,7 +9,7 @@ import styled from "styled-components"
 import { colors } from "utils/variables"
 
 const HeroContainer = styled(Container)`
-	padding: 120px 24px;
+	padding: 120px 1.5rem;
 `
 
 const Subtitle = styled.p`
