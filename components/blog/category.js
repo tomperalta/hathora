@@ -43,7 +43,7 @@ const BlogCard = styled.div`
 	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
-	border: 2px solid gold;
+	border: 2px solid yellow;
 	padding: 20px;
 
 	&:hover {
@@ -146,8 +146,10 @@ const PLACEHOLDER_POSTS = [
 
 const Category = () => (
 	<CategoryContainer>
-		<Divider />
-		<CategoryHeader className="mt-5">
+		<div className="d-none">
+			<Divider />
+		</div>
+		<CategoryHeader>
 			<CategoryTitle className="heading--m font-weight--500">
 				Changelogs
 			</CategoryTitle>

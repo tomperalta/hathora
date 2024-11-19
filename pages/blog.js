@@ -15,6 +15,7 @@ import SEO from "components/seo"
 // Sections
 import Hero from "components/blog/hero"
 import Category from "components/blog/category"
+import Nav from "components/blog/nav"
 
 // Sections
 
@@ -34,6 +35,7 @@ const Blog = () => (
 			title="Blog | Hathora"
 			description="Multiplayer gaming infrastructure"
 		/>
+		<Nav />
 		<Hero />
 		<Category />
 	</StyledBlog>
