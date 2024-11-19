@@ -5,6 +5,47 @@ import { colors } from "utils/variables"
 import Divider from "components/divider"
 import Image from "next/image"
 
+import BlogPhoto from "assets/images/blog/stormgate.webp"
+
+const PLACEHOLDER_POSTS = [
+	{
+		id: 1,
+		category: "Changelogs",
+		readingTime: "12min reading",
+		date: "June 2024",
+		title: "Introducing: Fleet Management",
+		description:
+			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
+		author: "Gabi Weinberg",
+		authorDate: "Aug 12, 2024",
+		image: BlogPhoto,
+	},
+	{
+		id: 2,
+		category: "Changelogs",
+		readingTime: "12min reading",
+		date: "May 2024",
+		title: "Introducing: Fleet Management",
+		description:
+			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
+		author: "Gabi Weinberg",
+		authorDate: "Aug 12, 2024",
+		image: BlogPhoto,
+	},
+	{
+		id: 3,
+		category: "Changelogs",
+		readingTime: "12min reading",
+		date: "April 2024",
+		title: "Introducing: Fleet Management",
+		description:
+			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
+		author: "Gabi Weinberg",
+		authorDate: "Aug 12, 2024",
+		image: BlogPhoto,
+	},
+]
+
 const CategoryContainer = styled(Container)`
 	padding: 0 1.5rem;
 `
@@ -48,12 +89,6 @@ const ReadingTime = styled.span`
 	align-items: center;
 `
 
-const CardImage = styled.div`
-	padding: 1rem;
-	position: relative;
-	height: 200px;
-`
-
 const BlogGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -79,9 +114,16 @@ const CardHeader = styled.div`
 	justify-content: space-between;
 	margin-bottom: 1.5rem;
 `
+const ImageContainer = styled.div`
+	position: relative;
+	width: 100%;
+	height: 180px;
+	border-radius: 10px;
+	overflow: hidden;
+`
 
 const CardContent = styled.div`
-	padding: 1.5rem;
+	padding-top: 1.5rem;
 `
 
 const CardTitle = styled.h3`
@@ -112,45 +154,6 @@ const PostDate = styled.span`
 	border-left: 2px solid ${colors.purple__400};
 	padding-left: 10px;
 `
-
-const PLACEHOLDER_POSTS = [
-	{
-		id: 1,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "June 2024",
-		title: "Changelogs: June 2024",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: "https://placehold.co/400",
-	},
-	{
-		id: 2,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "May 2024",
-		title: "Changelogs: May 2024",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: "https://placehold.co/400",
-	},
-	{
-		id: 3,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "April 2024",
-		title: "Changelogs: April 2024",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: "https://placehold.co/400",
-	},
-]
 
 const StyledArrowIcon = styled.svg`
 	margin-left: 5px;
@@ -197,7 +200,7 @@ const Category = () => (
 		</div>
 		<CategoryHeader>
 			<CategoryTitle className="heading--m font-weight--700">
-				Changelogs
+				Engineering
 			</CategoryTitle>
 			<ShowAllButton>
 				Show All
@@ -215,15 +218,14 @@ const Category = () => (
 							{post.readingTime}
 						</ReadingTime>
 					</CardHeader>
-					<CardImage>
+					<ImageContainer>
 						<Image
 							src={post.image}
 							alt={post.title}
-							width={300}
-							height={200}
+							fill
 							style={{ objectFit: "cover" }}
 						/>
-					</CardImage>
+					</ImageContainer>
 					<CardContent>
 						<CardTitle>{post.title}</CardTitle>
 						<CardDescription className="d-none">
