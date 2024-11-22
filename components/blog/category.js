@@ -4,47 +4,7 @@ import Container from "components/container/"
 import { colors } from "utils/variables"
 import Divider from "components/divider"
 import Image from "next/image"
-
-import BlogPhoto from "assets/images/blog/stormgate.webp"
-
-const PLACEHOLDER_POSTS = [
-	{
-		id: 1,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "June 2024",
-		title: "Introducing: Fleet Management",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: BlogPhoto,
-	},
-	{
-		id: 2,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "May 2024",
-		title: "Introducing: Fleet Management",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: BlogPhoto,
-	},
-	{
-		id: 3,
-		category: "Changelogs",
-		readingTime: "12min reading",
-		date: "April 2024",
-		title: "Introducing: Fleet Management",
-		description:
-			"For our Enterprise customers, managing compute resources just got easier and more powerful.",
-		author: "Gabi Weinberg",
-		authorDate: "Aug 12, 2024",
-		image: BlogPhoto,
-	},
-]
+import { readingTime } from "@tryghost/helpers"
 
 const CategoryContainer = styled(Container)`
 	padding: 0 1.5rem;
@@ -193,58 +153,68 @@ const ReadingTimeIcon = () => (
 	</StyledReadingTimeIcon>
 )
 
-const Category = () => (
-	<CategoryContainer>
-		<div className="d-none">
-			<Divider />
-		</div>
-		<CategoryHeader>
-			<CategoryTitle className="heading--m font-weight--700">
-				Engineering
-			</CategoryTitle>
-			<ShowAllButton>
-				Show All
-				<ShowAllButtonIcon />
-			</ShowAllButton>
-		</CategoryHeader>
+// eslint-disable-next-line react/prop-types
+const Category = ({ posts = [] }) => {
+	// Function to format date
+	const formatDate = (dateString) => {
+		const date = new Date(dateString)
+		return date.toLocaleDateString("en-US", { month: "long", year: "numeric" })
+	}
 
-		<BlogGrid>
-			{PLACEHOLDER_POSTS.map((post) => (
-				<BlogCard key={post.id}>
-					<CardHeader>
-						<CategoryBadge className="text--xs">{post.category}</CategoryBadge>
-						<ReadingTime className="text--xs">
-							<ReadingTimeIcon />
-							{post.readingTime}
-						</ReadingTime>
-					</CardHeader>
-					<ImageContainer>
-						<Image
-							src={post.image}
-							alt={post.title}
-							fill
-							style={{ objectFit: "cover" }}
-						/>
-					</ImageContainer>
-					<CardContent>
-						<CardTitle>{post.title}</CardTitle>
-						<CardDescription className="d-none">
-							{post.description}
-						</CardDescription>
-						<CardFooter>
-							<PostAuthor className="text--s font-weight--700">
-								{post.author}
-							</PostAuthor>
+	return (
+		<CategoryContainer>
+			<div className="d-none">
+				<Divider />
+			</div>
+			<CategoryHeader>
+				<CategoryTitle>Latest Posts</CategoryTitle>
+				<ShowAllButton>
+					Show all <ShowAllButtonIcon />
+				</ShowAllButton>
+			</CategoryHeader>
 
-							<PostDate className="text--s font-weight--400">
-								{post.authorDate}
-							</PostDate>
-						</CardFooter>
-					</CardContent>
-				</BlogCard>
-			))}
-		</BlogGrid>
-	</CategoryContainer>
-)
+			<BlogGrid>
+				{posts.map((post) => (
+					<BlogCard>
+						<CardHeader>
+							<CategoryBadge>{post.primary_tag?.name || "Blog"}</CategoryBadge>
+							<ReadingTime>
+								<ReadingTimeIcon />
+								{readingTime(post, {
+									minute: "1min",
+									minutes: "%mins",
+								})}
+							</ReadingTime>
+						</CardHeader>
+
+						{post.feature_image && (
+							<ImageContainer>
+								<Image
+									src={post.feature_image}
+									alt={post.title}
+									layout="fill"
+									objectFit="cover"
+								/>
+							</ImageContainer>
+						)}
+
+						<CardContent>
+							<CardTitle>{post.title}</CardTitle>
+							<CardDescription>
+								{post.excerpt || post.custom_excerpt}
+							</CardDescription>
+							<CardFooter>
+								<PostAuthor>
+									{post.primary_author?.name || "Anonymous"}
+								</PostAuthor>
+								<PostDate>{formatDate(post.published_at)}</PostDate>
+							</CardFooter>
+						</CardContent>
+					</BlogCard>
+				))}
+			</BlogGrid>
+		</CategoryContainer>
+	)
+}
 
 export default Category

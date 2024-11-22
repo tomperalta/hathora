@@ -9,7 +9,7 @@ const nextConfig = {
 	},
 	// Todo: Delete images before production
 	images: {
-		domains: ["placehold.co"],
+		domains: ["placehold.co", "blog.hathora.dev", "hathora.com"],
 	},
 	async rewrites() {
 		return [
