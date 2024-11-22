@@ -61,7 +61,7 @@ const BlogCard = styled.div`
 	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
-	border: 1px solid yellow;
+	// border: 1px solid yellow;
 	padding: 1.5rem;
 
 	&:hover {
@@ -118,6 +118,9 @@ const PostDate = styled.span`
 const StyledArrowIcon = styled.svg`
 	margin-left: 5px;
 `
+const StyledReadingTimeIcon = styled.svg`
+	margin-right: 5px;
+`
 
 const ShowAllButtonIcon = () => (
 	<StyledArrowIcon
@@ -136,10 +139,6 @@ const ShowAllButtonIcon = () => (
 	</StyledArrowIcon>
 )
 
-const StyledReadingTimeIcon = styled.svg`
-	margin-right: 5px;
-`
-
 const ReadingTimeIcon = () => (
 	<StyledReadingTimeIcon
 		xmlns="http://www.w3.org/2000/svg"
@@ -154,12 +153,15 @@ const ReadingTimeIcon = () => (
 )
 
 // eslint-disable-next-line react/prop-types
-const Category = ({ posts = [] }) => {
+const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 	// Function to format date
 	const formatDate = (dateString) => {
 		const date = new Date(dateString)
 		return date.toLocaleDateString("en-US", { month: "long", year: "numeric" })
 	}
+
+	// Don't render the category if there are no posts
+	if (posts.length === 0) return null
 
 	return (
 		<CategoryContainer>
@@ -167,7 +169,7 @@ const Category = ({ posts = [] }) => {
 				<Divider />
 			</div>
 			<CategoryHeader>
-				<CategoryTitle>Latest Posts</CategoryTitle>
+				<CategoryTitle>{tagName}</CategoryTitle>
 				<ShowAllButton>
 					Show all <ShowAllButtonIcon />
 				</ShowAllButton>
@@ -175,9 +177,9 @@ const Category = ({ posts = [] }) => {
 
 			<BlogGrid>
 				{posts.map((post) => (
-					<BlogCard>
+					<BlogCard key={post.id}>
 						<CardHeader>
-							<CategoryBadge>{post.primary_tag?.name || "Blog"}</CategoryBadge>
+							<CategoryBadge>{post.primary_tag?.name || tagName}</CategoryBadge>
 							<ReadingTime>
 								<ReadingTimeIcon />
 								{readingTime(post, {
@@ -200,7 +202,7 @@ const Category = ({ posts = [] }) => {
 
 						<CardContent>
 							<CardTitle>{post.title}</CardTitle>
-							<CardDescription>
+							<CardDescription className="d-none">
 								{post.excerpt || post.custom_excerpt}
 							</CardDescription>
 							<CardFooter>

@@ -1,6 +1,6 @@
 import React from "react"
 
-const Divider = () => {
+const Line = () => {
 	// Generate a unique ID for each instance
 	const uniqueId = React.useId()
 	const gradientId = `paint-linear-${uniqueId}`
@@ -41,4 +41,4 @@ const Divider = () => {
 	)
 }
 
-export default Divider
+export default Line
