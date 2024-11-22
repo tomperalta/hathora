@@ -5,6 +5,7 @@ import { colors } from "utils/variables"
 import Divider from "components/divider"
 import Image from "next/image"
 import { readingTime } from "@tryghost/helpers"
+import Link from "next/link"
 
 const CategoryContainer = styled(Container)`
 	padding: 0 1.5rem;
@@ -177,42 +178,46 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 
 			<BlogGrid>
 				{posts.map((post) => (
-					<BlogCard key={post.id}>
-						<CardHeader>
-							<CategoryBadge>{post.primary_tag?.name || tagName}</CategoryBadge>
-							<ReadingTime>
-								<ReadingTimeIcon />
-								{readingTime(post, {
-									minute: "1min",
-									minutes: "%mins",
-								})}
-							</ReadingTime>
-						</CardHeader>
+					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
+						<BlogCard>
+							<CardHeader>
+								<CategoryBadge>
+									{post.primary_tag?.name || tagName}
+								</CategoryBadge>
+								<ReadingTime>
+									<ReadingTimeIcon />
+									{readingTime(post, {
+										minute: "1min",
+										minutes: "%mins",
+									})}
+								</ReadingTime>
+							</CardHeader>
 
-						{post.feature_image && (
-							<ImageContainer>
-								<Image
-									src={post.feature_image}
-									alt={post.title}
-									layout="fill"
-									objectFit="cover"
-								/>
-							</ImageContainer>
-						)}
+							{post.feature_image && (
+								<ImageContainer>
+									<Image
+										src={post.feature_image}
+										alt={post.title}
+										layout="fill"
+										objectFit="cover"
+									/>
+								</ImageContainer>
+							)}
 
-						<CardContent>
-							<CardTitle>{post.title}</CardTitle>
-							<CardDescription className="d-none">
-								{post.excerpt || post.custom_excerpt}
-							</CardDescription>
-							<CardFooter>
-								<PostAuthor>
-									{post.primary_author?.name || "Anonymous"}
-								</PostAuthor>
-								<PostDate>{formatDate(post.published_at)}</PostDate>
-							</CardFooter>
-						</CardContent>
-					</BlogCard>
+							<CardContent>
+								<CardTitle>{post.title}</CardTitle>
+								<CardDescription className="d-none">
+									{post.excerpt || post.custom_excerpt}
+								</CardDescription>
+								<CardFooter>
+									<PostAuthor>
+										{post.primary_author?.name || "Anonymous"}
+									</PostAuthor>
+									<PostDate>{formatDate(post.published_at)}</PostDate>
+								</CardFooter>
+							</CardContent>
+						</BlogCard>
+					</Link>
 				))}
 			</BlogGrid>
 		</CategoryContainer>
