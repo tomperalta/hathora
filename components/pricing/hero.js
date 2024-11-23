@@ -42,11 +42,6 @@ const StyledHero = styled.section`
 		padding: 24px;
 		border-radius: 24px;
 		display: block;
-		max-width: 360px !important;
-
-		${breakpoints.medium`
-			max-width: 460px !important;
-		`}
 	}
 	.cards {
 		display: flex;
@@ -63,6 +58,14 @@ const StyledHero = styled.section`
 
 		.gradient-text {
 			background: linear-gradient(180deg, #ae69eb 0%, #2afc61 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			color: transparent;
+		}
+
+		.gradient-text-reverse {
+			background: linear-gradient(180deg, #2afc61 0%, #ae69eb 100%);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;
@@ -134,7 +137,7 @@ const Hero = () => {
 			title: "Explore",
 			tagline: "Integrate & evaluate",
 			cta: {
-				label: "Sign up for free",
+				label: "Get started for free",
 				url: "https://console.hathora.dev/login",
 				theme: "outline",
 			},
@@ -163,13 +166,17 @@ const Hero = () => {
 				url: "https://calendly.com/dsiddharth/30min",
 				theme: "fill",
 			},
-			features: ["Usage-based pricing", "Dedicated hardware", "Cloud"],
+			features: [
+				"Usage-based pricing",
+				"Dedicated hardware",
+				"Cloud on-demand",
+			],
 			key_features_title: "Key Features",
 			key_features: [
 				"Uncapped usage",
 				"Business hours support",
 				"Fleet management & autoscaling",
-				"Eager caching for builds",
+				"Fast launches with eager caching",
 			],
 		},
 		{
@@ -184,16 +191,17 @@ const Hero = () => {
 			features: [
 				"Usage-based pricing",
 				"Dedicated hardware",
-				"Bare Metal + Cloud burst",
+				"Cloud on-demand",
+				"Bare Metal reservations",
 			],
 			key_features_title: "Key Features",
 			key_features: [
 				"Includes all Pro tier features",
 				"Dedicated account team",
-				"Priority technical support",
+				"24/7 priority support",
 				"Advanced DDoS protection",
 				"Custom hardware profiles",
-				"Advanced configuration",
+				"Advanced telemetry",
 			],
 		},
 	]
@@ -205,7 +213,7 @@ const Hero = () => {
 					<div className="col-12 col-md-12">
 						<div className="t">
 							<h1 className="heading heading--m font-weight--500 mb-3">
-								AAA quality scale, usage-based pricing
+								AAA scale, usage-based pricing
 							</h1>
 
 							<p className="text--l mb-3">
@@ -214,15 +222,22 @@ const Hero = () => {
 							</p>
 						</div>
 					</div>
+
 					<div className="col-12">
 						<div className="d-flex align-items-center justify-content-center mt-5 mb-3">
 							<div className="info-card">
 								Learn{" "}
-								<a href="#pricing-faq" className="inline-link">
+								<a
+									href="https://hathora.dev/docs/pricing-billing"
+									className="inline-link"
+								>
 									how our pricing works
 								</a>{" "}
 								or{" "}
-								<a href="#cost-faq" className="inline-link">
+								<a
+									href="https://hathora.dev/docs/pricing-billing#how-hathora-helps-you-optimize-server-costs"
+									className="inline-link"
+								>
 									how Hathora helps optimize costs
 								</a>
 							</div>
@@ -239,7 +254,10 @@ const Hero = () => {
 										<div>
 											<p
 												className={`text--xl mb-2 font-weight--600 text-uppercase text-center ${
-													plan.highlight && "gradient-text"
+													plan.highlight &&
+													(plan.title === "Pro"
+														? "gradient-text"
+														: "gradient-text-reverse")
 												}`}
 											>
 												{plan.title}

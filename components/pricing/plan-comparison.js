@@ -395,6 +395,15 @@ const PlanComparison = () => (
 
 			{/* Desktop Table:start */}
 			<div className="wrapper d-none d-md-block">
+				<div className="row justify-content-center text-center">
+					<div className="col-12 col-md-12">
+						<div className="t">
+							<h2 className="heading--sm mb-5">
+								Compare and choose the best option for you:
+							</h2>
+						</div>
+					</div>
+				</div>
 				<table>
 					<thead className="text-uppercase">
 						<tr>

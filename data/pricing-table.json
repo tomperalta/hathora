@@ -130,13 +130,13 @@
 						"text": "Hardware isolation"
 					},
 					{
-						"text": "Shared hardware (multitenant)"
+						"text": "Shared hardware (multi-tenant)"
 					},
 					{
-						"text": "Dedicated hardware (single tenant)"
+						"text": "Dedicated hardware (single-tenant)"
 					},
 					{
-						"text": "Dedicated hardware (single tenant)"
+						"text": "Dedicated hardware (single-tenant)"
 					}
 				]
 			},
@@ -194,7 +194,7 @@
 						"text": "Accelerated container start time"
 					},
 					{
-						"text": "Fast (<5s), cold start after new deployment"
+						"text": "Fast, best effort"
 					},
 					{
 						"text": "Accelerated (<3s), eager caching for builds"
@@ -237,7 +237,7 @@
 						"text": "0.5vCPU - 4vCPU"
 					},
 					{
-						"text": "0.3vCPU - 20vCPU"
+						"text": "0.3vCPU - 60vCPU"
 					}
 				]
 			},
@@ -306,7 +306,7 @@
 						"text": "10GB"
 					},
 					{
-						"text": "10GB"
+						"text": "Unlimited"
 					}
 				]
 			},
