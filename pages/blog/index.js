@@ -58,7 +58,7 @@ const Blog = ({ categorizedPosts }) => (
 	</StyledBlog>
 )
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -98,13 +98,15 @@ export const getServerSideProps = async () => {
 			props: {
 				categorizedPosts: categorizedPosts || [],
 			},
+			revalidate: 3600, // Revalidate every hour
 		}
 	} catch (error) {
-		console.error("Error fetching posts:", error)
+		console.error("Error fetching blog posts:", error)
 		return {
 			props: {
 				categorizedPosts: [],
 			},
+			revalidate: 3600,
 		}
 	}
 }

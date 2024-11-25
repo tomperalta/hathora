@@ -178,7 +178,31 @@ const BlogPost = ({ post }) => {
 	)
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticPaths = async () => {
+	const api = new GhostContentAPI({
+		url: process.env.GHOST_URL,
+		key: process.env.GHOST_CONTENT_API_KEY,
+		version: "v5.0",
+	})
+
+	// Get all posts
+	const posts = await api.posts.browse({
+		limit: "all",
+		fields: "slug",
+	})
+
+	// Create paths for each post
+	const paths = posts.map((post) => ({
+		params: { slug: post.slug },
+	}))
+
+	return {
+		paths,
+		fallback: "blocking", // Show a loading state
+	}
+}
+
+export const getStaticProps = async ({ params }) => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -193,15 +217,15 @@ export const getServerSideProps = async ({ params }) => {
 
 		return {
 			props: {
-				post: post || null,
+				post,
 			},
+			revalidate: 3600, // Revalidate every hour
 		}
 	} catch (error) {
 		console.error("Error fetching blog post:", error)
 		return {
-			props: {
-				post: null,
-			},
+			notFound: true, // This will show a 404 page
+			revalidate: 3600,
 		}
 	}
 }
