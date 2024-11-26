@@ -42,12 +42,15 @@ const CategoryBadge = styled.span`
 	padding: 4px 12px;
 	color: ${colors.white};
 	border: 1px solid ${colors.white};
+	line-height: normal;
+	font-size: 14px;
 `
 
 const ReadingTime = styled.span`
 	color: ${colors.grey__400};
 	display: flex;
 	align-items: center;
+	font-size: 14px;
 `
 
 const BlogGrid = styled.div`
