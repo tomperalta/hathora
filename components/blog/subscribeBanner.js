@@ -3,7 +3,13 @@ import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 
+import EmailForm from "components/blog/emailForm"
+import Divider from "components/divider"
 import Container from "../container"
+
+const DividerContainer = styled.div`
+	margin: 24px 0;
+`
 
 const SubscribeContainer = styled(Container)`
 	background-color: ${colors.grey__700};
@@ -40,14 +46,19 @@ const Subtitle = styled.p`
 
 export default function SubscribeBanner() {
 	return (
-		<SubscribeContainer>
-			<SubscribeHeadingContainer>
-				<SubscribeHeading>
-					<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to our blog
-				</SubscribeHeading>
-				<Subtitle>Learn more about the gaming industry</Subtitle>
-			</SubscribeHeadingContainer>
-			<div>Subscribe input goes here!</div>
-		</SubscribeContainer>
+		<>
+			<DividerContainer className="d-none d-md-block text-center">
+				<Divider />
+			</DividerContainer>
+			<SubscribeContainer>
+				<SubscribeHeadingContainer>
+					<SubscribeHeading>
+						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to our blog
+					</SubscribeHeading>
+					<Subtitle>Learn more about the gaming industry</Subtitle>
+				</SubscribeHeadingContainer>
+				<EmailForm />
+			</SubscribeContainer>
+		</>
 	)
 }
