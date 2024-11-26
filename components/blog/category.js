@@ -210,10 +210,12 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 									{post.excerpt || post.custom_excerpt}
 								</CardDescription>
 								<CardFooter>
-									<PostAuthor>
+									<PostAuthor className="text--s font-weight--700">
 										{post.primary_author?.name || "Anonymous"}
 									</PostAuthor>
-									<PostDate>{formatDate(post.published_at)}</PostDate>
+									<PostDate className="text--s">
+										{formatDate(post.published_at)}
+									</PostDate>
 								</CardFooter>
 							</CardContent>
 						</BlogCard>
