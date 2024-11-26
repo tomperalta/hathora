@@ -9,7 +9,7 @@ import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
 
 const HeroContainer = styled(Container)`
-	padding: 120px 24px;
+	padding: 160px 24px;
 `
 const HeroHeadingContainer = styled.div`
 	line-height: 64px;

@@ -170,7 +170,7 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 				<Divider />
 			</div>
 			<CategoryHeader>
-				<CategoryTitle>{tagName}</CategoryTitle>
+				<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
 				<ShowAllButton>
 					Show all <ShowAllButtonIcon />
 				</ShowAllButton>

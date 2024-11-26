@@ -7,9 +7,9 @@ const Line = () => {
 
 	return (
 		<svg
-			width="420"
+			width="500"
 			height="4"
-			viewBox="0 0 420 4"
+			viewBox="0 0 500 4"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>

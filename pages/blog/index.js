@@ -42,6 +42,9 @@ const Blog = ({ categorizedPosts }) => (
 		/>
 		<Nav categorizedPosts={categorizedPosts} />
 		<Hero />
+		<DividerContainer className="d-none d-md-block text-center">
+			<Divider />
+		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
 		{categorizedPosts.map((category) => (
 			<React.Fragment key={category.tag.id}>
@@ -50,7 +53,7 @@ const Blog = ({ categorizedPosts }) => (
 					posts={category.posts}
 					tagName={category.tag.name}
 				/>
-				<DividerContainer>
+				<DividerContainer className="text-center">
 					<Divider />
 				</DividerContainer>
 			</React.Fragment>
