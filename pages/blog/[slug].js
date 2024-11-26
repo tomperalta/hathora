@@ -5,6 +5,7 @@ import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
 import PropTypes from "prop-types"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 const StyledBlogPost = styled.div`
 	padding: 120px 24px;
@@ -19,12 +20,20 @@ const HeroHeading = styled.div`
 	padding: 100px 0;
 	text-align: center;
 	line-height: 44px;
+
+	${breakpoint.medium`
+    margin: 0 auto;
+    padding: 80px 0;
+    text-align: center;
+    line-height: 64px;
+    max-width: 768px;
+    font-size: 48px;
+  `}
 `
 
 const ArticleContent = styled.article`
-	// margin: 2rem auto;
-	max-width: 768px;
-	font-size: 1.125rem;
+	margin: 2rem auto;
+	max-width: 625px;
 	line-height: 1.7;
 	color: ${colors.white};
 
@@ -41,11 +50,22 @@ const ArticleContent = styled.article`
 
 	h1 {
 		font-size: 2.5rem;
+
+		${breakpoint.medium`
+    font-size: 1.5rem;
+  `}
 	}
 
 	h2 {
 		font-size: 20px;
 		font-weight: 700;
+
+		${breakpoint.medium`
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 44px;
+    `}
 	}
 
 	h3 {
@@ -66,6 +86,13 @@ const ArticleContent = styled.article`
 		font-weight: 400;
 		line-height: 24px;
 		margin-bottom: 1.5rem;
+
+		${breakpoint.medium`
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+    `}
 	}
 
 	a {
@@ -110,7 +137,7 @@ const BlogPost = ({ post }) => {
 			/>
 
 			<HeroHeading>
-				<h1 className="heading--l font-weight--500">{post.title}</h1>
+				<h1>{post.title}</h1>
 			</HeroHeading>
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
