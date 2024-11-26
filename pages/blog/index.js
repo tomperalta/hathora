@@ -47,14 +47,14 @@ const Blog = ({ categorizedPosts }) => (
 			<Divider />
 		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
-		{categorizedPosts.map((category) => (
+		{categorizedPosts.map((category, index) => (
 			<React.Fragment key={category.tag.id}>
 				<Category
 					key={category.tag.id}
 					posts={category.posts}
 					tagName={category.tag.name}
 				/>
-				<SubscribeBanner />
+				{index === 1 && <SubscribeBanner />}
 				<DividerContainer className="text-center">
 					<Divider />
 				</DividerContainer>
