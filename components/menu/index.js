@@ -406,8 +406,7 @@ const Menu = () => {
 		},
 		{
 			label: "Blog",
-			url: "https://blog.hathora.dev/",
-			external: true,
+			url: "/blog",
 		},
 	]
 
