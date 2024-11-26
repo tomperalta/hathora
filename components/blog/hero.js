@@ -5,21 +5,41 @@ import Container from "components/container/"
 
 // Libraries
 import styled from "styled-components"
-
+import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
 
 const HeroContainer = styled(Container)`
-	padding: 120px 1.5rem;
+	padding: 120px 24px;
+`
+const HeroHeadingContainer = styled.div`
+	line-height: 64px;
+	margin: 0 auto;
+	max-width: 420px;
+	text-align: center;
+`
+
+const HeroHeading = styled.div`
+	color: ${colors.grey__200};
+	font-size: 32px;
+	line-height: 44px;
+
+	${breakpoint.medium`
+    font-size: 48px;
+    line-height: 4rem;
+  `}
 `
 
 const Subtitle = styled.p`
-	color: ${colors.white};
-	font-size: 1rem;
+	color: ${colors.grey__300};
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 400;
 `
 
 const EmailForm = styled.div`
 	display: flex;
-	margin-bottom: 3rem;
+	margin: 32px auto 0;
+	max-width: 420px;
 `
 
 const EmailInput = styled.input`
@@ -65,11 +85,6 @@ const ArrowRightIcon = () => (
 	</StyledArrowIcon>
 )
 
-const HeroHeading = styled.div`
-	margin-bottom: 2rem;
-	text-align: center;
-`
-
 const Hero = () => {
 	const [email, setEmail] = useState("")
 
@@ -81,10 +96,10 @@ const Hero = () => {
 
 	return (
 		<HeroContainer>
-			<HeroHeading>
-				<h1 className="heading--l font-weight--500">The Hathora Blog</h1>
+			<HeroHeadingContainer>
+				<HeroHeading>The Hathora Blog</HeroHeading>
 				<Subtitle>Learn more about the gaming industry</Subtitle>
-			</HeroHeading>
+			</HeroHeadingContainer>
 			<form onSubmit={handleSubmit}>
 				<EmailForm>
 					<EmailInput
