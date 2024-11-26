@@ -17,9 +17,10 @@ const StyledBlogPost = styled.div`
 `
 const HeroHeading = styled.div`
 	margin: 0 auto;
-	padding: 100px 0;
+	padding: 80px 0;
 	text-align: center;
 	line-height: 44px;
+	font-size: 32px;
 
 	${breakpoint.medium`
     margin: 0 auto;
