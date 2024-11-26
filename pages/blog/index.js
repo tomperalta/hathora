@@ -13,6 +13,7 @@ import breakpoint from "utils/breakpoints/"
 // Components
 import SEO from "components/seo"
 import Divider from "components/divider"
+import SubscribeBanner from "components/blog/subscribeBanner"
 
 // Sections
 import Hero from "components/blog/hero"
@@ -53,6 +54,7 @@ const Blog = ({ categorizedPosts }) => (
 					posts={category.posts}
 					tagName={category.tag.name}
 				/>
+				<SubscribeBanner />
 				<DividerContainer className="text-center">
 					<Divider />
 				</DividerContainer>
