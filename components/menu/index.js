@@ -99,7 +99,7 @@ const StyledMenu = styled.nav`
 			height: 100%;
 			padding: 32px 28px 32px 48px;
 			margin-left: auto;
-			background-color: ${colors.grey__700};
+			background-color: var(--background);
 			transform: translateX(100%);
 			transition: all 0.2s ease 0.1s;
 

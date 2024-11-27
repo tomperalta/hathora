@@ -26,19 +26,22 @@ export default createGlobalStyle`
     height: -webkit-fill-available;
   }
 
-  [data-theme="light"] {
-    body {
-      background-color: #F8FAFC;
-      color: ${colors.grey__700};
-    }
+  [data-theme='light'] {
+    --background: #f8fafc;
+    --text: ${colors.grey__700};
+  }
+
+  [data-theme='dark'] {
+    --background: ${colors.grey__700};
+    --text: ${colors.grey__200};
   }
 
   body {
     width: 100vw;
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: ${colors.grey__700};
-    color: ${colors.grey__200};
+    background-color: var(--background);
+    color: var(--text);
     font-family: "Space Grotesk", sans-serif !important;
     font-size: 1.25rem;
     line-height: 1.4em;
