@@ -1,4 +1,5 @@
 import React from "react"
+import ThemeToggle from "components/theme-toggle"
 
 // Components
 import Container from "components/container/"
@@ -12,6 +13,10 @@ const NavContainer = styled(Container)`
 	border-bottom: 1px solid ${colors.grey__500};
 	margin-top: 143px;
 	max-width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 160px;
 `
 
 const CategoryBadge = styled.span`
@@ -28,7 +33,6 @@ const TagsContainer = styled.div`
 	display: flex;
 	gap: 12px;
 	flex-wrap: wrap;
-	padding: 24px 160px;
 `
 
 // eslint-disable-next-line react/prop-types
@@ -43,6 +47,7 @@ export default function Nav({ categorizedPosts }) {
 					</CategoryBadge>
 				))}
 			</TagsContainer>
+			<ThemeToggle />
 		</NavContainer>
 	)
 }
