@@ -26,6 +26,13 @@ export default createGlobalStyle`
     height: -webkit-fill-available;
   }
 
+  [data-theme="light"] {
+    body {
+      background-color: #F8FAFC;
+      color: ${colors.grey__700};
+    }
+  }
+
   body {
     width: 100vw;
     min-height: 100vh;
