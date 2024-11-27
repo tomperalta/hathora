@@ -18,7 +18,7 @@ import "assets/styles/main.scss"
 
 const MyApp = ({ Component, pageProps }) => (
 	<Provider store={store}>
-		<ThemeProvider>
+		<ThemeProvider disableTransitionOnChange>
 			<Script
 				strategy="lazyOnload"
 				src="https://www.googletagmanager.com/gtag/js?id=G-X3F6VCK20S"
