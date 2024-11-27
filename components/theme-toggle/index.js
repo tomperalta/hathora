@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
 function SunIcon(props) {
@@ -91,18 +91,9 @@ const StyledMoonIcon = styled(({ resolvedTheme, ...props }) => (
 export default function ThemeToggle() {
 	const { resolvedTheme, setTheme } = useTheme()
 	const otherTheme = resolvedTheme === "dark" ? "light" : "dark"
-	const [mounted, setMounted] = useState(false)
-
-	useEffect(() => {
-		setMounted(true)
-	}, [])
 
 	return (
-		<StyledButton
-			type="button"
-			aria-label={mounted ? `Switch to ${otherTheme} theme` : "Toggle theme"}
-			onClick={() => setTheme(otherTheme)}
-		>
+		<StyledButton type="button" onClick={() => setTheme(otherTheme)}>
 			<StyledSunIcon resolvedTheme={resolvedTheme} />
 			<StyledMoonIcon resolvedTheme={resolvedTheme} />
 		</StyledButton>
