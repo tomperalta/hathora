@@ -17,8 +17,8 @@ import "assets/styles/reset.css"
 import "assets/styles/main.scss"
 
 const MyApp = ({ Component, pageProps }) => (
-	<ThemeProvider>
-		<Provider store={store}>
+	<Provider store={store}>
+		<ThemeProvider>
 			<Script
 				strategy="lazyOnload"
 				src="https://www.googletagmanager.com/gtag/js?id=G-X3F6VCK20S"
@@ -79,8 +79,8 @@ const MyApp = ({ Component, pageProps }) => (
 			<PrimaryLayout>
 				<Component {...pageProps} />
 			</PrimaryLayout>
-		</Provider>
-	</ThemeProvider>
+		</ThemeProvider>
+	</Provider>
 )
 
 MyApp.propTypes = {
