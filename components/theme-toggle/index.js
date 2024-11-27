@@ -61,14 +61,17 @@ const StyledButton = styled.button`
 const StyledSunIcon = styled(SunIcon)`
 	height: 1.5rem;
 	width: 1.5rem;
-	fill: ${(props) => (props.theme.mode === "dark" ? "none" : "#fafafa")};
-	stroke: ${(props) => (props.theme.mode === "dark" ? "#10b981" : "#6b7280")};
+	fill: ${(props) => (props.resolvedTheme === "dark" ? "none" : "#fafafa")};
+	stroke: ${(props) =>
+		props.resolvedTheme === "dark" ? "#10b981" : "#6b7280"};
 	transition: all 0.2s;
-	display: ${(props) => (props.theme.mode === "dark" ? "none" : "block")};
+	display: ${(props) => (props.resolvedTheme === "dark" ? "none" : "block")};
 
 	${StyledButton}:hover & {
-		fill: ${(props) => (props.theme.mode === "dark" ? "#f0fdf4" : "#e5e7eb")};
-		stroke: ${(props) => (props.theme.mode === "dark" ? "#14b8a6" : "#374151")};
+		fill: ${(props) =>
+			props.resolvedTheme === "dark" ? "#f0fdf4" : "#e5e7eb"};
+		stroke: ${(props) =>
+			props.resolvedTheme === "dark" ? "#14b8a6" : "#374151"};
 	}
 `
 
@@ -78,7 +81,7 @@ const StyledMoonIcon = styled(MoonIcon)`
 	fill: #374151;
 	stroke: #6b7280;
 	transition: all 0.2s;
-	display: ${(props) => (props.theme.mode === "dark" ? "block" : "none")};
+	display: ${(props) => (props.resolvedTheme === "dark" ? "block" : "none")};
 `
 
 export default function ThemeToggle() {
@@ -96,8 +99,8 @@ export default function ThemeToggle() {
 			aria-label={mounted ? `Switch to ${otherTheme} theme` : "Toggle theme"}
 			onClick={() => setTheme(otherTheme)}
 		>
-			<StyledSunIcon />
-			<StyledMoonIcon />
+			<StyledSunIcon resolvedTheme={resolvedTheme} />
+			<StyledMoonIcon resolvedTheme={resolvedTheme} />
 		</StyledButton>
 	)
 }
