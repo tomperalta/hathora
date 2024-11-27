@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Container from "components/container/"
-import { colors } from "utils/variables"
+import { colors, blogColors } from "utils/variables"
 import Divider from "components/divider"
 import Image from "next/image"
 import { readingTime } from "@tryghost/helpers"
@@ -60,7 +60,7 @@ const BlogGrid = styled.div`
 `
 
 const BlogCard = styled.div`
-	background: #151521;
+	background: ${blogColors.grey_600};
 	border-radius: 1.5rem;
 	overflow: hidden;
 	transition: transform 0.2s;

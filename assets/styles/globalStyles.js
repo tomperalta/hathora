@@ -4,7 +4,7 @@ import { createGlobalStyle, css } from "styled-components"
 // Utils
 import breakpoint from "utils/breakpoints/"
 import helpers from "utils/helpers"
-import { colors } from "utils/variables"
+import { colors, blogColors } from "utils/variables"
 
 // Icons
 import IconDottedSeparator from "assets/icons/icon-dotted-separator.svg"
@@ -29,11 +29,17 @@ export default createGlobalStyle`
   [data-theme='light'] {
     --background: #f8fafc;
     --text: ${colors.grey__700};
+    --menu-text: ${blogColors.grey__600};
+    --menu-text-active: ${colors.purple__600};
+    --button-theme-outline: ${colors.grey__700};
   }
 
   [data-theme='dark'] {
     --background: ${colors.grey__700};
     --text: ${colors.grey__200};
+    --menu-text: ${colors.grey__400};
+    --menu-text-active: ${colors.green__500};
+    --button-theme-outline: ${colors.green__500};
   }
 
   body {

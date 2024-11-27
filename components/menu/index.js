@@ -182,7 +182,7 @@ const StyledMenu = styled.nav`
 			position: relative;
 			display: inline-flex;
 			align-items: center;
-			color: ${colors.grey__400};
+			color: var(--menu-text);
 			font-size: 1.25rem;
 			font-weight: 600;
 			line-height: 1.4em;
@@ -215,7 +215,7 @@ const StyledMenu = styled.nav`
 			}
 
 			&--active {
-				color: ${colors.green__500};
+				color: var(--menu-text-active);
 			}
 
 			svg {
