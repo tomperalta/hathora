@@ -58,7 +58,9 @@ const StyledButton = styled.button`
 	}
 `
 
-const StyledSunIcon = styled(SunIcon)`
+const StyledSunIcon = styled(({ resolvedTheme, ...props }) => (
+	<SunIcon {...props} />
+))`
 	height: 1.5rem;
 	width: 1.5rem;
 	fill: ${(props) => (props.resolvedTheme === "dark" ? "none" : "#fafafa")};
@@ -75,7 +77,9 @@ const StyledSunIcon = styled(SunIcon)`
 	}
 `
 
-const StyledMoonIcon = styled(MoonIcon)`
+const StyledMoonIcon = styled(({ resolvedTheme, ...props }) => (
+	<MoonIcon {...props} />
+))`
 	height: 1.5rem;
 	width: 1.5rem;
 	fill: #374151;
