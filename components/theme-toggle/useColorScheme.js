@@ -13,6 +13,7 @@ export default function useColorScheme() {
 	)
 
 	const [isDark, setIsDark] = useColorSchemeState()
+	console.log("🚀 ~ file: useColorScheme.js:16 ~ isDark:", isDark)
 	const value = useMemo(
 		() => (isDark === undefined ? !!systemPrefersDark : isDark),
 		[isDark, systemPrefersDark]
