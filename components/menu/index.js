@@ -14,6 +14,7 @@ import Image from "next/image"
 // Components
 import Container from "components/container"
 import Button from "components/button"
+import Logo from "components/logo"
 
 // Utils
 import { colors } from "utils/variables"
@@ -452,13 +453,7 @@ const Menu = () => {
 			>
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">
-						<Image
-							src={IconLogo}
-							className="logo"
-							width="230"
-							height="40"
-							alt=""
-						/>
+						<Logo />
 					</a>
 				</Link>
 
