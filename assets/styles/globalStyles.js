@@ -42,6 +42,9 @@ export default createGlobalStyle`
     --hero-sub-heading: ${blogColors.grey__600};
     --hero-subscribe-btn: ${colors.purple__600};
     --hero-subscribe-text: ${colors.grey__200};
+    --category-title: ${colors.grey__700};
+    --category-background:  invisible;
+    --category-badge-color: ${colors.grey__700};
   }
 
   [data-theme='dark'] {
@@ -60,6 +63,9 @@ export default createGlobalStyle`
     --hero-sub-heading: ${colors.grey__300};
     --hero-subscribe-btn: ${colors.green__500};
     --hero-subscribe-text: black;
+    --category-title: ${colors.purple__400};
+    --category-background:  ${colors.grey__550};
+    --category-badge-color: ${colors.white};
   }
 
   body {
