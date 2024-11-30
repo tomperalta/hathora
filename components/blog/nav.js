@@ -2,6 +2,7 @@ import React from "react"
 import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
+import breakpoint from "utils/breakpoints/"
 
 const NavContainer = styled(Container)`
 	border-top: 1px solid var(--nav-border);
@@ -11,7 +12,11 @@ const NavContainer = styled(Container)`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 24px 160px;
+	padding: 16px 24px;
+
+	${breakpoint.medium`
+    padding: 24px 160px;
+  `}
 `
 
 const CategoryBadge = styled.span`
