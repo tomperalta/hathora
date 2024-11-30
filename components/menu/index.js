@@ -290,7 +290,7 @@ const StyledMenu = styled.nav`
 				width: 100%;
 				height: 2px;
 				margin-bottom: 3px;
-				background-color: ${colors.grey__200};
+				background-color: var(--hamburger-menu-color);
 				border-radius: 4px;
 
 				&:last-child {

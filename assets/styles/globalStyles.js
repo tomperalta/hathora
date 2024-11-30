@@ -48,6 +48,7 @@ export default createGlobalStyle`
     --footer-email: ${colors.grey__700};
     --footer-privacy-link: ${colors.grey__500};
     --blog-date: ${colors.purple__600};
+    --hamburger-menu-color: ${blogColors.grey__600};
   }
 
   [data-theme='dark'] {
@@ -72,6 +73,7 @@ export default createGlobalStyle`
     --footer-email: ${colors.green__500};
     --footer-privacy-link: ${colors.grey__300};
     --blog-date: ${colors.purple__400};
+    --hamburger-menu-color: ${colors.grey__200};
   }
 
   body {

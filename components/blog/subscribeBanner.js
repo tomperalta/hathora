@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import EmailForm from "components/blog/emailForm"
 import Divider from "components/divider"
+import breakpoint from "utils/breakpoints/"
 import Container from "../container"
 
 const DividerContainer = styled.div`
@@ -9,10 +10,13 @@ const DividerContainer = styled.div`
 `
 
 const SubscribeContainer = styled(Container)`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	padding: 50px 24px;
+
+	${breakpoint.medium`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `}
 `
 const SubscribeHeadingContainer = styled.div`
 	max-width: 100%;
