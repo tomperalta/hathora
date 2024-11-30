@@ -42,7 +42,7 @@ export default function Nav({ categorizedPosts }) {
 			<TagsContainer>
 				{/* eslint-disable-next-line react/prop-types */}
 				{categorizedPosts?.map((category) => (
-					<CategoryBadge key={category.tag.id}>
+					<CategoryBadge key={category.tag.id} className="d-none d-sm-flex">
 						<svg
 							width="4"
 							height="4"
