@@ -2,7 +2,6 @@ import React from "react"
 import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
-import { blogColors } from "utils/variables"
 
 const NavContainer = styled(Container)`
 	border-top: 1px solid var(--nav-border);
@@ -18,8 +17,8 @@ const NavContainer = styled(Container)`
 const CategoryBadge = styled.span`
 	border-radius: 8px;
 	padding: 4px 8px;
-	color: ${blogColors.grey__600};
-	border: 1px solid ${blogColors.grey__600};
+	color: var(--nav-badge);
+	border: 1px solid var(--nav-badge);
 	font-size: 14px;
 	font-weight: 400;
 	line-height: normal;
@@ -51,7 +50,12 @@ export default function Nav({ categorizedPosts }) {
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<rect width="4" height="4" rx="2" fill="#AF64EE" />
+							<rect
+								width="4"
+								height="4"
+								rx="2"
+								fill="var(--nav-badge-circle)"
+							/>
 						</svg>
 
 						<CategoryBadgeName>{category.tag.name}</CategoryBadgeName>

@@ -37,6 +37,8 @@ export default createGlobalStyle`
     --fundraiser-text-color: ${blogColors.grey__600};
     --nav-border: rgba(94, 94, 125, 0.30);
     --logo-color: ${colors.grey__700};
+    --nav-badge: ${blogColors.grey__600};
+    --nav-badge-circle: ${colors.purple__500};
   }
 
   [data-theme='dark'] {
@@ -50,6 +52,8 @@ export default createGlobalStyle`
     --fundraiser-text-color: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
     --logo-color: ${colors.white};
+    --nav-badge: ${blogColors.grey__350};
+    --nav-badge-circle: ${colors.green__500};
   }
 
   body {
