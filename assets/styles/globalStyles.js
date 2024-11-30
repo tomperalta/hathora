@@ -39,6 +39,9 @@ export default createGlobalStyle`
     --logo-color: ${colors.grey__700};
     --nav-badge: ${blogColors.grey__600};
     --nav-badge-circle: ${colors.purple__500};
+    --hero-sub-heading: ${blogColors.grey__600};
+    --hero-subscribe-btn: ${colors.purple__600};
+    --hero-subscribe-text: ${colors.grey__200};
   }
 
   [data-theme='dark'] {
@@ -54,6 +57,9 @@ export default createGlobalStyle`
     --logo-color: ${colors.white};
     --nav-badge: ${blogColors.grey__350};
     --nav-badge-circle: ${colors.green__500};
+    --hero-sub-heading: ${colors.grey__300};
+    --hero-subscribe-btn: ${colors.green__500};
+    --hero-subscribe-text: black;
   }
 
   body {

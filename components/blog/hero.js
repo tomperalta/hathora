@@ -7,7 +7,6 @@ import EmailForm from "components/blog/emailForm"
 // Libraries
 import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
-import { colors } from "utils/variables"
 
 const HeroContainer = styled(Container)`
 	padding: 160px 24px;
@@ -20,7 +19,7 @@ const HeroHeadingContainer = styled.div`
 `
 
 const HeroHeading = styled.div`
-	color: ${colors.grey__200};
+	color: var(--text);
 	font-size: 32px;
 	line-height: 44px;
 
@@ -31,7 +30,7 @@ const HeroHeading = styled.div`
 `
 
 const Subtitle = styled.p`
-	color: ${colors.grey__300};
+	color: var(--hero-sub-heading);
 	font-size: 20px;
 	line-height: 28px;
 	font-weight: 400;
