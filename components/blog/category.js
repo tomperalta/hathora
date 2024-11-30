@@ -23,6 +23,7 @@ const CategoryTitle = styled.h2`
 	margin: 0;
 	border-left: 2px solid var(--category-title);
 	padding-left: 10px;
+	font-weight: 700;
 `
 
 const ShowAllButton = styled.button`
@@ -114,9 +115,11 @@ const PostAuthor = styled.span`
 `
 
 const PostDate = styled.span`
-	color: ${colors.purple__400};
-	border-left: 2px solid ${colors.purple__400};
+	color: var(--blog-date);
+	border-left: 2px solid var(--blog-date);
 	padding-left: 10px;
+	font-size: 1rem;
+	line-height: 15px;
 `
 
 const StyledArrowIcon = styled.svg`
@@ -216,9 +219,7 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 									<PostAuthor className="text--s font-weight--700">
 										{post.primary_author?.name || "Anonymous"}
 									</PostAuthor>
-									<PostDate className="text--s">
-										{formatDate(post.published_at)}
-									</PostDate>
+									<PostDate>{formatDate(post.published_at)}</PostDate>
 								</CardFooter>
 							</CardContent>
 						</BlogCard>

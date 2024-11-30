@@ -47,6 +47,7 @@ export default createGlobalStyle`
     --category-badge-color: ${colors.grey__700};
     --footer-email: ${colors.grey__700};
     --footer-privacy-link: ${colors.grey__500};
+    --blog-date: ${colors.purple__600};
   }
 
   [data-theme='dark'] {
@@ -70,6 +71,7 @@ export default createGlobalStyle`
     --category-badge-color: ${colors.white};
     --footer-email: ${colors.green__500};
     --footer-privacy-link: ${colors.grey__300};
+    --blog-date: ${colors.purple__400};
   }
 
   body {
