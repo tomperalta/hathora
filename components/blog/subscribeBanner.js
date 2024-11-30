@@ -1,8 +1,5 @@
 import React from "react"
-
 import styled from "styled-components"
-import { colors } from "utils/variables"
-
 import EmailForm from "components/blog/emailForm"
 import Divider from "components/divider"
 import Container from "../container"
@@ -12,7 +9,6 @@ const DividerContainer = styled.div`
 `
 
 const SubscribeContainer = styled(Container)`
-	background-color: ${colors.grey__700};
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -30,7 +26,7 @@ const SubscribeHeading = styled.div`
 `
 
 const SubscribeHeadingSpan = styled.span`
-	color: ${colors.green__500};
+	color: var(--hero-subscribe-btn);
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 700;
@@ -38,7 +34,7 @@ const SubscribeHeadingSpan = styled.span`
 `
 
 const Subtitle = styled.p`
-	color: ${colors.grey__300};
+	color: var(--hero-sub-heading);
 	font-size: 20px;
 	line-height: 28px;
 	font-weight: 400;
