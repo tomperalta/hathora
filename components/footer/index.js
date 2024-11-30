@@ -63,6 +63,7 @@ const StyledFooter = styled.footer`
 	}
 
 	.footer__navigation-item {
+		color: var(--text);
 		width: 50%;
 
 		${breakpoint.medium`
@@ -82,6 +83,7 @@ const StyledFooter = styled.footer`
 		}
 
 		a {
+			color: var(--text);
 			&:hover {
 				color: ${colors.purple__500};
 			}
@@ -135,6 +137,18 @@ const StyledFooter = styled.footer`
       right: auto;
       left: -125px;
     `}
+	}
+
+	.newsletter-heading {
+		color: var(--text);
+	}
+
+	.email {
+		color: var(--footer-email);
+	}
+
+	.privacy {
+		color: var(--footer-privacy-link);
 	}
 `
 
@@ -205,7 +219,7 @@ const Footer = () => {
 						<div className="mb-md-4">
 							<a
 								href="mailto:contact@hathora.dev"
-								className="text--s color--green__500 color-hover--purple__500 font-weight--500"
+								className="text--s color--green__500 color-hover--purple__500 font-weight--500 email"
 								style={{ textDecoration: "underline" }}
 							>
 								contact@hathora.dev
@@ -255,7 +269,7 @@ const Footer = () => {
 					</div>
 
 					<div className="col-12 col-md-4">
-						<p className="text--s mb-3 font-weight--700">
+						<p className="text--s mb-3 font-weight--700 newsletter-heading">
 							Sign up to receive our latest updates
 						</p>
 
@@ -278,8 +292,8 @@ const Footer = () => {
 								© Hathora {new Date().getFullYear()}
 							</p>
 						</div>
-						<div className="d-flex flex-column flex-md-row">
-							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+						<div className="d-flex flex-column flex-md-row privacy">
+							<span className="text--xs text-decoration-underline color-hover--purple__500">
 								<a
 									href="https://bramble-slime-d3e.notion.site/Terms-of-Use-97a4331c70854de3b9f48a26358418b5"
 									target="_blank"
@@ -288,7 +302,7 @@ const Footer = () => {
 									Terms of Service
 								</a>
 							</span>
-							<span className="text--xs color--grey__300 text-decoration-underline color-hover--purple__500">
+							<span className="text--xs text-decoration-underline color-hover--purple__500">
 								<a
 									href="https://bramble-slime-d3e.notion.site/Privacy-Policy-4ac5c1c8d434490298c0dbb3fb19b09f"
 									target="_blank"
