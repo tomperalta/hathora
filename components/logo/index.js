@@ -1,8 +1,16 @@
 import React from "react"
 
 export default function Logo() {
+	// Generate a unique ID for each instance
+	const uniqueId = React.useId()
+
 	return (
-		<svg viewBox="0 0 230 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg
+			viewBox="0 0 230 40"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			style={{ width: "100%", height: "100%" }}
+		>
 			<path
 				d="M97.2808 36.4654C95.7885 36.4869 94.3074 36.2055 92.9278 35.6384C91.683 35.13 90.6186 34.2635 89.8705 33.1496C89.1033 31.9683 88.7137 30.5831 88.7532 29.1768C88.6979 27.8023 89.0899 26.4468 89.8705 25.3121C90.6631 24.2255 91.7546 23.3906 93.0131 22.9083C94.4569 22.3378 95.9994 22.0568 97.5524 22.0813H104.226V20.6669C104.248 20.1258 104.162 19.5858 103.971 19.0786C103.78 18.5715 103.49 18.1076 103.116 17.7143C102.34 16.9414 101.261 16.6013 99.5932 16.6013C98.3194 16.5118 97.0595 16.9099 96.0704 17.7143C95.3102 18.479 94.7737 19.4357 94.5185 20.4814L89.6145 18.8196C89.9665 17.5553 90.5979 16.3856 91.4626 15.3959C92.3272 14.4062 93.4032 13.6218 94.6116 13.1C96.1918 12.4301 97.9001 12.1135 99.6164 12.1725C102.581 12.1725 104.994 12.9454 106.662 14.3908C108.33 15.8361 109.254 18.0776 109.254 20.8524V29.8028C109.254 30.7226 109.719 31.1863 110.55 31.1863H112.497V35.8239H108.788C107.795 35.8605 106.818 35.5668 106.01 34.9891C105.644 34.7269 105.351 34.3769 105.157 33.9716C104.963 33.5662 104.875 33.1187 104.901 32.6704V32.5776H104.125C103.878 33.1266 103.568 33.6453 103.201 34.1235C102.623 34.7999 101.892 35.3298 101.067 35.6693C99.8999 36.2684 98.5919 36.5434 97.2808 36.4654ZM98.2042 32.1293C98.9771 32.1771 99.7518 32.0712 100.483 31.8178C101.215 31.5643 101.888 31.1684 102.464 30.653C103.026 30.1417 103.468 29.5126 103.756 28.8108C104.045 28.1091 104.173 27.3524 104.132 26.5952V26.1314H97.8318C96.8508 26.1204 95.8871 26.3885 95.0539 26.9044C94.6956 27.143 94.4109 27.476 94.2314 27.8663C94.052 28.2566 93.9848 28.6888 94.0374 29.1149C94.0262 29.5468 94.1216 29.9749 94.315 30.3616C94.5085 30.7483 94.7941 31.0819 95.147 31.3332C96.0539 31.9184 97.1258 32.1975 98.2042 32.1293Z"
 				fill="var(--logo-color)"
@@ -39,59 +47,59 @@ export default function Logo() {
 				d="M117.285 19.2148V31.0251C117.244 32.3471 117.71 33.6351 118.588 34.6269C119.058 35.0646 119.611 35.4042 120.215 35.6259C120.819 35.8475 121.461 35.9468 122.103 35.9177H128.497V31.5816H123.841C123.011 31.5816 122.546 31.1179 122.546 30.1903V19.2148H117.285Z"
 				fill="var(--logo-color)"
 			/>
-			<g clipPath="url(#clip0_879_2475)">
+			<g clipPath={`url(#clip0_${uniqueId})`}>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M2.27538 10.0842L17.7698 18.982C24.9982 23.0344 32.3568 27.1586 33.637 27.867C33.6877 27.8941 33.7459 27.9218 33.7966 27.9489C36.3784 29.2089 38.8146 26.0819 38.8146 26.0819L38.8404 26.0464L5.40691 7.07071L2.27538 10.0842Z"
-					fill="url(#paint0_linear_879_2475)"
+					fill={`url(#paint0_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M20.6527 1.52447L17.5408 4.48681L44.6985 20.3091L47.9453 17.1923L20.6527 1.52447Z"
-					fill="url(#paint1_linear_879_2475)"
+					fill={`url(#paint1_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M13.0497 4.06518L9.9025 7.08488L40.1034 24.6985L43.3728 21.5837L13.0497 4.06518Z"
-					fill="url(#paint2_linear_879_2475)"
+					fill={`url(#paint2_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M16.6232 20.6726L14.9254 22.3L21.6338 26.0578L23.3391 24.431L16.6232 20.6726Z"
-					fill="url(#paint3_linear_879_2475)"
+					fill={`url(#paint3_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M20.4807 27.2342L18.6752 28.9656L11.9832 25.1942L13.7641 23.4833L20.4807 27.2342Z"
-					fill="url(#paint4_linear_879_2475)"
+					fill={`url(#paint4_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M15.5692 31.9437L17.374 30.2198L10.6574 26.4689L8.85254 28.1928L15.5692 31.9437Z"
-					fill="url(#paint5_linear_879_2475)"
+					fill={`url(#paint5_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M14.2702 33.1828L12.4653 34.9067L5.79028 31.1141L7.5542 29.4244L14.2702 33.1828Z"
-					fill="url(#paint6_linear_879_2475)"
+					fill={`url(#paint6_linear_${uniqueId})`}
 				/>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M11.1573 36.1526C10.5772 36.5402 8.50674 37.4024 5.80981 35.8981L2.67613 34.0989L4.44823 32.4023L11.1649 36.1532L11.1573 36.1526Z"
-					fill="url(#paint7_linear_879_2475)"
+					fill={`url(#paint7_linear_${uniqueId})`}
 				/>
 			</g>
 			<defs>
 				<linearGradient
-					id="paint0_linear_879_2475"
+					id={`paint0_linear_${uniqueId}`}
 					x1="38.7379"
 					y1="25.1175"
 					x2="-0.861346"
@@ -102,7 +110,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint1_linear_879_2475"
+					id={`paint1_linear_${uniqueId}`}
 					x1="47.7679"
 					y1="17.4717"
 					x2="14.7902"
@@ -113,7 +121,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint2_linear_879_2475"
+					id={`paint2_linear_${uniqueId}`}
 					x1="43.2056"
 					y1="21.5687"
 					x2="6.86436"
@@ -124,7 +132,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint3_linear_879_2475"
+					id={`paint3_linear_${uniqueId}`}
 					x1="31.3321"
 					y1="30.2682"
 					x2="2.85431"
@@ -135,7 +143,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint4_linear_879_2475"
+					id={`paint4_linear_${uniqueId}`}
 					x1="24.7222"
 					y1="30.2011"
 					x2="6.97432"
@@ -146,7 +154,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint5_linear_879_2475"
+					id={`paint5_linear_${uniqueId}`}
 					x1="21.628"
 					y1="33.1792"
 					x2="3.83394"
@@ -157,7 +165,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint6_linear_879_2475"
+					id={`paint6_linear_${uniqueId}`}
 					x1="18.5045"
 					y1="36.1415"
 					x2="0.787455"
@@ -168,7 +176,7 @@ export default function Logo() {
 					<stop offset="1" stopColor="#02FE57" />
 				</linearGradient>
 				<linearGradient
-					id="paint7_linear_879_2475"
+					id={`paint7_linear_${uniqueId}`}
 					x1="18.7371"
 					y1="39.2546"
 					x2="-2.1655"
@@ -178,7 +186,7 @@ export default function Logo() {
 					<stop offset="0.144404" stopColor="#AF64EE" />
 					<stop offset="0.942412" stopColor="#02FE57" />
 				</linearGradient>
-				<clipPath id="clip0_879_2475">
+				<clipPath id={`clip0_${uniqueId}`}>
 					<rect
 						width="46.117"
 						height="36.1346"

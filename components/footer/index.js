@@ -15,8 +15,7 @@ import SocialMedia from "components/social-media"
 import NewsletterForm from "components/newsletter-form"
 
 // Icons
-import IconLogo from "assets/icons/icon-logo.svg"
-import Image from "next/image"
+import Logo from "components/logo"
 
 const StyledFooter = styled.footer`
 	position: relative;
@@ -207,7 +206,7 @@ const Footer = () => {
 						<div className="footer__logo">
 							<Link href="/">
 								<a>
-									<Image src={IconLogo} width="160" height="32" alt="" />
+									<Logo />
 								</a>
 							</Link>
 						</div>
