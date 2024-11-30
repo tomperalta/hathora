@@ -6,11 +6,10 @@ import Container from "components/container/"
 
 // Libraries
 import styled from "styled-components"
-import { colors } from "utils/variables"
 
 const NavContainer = styled(Container)`
-	border-top: 1px solid ${colors.grey__500};
-	border-bottom: 1px solid ${colors.grey__500};
+	border-top: 1px solid var(--nav-border);
+	border-bottom: 1px solid var(--nav-border);
 	margin-top: 143px;
 	max-width: 100%;
 	display: flex;

@@ -195,17 +195,17 @@ const StyledMenu = styled.nav`
 
 			&:focus-visible,
 			&:hover {
-				color: ${colors.green__500};
+				color: var(--text-hover);
 
 				.svg--stroke {
 					* {
-						stroke: ${colors.green__500};
+						stroke: var(--text-hover);
 					}
 				}
 
 				.svg--fill {
 					* {
-						fill: ${colors.green__500};
+						fill: var(--text-hover);
 					}
 				}
 			}

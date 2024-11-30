@@ -16,7 +16,7 @@ const StyledFundraiseBanner = styled.div`
 	right: 0;
 	left: 0;
 	padding: 8px 0;
-	border-bottom: 1px solid ${colors.green__500};
+	border-bottom: 1px solid var(--fundraiser-banner-border);
 	text-align: center;
 	z-index: 9001;
 
@@ -25,7 +25,7 @@ const StyledFundraiseBanner = styled.div`
   `}
 
 	a {
-		color: ${colors.green__500};
+		color: var(--fundraiser-text-color);
 
 		&:hover {
 			color: ${colors.purple__500};

@@ -31,7 +31,11 @@ export default createGlobalStyle`
     --text: ${colors.grey__700};
     --menu-text: ${blogColors.grey__600};
     --menu-text-active: ${colors.purple__600};
+    --text-hover: ${colors.purple__600};
     --button-theme-outline: ${colors.grey__700};
+    --fundraiser-banner-border: rgba(94, 94, 125, 0.30);
+    --fundraiser-text-color: ${blogColors.grey__600};
+    --nav-border: rgba(94, 94, 125, 0.30);
   }
 
   [data-theme='dark'] {
@@ -39,7 +43,11 @@ export default createGlobalStyle`
     --text: ${colors.grey__200};
     --menu-text: ${colors.grey__400};
     --menu-text-active: ${colors.green__500};
+    --text-hover: ${colors.green__500};
     --button-theme-outline: ${colors.green__500};
+    --fundraiser-banner-border: ${colors.green__500};
+    --fundraiser-text-color: ${colors.green__500};
+    --nav-border: rgba(94, 94, 125, 0.30);
   }
 
   body {
