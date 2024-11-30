@@ -33,7 +33,7 @@ export const colors = {
 // Colors:end
 
 export const blogColors = {
-	grey_600: "#151521",
+	grey__600: "#151521",
 }
 
 // Gradients:start

@@ -36,6 +36,7 @@ export default createGlobalStyle`
     --fundraiser-banner-border: rgba(94, 94, 125, 0.30);
     --fundraiser-text-color: ${blogColors.grey__600};
     --nav-border: rgba(94, 94, 125, 0.30);
+    --logo-color: ${colors.grey__700};
   }
 
   [data-theme='dark'] {
@@ -48,6 +49,7 @@ export default createGlobalStyle`
     --fundraiser-banner-border: ${colors.green__500};
     --fundraiser-text-color: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
+    --logo-color: ${colors.white};
   }
 
   body {

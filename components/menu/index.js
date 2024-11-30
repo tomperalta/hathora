@@ -184,7 +184,7 @@ const StyledMenu = styled.nav`
 			align-items: center;
 			color: var(--menu-text);
 			font-size: 1.25rem;
-			font-weight: 600;
+			font-weight: 500;
 			line-height: 1.4em;
 			transition: all 0.2s ease;
 
