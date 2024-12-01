@@ -98,8 +98,12 @@ const CardTitle = styled.h3`
 `
 
 const CardDescription = styled.p`
-	color: ${colors.grey__400};
+	color: ${colors.grey__700};
 	margin-bottom: 1rem;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
 `
 
 const CardFooter = styled.div`
@@ -159,6 +163,12 @@ const ReadingTimeIcon = () => (
 	</StyledReadingTimeIcon>
 )
 
+const trimExcerpt = (text, maxLength = 100) => {
+	if (!text) return ""
+	if (text.length <= maxLength) return text
+	return `${text.slice(0, maxLength).trim()}...`
+}
+
 // eslint-disable-next-line react/prop-types
 const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 	// Function to format date
@@ -212,8 +222,8 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 
 							<CardContent>
 								<CardTitle>{post.title}</CardTitle>
-								<CardDescription className="d-none">
-									{post.excerpt || post.custom_excerpt}
+								<CardDescription className="d-none d-sm-block">
+									{trimExcerpt(post.excerpt || post.custom_excerpt)}
 								</CardDescription>
 								<CardFooter>
 									<PostAuthor className="text--s font-weight--700">

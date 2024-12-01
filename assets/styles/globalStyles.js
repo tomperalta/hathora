@@ -49,6 +49,7 @@ export default createGlobalStyle`
     --footer-privacy-link: ${colors.grey__500};
     --blog-date: ${colors.purple__600};
     --hamburger-menu-color: ${blogColors.grey__600};
+    --footer-address: ${colors.grey__400};
   }
 
   [data-theme='dark'] {
@@ -74,6 +75,7 @@ export default createGlobalStyle`
     --footer-privacy-link: ${colors.grey__300};
     --blog-date: ${colors.purple__400};
     --hamburger-menu-color: ${colors.grey__200};
+    --footer-address: ${colors.grey__300};
   }
 
   body {

@@ -13,7 +13,6 @@ const EmailForm = styled.div`
 const EmailInput = styled.input`
 	border: 1px solid ${colors.grey__400};
 	border-radius: 4px;
-	color: white;
 	padding: 10px 16px;
 	flex-grow: 1;
 	font-size: 14px;

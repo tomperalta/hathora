@@ -149,6 +149,10 @@ const StyledFooter = styled.footer`
 	.privacy {
 		color: var(--footer-privacy-link);
 	}
+
+	.address {
+		color: var(--footer-address);
+	}
 `
 
 const Footer = () => {
@@ -225,7 +229,7 @@ const Footer = () => {
 							</a>
 						</div>
 
-						<p className="text--xs color--grey__300 d-none d-md-block">
+						<p className="text--xs  d-none d-md-block address">
 							159 W 25th St #404,
 							<br />
 							New York, NY 10001
