@@ -3,6 +3,7 @@ import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
+import Link from "next/link"
 
 const NavContainer = styled(Container)`
 	border-top: 1px solid var(--nav-border);
@@ -42,29 +43,37 @@ const TagsContainer = styled.div`
 
 // eslint-disable-next-line react/prop-types
 export default function Nav({ tags }) {
+	console.log("🚀 ~ file: nav.js:46 ~ tags:", tags)
 	return (
 		<NavContainer>
 			<TagsContainer>
 				{/* eslint-disable-next-line react/prop-types */}
 				{tags?.map((category) => (
-					<CategoryBadge key={category.tag.id} className="d-none d-sm-flex">
-						<svg
-							width="4"
-							height="4"
-							viewBox="0 0 4 4"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<rect
+					<Link
+						passHref
+						href={`/blog/tags/${category.tag.slug}`}
+						key={category.tag.id}
+						style={{ textDecoration: "none" }}
+					>
+						<CategoryBadge className="d-none d-sm-flex">
+							<svg
 								width="4"
 								height="4"
-								rx="2"
-								fill="var(--nav-badge-circle)"
-							/>
-						</svg>
+								viewBox="0 0 4 4"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<rect
+									width="4"
+									height="4"
+									rx="2"
+									fill="var(--nav-badge-circle)"
+								/>
+							</svg>
 
-						<CategoryBadgeName>{category.tag.name}</CategoryBadgeName>
-					</CategoryBadge>
+							<CategoryBadgeName>{category.tag.name}</CategoryBadgeName>
+						</CategoryBadge>
+					</Link>
 				))}
 			</TagsContainer>
 			<ThemeToggle />
