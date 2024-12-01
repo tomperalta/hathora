@@ -42,7 +42,10 @@ const Blog = ({ tags }) => (
 			description="Multiplayer gaming infrastructure"
 		/>
 		<Nav tags={tags} />
-		<Hero />
+		<Hero
+			title="The Hathora Blog"
+			subtitle="Learn more about the gaming industry"
+		/>
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>

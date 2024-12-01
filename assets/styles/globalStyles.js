@@ -50,6 +50,7 @@ export default createGlobalStyle`
     --blog-date: ${colors.purple__600};
     --hamburger-menu-color: ${blogColors.grey__600};
     --footer-address: ${colors.grey__400};
+    --category-chevron: ${colors.grey__200};
   }
 
   [data-theme='dark'] {
@@ -76,6 +77,7 @@ export default createGlobalStyle`
     --blog-date: ${colors.purple__400};
     --hamburger-menu-color: ${colors.grey__200};
     --footer-address: ${colors.grey__300};
+    --category-chevron: ${colors.grey__200};
   }
 
   body {

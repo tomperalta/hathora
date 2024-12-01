@@ -42,7 +42,7 @@ const Blog = ({ posts, categoryName, tags }) => (
 			description={`Articles about ${categoryName} from Hathora`}
 		/>
 		<Nav tags={tags} />
-		<Hero />
+		<Hero title={categoryName} subtitle={`Blog > ${categoryName}`} />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>

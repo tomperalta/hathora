@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 // Components
 import Container from "components/container/"
@@ -36,14 +37,24 @@ const Subtitle = styled.p`
 	font-weight: 400;
 `
 
-const Hero = () => (
+const Hero = ({ title, subtitle }) => (
 	<HeroContainer>
 		<HeroHeadingContainer>
-			<HeroHeading>The Hathora Blog</HeroHeading>
-			<Subtitle>Learn more about the gaming industry</Subtitle>
+			<HeroHeading>{title}</HeroHeading>
+			<Subtitle>{subtitle}</Subtitle>
 		</HeroHeadingContainer>
 		<EmailForm />
 	</HeroContainer>
 )
+
+Hero.propTypes = {
+	title: PropTypes.string,
+	subtitle: PropTypes.string,
+}
+
+Hero.defaultProps = {
+	title: PropTypes.string,
+	subtitle: PropTypes.string,
+}
 
 export default Hero

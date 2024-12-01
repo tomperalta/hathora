@@ -43,7 +43,6 @@ const TagsContainer = styled.div`
 
 // eslint-disable-next-line react/prop-types
 export default function Nav({ tags }) {
-	console.log("🚀 ~ file: nav.js:46 ~ tags:", tags)
 	return (
 		<NavContainer>
 			<TagsContainer>
