@@ -57,7 +57,6 @@ const Hero = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log("Subscription email:", email)
 		// TODO:Add subscription logic here
 	}
 

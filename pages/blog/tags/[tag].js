@@ -35,35 +35,51 @@ const DividerContainer = styled.div`
 `
 
 // eslint-disable-next-line react/prop-types
-const Blog = ({ categorizedPosts }) => (
+const Blog = ({ posts, categoryName, categorizedPosts }) => (
 	<StyledBlog>
 		<SEO
-			title="Blog | Hathora"
-			description="Multiplayer gaming infrastructure"
+			title={`${categoryName} | Hathora Blog`}
+			description={`Articles about ${categoryName} from Hathora`}
 		/>
 		<Nav categorizedPosts={categorizedPosts} />
 		<Hero />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>
-		{/* eslint-disable-next-line react/prop-types */}
-		{categorizedPosts.map((category, index) => (
-			<React.Fragment key={category.tag.id}>
-				<Category
-					key={category.tag.id}
-					posts={category.posts}
-					tagName={category.tag.name}
-				/>
-				{index === 1 && <SubscribeBanner />}
-				<DividerContainer className="text-center">
-					<Divider />
-				</DividerContainer>
-			</React.Fragment>
-		))}
+		<Category posts={posts} tagName={categoryName} />
+		<SubscribeBanner />
 	</StyledBlog>
 )
 
-export const getStaticProps = async () => {
+export const getStaticPaths = async () => {
+	const api = new GhostContentAPI({
+		url: process.env.GHOST_URL,
+		key: process.env.GHOST_CONTENT_API_KEY,
+		version: "v5.0",
+	})
+
+	// Get all tags
+	const tags = await api.tags.browse({
+		limit: "all",
+		include: "count.posts",
+		filter: "visibility:public",
+	})
+
+	// Filter out tags with no posts
+	const activeTags = tags.filter((tag) => tag.count?.posts > 0)
+
+	// Create paths for each tag
+	const paths = activeTags.map((tag) => ({
+		params: { tag: tag.slug },
+	}))
+
+	return {
+		paths,
+		fallback: false,
+	}
+}
+
+export const getStaticProps = async ({ params }) => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -71,11 +87,29 @@ export const getStaticProps = async () => {
 			version: "v5.0",
 		})
 
-		// Get all tags
+		// Get the tag information
+		const [tag] = await api.tags.browse({
+			filter: `slug:${params.tag}`,
+		})
+
+		if (!tag) {
+			return {
+				notFound: true,
+			}
+		}
+
+		// Get posts for this category
+		const posts = await api.posts.browse({
+			filter: `tag:${params.tag}`,
+			include: "tags,authors",
+			limit: "all",
+		})
+
+		// Get all tags for the navigation
 		const tags = await api.tags.browse({
 			limit: "all",
 			include: "count.posts",
-			filter: "visibility:public", // Only get public tags
+			filter: "visibility:public",
 		})
 
 		// Filter out tags with no posts and sort by post count
@@ -83,7 +117,7 @@ export const getStaticProps = async () => {
 			.filter((tag) => tag.count?.posts > 0)
 			.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
 
-		// Fetch posts for each tag
+		// Fetch posts for navigation
 		const categorizedPosts = await Promise.all(
 			activeTags.map(async (tag) => {
 				const posts = await api.posts.browse({
@@ -101,17 +135,16 @@ export const getStaticProps = async () => {
 
 		return {
 			props: {
-				categorizedPosts: categorizedPosts || [],
+				posts,
+				categoryName: tag.name,
+				categorizedPosts,
 			},
 			// revalidate: 3600, // Revalidate every hour
 		}
 	} catch (error) {
-		console.error("Error fetching blog posts:", error)
+		console.error("Error fetching category posts:", error)
 		return {
-			props: {
-				categorizedPosts: [],
-			},
-			revalidate: 3600,
+			notFound: true,
 		}
 	}
 }
