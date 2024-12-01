@@ -35,13 +35,13 @@ const DividerContainer = styled.div`
 `
 
 // eslint-disable-next-line react/prop-types
-const Blog = ({ posts, categoryName, categorizedPosts }) => (
+const Blog = ({ posts, categoryName, tags }) => (
 	<StyledBlog>
 		<SEO
 			title={`${categoryName} | Hathora Blog`}
 			description={`Articles about ${categoryName} from Hathora`}
 		/>
-		<Nav categorizedPosts={categorizedPosts} />
+		<Nav tags={tags} />
 		<Hero />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
@@ -106,19 +106,19 @@ export const getStaticProps = async ({ params }) => {
 		})
 
 		// Get all tags for the navigation
-		const tags = await api.tags.browse({
+		const allTags = await api.tags.browse({
 			limit: "all",
 			include: "count.posts",
 			filter: "visibility:public",
 		})
 
 		// Filter out tags with no posts and sort by post count
-		const activeTags = tags
+		const activeTags = allTags
 			.filter((tag) => tag.count?.posts > 0)
 			.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
 
 		// Fetch posts for navigation
-		const categorizedPosts = await Promise.all(
+		const taggedPostsMap = await Promise.all(
 			activeTags.map(async (tag) => {
 				const posts = await api.posts.browse({
 					filter: `tag:${tag.slug}`,
@@ -137,7 +137,7 @@ export const getStaticProps = async ({ params }) => {
 			props: {
 				posts,
 				categoryName: tag.name,
-				categorizedPosts,
+				tags: taggedPostsMap,
 			},
 			// revalidate: 3600, // Revalidate every hour
 		}

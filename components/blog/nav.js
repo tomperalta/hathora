@@ -41,12 +41,12 @@ const TagsContainer = styled.div`
 `
 
 // eslint-disable-next-line react/prop-types
-export default function Nav({ categorizedPosts }) {
+export default function Nav({ tags }) {
 	return (
 		<NavContainer>
 			<TagsContainer>
 				{/* eslint-disable-next-line react/prop-types */}
-				{categorizedPosts?.map((category) => (
+				{tags?.map((category) => (
 					<CategoryBadge key={category.tag.id} className="d-none d-sm-flex">
 						<svg
 							width="4"

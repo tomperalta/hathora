@@ -35,19 +35,19 @@ const DividerContainer = styled.div`
 `
 
 // eslint-disable-next-line react/prop-types
-const Blog = ({ categorizedPosts }) => (
+const Blog = ({ tags }) => (
 	<StyledBlog>
 		<SEO
 			title="Blog | Hathora"
 			description="Multiplayer gaming infrastructure"
 		/>
-		<Nav categorizedPosts={categorizedPosts} />
+		<Nav tags={tags} />
 		<Hero />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
-		{categorizedPosts.map((category, index) => (
+		{tags.map((category, index) => (
 			<React.Fragment key={category.tag.id}>
 				<Category
 					key={category.tag.id}
@@ -101,7 +101,7 @@ export const getStaticProps = async () => {
 
 		return {
 			props: {
-				categorizedPosts: categorizedPosts || [],
+				tags: categorizedPosts || [],
 			},
 			// revalidate: 3600, // Revalidate every hour
 		}
@@ -109,7 +109,7 @@ export const getStaticProps = async () => {
 		console.error("Error fetching blog posts:", error)
 		return {
 			props: {
-				categorizedPosts: [],
+				tags: [],
 			},
 			revalidate: 3600,
 		}
