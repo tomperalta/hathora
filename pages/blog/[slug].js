@@ -4,7 +4,6 @@ import styled from "styled-components"
 import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
 import PropTypes from "prop-types"
-import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 const StyledBlogPost = styled.div`
@@ -36,7 +35,7 @@ const ArticleContent = styled.article`
 	margin: 2rem auto;
 	max-width: 625px;
 	line-height: 1.7;
-	color: ${colors.white};
+	color: var(--text);
 
 	h1,
 	h2,
@@ -53,8 +52,11 @@ const ArticleContent = styled.article`
 		font-size: 2.5rem;
 
 		${breakpoint.medium`
-    font-size: 1.5rem;
-  `}
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 64px;
+    `}
 	}
 
 	h2 {
@@ -81,7 +83,7 @@ const ArticleContent = styled.article`
 	li,
 	ul,
 	ol {
-		color: ${colors.grey__300};
+		color: var(--text);
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
