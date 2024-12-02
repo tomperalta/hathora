@@ -53,6 +53,7 @@ const StyledPlanComparison = styled.section`
 
 						&.title {
 							padding-top: 24px;
+							padding-bottom: 24px;
 						}
 					}
 				}
@@ -73,7 +74,7 @@ const StyledPlanComparison = styled.section`
 				}
 
 				${breakpoints.medium`
-					width: 33.3%;
+					width: 22%;
 					border: 1px solid #2f2f38;
 					border-right: 1px solid #2f2f38;
 				`}
@@ -100,7 +101,8 @@ const StyledPlanComparison = styled.section`
 				}
 
 				&.title {
-					padding-top: 36px;
+					padding-top: 24px;
+					padding-bottom: 24px;
 				}
 
 				.hidden {
@@ -147,6 +149,11 @@ const StyledPlanComparison = styled.section`
 					}
 				}
 			}
+			.wider-cell {
+				${breakpoints.medium`
+					width: 34%;
+				`}
+			}
 		}
 
 		th,
@@ -170,9 +177,9 @@ const PlanComparison = () => (
 		<Container>
 			{/* Mobile Table:start */}
 			<div className="d-md-none">
-				{/* Starter Table:start */}
+				{/* Explore Table:start */}
 				<div className="sticky-heading mb-4">
-					<p className="text--l text--uppercase font-weight--600">Starter</p>
+					<p className="text--l text--uppercase font-weight--600">Explore</p>
 				</div>
 
 				<table>
@@ -225,11 +232,11 @@ const PlanComparison = () => (
 						))}
 					</tbody>
 				</table>
-				{/* Starter Table:end */}
+				{/* Explore Table:end */}
 
-				{/* Enterprise Table:start */}
+				{/* Pro Table:start */}
 				<div className="sticky-heading mt-5">
-					<p className="text--l text--uppercase font-weight--600">Enterprise</p>
+					<p className="text--l text--uppercase font-weight--600">Pro</p>
 				</div>
 
 				<table>
@@ -304,22 +311,13 @@ const PlanComparison = () => (
 						))}
 					</tbody>
 				</table>
-				{/* Enterprise Table:end */}
-			</div>
-			{/* Mobile Table:end */}
+				{/* Pro Table:end */}
+				{/* Enterprise Table:start */}
+				<div className="sticky-heading mt-5">
+					<p className="text--l text--uppercase font-weight--600">Enterprise</p>
+				</div>
 
-			{/* Desktop Table:start */}
-			<div className="wrapper d-none d-md-block">
 				<table>
-					<thead className="text-uppercase">
-						<tr>
-							{/* eslint-disable-next-line */}
-							<th />
-							<th>Starter</th>
-							<th>Enterprise</th>
-						</tr>
-					</thead>
-
 					<tbody>
 						{tableData.map((data) => (
 							<>
@@ -327,15 +325,118 @@ const PlanComparison = () => (
 									<td className="title text--m color--purple__500 font-weight--600">
 										{data.title}
 									</td>
-									<td />
-									<td />
+									{/* <td />
+									<td /> */}
 								</tr>
 
 								{data.rows.map((row) => (
 									// eslint-disable-next-line
 									<tr key={row.length + "row"}>
-										{row.cells.map((cell) => (
-											<td key={cell.text} className="text--s">
+										<td className="text--s">
+											{row.cells[0]?.text === null ? (
+												<span className="color--grey__500	">-</span>
+											) : row.cells[0]?.text === true ? (
+												<span className="check d-inline-flex justify-content-center">
+													<IconCheck />
+												</span>
+											) : (
+												<span className={row.cells[0]?.hideText && "hidden"}>
+													{row.cells[0]?.text}
+												</span>
+											)}
+
+											{row.cells[0]?.subtext && (
+												<span className="subtext color--purple__300 font-weight--600">
+													{row.cells[0]?.subtext}
+												</span>
+											)}
+										</td>
+
+										<td className="text--s">
+											<div className="d-flex align-items-center justify-content-center">
+												{row.cells[3]?.text === null ? (
+													<span className="color--grey__500	">-</span>
+												) : row.cells[3]?.text === true ? (
+													<span className="check d-inline-flex justify-content-center">
+														<IconCheck />
+													</span>
+												) : (
+													<span className={row.cells[3]?.hideText && "hidden"}>
+														{row.cells[3]?.text}
+													</span>
+												)}
+
+												{row.cells[3]?.subtext && (
+													<span className="subtext color--purple__300 font-weight--600">
+														{row.cells[3]?.subtext}
+													</span>
+												)}
+
+												{row.cells[3]?.tooltip && (
+													<span className="tooltip">
+														<IconTooltip />
+
+														<span className="text text--xs">
+															{row.cells[3]?.tooltip}
+														</span>
+													</span>
+												)}
+											</div>
+										</td>
+									</tr>
+								))}
+							</>
+						))}
+					</tbody>
+				</table>
+				{/* Enterprise Table:end */}
+			</div>
+			{/* Mobile Table:end */}
+
+			{/* Desktop Table:start */}
+			<div className="wrapper d-none d-md-block">
+				<div className="row justify-content-center text-center">
+					<div className="col-12 col-md-12">
+						<div className="t">
+							<h2 className="heading--sm mb-5">
+								Compare and choose the best option for you:
+							</h2>
+						</div>
+					</div>
+				</div>
+				<table>
+					<thead className="text-uppercase">
+						<tr>
+							{/* eslint-disable-next-line */}
+							<th />
+							<th>Explore</th>
+							<th>Pro</th>
+							<th>Enterprise</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{tableData.map((data) => (
+							<>
+								{data.title && (
+									<tr>
+										<td
+											colSpan="4"
+											className="title text--m color--purple__500 font-weight--600"
+										>
+											{data.title}
+										</td>
+									</tr>
+								)}
+
+								{data.rows.map((row) => (
+									// eslint-disable-next-line
+									<tr key={row.length + "row"}>
+										{row.cells.map((cell, index) => (
+											<td
+												key={cell.text}
+												className={`text--s ${index === 0 ? "wider-cell" : ""}`}
+											>
 												<div className="d-flex align-items-center justify-content-center">
 													{cell.text === null ? (
 														<span className="color--grey__500	">-</span>

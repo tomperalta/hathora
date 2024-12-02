@@ -35,7 +35,7 @@ const Pricing = () => (
 	<StyledPricing>
 		<SEO
 			title="Hathora | Server Orchestration for Multiplayer Games"
-			description="Pay for playtime, not servers. Quickly calculate your server infrastructure costs."
+			description="AAA scale, usage-based pricing for multiplayer games"
 		/>
 		<Hero />
 		{/* <Plans /> */}

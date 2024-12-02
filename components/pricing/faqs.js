@@ -1,44 +1,103 @@
 import Accordion from "components/accordion"
 import Container from "components/container"
 import React from "react"
+import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+import Button from "../button"
 
 const Faqs = () => {
 	const data = [
 		{
-			id: "pricingDifference",
-			title:
-				"What is the difference between pay as you go and commitment pricing on Hathora?",
+			id: "pricing-faq",
+			title: "How does Pro and Enterprise pricing work?",
 			content: (
 				<>
 					<p>
-						To optimize compute costs for our customers, Hathora operates as a
-						hybrid cloud. Hybrid cloud means that we can provision servers on
-						both bare metal and public cloud. We run base (or committed)
-						capacity on bare metal and for unexpected (or burst) capacity we use
-						public cloud.
+						Our pricing is purely usage-based and scales with the amount of
+						provisioned capacity you are using in each region. We support a
+						seamless combination of Bare Metal and Cloud capacity to optimize
+						your game's server costs. We charge based on active vCPUs and egress
+						bandwidth.
 					</p>
 
 					<br />
 
 					<p>
-						Hathora’s operating costs are significantly cheaper on bare metal
-						than on public cloud and we pass on the savings to you! However, it
-						does come at the cost of flexibility. We need approximately 2-3
-						weeks to order and set up the servers in our data centers. If you
-						know that your game will require a certain amount of base capacity,
-						we encourage you to reach out for commitment based pricing.
+						Our Bare Metal servers lead up upwards of 60% savings over
+						comparable Cloud servers. You can start with just 1 month
+						commitments or you can lock-in significant discounts with
+						longer-term commitments and higher volumes.
 					</p>
+
+					<br />
+
+					<p>
+						Schedule a quick pricing call with our team to learn more about our
+						rates!
+					</p>
+
+					<br />
+					<Button
+						type="link"
+						href="https://calendly.com/dsiddharth/30min"
+						external
+						theme="borderless"
+					>
+						Book a call
+						<IconArrow />
+					</Button>
 				</>
 			),
 		},
 		{
-			id: "credit",
-			title: "How does the $500 credit work?",
-			content:
-				"Hathora grants customers $500 in credit on sign up (valid for 24 months) to evaluate and develop on our platform. If you’re with an educational institution or non-profit organization, reach out to us for additional benefits.",
+			id: "cost-faq",
+			title: "How does Hathora help my game optimize server costs?",
+			content: (
+				<>
+					<p>
+						There are 4 major ways how Hathora helps studios cost optimize their
+						multiplayer games:
+					</p>
+					<br />
+					<p>
+						1. Hybrid compute pools (Bare Metal + Cloud burst) is the most cost
+						efficient model for popular multiplayer games. Hathora makes that
+						simple by seamlessly orchestrating servers across both.
+					</p>
+					<br />
+					<p>
+						2. Hyper-optimized autoscaling and intelligent scale-down. The
+						Hathora Autoscaler spins up nodes in under 2 minutes, and can spin
+						up hundreds of nodes in parallel to handle sudden player spikes. Our
+						Autoscaler also intelligently avoids fragmentation as it quickly
+						scales down nodes when peaks subside.
+					</p>
+					<br />
+					<p>
+						3. Hathora global fleets are reusable across your multiple game
+						modes and environments. This allows you to maximize your available
+						servers and avoid needless idle compute.
+					</p>
+					<br />
+					<p>
+						4. Our dedicated support team becomes your studio's infra ops team,
+						reducing the need to hire out your own team to manage all of your
+						infrastructure directly.
+					</p>
+					<br />
+					<Button
+						type="link"
+						href="https://calendly.com/dsiddharth/30min"
+						external
+						theme="borderless"
+					>
+						Book a call
+						<IconArrow />
+					</Button>
+				</>
+			),
 		},
 		{
-			id: "discounts",
+			id: "discounts-faq",
 			title:
 				"What if we already have significant cloud discounts, but don’t want to orchestrate our own servers?",
 			content:
