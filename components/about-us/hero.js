@@ -8,11 +8,11 @@ import Image from "next/image"
 import Container from "components/container"
 
 // Utils
-import breakpoint from "utils/breakpoints/"
+// import breakpoint from "utils/breakpoints/"
 
 // Icons
 import { ReactComponent as IconChevronDown } from "assets/icons/about-us/icon-chevron-down.svg"
-import IconHero from "assets/icons/about-us/icon-hero.svg"
+import IconHero from "assets/icons/about-us/high-five.svg"
 import { colors } from "utils/variables"
 
 const animation = keyframes`
@@ -36,29 +36,6 @@ const StyledHero = styled.section`
 	position: relative;
 	display: flex;
 	align-items: center;
-	// padding: 96px 0 60px 0;
-
-	.hero__icon {
-		max-width: 398px;
-		width: 100%;
-		aspect-ratio: 1;
-		display: flex;
-		align-items: center;
-		margin: 75px auto 0 auto;
-
-		${breakpoint.medium`
-      position: absolute;
-      top: calc((100vh - 398px) / 2);
-      right: 0;
-			right: calc((100vw - 940px) / 2);
-      margin: auto;
-    `}
-
-		${breakpoint.extraLarge`
-      top: calc(((100vh - 358px) / 2));
-      right: calc((100vw - 1140px) / 2);
-    `}
-	}
 
 	.hero__scroll-down-button {
 		width: 24px;
@@ -114,20 +91,20 @@ const Hero = () => {
 		<StyledHero className="about__hero">
 			<Container padding="0 28px">
 				<div className="row justify-content-center justify-content-md-start align-items-center">
-					<div className="col-12 col-md-7 p-md-0">
+					<div className="col-12 col-md-6">
 						<div className="text-sm-center text-md-start">
 							<h1 className="heading--l font-weight--500 mb-4">
 								Meet the team that powers the most ambitious games
 							</h1>
 						</div>
+					</div>
 
-						<div
-							className="hero__icon"
-							data-aos="zoom-in-up"
-							data-aos-anchor=".about__hero"
-						>
-							<Image src={IconHero} width="608" height="608" />
-						</div>
+					<div
+						className="hero__icon col-12 col-md-6"
+						data-aos="zoom-in-up"
+						data-aos-anchor=".about__hero"
+					>
+						<Image src={IconHero} width="700" height="700" />
 					</div>
 				</div>
 
