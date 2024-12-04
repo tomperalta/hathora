@@ -101,7 +101,7 @@ const StyledHero = styled.section`
 
 const Hero = () => {
 	const handleClick = () => {
-		const missionSection = document.getElementById("mission")
+		const missionSection = document.getElementById("our-team")
 
 		if (missionSection) {
 			missionSection.scrollIntoView({
