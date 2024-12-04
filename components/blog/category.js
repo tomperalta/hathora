@@ -67,6 +67,9 @@ const BlogCard = styled.div`
 	transition: transform 0.2s;
 	cursor: pointer;
 	padding: 1.5rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	&:hover {
 		transform: translateY(-4px);
@@ -88,21 +91,24 @@ const ImageContainer = styled.div`
 
 const CardContent = styled.div`
 	padding-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-between;
 `
 
 const CardTitle = styled.h3`
 	color: var(--category-badge-color);
 	font-size: 1.5rem;
-	margin: 1.5rem 0;
+	margin: 0 0 1.5rem 0;
 `
 
 const CardDescription = styled.p`
-	color: ${colors.grey__700};
-	margin-bottom: 1rem;
+	color: ${colors.grey__200};
+	margin: 0;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 24px;
 `
 
 const CardFooter = styled.div`
@@ -111,6 +117,7 @@ const CardFooter = styled.div`
 	gap: 0.5rem;
 	color: ${colors.purple__500};
 	font-size: 0.875rem;
+	margin-top: 1.5rem;
 `
 
 const PostAuthor = styled.span`
@@ -162,7 +169,7 @@ const ReadingTimeIcon = () => (
 	</StyledReadingTimeIcon>
 )
 
-const trimExcerpt = (text, maxLength = 100) => {
+const trimExcerpt = (text, maxLength = 90) => {
 	if (!text) return ""
 	if (text.length <= maxLength) return text
 	return `${text.slice(0, maxLength).trim()}...`
