@@ -7,9 +7,6 @@ import Image from "next/image"
 // Components
 import Container from "components/container"
 
-// Utils
-// import breakpoint from "utils/breakpoints/"
-
 // Icons
 import { ReactComponent as IconChevronDown } from "assets/icons/about-us/icon-chevron-down.svg"
 import IconHero from "assets/icons/about-us/high-five.svg"
@@ -89,7 +86,7 @@ const Hero = () => {
 
 	return (
 		<StyledHero className="about__hero">
-			<Container padding="0 28px">
+			<Container>
 				<div className="row justify-content-center justify-content-md-start align-items-center">
 					<div className="col-12 col-md-6">
 						<div className="text-sm-center text-md-start">

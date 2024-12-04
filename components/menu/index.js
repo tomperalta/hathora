@@ -450,7 +450,6 @@ const Menu = () => {
 				data-aos="fade-down"
 				data-aos-duration="400"
 				data-aos-delay="400"
-				padding="0 28px"
 			>
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">

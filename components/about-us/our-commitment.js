@@ -63,9 +63,9 @@ const cards = [
 ]
 
 const OurCommitment = () => (
-	<Container padding="0 28px">
+	<Container>
 		<div className="container">
-			<div className="row">
+			<div className="row g-2 g-lg-5">
 				<DividerContainer className="text-center">
 					<Line />
 				</DividerContainer>

@@ -89,7 +89,7 @@ const teamMembers = [
 ]
 
 const TeamGrid = () => (
-	<Container padding="0 28px">
+	<Container>
 		<div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
 			{teamMembers.map((member) => (
 				<div className="col" key={member.name}>
