@@ -12,6 +12,10 @@ import InventSimplify from "../../assets/images/about-us/invent-simplify.svg"
 import ListenResolve from "../../assets/images/about-us/listen-resolve.svg"
 import EarnTrust from "../../assets/images/about-us/earn-trust.svg"
 
+const DividerContainer = styled.div`
+	padding-top: 120px;
+`
+
 const StyledH2 = styled.h2`
 	padding-top: 24px;
 `
@@ -59,12 +63,12 @@ const cards = [
 ]
 
 const OurCommitment = () => (
-	<Container padding="0 28px" className="mt-5">
+	<Container padding="0 28px">
 		<div className="container">
 			<div className="row">
-				<div className="text-center">
+				<DividerContainer className="text-center">
 					<Line />
-				</div>
+				</DividerContainer>
 				<StyledH2 className="heading--m text-center col-8 mx-auto">
 					We're committed to building a platform that works for you
 				</StyledH2>
