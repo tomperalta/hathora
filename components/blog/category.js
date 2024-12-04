@@ -169,7 +169,7 @@ const trimExcerpt = (text, maxLength = 100) => {
 }
 
 // eslint-disable-next-line react/prop-types
-const Category = ({ posts = [], tagName = "Latest Posts" }) => {
+const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 	// Function to format date
 	const formatDate = (dateString) => {
 		const date = new Date(dateString)
@@ -186,9 +186,11 @@ const Category = ({ posts = [], tagName = "Latest Posts" }) => {
 			</div>
 			<CategoryHeader>
 				<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
-				<ShowAllButton>
-					Show all <ShowAllButtonIcon />
-				</ShowAllButton>
+				<Link href={`/blog/tags/${tagSlug}`} passHref>
+					<ShowAllButton>
+						Show all <ShowAllButtonIcon />
+					</ShowAllButton>
+				</Link>
 			</CategoryHeader>
 
 			<BlogGrid>

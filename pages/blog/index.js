@@ -56,6 +56,7 @@ const Blog = ({ tags }) => (
 					key={category.tag.id}
 					posts={category.posts}
 					tagName={category.tag.name}
+					tagSlug={category.tag.slug}
 				/>
 				{index === 1 && <SubscribeBanner />}
 				<DividerContainer className="text-center">
