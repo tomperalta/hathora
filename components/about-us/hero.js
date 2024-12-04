@@ -4,6 +4,9 @@ import React from "react"
 import styled, { keyframes } from "styled-components"
 import Image from "next/image"
 
+// Utils
+import breakpoint from "utils/breakpoints/"
+
 // Components
 import Container from "components/container"
 
@@ -29,10 +32,13 @@ const animation = keyframes`
 `
 
 const StyledHero = styled.section`
-	min-height: 100vh;
 	position: relative;
 	display: flex;
 	align-items: center;
+
+	${breakpoint.medium`
+    min-height: 100vh;
+  `}
 
 	.hero__scroll-down-button {
 		width: 24px;
@@ -87,17 +93,17 @@ const Hero = () => {
 	return (
 		<StyledHero className="about__hero">
 			<Container>
-				<div className="row justify-content-center justify-content-md-start align-items-center">
-					<div className="col-12 col-md-6">
-						<div className="text-sm-center text-md-start">
-							<h1 className="heading--l font-weight--500 mb-4">
+				<div className="row align-items-center">
+					<div className="col-none col-md-6">
+						<div className="text-center">
+							<h1 className="heading--l font-weight--500">
 								Meet the team that powers the most ambitious games
 							</h1>
 						</div>
 					</div>
 
 					<div
-						className="hero__icon col-12 col-md-6"
+						className="hero__icon col-12 col-md-6 text-center"
 						data-aos="zoom-in-up"
 						data-aos-anchor=".about__hero"
 					>

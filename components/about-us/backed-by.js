@@ -9,17 +9,28 @@ import Container from "components/container"
 import Line from "components/about-us/divider"
 import { colors } from "utils/variables"
 
+// Utils
+import breakpoint from "utils/breakpoints/"
+
 // Images
 import FoundersFund from "../../assets/images/about-us/founders-fund.svg"
 import UpfrontVentures from "../../assets/images/about-us/upfront-ventures.svg"
 import LunarVentures from "../../assets/images/about-us/lunar-ventures.svg"
 
 const BackedByContainer = styled(Container)`
-	padding: 0 28px 156px;
+	padding: 0 64px;
+
+	${breakpoint.medium`
+    padding: 0 156px;
+  `}
 `
 
 const DividerContainer = styled.div`
-	padding-top: 120px;
+	padding-top: 64px;
+
+	${breakpoint.medium`
+    padding-top: 120px;
+  `}
 `
 
 const StyledH2 = styled.h2`

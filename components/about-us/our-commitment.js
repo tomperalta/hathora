@@ -7,13 +7,20 @@ import styled from "styled-components"
 import Line from "components/about-us/divider"
 import { colors } from "utils/variables"
 
+// Utils
+import breakpoint from "utils/breakpoints/"
+
 // Images
 import InventSimplify from "../../assets/images/about-us/invent-simplify.svg"
 import ListenResolve from "../../assets/images/about-us/listen-resolve.svg"
 import EarnTrust from "../../assets/images/about-us/earn-trust.svg"
 
 const DividerContainer = styled.div`
-	padding-top: 120px;
+	padding-top: 64px;
+
+	${breakpoint.medium`
+    padding-top: 120px;
+  `}
 `
 
 const StyledH2 = styled.h2`
