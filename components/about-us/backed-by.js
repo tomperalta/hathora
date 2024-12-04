@@ -14,6 +14,10 @@ import FoundersFund from "../../assets/images/about-us/founders-fund.svg"
 import UpfrontVentures from "../../assets/images/about-us/upfront-ventures.svg"
 import LunarVentures from "../../assets/images/about-us/lunar-ventures.svg"
 
+const DividerContainer = styled.div`
+	padding-top: 120px;
+`
+
 const StyledH2 = styled.h2`
 	font-size: 2rem;
 	padding: 24px 0 32px 0;
@@ -52,9 +56,9 @@ const cards = [
 
 const BackedBy = () => (
 	<Container padding="0 28px">
-		<div className="text-center mt-5">
+		<DividerContainer className="text-center">
 			<Line />
-		</div>
+		</DividerContainer>
 
 		<div className="container">
 			<div className="row">
