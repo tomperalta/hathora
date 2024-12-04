@@ -14,6 +14,10 @@ import FoundersFund from "../../assets/images/about-us/founders-fund.svg"
 import UpfrontVentures from "../../assets/images/about-us/upfront-ventures.svg"
 import LunarVentures from "../../assets/images/about-us/lunar-ventures.svg"
 
+const BackedByContainer = styled(Container)`
+	padding: 0 28px 156px;
+`
+
 const DividerContainer = styled.div`
 	padding-top: 120px;
 `
@@ -55,7 +59,7 @@ const cards = [
 ]
 
 const BackedBy = () => (
-	<Container padding="0 28px">
+	<BackedByContainer>
 		<DividerContainer className="text-center">
 			<Line />
 		</DividerContainer>
@@ -84,7 +88,7 @@ const BackedBy = () => (
 				))}
 			</div>
 		</div>
-	</Container>
+	</BackedByContainer>
 )
 
 export default BackedBy
