@@ -23,11 +23,12 @@ const SubscribeButton = styled.button`
 	background-color: var(--hero-subscribe-btn);
 	color: var(--hero-subscribe-text);
 	border: none;
-	border-radius: 0.375rem;
+	border-radius: 4px;
 	padding: 10px 12px;
 	display: flex;
 	align-items: center;
 	font-size: 15px;
+	margin-left: -5px;
 `
 
 const StyledArrowIcon = styled.svg`
