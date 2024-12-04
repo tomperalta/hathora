@@ -20,7 +20,7 @@ import Sam from "../../assets/images/about-us/sam.png"
 
 const StyledTeamCard = styled.div`
 	background: #151521;
-	padding: 24px;
+	padding: 20px;
 	border-radius: 10px;
 	color: ${colors.grey__400};
 	font-weight: 700;
@@ -90,7 +90,7 @@ const teamMembers = [
 
 const TeamGrid = () => (
 	<Container padding="0 28px">
-		<div className="row row-cols-2 row-cols-lg-5 g-2">
+		<div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
 			{teamMembers.map((member) => (
 				<div className="col" key={member.name}>
 					<StyledTeamCard className="h-100">
