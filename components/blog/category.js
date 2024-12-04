@@ -61,12 +61,11 @@ const BlogGrid = styled.div`
 `
 
 const BlogCard = styled.div`
-	background: ${blogColors.grey_600};
+	background: ${blogColors.grey__600};
 	border-radius: 1.5rem;
 	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
-	// border: 1px solid yellow;
 	padding: 1.5rem;
 
 	&:hover {
