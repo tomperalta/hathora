@@ -21,7 +21,7 @@ const HeroHeadingContainer = styled.div`
 `
 
 const HeroHeading = styled.div`
-	color: var(--text);
+	color: var(--text-primary);
 	font-size: 32px;
 	line-height: 44px;
 

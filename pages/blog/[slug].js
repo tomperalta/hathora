@@ -35,7 +35,7 @@ const ArticleContent = styled.article`
 	margin: 2rem auto;
 	max-width: 625px;
 	line-height: 1.7;
-	color: var(--text);
+	color: var(--text-primary);
 
 	h1,
 	h2,
@@ -83,7 +83,7 @@ const ArticleContent = styled.article`
 	li,
 	ul,
 	ol {
-		color: var(--text);
+		color: var(--text-primary);
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;

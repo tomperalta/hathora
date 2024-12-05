@@ -94,7 +94,7 @@ export default createGlobalStyle`
     min-height: 100vh;
     min-height: -webkit-fill-available;
     background-color: var(--background-primary);
-    color: var(--text);
+    color: var(--text-primary);
     font-family: "Space Grotesk", sans-serif !important;
     font-size: 1.25rem;
     line-height: 1.4em;

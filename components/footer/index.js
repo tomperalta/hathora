@@ -62,7 +62,7 @@ const StyledFooter = styled.footer`
 	}
 
 	.footer__navigation-item {
-		color: var(--text);
+		color: var(--text-primary);
 		width: 50%;
 
 		${breakpoint.medium`
@@ -82,7 +82,7 @@ const StyledFooter = styled.footer`
 		}
 
 		a {
-			color: var(--text);
+			color: var(--text-primary);
 			&:hover {
 				color: ${colors.purple__500};
 			}
@@ -139,7 +139,7 @@ const StyledFooter = styled.footer`
 	}
 
 	.newsletter-heading {
-		color: var(--text);
+		color: var(--text-primary);
 	}
 
 	.email {
