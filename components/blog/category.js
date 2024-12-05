@@ -48,7 +48,7 @@ const CategoryBadge = styled.span`
 `
 
 const ReadingTime = styled.span`
-	color: ${colors.grey__400};
+	color: var(--blog-card-reading-time);
 	display: flex;
 	align-items: center;
 	font-size: 14px;
@@ -70,7 +70,7 @@ const BlogCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	border-radius: 24px;
-	border: 0.25px solid var(--blog-border);
+	border: 0.25px solid var(--blog-card-border);
 
 	&:hover {
 		transform: translateY(-4px);

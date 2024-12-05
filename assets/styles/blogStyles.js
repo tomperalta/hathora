@@ -48,7 +48,8 @@ export default createGlobalStyle`
     --logo-color: ${colors.white};
     --button-login: ${colors.green__500};
     --blog-card-background: ${blogColors.grey__600};
-    --blog-border: none;
+    --blog-card-border: none;
+    --blog-card-reading-time: ${colors.grey__400};
   }
 
   [data-theme='light'] {
@@ -82,7 +83,8 @@ export default createGlobalStyle`
     --logo-color: var(--text-primary);
     --button-login: ${colors.grey__700};
     --blog-card-background: ${blogColors.white};
-    --blog-border: rgba(0, 0, 0, 0.25);
+    --blog-card-border: rgba(0, 0, 0, 0.25);
+    --blog-card-reading-time: ${colors.grey__700};
   }
 
   .no-scroll {
