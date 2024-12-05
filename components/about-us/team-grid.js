@@ -79,7 +79,7 @@ const teamMembers = [
 	{
 		name: "Natacha Gabbamonte",
 		image: Natacha,
-		title: "Product",
+		title: "Software Engineer",
 	},
 	{
 		name: "Sam Szuflita",
