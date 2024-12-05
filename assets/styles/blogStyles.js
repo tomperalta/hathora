@@ -46,6 +46,7 @@ export default createGlobalStyle`
 
 
     // Refactored Var Names
+    --background-primary: #f8fafc;
     --banner-text-color: ${blogColors.grey__600};
     --banner-border: rgba(94, 94, 125, 0.30);
   }
@@ -78,6 +79,7 @@ export default createGlobalStyle`
 
 
     // Refactored Var Names
+    --background-primary: ${colors.grey__700};
     --banner-text-color: ${colors.green__500};
     --banner-border: ${colors.green__500};
   }
@@ -94,7 +96,7 @@ export default createGlobalStyle`
     width: 100vw;
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: var(--background);
+    background-color: var(--background-primary);
     color: var(--text);
     font-family: "Space Grotesk", sans-serif !important;
     font-size: 1.25rem;
