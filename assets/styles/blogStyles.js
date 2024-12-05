@@ -17,15 +17,11 @@ export default createGlobalStyle`
     `
 		)}
 
-    --background: ${colors.grey__700};
-    --text: ${colors.grey__200};
-    --menu-text: ${colors.grey__400};
     --menu-text-active: ${colors.green__500};
     --text-hover: ${colors.green__500};
-    --button-theme-outline: ${colors.green__500};
+
     --fundraiser-banner-border: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
-    --logo-color: ${colors.white};
     --nav-badge: ${blogColors.grey__350};
     --nav-badge-circle: ${colors.green__500};
     --hero-sub-heading: ${colors.grey__300};
@@ -49,18 +45,15 @@ export default createGlobalStyle`
     --background-primary: ${colors.grey__700};
     --banner-text-color: ${colors.green__500};
     --banner-border: ${colors.green__500};
+    --logo-color: ${colors.white};
+    --button-login: ${colors.green__500};
   }
 
   [data-theme='light'] {
-    --background: #f8fafc;
-    --text: ${colors.grey__700};
-    --menu-text: ${blogColors.grey__600};
     --menu-text-active: ${colors.purple__600};
     --text-hover: ${colors.purple__600};
-    --button-theme-outline: ${colors.grey__700};
 
     --nav-border: rgba(94, 94, 125, 0.30);
-    --logo-color: ${colors.grey__700};
     --nav-badge: ${blogColors.grey__600};
     --nav-badge-circle: ${colors.purple__500};
     --hero-sub-heading: ${blogColors.grey__600};
@@ -84,6 +77,8 @@ export default createGlobalStyle`
     --background-primary: #f8fafc;
     --banner-text-color: ${blogColors.grey__600};
     --banner-border: rgba(94, 94, 125, 0.30);
+    --logo-color: var(--text-primary);
+    --button-login: ${colors.grey__700};
   }
 
   .no-scroll {

@@ -111,8 +111,8 @@ export const ButtonStyles = css`
 	${(props) =>
 		props.theme === "outline" &&
 		`
-			border: 1px solid var(--button-theme-outline);
-			color: var(--button-theme-outline);
+			border: 1px solid var(--button-login);
+			color: var(--button-login);
 
 			&:hover {
 				border-color: ${colors.purple__500};

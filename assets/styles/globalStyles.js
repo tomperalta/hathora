@@ -22,6 +22,8 @@ export default createGlobalStyle`
     --background-primary: ${colors.grey__700};
     --banner-text-color: ${colors.green__500};
     --banner-border: ${colors.green__500};
+    --logo-color: ${colors.white};
+    --button-login: ${colors.green__500};
   }
 
   .no-scroll {
