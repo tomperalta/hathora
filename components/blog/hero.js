@@ -40,22 +40,34 @@ const Subtitle = styled.p`
 
 const StyledStarOne = styled.svg`
 	position: absolute;
-	right: -10px;
-	top: -5px;
+	right: 30px;
+	top: 0;
 	transition: transform 0.2s ease;
 	&:hover {
 		transform: scale(1.2);
 	}
+
+	${breakpoint.medium`
+    position: absolute;
+    right: -10px;
+    top: -5px;
+  `}
 `
 
 const StyledStarTwo = styled.svg`
 	transition: transform 0.2s ease;
 	position: absolute;
-	left: -10px;
-	bottom: 25px;
+	left: 30px;
+	bottom: 30px;
 	&:hover {
 		transform: scale(1.2);
 	}
+
+	${breakpoint.medium`
+    position: absolute;
+    left: -10px;
+    bottom: 25px;
+  `}
 `
 
 const Star = () => (
