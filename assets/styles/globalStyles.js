@@ -17,6 +17,8 @@ export default createGlobalStyle`
     `
 		)}
 
+    --text-primary: ${colors.grey__200};
+    --text-secondary: ${colors.grey__400};
     --background-primary: ${colors.grey__700};
     --banner-text-color: ${colors.green__500};
     --banner-border: ${colors.green__500};

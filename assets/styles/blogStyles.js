@@ -16,6 +16,39 @@ export default createGlobalStyle`
       --${name}: ${color};
     `
 		)}
+
+    --background: ${colors.grey__700};
+    --text: ${colors.grey__200};
+    --menu-text: ${colors.grey__400};
+    --menu-text-active: ${colors.green__500};
+    --text-hover: ${colors.green__500};
+    --button-theme-outline: ${colors.green__500};
+    --fundraiser-banner-border: ${colors.green__500};
+    --nav-border: rgba(94, 94, 125, 0.30);
+    --logo-color: ${colors.white};
+    --nav-badge: ${blogColors.grey__350};
+    --nav-badge-circle: ${colors.green__500};
+    --hero-sub-heading: ${colors.grey__300};
+    --hero-subscribe-btn: ${colors.green__500};
+    --hero-subscribe-text: black;
+    --category-title: ${colors.purple__400};
+    --category-background:  ${colors.grey__550};
+    --category-badge-color: ${colors.white};
+    --footer-email: ${colors.green__500};
+    --footer-privacy-link: ${colors.grey__300};
+    --blog-date: ${colors.purple__400};
+    --hamburger-menu-color: ${colors.grey__200};
+    --footer-address: ${colors.grey__300};
+    --category-chevron: ${colors.grey__200};
+
+
+
+    // Refactored Var Names
+    --text-primary: ${colors.grey__200};
+    --text-secondary: ${colors.grey__400};
+    --background-primary: ${colors.grey__700};
+    --banner-text-color: ${colors.green__500};
+    --banner-border: ${colors.green__500};
   }
 
   [data-theme='light'] {
@@ -46,42 +79,11 @@ export default createGlobalStyle`
 
 
     // Refactored Var Names
+    --text-primary: ${colors.grey__700};
+    --text-secondary: ${blogColors.grey__600};
     --background-primary: #f8fafc;
     --banner-text-color: ${blogColors.grey__600};
     --banner-border: rgba(94, 94, 125, 0.30);
-  }
-
-  [data-theme='dark'] {
-    --background: ${colors.grey__700};
-    --text: ${colors.grey__200};
-    --menu-text: ${colors.grey__400};
-    --menu-text-active: ${colors.green__500};
-    --text-hover: ${colors.green__500};
-    --button-theme-outline: ${colors.green__500};
-    --fundraiser-banner-border: ${colors.green__500};
-    --nav-border: rgba(94, 94, 125, 0.30);
-    --logo-color: ${colors.white};
-    --nav-badge: ${blogColors.grey__350};
-    --nav-badge-circle: ${colors.green__500};
-    --hero-sub-heading: ${colors.grey__300};
-    --hero-subscribe-btn: ${colors.green__500};
-    --hero-subscribe-text: black;
-    --category-title: ${colors.purple__400};
-    --category-background:  ${colors.grey__550};
-    --category-badge-color: ${colors.white};
-    --footer-email: ${colors.green__500};
-    --footer-privacy-link: ${colors.grey__300};
-    --blog-date: ${colors.purple__400};
-    --hamburger-menu-color: ${colors.grey__200};
-    --footer-address: ${colors.grey__300};
-    --category-chevron: ${colors.grey__200};
-
-
-
-    // Refactored Var Names
-    --background-primary: ${colors.grey__700};
-    --banner-text-color: ${colors.green__500};
-    --banner-border: ${colors.green__500};
   }
 
   .no-scroll {

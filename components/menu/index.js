@@ -183,7 +183,7 @@ const StyledMenu = styled.nav`
 			position: relative;
 			display: inline-flex;
 			align-items: center;
-			color: var(--menu-text);
+			color: var(--text-secondary);
 			font-size: 1.25rem;
 			font-weight: 500;
 			line-height: 1.4em;
