@@ -27,79 +27,65 @@ export default createGlobalStyle`
   }
 
   [data-theme='light'] {
-    /* Base colors */
-    --bg-primary: #f8fafc;
-    --text-primary: ${colors.grey__700};
-    --text-secondary: ${blogColors.grey__600};
-    --text-tertiary: ${colors.grey__400};
-
-    /* Accent colors */
-    --accent-primary: ${colors.purple__600};
-    --accent-secondary: ${colors.purple__500};
-
-    /* Interactive elements */
-    --hover-color: ${colors.purple__600};
-    --btn-primary-bg: ${colors.purple__600};
-    --btn-primary-text: ${colors.grey__200};
-
-    /* Borders and dividers */
-    --border-color: rgba(94, 94, 125, 0.30);
-
-    /* Component specific */
-    --badge-bg: transparent;
-    --badge-text: ${colors.grey__700};
-    --badge-accent: ${colors.purple__500};
-
-    /* Navigation */
-    --nav-text: ${blogColors.grey__600};
-    --nav-text-active: ${colors.purple__600};
-    --nav-icon: ${blogColors.grey__600};
-
-    /* Footer */
-    --footer-text: ${colors.grey__400};
-    --footer-link: ${colors.grey__500};
+    --background: #f8fafc;
+    --text: ${colors.grey__700};
+    --menu-text: ${blogColors.grey__600};
+    --menu-text-active: ${colors.purple__600};
+    --text-hover: ${colors.purple__600};
+    --button-theme-outline: ${colors.grey__700};
+    --fundraiser-banner-border: rgba(94, 94, 125, 0.30);
+    --fundraiser-text-color: ${blogColors.grey__600};
+    --nav-border: rgba(94, 94, 125, 0.30);
+    --logo-color: ${colors.grey__700};
+    --nav-badge: ${blogColors.grey__600};
+    --nav-badge-circle: ${colors.purple__500};
+    --hero-sub-heading: ${blogColors.grey__600};
+    --hero-subscribe-btn: ${colors.purple__600};
+    --hero-subscribe-text: ${colors.grey__200};
+    --category-title: ${colors.grey__700};
+    --category-background:  invisible;
+    --category-badge-color: ${colors.grey__700};
+    --footer-email: ${colors.grey__700};
+    --footer-privacy-link: ${colors.grey__500};
+    --blog-date: ${colors.purple__600};
+    --hamburger-menu-color: ${blogColors.grey__600};
+    --footer-address: ${colors.grey__400};
+    --category-chevron: ${colors.grey__200};
   }
 
   [data-theme='dark'] {
-    /* Base colors */
-    --bg-primary: ${colors.grey__700};
-    --text-primary: ${colors.grey__200};
-    --text-secondary: ${colors.grey__400};
-    --text-tertiary: ${colors.grey__300};
-
-    /* Accent colors */
-    --accent-primary: ${colors.green__500};
-    --accent-secondary: ${colors.purple__400};
-
-    /* Interactive elements */
-    --hover-color: ${colors.green__500};
-    --btn-primary-bg: ${colors.green__500};
-    --btn-primary-text: black;
-
-    /* Borders and dividers */
-    --border-color: rgba(94, 94, 125, 0.30);
-
-    /* Component specific */
-    --badge-bg: ${colors.grey__550};
-    --badge-text: ${colors.white};
-    --badge-accent: ${colors.green__500};
-
-    /* Navigation */
-    --nav-text: ${colors.grey__400};
-    --nav-text-active: ${colors.green__500};
-    --nav-icon: ${colors.grey__200};
-
-    /* Footer */
-    --footer-text: ${colors.grey__300};
-    --footer-link: ${colors.grey__300};
+    --background: ${colors.grey__700};
+    --text: ${colors.grey__200};
+    --menu-text: ${colors.grey__400};
+    --menu-text-active: ${colors.green__500};
+    --text-hover: ${colors.green__500};
+    --button-theme-outline: ${colors.green__500};
+    --fundraiser-banner-border: ${colors.green__500};
+    --fundraiser-text-color: ${colors.green__500};
+    --nav-border: rgba(94, 94, 125, 0.30);
+    --logo-color: ${colors.white};
+    --nav-badge: ${blogColors.grey__350};
+    --nav-badge-circle: ${colors.green__500};
+    --hero-sub-heading: ${colors.grey__300};
+    --hero-subscribe-btn: ${colors.green__500};
+    --hero-subscribe-text: black;
+    --category-title: ${colors.purple__400};
+    --category-background:  ${colors.grey__550};
+    --category-badge-color: ${colors.white};
+    --footer-email: ${colors.green__500};
+    --footer-privacy-link: ${colors.grey__300};
+    --blog-date: ${colors.purple__400};
+    --hamburger-menu-color: ${colors.grey__200};
+    --footer-address: ${colors.grey__300};
+    --category-chevron: ${colors.grey__200};
   }
 
   body {
     width: 100vw;
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--background);
+    color: var(--text);
     font-family: "Space Grotesk", sans-serif !important;
     font-size: 1.25rem;
     line-height: 1.4em;

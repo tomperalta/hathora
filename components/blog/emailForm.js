@@ -20,8 +20,8 @@ const EmailInput = styled.input`
 `
 
 const SubscribeButton = styled.button`
-	background-color: var(--btn-primary-bg);
-	color: var(--btn-primary-text);
+	background-color: var(--hero-subscribe-btn);
+	color: var(--hero-subscribe-text);
 	border: none;
 	border-radius: 4px;
 	padding: 10px 12px;
@@ -48,7 +48,7 @@ const ArrowRightIcon = () => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="M8.2459 0.822785C8.4712 0.597483 8.83649 0.597483 9.06179 0.822785L14.831 6.59202C14.9392 6.70021 15 6.84695 15 6.99996C15 7.15297 14.9392 7.29972 14.831 7.40791L9.06179 13.1771C8.83649 13.4024 8.4712 13.4024 8.2459 13.1771C8.0206 12.9518 8.0206 12.5865 8.2459 12.3612L13.0303 7.57689H0.576923C0.258297 7.57689 0 7.31859 0 6.99996C0 6.68134 0.258297 6.42304 0.576923 6.42304H13.0303L8.2459 1.63868C8.0206 1.41338 8.0206 1.04809 8.2459 0.822785Z"
-			fill="var(--btn-primary-text)"
+			fill="var(--hero-subscribe-text)"
 		/>
 	</StyledArrowIcon>
 )
