@@ -25,8 +25,7 @@ export default createGlobalStyle`
     --menu-text-active: ${colors.purple__600};
     --text-hover: ${colors.purple__600};
     --button-theme-outline: ${colors.grey__700};
-    --fundraiser-banner-border: rgba(94, 94, 125, 0.30);
-    --fundraiser-text-color: ${blogColors.grey__600};
+
     --nav-border: rgba(94, 94, 125, 0.30);
     --logo-color: ${colors.grey__700};
     --nav-badge: ${blogColors.grey__600};
@@ -48,6 +47,7 @@ export default createGlobalStyle`
 
     // Refactored Var Names
     --banner-text-color: ${blogColors.grey__600};
+    --banner-border: rgba(94, 94, 125, 0.30);
   }
 
   [data-theme='dark'] {
@@ -58,7 +58,6 @@ export default createGlobalStyle`
     --text-hover: ${colors.green__500};
     --button-theme-outline: ${colors.green__500};
     --fundraiser-banner-border: ${colors.green__500};
-    --fundraiser-text-color: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
     --logo-color: ${colors.white};
     --nav-badge: ${blogColors.grey__350};
@@ -80,6 +79,7 @@ export default createGlobalStyle`
 
     // Refactored Var Names
     --banner-text-color: ${colors.green__500};
+    --banner-border: ${colors.green__500};
   }
 
   .no-scroll {

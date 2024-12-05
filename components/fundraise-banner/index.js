@@ -16,7 +16,7 @@ const StyledFundraiseBanner = styled.div`
 	right: 0;
 	left: 0;
 	padding: 8px 0;
-	border-bottom: 1px solid var(--fundraiser-banner-border);
+	border-bottom: 1px solid var(--banner-border);
 	text-align: center;
 	z-index: 9001;
 
