@@ -25,7 +25,7 @@ const StyledFundraiseBanner = styled.div`
   `}
 
 	a {
-		color: var(--fundraiser-text-color);
+		color: var(--banner-text-color);
 
 		&:hover {
 			color: ${colors.purple__500};

@@ -4,7 +4,7 @@ import { createGlobalStyle, css } from "styled-components"
 // Utils
 import breakpoint from "utils/breakpoints/"
 import helpers from "utils/helpers"
-import { colors } from "utils/variables"
+import { colors, blogColors } from "utils/variables"
 
 // Icons
 import IconDottedSeparator from "assets/icons/icon-dotted-separator.svg"
@@ -16,6 +16,14 @@ export default createGlobalStyle`
       --${name}: ${color};
     `
 		)}
+  }
+
+  [data-theme='light'] {
+    --banner-text-color: ${blogColors.grey__600};
+  }
+
+  [data-theme='dark'] {
+    --banner-text-color: ${colors.green__500};
   }
 
   .no-scroll {
