@@ -11,6 +11,8 @@ const DividerContainer = styled.div`
 
 const SubscribeContainer = styled(Container)`
 	padding: 50px 24px;
+	overflow: hidden;
+	position: relative;
 
 	${breakpoint.medium`
     display: flex;
@@ -27,6 +29,7 @@ const SubscribeHeading = styled.div`
 	font-style: normal;
 	font-weight: 500;
 	line-height: 44px;
+	position: relative;
 `
 
 const SubscribeHeadingSpan = styled.span`
@@ -44,6 +47,34 @@ const Subtitle = styled.p`
 	font-weight: 400;
 `
 
+const TopShadow = styled.div`
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	left: 100px;
+	bottom: 0;
+	border-radius: 50%;
+	background: #af64ee;
+	mix-blend-mode: hard-light;
+	opacity: 0.3;
+	filter: blur(70.6396px);
+	z-index: -1;
+`
+
+const BottomShadow = styled.div`
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	right: 100px;
+	bottom: -110px;
+	border-radius: 50%;
+	background: #af64ee;
+	mix-blend-mode: hard-light;
+	opacity: 0.3;
+	filter: blur(70.6396px);
+	z-index: -1;
+`
+
 export default function SubscribeBanner() {
 	return (
 		<>
@@ -53,11 +84,13 @@ export default function SubscribeBanner() {
 			<SubscribeContainer>
 				<SubscribeHeadingContainer>
 					<SubscribeHeading>
+						<TopShadow />
 						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to our blog
 					</SubscribeHeading>
 					<Subtitle>Learn more about the gaming industry</Subtitle>
 				</SubscribeHeadingContainer>
 				<EmailForm />
+				<BottomShadow />
 			</SubscribeContainer>
 		</>
 	)
