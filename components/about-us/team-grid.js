@@ -90,7 +90,7 @@ const teamMembers = [
 
 const TeamGrid = () => (
 	<Container>
-		<div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
+		<div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
 			{teamMembers.map((member) => (
 				<div className="col" key={member.name}>
 					<StyledTeamCard className="h-100">
