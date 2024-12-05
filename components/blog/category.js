@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Container from "components/container/"
-import { colors, blogColors } from "utils/variables"
+import { colors } from "utils/variables"
 import Divider from "components/divider"
 import Image from "next/image"
 import { readingTime } from "@tryghost/helpers"
@@ -61,8 +61,7 @@ const BlogGrid = styled.div`
 `
 
 const BlogCard = styled.div`
-	background: ${blogColors.grey__600};
-	border-radius: 1.5rem;
+	background: var(--blog-card-background);
 	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
@@ -70,6 +69,8 @@ const BlogCard = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	border-radius: 24px;
+	border: 0.25px solid var(--blog-border);
 
 	&:hover {
 		transform: translateY(-4px);
@@ -104,7 +105,7 @@ const CardTitle = styled.h3`
 `
 
 const CardDescription = styled.p`
-	color: ${colors.grey__200};
+	color: var(--text-primary);
 	margin: 0;
 	font-size: 1rem;
 	font-style: normal;

@@ -47,6 +47,8 @@ export default createGlobalStyle`
     --banner-border: ${colors.green__500};
     --logo-color: ${colors.white};
     --button-login: ${colors.green__500};
+    --blog-card-background: ${blogColors.grey__600};
+    --blog-border: none;
   }
 
   [data-theme='light'] {
@@ -79,6 +81,8 @@ export default createGlobalStyle`
     --banner-border: rgba(94, 94, 125, 0.30);
     --logo-color: var(--text-primary);
     --button-login: ${colors.grey__700};
+    --blog-card-background: ${blogColors.white};
+    --blog-border: rgba(0, 0, 0, 0.25);
   }
 
   .no-scroll {

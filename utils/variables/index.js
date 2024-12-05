@@ -33,6 +33,7 @@ export const colors = {
 // Colors:end
 
 export const blogColors = {
+	white: "#f8fafc",
 	grey__350: "#AFAFCB",
 	grey__600: "#151521",
 }
