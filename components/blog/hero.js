@@ -21,7 +21,7 @@ const HeroHeadingContainer = styled.div`
 `
 
 const HeroHeading = styled.div`
-	color: var(--text);
+	color: var(--text-primary);
 	font-size: 32px;
 	line-height: 44px;
 
@@ -32,7 +32,7 @@ const HeroHeading = styled.div`
 `
 
 const Subtitle = styled.p`
-	color: var(--hero-sub-heading);
+	color: var(--text-secondary);
 	font-size: 20px;
 	line-height: 28px;
 	font-weight: 400;

@@ -27,10 +27,11 @@ const SubscribeHeading = styled.div`
 	font-style: normal;
 	font-weight: 500;
 	line-height: 44px;
+	color: var(--accent-primary);
 `
 
 const SubscribeHeadingSpan = styled.span`
-	color: var(--hero-subscribe-btn);
+	color: var(--accent-primary);
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 700;
@@ -38,7 +39,7 @@ const SubscribeHeadingSpan = styled.span`
 `
 
 const Subtitle = styled.p`
-	color: var(--hero-sub-heading);
+	color: var(--text-secondary);
 	font-size: 20px;
 	line-height: 28px;
 	font-weight: 400;

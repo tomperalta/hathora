@@ -19,16 +19,16 @@ const CategoryHeader = styled.div`
 `
 
 const CategoryTitle = styled.h2`
-	color: var(--category-title);
+	color: var(--accent-secondary);
 	margin: 0;
-	border-left: 2px solid var(--category-title);
+	border-left: 2px solid var(--accent-secondary);
 	padding-left: 10px;
 	font-weight: 700;
 `
 
 const ShowAllButton = styled.button`
-	color: var(--category-title);
-	border: 1px solid var(--category-title);
+	color: var(--accent-secondary);
+	border: 1px solid var(--accent-secondary);
 	border-radius: 6px;
 	padding: 4px 8px;
 	font-size: 14px;
@@ -37,14 +37,16 @@ const ShowAllButton = styled.button`
 	align-items: center;
 `
 
+const CategoryBadgeWrapper = styled.div`
+	background: var(--badge-bg);
+	padding: 3px 10px;
+	border-radius: 4px;
+	color: var(--badge-text);
+	border: 1px solid var(--badge-text);
+`
+
 const CategoryBadge = styled.span`
-	background: var(--category-background);
-	border-radius: 40px;
-	padding: 4px 12px;
-	color: var(--category-badge-color);
-	border: 1px solid var(--category-badge-color);
-	line-height: normal;
-	font-size: 14px;
+	color: var(--accent-secondary);
 `
 
 const ReadingTime = styled.span`
@@ -98,7 +100,7 @@ const CardContent = styled.div`
 `
 
 const CardTitle = styled.h3`
-	color: var(--category-badge-color);
+	color: var(--badge-text);
 	font-size: 1.5rem;
 	margin: 0 0 1.5rem 0;
 `
@@ -125,8 +127,8 @@ const PostAuthor = styled.span`
 `
 
 const PostDate = styled.span`
-	color: var(--blog-date);
-	border-left: 2px solid var(--blog-date);
+	color: var(--accent-secondary);
+	border-left: 2px solid var(--accent-secondary);
 	padding-left: 10px;
 	font-size: 1rem;
 	line-height: 15px;
@@ -139,7 +141,7 @@ const StyledReadingTimeIcon = styled.svg`
 	margin-right: 5px;
 `
 
-const ShowAllButtonIcon = () => (
+const Chevron = () => (
 	<StyledArrowIcon
 		xmlns="http://www.w3.org/2000/svg"
 		width="19"
@@ -151,7 +153,7 @@ const ShowAllButtonIcon = () => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="M12.2231 0.417513C12.4458 0.194888 12.7478 0.0698242 13.0627 0.0698242C13.3776 0.0698242 13.6796 0.194888 13.9022 0.417513L18.6523 5.16758C18.8749 5.39027 19 5.69226 19 6.00715C19 6.32204 18.8749 6.62403 18.6523 6.84672L13.9022 11.5968C13.6783 11.8131 13.3783 11.9328 13.0669 11.9301C12.7556 11.9274 12.4577 11.8025 12.2376 11.5823C12.0174 11.3621 11.8925 11.0643 11.8898 10.7529C11.8871 10.4416 12.0068 10.1416 12.2231 9.91764L14.9461 7.19467H1.18752C0.872567 7.19467 0.570518 7.06955 0.347815 6.84685C0.125113 6.62415 0 6.3221 0 6.00715C0 5.6922 0.125113 5.39015 0.347815 5.16745C0.570518 4.94475 0.872567 4.81963 1.18752 4.81963H14.9461L12.2231 2.09666C12.0005 1.87397 11.8754 1.57197 11.8754 1.25709C11.8754 0.9422 12.0005 0.640205 12.2231 0.417513Z"
-			fill="var(--category-title)"
+			fill="var(--accent-secondary)"
 		/>
 	</StyledArrowIcon>
 )
@@ -195,7 +197,7 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 				<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
 				<Link href={`/blog/tags/${tagSlug}`} passHref>
 					<ShowAllButton>
-						Show all <ShowAllButtonIcon />
+						Show all <Chevron />
 					</ShowAllButton>
 				</Link>
 			</CategoryHeader>
@@ -205,9 +207,11 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
 						<BlogCard>
 							<CardHeader>
-								<CategoryBadge>
-									{post.primary_tag?.name || tagName}
-								</CategoryBadge>
+								<CategoryBadgeWrapper>
+									<CategoryBadge>
+										{post.primary_tag?.name || tagName}
+									</CategoryBadge>
+								</CategoryBadgeWrapper>
 								<ReadingTime>
 									<ReadingTimeIcon />
 									{readingTime(post, {
