@@ -4,15 +4,15 @@ import React from "react"
 import styled, { keyframes } from "styled-components"
 import Image from "next/image"
 
-// Components
-import Container from "components/container/"
-
 // Utils
 import breakpoint from "utils/breakpoints/"
 
+// Components
+import Container from "components/container"
+
 // Icons
 import { ReactComponent as IconChevronDown } from "assets/icons/about-us/icon-chevron-down.svg"
-import IconHero from "assets/icons/about-us/icon-hero.svg"
+import IconHero from "assets/icons/about-us/high-five.svg"
 import { colors } from "utils/variables"
 
 const animation = keyframes`
@@ -32,40 +32,20 @@ const animation = keyframes`
 `
 
 const StyledHero = styled.section`
-	min-height: 100vh;
 	position: relative;
 	display: flex;
 	align-items: center;
-	// padding: 96px 0 60px 0;
 
-	.hero__icon {
-		max-width: 398px;
-		width: 100%;
-		aspect-ratio: 1;
-		display: flex;
-		align-items: center;
-		margin: 75px auto 0 auto;
-
-		${breakpoint.medium`
-      position: absolute;
-      top: calc((100vh - 398px) / 2);
-      right: 0;
-			right: calc((100vw - 940px) / 2);
-      margin: auto;
-    `}
-
-		${breakpoint.extraLarge`
-      top: calc(((100vh - 358px) / 2));
-      right: calc((100vw - 1140px) / 2);
-    `}
-	}
+	${breakpoint.medium`
+    min-height: 100vh;
+  `}
 
 	.hero__scroll-down-button {
 		width: 24px;
 		height: 40px;
 		position: absolute;
 		right: 0;
-		bottom: 48px;
+		bottom: 0;
 		left: 0;
 		margin: auto;
 
@@ -101,7 +81,7 @@ const StyledHero = styled.section`
 
 const Hero = () => {
 	const handleClick = () => {
-		const missionSection = document.getElementById("mission")
+		const missionSection = document.getElementById("our-team")
 
 		if (missionSection) {
 			missionSection.scrollIntoView({
@@ -113,21 +93,21 @@ const Hero = () => {
 	return (
 		<StyledHero className="about__hero">
 			<Container>
-				<div className="row justify-content-center justify-content-md-start align-items-center">
-					<div className="col-12 col-md-7 p-md-0">
-						<div className="text-sm-center text-md-start">
-							<h1 className="heading--l font-weight--500 mb-4">
-								Hathora is bringing infrastructure expertise to the gaming world
+				<div className="row align-items-center">
+					<div className="col-none col-md-6">
+						<div className="text-center">
+							<h1 className="heading--l font-weight--500">
+								Meet the team that powers the most ambitious games
 							</h1>
 						</div>
+					</div>
 
-						<div
-							className="hero__icon"
-							data-aos="zoom-in-up"
-							data-aos-anchor=".about__hero"
-						>
-							<Image src={IconHero} width="608" height="608" />
-						</div>
+					<div
+						className="hero__icon col-12 col-md-6 text-center"
+						data-aos="zoom-in-up"
+						data-aos-anchor=".about__hero"
+					>
+						<Image src={IconHero} width="700" height="700" />
 					</div>
 				</div>
 

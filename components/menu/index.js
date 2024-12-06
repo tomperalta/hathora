@@ -12,7 +12,7 @@ import Image from "next/image"
 // import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Components
-import Container from "components/container/"
+import Container from "components/container"
 import Button from "components/button"
 
 // Utils
@@ -242,7 +242,7 @@ const StyledMenu = styled.nav`
         border-radius: 8px;
         box-shadow: 0px 134px 124px rgba(0, 0, 0, 0.25);
         opacity: 0;
-        transform: translateY(24px);     
+        transform: translateY(24px);
         transition: all 0.2s ease;
         visibility: hidden;
         z-index: 9001;
