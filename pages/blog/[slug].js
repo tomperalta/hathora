@@ -6,8 +6,8 @@ import SEO from "components/seo"
 import breakpoint from "utils/breakpoints"
 import PropTypes from "prop-types"
 
-const StyledBlogPost = styled.article`
-	padding: 156px 0 96px 0;
+const StyledBlogPost = styled.div`
+	padding: 120px 1.5rem;
 	max-width: 768px;
 	margin: 0 auto;
 
@@ -19,6 +19,14 @@ const StyledBlogPost = styled.article`
 		max-width: 100%;
 		height: auto;
 	}
+`
+const HeroHeading = styled.div`
+	margin: 2rem;
+	text-align: center;
+`
+
+const ArticleContent = styled.article`
+	margin: 2rem;
 `
 
 const BlogPost = ({ post }) => {
@@ -40,9 +48,14 @@ const BlogPost = ({ post }) => {
 				description={post.excerpt}
 				image={post.feature_image}
 			/>
-			<h1>{post.title}</h1>
+
+			<HeroHeading>
+				<h1 className="heading--m font-weight--500 text-center">
+					{post.title}
+				</h1>
+			</HeroHeading>
 			{/* eslint-disable-next-line react/no-danger */}
-			<div dangerouslySetInnerHTML={{ __html: post.html }} />
+			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
 		</StyledBlogPost>
 	)
 }

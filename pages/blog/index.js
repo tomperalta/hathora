@@ -44,7 +44,7 @@ const Blog = ({ categorizedPosts }) => (
 		<Hero />
 		{/* eslint-disable-next-line react/prop-types */}
 		{categorizedPosts.map((category) => (
-			<>
+			<React.Fragment key={category.tag.id}>
 				<Category
 					key={category.tag.id}
 					posts={category.posts}
@@ -53,7 +53,7 @@ const Blog = ({ categorizedPosts }) => (
 				<DividerContainer>
 					<Divider />
 				</DividerContainer>
-			</>
+			</React.Fragment>
 		))}
 	</StyledBlog>
 )
