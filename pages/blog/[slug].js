@@ -5,6 +5,7 @@ import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
 import PropTypes from "prop-types"
 import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
 
 const StyledBlogPost = styled.div`
 	padding: 120px 24px;
@@ -14,21 +15,32 @@ const StyledBlogPost = styled.div`
 		height: auto;
 	}
 `
-const HeroHeading = styled.div`
-	margin: 0 auto;
+const ArticleHeader = styled.div`
 	padding: 80px 0;
-	text-align: center;
-	line-height: 44px;
-	font-size: 32px;
 
-	${breakpoint.medium`
+	p {
+		margin: 0 auto;
+		text-align: center;
+		font-size: 24px;
+		line-height: 32px;
+		color: ${colors.purple__500};
+	}
+
+	h1 {
+		margin: 0 auto;
+
+		text-align: center;
+		line-height: 44px;
+		font-size: 32px;
+
+		${breakpoint.medium`
     margin: 0 auto;
-    padding: 80px 0;
     text-align: center;
     line-height: 64px;
     max-width: 768px;
     font-size: 48px;
   `}
+	}
 `
 
 const ArticleContent = styled.article`
@@ -120,10 +132,12 @@ const ArticleContent = styled.article`
 `
 
 const BlogPost = ({ post }) => {
+	console.log("🚀 ~ file: [slug].js:123 ~ post:", post)
 	if (!post) return null
 
 	BlogPost.propTypes = {
 		post: PropTypes.shape({
+			primary_tag: PropTypes.string,
 			title: PropTypes.string.isRequired,
 			excerpt: PropTypes.string,
 			feature_image: PropTypes.string,
@@ -139,9 +153,10 @@ const BlogPost = ({ post }) => {
 				image={post.feature_image}
 			/>
 
-			<HeroHeading>
+			<ArticleHeader>
+				<p>{post.primary_tag.name}</p>
 				<h1>{post.title}</h1>
-			</HeroHeading>
+			</ArticleHeader>
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
 		</StyledBlogPost>
