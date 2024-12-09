@@ -37,21 +37,12 @@ const ShowAllButton = styled.button`
 	align-items: center;
 `
 
-const CategoryBadge = styled.span`
-	background: var(--category-background);
-	border-radius: 40px;
-	padding: 4px 12px;
-	color: var(--category-badge-color);
-	border: 1px solid var(--category-badge-color);
-	line-height: normal;
-	font-size: 14px;
-`
-
 const ReadingTime = styled.span`
 	color: var(--blog-card-reading-time);
 	display: flex;
 	align-items: center;
 	font-size: 14px;
+	padding-top: 12px;
 `
 
 const BlogGrid = styled.div`
@@ -77,11 +68,6 @@ const BlogCard = styled.div`
 	}
 `
 
-const CardHeader = styled.div`
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 1.5rem;
-`
 const ImageContainer = styled.div`
 	position: relative;
 	width: 100%;
@@ -205,19 +191,6 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 				{posts.map((post) => (
 					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
 						<BlogCard>
-							<CardHeader>
-								<CategoryBadge>
-									{post.primary_tag?.name || tagName}
-								</CategoryBadge>
-								<ReadingTime>
-									<ReadingTimeIcon />
-									{readingTime(post, {
-										minute: "1min",
-										minutes: "%mins",
-									})}
-								</ReadingTime>
-							</CardHeader>
-
 							{post.feature_image && (
 								<ImageContainer>
 									<Image
@@ -234,6 +207,13 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 								<CardDescription className="d-none d-sm-block">
 									{trimExcerpt(post.excerpt || post.custom_excerpt)}
 								</CardDescription>
+								<ReadingTime>
+									<ReadingTimeIcon />
+									{readingTime(post, {
+										minute: "1min",
+										minutes: "%mins",
+									})}
+								</ReadingTime>
 								<CardFooter>
 									<PostAuthor className="text--s font-weight--700">
 										{post.primary_author?.name || "Anonymous"}
