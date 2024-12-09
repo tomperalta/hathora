@@ -132,7 +132,6 @@ const ArticleContent = styled.article`
 `
 
 const BlogPost = ({ post }) => {
-	console.log("🚀 ~ file: [slug].js:123 ~ post:", post)
 	if (!post) return null
 
 	BlogPost.propTypes = {
@@ -154,7 +153,7 @@ const BlogPost = ({ post }) => {
 			/>
 
 			<ArticleHeader>
-				<p>{post.primary_tag.name}</p>
+				<p>{post.primary_tag?.name}</p>
 				<h1>{post.title}</h1>
 			</ArticleHeader>
 			{/* eslint-disable-next-line react/no-danger */}
