@@ -205,7 +205,7 @@ const BlogPost = ({ post }) => {
 			</ArticleHeader>
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
-			<ScrollToTopContainer>
+			<ScrollToTopContainer className="d-none d-lg-flex">
 				<SocialShareContainer>
 					<p>Share Article:</p>
 					<a
