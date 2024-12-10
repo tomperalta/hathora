@@ -35,6 +35,14 @@ const ShowAllButton = styled.button`
 	line-height: 20px;
 	display: flex;
 	align-items: center;
+	transition: background 0.1s ease-in-out;
+	background: transparent;
+
+	&:hover {
+		cursor: pointer;
+		background: var(--category-title);
+		color: var(--show-all-text-hover);
+	}
 `
 
 const ReadingTime = styled.span`
@@ -120,8 +128,17 @@ const PostDate = styled.span`
 `
 
 const StyledArrowIcon = styled.svg`
-	margin-left: 5px;
+	margin-left: 8px;
+	path {
+		fill: var(--category-title);
+		transition: fill 0.1s ease-in-out;
+	}
+
+	${ShowAllButton}:hover & path {
+		fill: var(--show-all-text-hover);
+	}
 `
+
 const StyledReadingTimeIcon = styled.svg`
 	margin-right: 5px;
 `
@@ -138,7 +155,6 @@ const ShowAllButtonIcon = () => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="M12.2231 0.417513C12.4458 0.194888 12.7478 0.0698242 13.0627 0.0698242C13.3776 0.0698242 13.6796 0.194888 13.9022 0.417513L18.6523 5.16758C18.8749 5.39027 19 5.69226 19 6.00715C19 6.32204 18.8749 6.62403 18.6523 6.84672L13.9022 11.5968C13.6783 11.8131 13.3783 11.9328 13.0669 11.9301C12.7556 11.9274 12.4577 11.8025 12.2376 11.5823C12.0174 11.3621 11.8925 11.0643 11.8898 10.7529C11.8871 10.4416 12.0068 10.1416 12.2231 9.91764L14.9461 7.19467H1.18752C0.872567 7.19467 0.570518 7.06955 0.347815 6.84685C0.125113 6.62415 0 6.3221 0 6.00715C0 5.6922 0.125113 5.39015 0.347815 5.16745C0.570518 4.94475 0.872567 4.81963 1.18752 4.81963H14.9461L12.2231 2.09666C12.0005 1.87397 11.8754 1.57197 11.8754 1.25709C11.8754 0.9422 12.0005 0.640205 12.2231 0.417513Z"
-			fill="var(--category-title)"
 		/>
 	</StyledArrowIcon>
 )

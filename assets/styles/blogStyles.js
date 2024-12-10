@@ -50,6 +50,7 @@ export default createGlobalStyle`
     --blog-card-background: ${blogColors.grey__600};
     --blog-card-border: none;
     --blog-card-reading-time: ${colors.grey__400};
+    --show-all-text-hover: ${colors.grey__700};
   }
 
   [data-theme='light'] {
@@ -86,6 +87,7 @@ export default createGlobalStyle`
     --blog-card-border: rgba(0, 0, 0, 0.25);
     --blog-card-reading-time: ${colors.grey__700};
     --blog-article-font: font-family: "Source Serif 4", serif;
+    --show-all-text-hover: ${blogColors.white};
   }
 
   .no-scroll {
