@@ -80,30 +80,63 @@ const ArrowRightIcon = () => (
 	</StyledArrowIcon>
 )
 
+const ThankYouMessage = styled.div`
+	background-color: var(--hero-subscribe-btn);
+	color: var(--hero-subscribe-text);
+	border: none;
+	border-radius: 4px;
+	padding: 12px 24px;
+	text-align: center;
+	font-size: 15px;
+	margin: 32px auto 0;
+	max-width: 420px;
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 0;
+		height: 0;
+		border-radius: 4px;
+		background: linear-gradient(111deg, transparent 36.01%, #af64ee 106.99%);
+		width: 80%;
+		height: 100%;
+		opacity: 1;
+	}
+`
+
 const Hero = () => {
 	const [email, setEmail] = useState("")
+	const [isSubmitted, setIsSubmitted] = useState(false)
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		// TODO:Add subscription logic here
+		setIsSubmitted(true)
+		// TODO: Add subscription logic here
 	}
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
-				<EmailForm>
-					<EmailInput
-						type="email"
-						placeholder="Your Email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-					<SubscribeButton type="submit">
-						Subscribe <ArrowRightIcon />
-					</SubscribeButton>
-				</EmailForm>
-			</form>
+			{!isSubmitted ? (
+				<form onSubmit={handleSubmit}>
+					<EmailForm>
+						<EmailInput
+							type="email"
+							placeholder="Your Email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							required
+						/>
+						<SubscribeButton type="submit">
+							Subscribe <ArrowRightIcon />
+						</SubscribeButton>
+					</EmailForm>
+				</form>
+			) : (
+				<ThankYouMessage>Thank you!</ThankYouMessage>
+			)}
 		</div>
 	)
 }
