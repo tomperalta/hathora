@@ -2,7 +2,6 @@ import React from "react"
 import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
-import Link from "next/link"
 
 const StyledNav = styled.div`
 	border-top: 1px solid var(--nav-border);
@@ -48,11 +47,17 @@ export default function Nav({ tags }) {
 				<TagsContainer>
 					{/* eslint-disable-next-line react/prop-types */}
 					{tags?.map((tag) => (
-						<Link
-							passHref
-							href={`#tag-${tag.tag.slug}`}
+						<button
+							type="button"
 							key={tag.tag.id}
 							style={{ textDecoration: "none" }}
+							onClick={(e) => {
+								e.preventDefault()
+								document.getElementById(`tag-${tag.tag.slug}`)?.scrollIntoView({
+									behavior: "smooth",
+									block: "start",
+								})
+							}}
 						>
 							<CategoryBadge className="d-none d-sm-flex">
 								<svg
@@ -72,7 +77,7 @@ export default function Nav({ tags }) {
 
 								<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
 							</CategoryBadge>
-						</Link>
+						</button>
 					))}
 				</TagsContainer>
 				<ThemeToggle />
