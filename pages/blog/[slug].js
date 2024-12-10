@@ -8,7 +8,7 @@ import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
 
 const StyledBlogPost = styled.div`
-	padding: 120px 24px;
+	padding: 120px 24px 0;
 
 	img {
 		max-width: 100%;
@@ -37,7 +37,7 @@ const ArticleHeader = styled.div`
     margin: 0 auto;
     text-align: center;
     line-height: 64px;
-    max-width: 768px;
+    max-width: 736px;
     font-size: 48px;
   `}
 	}
