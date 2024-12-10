@@ -49,7 +49,7 @@ const Blog = ({ tags }) => (
 			title="The Hathora Blog"
 			subtitle="Learn more about the gaming industry"
 		/>
-		<DividerContainer className="d-none d-md-block">
+		<DividerContainer className="d-none d-md-flex">
 			<Divider />
 		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
@@ -62,7 +62,7 @@ const Blog = ({ tags }) => (
 					tagSlug={category.tag.slug}
 				/>
 				{index === 1 && <SubscribeBanner />}
-				<DividerContainer className="text-center">
+				<DividerContainer>
 					<Divider />
 				</DividerContainer>
 			</React.Fragment>
