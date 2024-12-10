@@ -29,6 +29,33 @@ const SubscribeButton = styled.button`
 	align-items: center;
 	font-size: 15px;
 	margin-left: -5px;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: -3px;
+		width: 0;
+		height: 0;
+		border-radius: 4px;
+		background: linear-gradient(111deg, transparent 36.01%, #af64ee 106.99%);
+		opacity: 0;
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:hover::after {
+		width: 80%;
+		height: 100%;
+		opacity: 1;
+	}
+
+	& > * {
+		position: relative;
+		z-index: 1;
+	}
 `
 
 const StyledArrowIcon = styled.svg`
