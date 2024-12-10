@@ -32,6 +32,9 @@ const StyledBlog = styled.main`
 
 const DividerContainer = styled.div`
 	margin: 24px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 // eslint-disable-next-line react/prop-types
@@ -46,7 +49,7 @@ const Blog = ({ tags }) => (
 			title="The Hathora Blog"
 			subtitle="Learn more about the gaming industry"
 		/>
-		<DividerContainer className="d-none d-md-block text-center">
+		<DividerContainer className="d-none d-md-block">
 			<Divider />
 		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
