@@ -136,26 +136,9 @@ const ScrollToTopButton = styled.button`
 	position: fixed;
 	right: 40px;
 	bottom: 40px;
-	width: 40px;
-	height: 40px;
 	border-radius: 50%;
-	background-color: ${colors.purple__500};
-	color: white;
-	border: none;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-	&:hover {
-		background-color: ${colors.purple__600};
-	}
-
-	svg {
-		width: 20px;
-		height: 20px;
-	}
+	width: 48px;
+	height: 48px;
 `
 
 const BlogPost = ({ post }) => {
@@ -195,14 +178,44 @@ const BlogPost = ({ post }) => {
 			<ScrollToTopButton onClick={scrollToTop} aria-label="Scroll to top">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
+					width="48"
+					height="48"
+					viewBox="0 0 48 48"
 					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
 				>
-					<path d="M18 15l-6-6-6 6" />
+					<rect
+						x="0.5"
+						y="0.5"
+						width="47"
+						height="47"
+						rx="23.5"
+						fill="#0E0E1B"
+					/>
+					<rect
+						x="0.5"
+						y="0.5"
+						width="47"
+						height="47"
+						rx="23.5"
+						stroke="url(#paint0_linear_1466_7200)"
+					/>
+					<path
+						d="M23 37.5C23 38.0523 23.4477 38.5 24 38.5C24.5523 38.5 25 38.0523 25 37.5H23ZM24.7071 11.2929C24.3166 10.9024 23.6834 10.9024 23.2929 11.2929L16.9289 17.6569C16.5384 18.0474 16.5384 18.6805 16.9289 19.0711C17.3195 19.4616 17.9526 19.4616 18.3431 19.0711L24 13.4142L29.6569 19.0711C30.0474 19.4616 30.6805 19.4616 31.0711 19.0711C31.4616 18.6805 31.4616 18.0474 31.0711 17.6569L24.7071 11.2929ZM25 37.5V12H23V37.5H25Z"
+						fill="#DACAFC"
+					/>
+					<defs>
+						<linearGradient
+							id="paint0_linear_1466_7200"
+							x1="142.603"
+							y1="35.891"
+							x2="137.419"
+							y2="-12.8626"
+							gradientUnits="userSpaceOnUse"
+						>
+							<stop stopColor="#2AFC61" />
+							<stop offset="1" stopColor="#AE69EB" />
+						</linearGradient>
+					</defs>
 				</svg>
 			</ScrollToTopButton>
 		</StyledBlogPost>
