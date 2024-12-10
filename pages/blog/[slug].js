@@ -132,7 +132,40 @@ const ArticleContent = styled.article`
 	}
 `
 
+const ScrollToTopButton = styled.button`
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: ${colors.purple__500};
+	color: white;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+	&:hover {
+		background-color: ${colors.purple__600};
+	}
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+`
+
 const BlogPost = ({ post }) => {
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		})
+	}
+
 	if (!post) return null
 
 	BlogPost.propTypes = {
@@ -159,6 +192,19 @@ const BlogPost = ({ post }) => {
 			</ArticleHeader>
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
+			<ScrollToTopButton onClick={scrollToTop} aria-label="Scroll to top">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				>
+					<path d="M18 15l-6-6-6 6" />
+				</svg>
+			</ScrollToTopButton>
 		</StyledBlogPost>
 	)
 }
