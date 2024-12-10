@@ -85,6 +85,7 @@ export default createGlobalStyle`
     --blog-card-background: ${blogColors.white};
     --blog-card-border: rgba(0, 0, 0, 0.25);
     --blog-card-reading-time: ${colors.grey__700};
+    --blog-article-font: font-family: "Source Serif 4", serif;
   }
 
   .no-scroll {

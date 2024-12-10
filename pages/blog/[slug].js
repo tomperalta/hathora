@@ -16,7 +16,7 @@ const StyledBlogPost = styled.div`
 	}
 `
 const ArticleHeader = styled.div`
-	padding: 80px 0;
+	padding-top: 80px;
 
 	p {
 		margin: 0 auto;
@@ -45,9 +45,10 @@ const ArticleHeader = styled.div`
 
 const ArticleContent = styled.article`
 	margin: 2rem auto;
-	max-width: 625px;
+	max-width: 540px;
 	line-height: 1.7;
 	color: var(--text-primary);
+	font-family: "Source Serif 4", serif;
 
 	h1,
 	h2,
@@ -55,7 +56,7 @@ const ArticleContent = styled.article`
 	h4,
 	h5,
 	h6 {
-		margin-bottom: 1.5rem;
+		margin-bottom: 12px;
 		font-weight: 600;
 		line-height: 1.3;
 	}
@@ -100,7 +101,7 @@ const ArticleContent = styled.article`
 		font-style: normal;
 		font-weight: 400;
 		line-height: 24px;
-		margin-bottom: 1.5rem;
+		margin-bottom: 12px;
 
 		${breakpoint.medium`
       font-size: 20px;
@@ -124,7 +125,7 @@ const ArticleContent = styled.article`
 	img {
 		max-width: 100%;
 		height: auto;
-		margin: 2rem auto;
+		margin: 24px auto;
 		border-radius: 4px;
 		display: block;
 		width: 100%;
