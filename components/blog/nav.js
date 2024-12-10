@@ -27,6 +27,7 @@ const CategoryBadge = styled.span`
 	font-weight: 400;
 	line-height: normal;
 	display: flex;
+	cursor: pointer;
 `
 
 const CategoryBadgeName = styled.div`
@@ -46,11 +47,11 @@ export default function Nav({ tags }) {
 			<NavContainer>
 				<TagsContainer>
 					{/* eslint-disable-next-line react/prop-types */}
-					{tags?.map((category) => (
+					{tags?.map((tag) => (
 						<Link
 							passHref
-							href={`/blog/tags/${category.tag.slug}`}
-							key={category.tag.id}
+							href={`#tag-${tag.tag.slug}`}
+							key={tag.tag.id}
 							style={{ textDecoration: "none" }}
 						>
 							<CategoryBadge className="d-none d-sm-flex">
@@ -69,7 +70,7 @@ export default function Nav({ tags }) {
 									/>
 								</svg>
 
-								<CategoryBadgeName>{category.tag.name}</CategoryBadgeName>
+								<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
 							</CategoryBadge>
 						</Link>
 					))}

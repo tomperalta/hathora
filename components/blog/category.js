@@ -174,58 +174,60 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 	if (posts.length === 0) return null
 
 	return (
-		<CategoryContainer>
-			<div className="d-none">
-				<Divider />
-			</div>
-			<CategoryHeader>
-				<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
-				<Link href={`/blog/tags/${tagSlug}`} passHref>
-					<ShowAllButton>
-						Show all <ShowAllButtonIcon />
-					</ShowAllButton>
-				</Link>
-			</CategoryHeader>
-
-			<BlogGrid>
-				{posts.map((post) => (
-					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
-						<BlogCard>
-							{post.feature_image && (
-								<ImageContainer>
-									<Image
-										src={post.feature_image}
-										alt={post.title}
-										layout="fill"
-										objectFit="cover"
-									/>
-								</ImageContainer>
-							)}
-
-							<CardContent>
-								<CardTitle>{post.title}</CardTitle>
-								<CardDescription className="d-none d-sm-block">
-									{trimExcerpt(post.excerpt || post.custom_excerpt)}
-								</CardDescription>
-								<ReadingTime>
-									<ReadingTimeIcon />
-									{readingTime(post, {
-										minute: "1min",
-										minutes: "%mins",
-									})}
-								</ReadingTime>
-								<CardFooter>
-									<PostAuthor className="text--s font-weight--700">
-										{post.primary_author?.name || "Anonymous"}
-									</PostAuthor>
-									<PostDate>{formatDate(post.published_at)}</PostDate>
-								</CardFooter>
-							</CardContent>
-						</BlogCard>
+		<section id={`tag-${tagSlug}`}>
+			<CategoryContainer>
+				<div className="d-none">
+					<Divider />
+				</div>
+				<CategoryHeader>
+					<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
+					<Link href={`/blog/tags/${tagSlug}`} passHref>
+						<ShowAllButton>
+							Show all <ShowAllButtonIcon />
+						</ShowAllButton>
 					</Link>
-				))}
-			</BlogGrid>
-		</CategoryContainer>
+				</CategoryHeader>
+
+				<BlogGrid>
+					{posts.map((post) => (
+						<Link href={`/blog/${post.slug}`} key={post.id} passHref>
+							<BlogCard>
+								{post.feature_image && (
+									<ImageContainer>
+										<Image
+											src={post.feature_image}
+											alt={post.title}
+											layout="fill"
+											objectFit="cover"
+										/>
+									</ImageContainer>
+								)}
+
+								<CardContent>
+									<CardTitle>{post.title}</CardTitle>
+									<CardDescription className="d-none d-sm-block">
+										{trimExcerpt(post.excerpt || post.custom_excerpt)}
+									</CardDescription>
+									<ReadingTime>
+										<ReadingTimeIcon />
+										{readingTime(post, {
+											minute: "1min",
+											minutes: "%mins",
+										})}
+									</ReadingTime>
+									<CardFooter>
+										<PostAuthor className="text--s font-weight--700">
+											{post.primary_author?.name || "Anonymous"}
+										</PostAuthor>
+										<PostDate>{formatDate(post.published_at)}</PostDate>
+									</CardFooter>
+								</CardContent>
+							</BlogCard>
+						</Link>
+					))}
+				</BlogGrid>
+			</CategoryContainer>
+		</section>
 	)
 }
 
