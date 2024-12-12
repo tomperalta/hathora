@@ -6,6 +6,7 @@ import SEO from "components/seo"
 import PropTypes from "prop-types"
 import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
+import { TwitterIcon, LinkedInIcon } from "components/blog/socialIcons"
 
 const StyledBlogPost = styled.div`
 	padding: 120px 24px 0;
@@ -222,31 +223,7 @@ const BlogPost = ({ post }) => {
 						rel="noopener noreferrer"
 						aria-label="Share on Twitter"
 					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 32 32"
-							fill="none"
-						>
-							<path
-								d="M3.06423 4L13.3746 17.7888L3 29H5.33557L14.4194 19.1849L21.7582 29H29.7048L18.8148 14.4356L28.472 4H26.1364L17.7716 13.0395L11.0124 4H3.06578H3.06423ZM6.49786 5.7205H10.1477L26.268 27.2795H22.6182L6.49786 5.7205Z"
-								fill="url(#paint0_linear_1466_7198)"
-							/>
-							<defs>
-								<linearGradient
-									id="paint0_linear_1466_7198"
-									x1="82.3371"
-									y1="22.6932"
-									x2="79.8061"
-									y2="-2.73442"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-							</defs>
-						</svg>
+						<TwitterIcon />
 					</a>
 					<a
 						href={`https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(
@@ -256,99 +233,7 @@ const BlogPost = ({ post }) => {
 						rel="noopener noreferrer"
 						aria-label="Share on LinkedIn"
 					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 32 32"
-							fill="none"
-						>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M3.5 5.5C3.5 4.39543 4.39543 3.5 5.5 3.5H26.5C27.6046 3.5 28.5 4.39543 28.5 5.5V26.5C28.5 27.6046 27.6046 28.5 26.5 28.5H5.5C4.39543 28.5 3.5 27.6046 3.5 26.5V5.5ZM26.5 5.5H5.5V26.5H26.5V5.5Z"
-								fill="url(#paint0_linear_1466_7199)"
-							/>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M15 13C15.5523 13 16 13.4477 16 14V22C16 22.5523 15.5523 23 15 23C14.4477 23 14 22.5523 14 22V14C14 13.4477 14.4477 13 15 13Z"
-								fill="url(#paint1_linear_1466_7199)"
-							/>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M11 13C11.5523 13 12 13.4477 12 14V22C12 22.5523 11.5523 23 11 23C10.4477 23 10 22.5523 10 22V14C10 13.4477 10.4477 13 11 13Z"
-								fill="url(#paint2_linear_1466_7199)"
-							/>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M18.5 15C17.837 15 17.2011 15.2634 16.7322 15.7322C16.2634 16.2011 16 16.837 16 17.5C16 18.0523 15.5523 18.5 15 18.5C14.4477 18.5 14 18.0523 14 17.5C14 16.3065 14.4741 15.1619 15.318 14.318C16.1619 13.4741 17.3065 13 18.5 13C19.6935 13 20.8381 13.4741 21.682 14.318C22.5259 15.1619 23 16.3065 23 17.5V22C23 22.5523 22.5523 23 22 23C21.4477 23 21 22.5523 21 22V17.5C21 16.837 20.7366 16.2011 20.2678 15.7322C19.7989 15.2634 19.163 15 18.5 15Z"
-								fill="url(#paint3_linear_1466_7199)"
-							/>
-							<path
-								d="M11 11.5C11.8284 11.5 12.5 10.8284 12.5 10C12.5 9.17157 11.8284 8.5 11 8.5C10.1716 8.5 9.5 9.17157 9.5 10C9.5 10.8284 10.1716 11.5 11 11.5Z"
-								fill="url(#paint4_linear_1466_7199)"
-							/>
-							<defs>
-								<linearGradient
-									id="paint0_linear_1466_7199"
-									x1="77.7724"
-									y1="22.1932"
-									x2="75.0726"
-									y2="-3.19928"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-								<linearGradient
-									id="paint1_linear_1466_7199"
-									x1="77.7724"
-									y1="22.1932"
-									x2="75.0726"
-									y2="-3.19928"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-								<linearGradient
-									id="paint2_linear_1466_7199"
-									x1="77.7724"
-									y1="22.1932"
-									x2="75.0726"
-									y2="-3.19928"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-								<linearGradient
-									id="paint3_linear_1466_7199"
-									x1="77.7724"
-									y1="22.1932"
-									x2="75.0726"
-									y2="-3.19928"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-								<linearGradient
-									id="paint4_linear_1466_7199"
-									x1="77.7724"
-									y1="22.1932"
-									x2="75.0726"
-									y2="-3.19928"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop stopColor="#2AFC61" />
-									<stop offset="1" stopColor="#AE69EB" />
-								</linearGradient>
-							</defs>
-						</svg>
+						<LinkedInIcon />
 					</a>
 				</SocialShareContainer>
 				<ScrollToTopButton onClick={scrollToTop} aria-label="Scroll to top">
