@@ -51,6 +51,8 @@ export default createGlobalStyle`
     --blog-card-border: none;
     --blog-card-reading-time: ${colors.grey__400};
     --show-all-text-hover: ${colors.grey__700};
+    --article-text-color: ${colors.grey__300};
+    --link-color: ${colors.green__500};
   }
 
   [data-theme='light'] {
@@ -88,6 +90,8 @@ export default createGlobalStyle`
     --blog-card-reading-time: ${colors.grey__700};
     --blog-article-font: font-family: "Source Serif 4", serif;
     --show-all-text-hover: ${blogColors.white};
+    --article-text-color: ${colors.grey__300};
+    --link-color: ${colors.purple__700};
   }
 
   .no-scroll {

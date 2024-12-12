@@ -54,8 +54,11 @@ const ArticleHeader = styled.div`
 const ArticleContent = styled.article`
 	margin: 0 auto 2rem;
 	max-width: 540px;
-	line-height: 1.7;
-	color: var(--text-primary);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px;
+
 	font-family: "Source Serif 4", serif;
 
 	h1,
@@ -104,12 +107,12 @@ const ArticleContent = styled.article`
 	li,
 	ul,
 	ol {
-		color: var(--text-primary);
+		color: var(--article-text-color);
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 24px;
-		margin-bottom: 12px;
+		margin: 12px 0;
 
 		${breakpoint.medium`
       font-size: 20px;
@@ -120,7 +123,7 @@ const ArticleContent = styled.article`
 	}
 
 	a {
-		color: #4a90e2;
+		color: var(--link-color);
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
 		transition: border-color 0.2s ease;
@@ -128,6 +131,13 @@ const ArticleContent = styled.article`
 		&:hover {
 			border-bottom-color: #4a90e2;
 		}
+	}
+
+	span {
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 28px;
 	}
 
 	img {
