@@ -88,10 +88,10 @@ export default createGlobalStyle`
     --blog-card-background: ${blogColors.white};
     --blog-card-border: rgba(0, 0, 0, 0.25);
     --blog-card-reading-time: ${colors.grey__700};
-    --blog-article-font: font-family: "Source Serif 4", serif;
+    --blog-article-font: font-family: "Lora", Georgia, Times, serif;
     --show-all-text-hover: ${blogColors.white};
-    --article-text-color: ${colors.grey__300};
-    --link-color: ${colors.purple__700};
+    --article-text-color: ${colors.grey__700};
+    --link-color: ${colors.purple__500};
   }
 
   .no-scroll {

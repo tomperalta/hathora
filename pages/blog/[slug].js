@@ -54,12 +54,7 @@ const ArticleHeader = styled.div`
 const ArticleContent = styled.article`
 	margin: 0 auto 2rem;
 	max-width: 540px;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 28px;
-
-	font-family: "Source Serif 4", serif;
+	font-family: "Lora", Georgia, Times, serif;
 
 	h1,
 	h2,
@@ -108,10 +103,10 @@ const ArticleContent = styled.article`
 	ul,
 	ol {
 		color: var(--article-text-color);
-		font-size: 16px;
+		font-size: 18px;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 24px;
+		line-height: 28px;
 		margin: 12px 0;
 
 		${breakpoint.medium`
