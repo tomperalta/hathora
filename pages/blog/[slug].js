@@ -194,6 +194,10 @@ const AuthorInfo = styled.div`
 	display: flex;
 	align-items: center;
 
+	img {
+		border-radius: 50%;
+	}
+
 	p {
 		font-size: 24px;
 		font-style: normal;
@@ -303,8 +307,8 @@ const BlogPost = ({ post }) => {
 						<Image
 							src={post.primary_author?.profile_image}
 							alt={post.primary_author?.name}
-							width={64}
-							height={56}
+							width={60}
+							height={60}
 						/>
 						<div>
 							<p>{post.primary_author?.name}</p>
