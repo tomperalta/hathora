@@ -1,101 +1,72 @@
 import { useTheme } from "next-themes"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-function SunIcon(props) {
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			aria-hidden="true"
-			{...props}
-		>
-			<path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
-			<path
-				d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
-				fill="none"
-			/>
-		</svg>
-	)
-}
-
-function MoonIcon(props) {
-	return (
-		<svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-			<path
-				d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	)
-}
-
-const StyledButton = styled.button`
+const ToggleWrapper = styled.button`
+	position: relative;
+	width: 80px;
+	height: 40px;
 	background: ${(props) =>
-		props.theme.mode === "dark"
-			? "rgba(39, 39, 42, 0.9)"
-			: "rgba(255, 255, 255, 0.9)"};
-	padding: 0.5rem 0.75rem;
-	border-radius: 9999px;
-	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-	border: 1px solid
-		${(props) =>
-			props.theme.mode === "dark"
-				? "rgba(255, 255, 255, 0.1)"
-				: "rgba(0, 0, 0, 0.05)"};
-	backdrop-filter: blur(4px);
-	transition: all 0.2s;
-
-	&:hover {
-		border-color: ${(props) =>
-			props.theme.mode === "dark"
-				? "rgba(255, 255, 255, 0.2)"
-				: "rgba(0, 0, 0, 0.1)"};
-	}
+		props.resolvedTheme === "dark" ? "#2D3748" : "#E2E8F0"};
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 
-const StyledSunIcon = styled(({ resolvedTheme, ...props }) => (
-	<SunIcon {...props} />
-))`
-	height: 1.5rem;
-	width: 1.5rem;
-	fill: ${(props) => (props.resolvedTheme === "dark" ? "none" : "#fafafa")};
-	stroke: ${(props) =>
-		props.resolvedTheme === "dark" ? "#10b981" : "#6b7280"};
-	transition: all 0.2s;
-	display: ${(props) => (props.resolvedTheme === "dark" ? "none" : "block")};
-
-	${StyledButton}:hover & {
-		fill: ${(props) =>
-			props.resolvedTheme === "dark" ? "#f0fdf4" : "#e5e7eb"};
-		stroke: ${(props) =>
-			props.resolvedTheme === "dark" ? "#14b8a6" : "#374151"};
-	}
+const ToggleKnob = styled.div`
+	position: absolute;
+	left: ${(props) =>
+		props.resolvedTheme === "dark" ? "4px" : "calc(100% - 36px)"};
+	top: 50%;
+	transform: translateY(-50%);
+	width: 32px;
+	height: 32px;
+	background: white;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 `
 
-const StyledMoonIcon = styled(({ resolvedTheme, ...props }) => (
-	<MoonIcon {...props} />
-))`
-	height: 1.5rem;
-	width: 1.5rem;
-	fill: #374151;
-	stroke: #6b7280;
-	transition: all 0.2s;
-	display: ${(props) => (props.resolvedTheme === "dark" ? "block" : "none")};
+const ToggleText = styled.span`
+	position: absolute;
+	left: ${(props) =>
+		props.resolvedTheme === "dark" ? "calc(100% - 44px)" : "12px"};
+	top: 50%;
+	transform: translateY(-50%);
+	color: ${(props) => (props.resolvedTheme === "dark" ? "white" : "black")};
+	font-weight: 500;
+	font-size: 14px;
 `
 
 export default function ThemeToggle() {
+	const [mounted, setMounted] = useState(false)
 	const { resolvedTheme, setTheme } = useTheme()
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
+	if (!mounted) {
+		return null
+	}
+
 	const otherTheme = resolvedTheme === "dark" ? "light" : "dark"
 
 	return (
-		<StyledButton type="button" onClick={() => setTheme(otherTheme)}>
-			<StyledSunIcon resolvedTheme={resolvedTheme} />
-			<StyledMoonIcon resolvedTheme={resolvedTheme} />
-		</StyledButton>
+		<ToggleWrapper
+			type="button"
+			onClick={() => setTheme(otherTheme)}
+			resolvedTheme={resolvedTheme}
+		>
+			<ToggleText resolvedTheme={resolvedTheme}>
+				{resolvedTheme === "dark" ? "Light" : "Dark"}
+			</ToggleText>
+			<ToggleKnob resolvedTheme={resolvedTheme} />
+		</ToggleWrapper>
 	)
 }
