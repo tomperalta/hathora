@@ -1,4 +1,9 @@
 import React from "react"
+import styled from "styled-components"
+
+const StyledReadingTimeIcon = styled.svg`
+	margin-right: 5px;
+`
 
 export const TwitterIcon = () => (
 	<svg
@@ -159,4 +164,17 @@ export const ScrollToTopIcon = () => (
 			</linearGradient>
 		</defs>
 	</svg>
+)
+
+export const ReadingTimeIcon = () => (
+	<StyledReadingTimeIcon
+		xmlns="http://www.w3.org/2000/svg"
+		width="12"
+		height="12"
+		viewBox="0 0 12 12"
+		fill="none"
+	>
+		<circle cx="6" cy="6" r="5.5" stroke="#8585A6" />
+		<path d="M5.92383 3.1521V6.68375H7.97446" stroke="#8585A6" />
+	</StyledReadingTimeIcon>
 )

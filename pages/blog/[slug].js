@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 import GhostContentAPI from "@tryghost/content-api"
 import styled from "styled-components"
 import LayoutPrimary from "layouts/layout-primary"
@@ -10,7 +11,9 @@ import {
 	TwitterIcon,
 	LinkedInIcon,
 	ScrollToTopIcon,
+	ReadingTimeIcon,
 } from "components/blog/icons"
+import { readingTime } from "@tryghost/helpers"
 
 const StyledBlogPost = styled.div`
 	padding: 120px 24px 0;
@@ -21,7 +24,7 @@ const StyledBlogPost = styled.div`
 	}
 `
 const ArticleHeader = styled.div`
-	padding-top: 80px;
+	padding: 80px 0 64px;
 
 	p {
 		margin: 0 auto;
@@ -49,7 +52,7 @@ const ArticleHeader = styled.div`
 `
 
 const ArticleContent = styled.article`
-	margin: 2rem auto;
+	margin: 0 auto 2rem;
 	max-width: 540px;
 	line-height: 1.7;
 	color: var(--text-primary);
@@ -179,6 +182,87 @@ const ScrollToTopButton = styled.button`
 	height: 48px;
 `
 
+const AuthorInfoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px 0;
+	margin-top: 32px;
+`
+
+const AuthorInfo = styled.div`
+	display: flex;
+	align-items: center;
+
+	p {
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+		color: var(--text-primary);
+		padding: 0 24px;
+	}
+
+	span {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+		color: var(--text-secondary);
+		display: flex;
+		align-items: center;
+		padding: 0 24px;
+	}
+`
+
+const ReadingTime = styled.span`
+	color: var(--blog-card-reading-time);
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	padding-left: 24px;
+`
+
+const VerticalDivider = () => (
+	<svg
+		width="2"
+		height="60"
+		viewBox="0 0 2 60"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<rect
+			x="0.549805"
+			width="0.5"
+			height="60"
+			rx="0.25"
+			fill="url(#paint0_linear_1466_7073)"
+		/>
+		<defs>
+			<linearGradient
+				id="paint0_linear_1466_7073"
+				x1="2.03525"
+				y1="44.8637"
+				x2="-2.76567"
+				y2="44.4874"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stopColor="#2AFC61" />
+				<stop offset="1" stopColor="#AE69EB" />
+			</linearGradient>
+		</defs>
+	</svg>
+)
+
+const formatDate = (dateString) => {
+	const date = new Date(dateString)
+	return date.toLocaleDateString("en-US", {
+		month: "short",
+		day: "numeric",
+		year: "numeric",
+	})
+}
+
 const BlogPost = ({ post }) => {
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -193,6 +277,8 @@ const BlogPost = ({ post }) => {
 		post: PropTypes.shape({
 			slug: PropTypes.string.isRequired,
 			primary_tag: PropTypes.string,
+			primary_author: PropTypes.string,
+			updated_at: PropTypes.string,
 			title: PropTypes.string.isRequired,
 			excerpt: PropTypes.string,
 			feature_image: PropTypes.string,
@@ -211,7 +297,31 @@ const BlogPost = ({ post }) => {
 			<ArticleHeader>
 				<p>{post.primary_tag?.name}</p>
 				<h1>{post.title}</h1>
+
+				<AuthorInfoContainer>
+					<AuthorInfo>
+						<Image
+							src={post.primary_author?.profile_image}
+							alt={post.primary_author?.name}
+							width={64}
+							height={56}
+						/>
+						<div>
+							<p>{post.primary_author?.name}</p>
+							<span>{formatDate(post.updated_at)}</span>
+						</div>
+					</AuthorInfo>
+					<VerticalDivider />
+					<ReadingTime>
+						<ReadingTimeIcon />
+						{readingTime(post, {
+							minute: "1min",
+							minutes: "%mins",
+						})}
+					</ReadingTime>
+				</AuthorInfoContainer>
 			</ArticleHeader>
+
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
 			<ScrollToTopContainer className="d-none d-lg-flex">
