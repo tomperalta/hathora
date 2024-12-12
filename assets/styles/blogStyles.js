@@ -54,6 +54,9 @@ export default createGlobalStyle`
     --article-text-color: ${colors.grey__300};
     --article-reading-time-bg: ${blogColors.grey__600};
     --link-color: ${colors.green__500};
+    --theme-toggle-bg: ${colors.grey__200};
+    --theme-toggle-color: ${colors.grey__700};
+    --theme-toggle-knob: ${colors.grey__700};
   }
 
   [data-theme='light'] {
@@ -94,6 +97,9 @@ export default createGlobalStyle`
     --article-text-color: ${colors.grey__700};
     --article-reading-time-bg: ${colors.grey__200};
     --link-color: ${colors.purple__500};
+    --theme-toggle-bg: ${colors.grey__500};
+    --theme-toggle-color: ${blogColors.white};
+    --theme-toggle-knob: ${colors.grey__200};
   }
 
   .no-scroll {

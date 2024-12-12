@@ -4,10 +4,9 @@ import styled from "styled-components"
 
 const ToggleWrapper = styled.button`
 	position: relative;
-	width: 80px;
-	height: 40px;
-	background: ${(props) =>
-		props.resolvedTheme === "dark" ? "#2D3748" : "#E2E8F0"};
+	width: 77px;
+	height: 32px;
+	background: var(--theme-toggle-bg);
 	border-radius: 20px;
 	border: none;
 	cursor: pointer;
@@ -21,12 +20,12 @@ const ToggleWrapper = styled.button`
 const ToggleKnob = styled.div`
 	position: absolute;
 	left: ${(props) =>
-		props.resolvedTheme === "dark" ? "4px" : "calc(100% - 36px)"};
+		props.resolvedTheme === "dark" ? "4px" : "calc(100% - 26px)"};
 	top: 50%;
 	transform: translateY(-50%);
-	width: 32px;
-	height: 32px;
-	background: white;
+	width: 20px;
+	height: 20px;
+	background: var(--theme-toggle-knob);
 	border-radius: 50%;
 	transition: all 0.3s ease;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -38,9 +37,10 @@ const ToggleText = styled.span`
 		props.resolvedTheme === "dark" ? "calc(100% - 44px)" : "12px"};
 	top: 50%;
 	transform: translateY(-50%);
-	color: ${(props) => (props.resolvedTheme === "dark" ? "white" : "black")};
-	font-weight: 500;
+	color: var(--theme-toggle-color);
+	font-weight: 700;
 	font-size: 14px;
+	line-height: 20px;
 `
 
 export default function ThemeToggle() {
@@ -64,7 +64,7 @@ export default function ThemeToggle() {
 			resolvedTheme={resolvedTheme}
 		>
 			<ToggleText resolvedTheme={resolvedTheme}>
-				{resolvedTheme === "dark" ? "Light" : "Dark"}
+				{resolvedTheme === "dark" ? "Dark" : "Light"}
 			</ToggleText>
 			<ToggleKnob resolvedTheme={resolvedTheme} />
 		</ToggleWrapper>
