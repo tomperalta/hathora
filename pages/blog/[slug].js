@@ -151,12 +151,16 @@ const SocialShareContainer = styled.div`
 	border-radius: 24px;
 	background: var(--neutrals-neutrals-grey-600, #151521);
 	height: 52px;
-	font-size: 16px;
+	font-size: 1rem;
+	font-style: normal;
 	font-weight: 700;
-	margin-right: 12px;
+	line-height: 24px;
 
 	p {
 		margin-top: -5px;
+		color: ${colors.grey__300};
+		font-size: 1rem;
+		font-weight: 700;
 	}
 
 	svg {
