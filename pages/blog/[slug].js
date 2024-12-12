@@ -104,17 +104,8 @@ const ArticleContent = styled.article`
 	ol {
 		color: var(--article-text-color);
 		font-size: 18px;
-		font-style: normal;
-		font-weight: 400;
 		line-height: 28px;
 		margin: 12px 0;
-
-		${breakpoint.medium`
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 28px;
-    `}
 	}
 
 	a {
@@ -217,7 +208,7 @@ const AuthorInfo = styled.div`
 		font-style: normal;
 		font-weight: 400;
 		line-height: 24px;
-		color: var(--text-secondary);
+		color: ${colors.grey__400};
 		display: flex;
 		align-items: center;
 		padding: 0 24px;
@@ -225,11 +216,14 @@ const AuthorInfo = styled.div`
 `
 
 const ReadingTime = styled.span`
-	color: var(--blog-card-reading-time);
+	color: ${colors.grey__400};
+	background: var(--article-reading-time-bg);
 	display: flex;
 	align-items: center;
-	font-size: 14px;
-	padding-left: 24px;
+	font-size: 16px;
+	margin-left: 24px;
+	padding: 4px 8px;
+	border-radius: 50px;
 `
 
 const VerticalDivider = () => (
@@ -325,8 +319,9 @@ const BlogPost = ({ post }) => {
 						<ReadingTimeIcon />
 						{readingTime(post, {
 							minute: "1min",
-							minutes: "%mins",
-						})}
+							minutes: "%min",
+						})}{" "}
+						Reading
 					</ReadingTime>
 				</AuthorInfoContainer>
 			</ArticleHeader>

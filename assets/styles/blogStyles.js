@@ -52,6 +52,7 @@ export default createGlobalStyle`
     --blog-card-reading-time: ${colors.grey__400};
     --show-all-text-hover: ${colors.grey__700};
     --article-text-color: ${colors.grey__300};
+    --article-reading-time-bg: ${blogColors.grey__600};
     --link-color: ${colors.green__500};
   }
 
@@ -91,6 +92,7 @@ export default createGlobalStyle`
     --blog-article-font: font-family: "Lora", Georgia, Times, serif;
     --show-all-text-hover: ${blogColors.white};
     --article-text-color: ${colors.grey__700};
+    --article-reading-time-bg: ${colors.grey__200};
     --link-color: ${colors.purple__500};
   }
 
