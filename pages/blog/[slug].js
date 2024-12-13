@@ -42,12 +42,12 @@ const ArticleHeader = styled.div`
 		font-size: 32px;
 
 		${breakpoint.medium`
-    margin: 0 auto;
-    text-align: center;
-    line-height: 64px;
-    max-width: 736px;
-    font-size: 48px;
-  `}
+      margin: 0 auto;
+      text-align: center;
+      line-height: 64px;
+      max-width: 736px;
+      font-size: 48px;
+    `}
 	}
 `
 
@@ -195,23 +195,39 @@ const AuthorInfo = styled.div`
 	}
 
 	p {
-		font-size: 24px;
+		font-size: 16px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 32px;
 		color: var(--text-primary);
-		padding: 0 24px;
+		padding: 0 12px;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 32px;
+    `}
 	}
 
 	span {
-		font-size: 16px;
+		font-size: 14px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 24px;
+		padding: 0 12px;
 		color: ${colors.grey__400};
 		display: flex;
 		align-items: center;
-		padding: 0 24px;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 16px;
+		  font-style: normal;
+		  font-weight: 400;
+		  line-height: 24px;
+    `}
 	}
 `
 
