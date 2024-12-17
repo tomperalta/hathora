@@ -39,6 +39,7 @@ const Subtitle = styled.p`
 	line-height: 28px;
 	font-weight: 400;
 	margin-bottom: 32px;
+	margin-top: 24px;
 `
 
 const StyledStarOne = styled.svg`
