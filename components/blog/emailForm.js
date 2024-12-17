@@ -4,6 +4,11 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 
+// Utils
+import { validateEmail } from "utils/functions"
+
+import LoadingLine from "components/loading-line"
+
 const EmailFormContainer = styled.div`
 	display: flex;
 	align-items: center;
@@ -113,24 +118,79 @@ const ThankYouMessage = styled.div`
 
 const Hero = () => {
 	const [email, setEmail] = useState("")
-	const [isSubmitted, setIsSubmitted] = useState(false)
+	const [successMessage, setSuccessMessage] = useState(null)
+	const [errorMessage, setErrorMessage] = useState(null)
+	const [loading, setLoading] = useState(false)
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		setIsSubmitted(true)
-		// TODO: Add subscription logic here
+	const handleChange = (event) => {
+		const {
+			target: { value },
+		} = event
+
+		setEmail(value)
+
+		if (successMessage) setSuccessMessage(null)
+		if (errorMessage) setErrorMessage(null)
+	}
+
+	const handleSubmit = async (event) => {
+		event.preventDefault()
+
+		if (validateEmail(email)) {
+			setLoading(true)
+
+			const payload = {
+				fields: [
+					{
+						name: "email",
+						value: email,
+					},
+				],
+				context: {
+					pageUri: window.location.href,
+				},
+			}
+
+			const response = await fetch(
+				"https://api.hsforms.com/submissions/v3/integration/submit/22776178/7408a889-1071-48c0-ace4-4426113225d2",
+				{
+					method: "POST",
+					mode: "cors",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(payload),
+				}
+			)
+				.then((response) => response)
+				.catch(() => setErrorMessage("Something went wrong. Please try again."))
+
+			if (response.status === 200) {
+				setSuccessMessage("Thanks for subscribing!")
+			} else {
+				setErrorMessage("Something went wrong. Please try again.")
+			}
+
+			setLoading(false)
+		} else {
+			setErrorMessage("Please enter a valid email address")
+		}
 	}
 
 	return (
 		<EmailFormContainer>
-			{!isSubmitted ? (
+			{!successMessage ? (
 				<form onSubmit={handleSubmit}>
+					{errorMessage && (
+						<p className="form__message form__message--error">{errorMessage}</p>
+					)}
+
 					<EmailForm>
 						<EmailInput
 							type="email"
 							placeholder="Your Email"
 							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={handleChange}
 							required
 						/>
 						<SubscribeButton type="submit">
@@ -141,6 +201,15 @@ const Hero = () => {
 			) : (
 				<ThankYouMessage>Thank you!</ThankYouMessage>
 			)}
+
+			<div className="form__loading-line">
+				<LoadingLine
+					className="loading-line"
+					duration="1s"
+					visible={loading}
+					play={loading}
+				/>
+			</div>
 		</EmailFormContainer>
 	)
 }
