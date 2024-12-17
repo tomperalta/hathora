@@ -6,6 +6,7 @@ import Divider from "components/divider"
 import Image from "next/image"
 import { readingTime } from "@tryghost/helpers"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { ReadingTimeIcon } from "components/blog/icons"
 
 const CategoryContainer = styled(Container)`
@@ -164,6 +165,9 @@ const trimExcerpt = (text, maxLength = 90) => {
 
 // eslint-disable-next-line react/prop-types
 const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
+	const router = useRouter()
+	const isMainBlogPage = router.pathname === "/blog"
+
 	// Function to format date
 	const formatDate = (dateString) => {
 		const date = new Date(dateString)
@@ -178,15 +182,16 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 			<div className="d-none">
 				<Divider />
 			</div>
-			<CategoryHeader>
-				<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
-				<Link href={`/blog/tags/${tagSlug}`} passHref>
-					<ShowAllButton>
-						Show all <ShowAllButtonIcon />
-					</ShowAllButton>
-				</Link>
-			</CategoryHeader>
-
+			{isMainBlogPage && (
+				<CategoryHeader>
+					<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
+					<Link href={`/blog/tags/${tagSlug}`} passHref>
+						<ShowAllButton>
+							Show all <ShowAllButtonIcon />
+						</ShowAllButton>
+					</Link>
+				</CategoryHeader>
+			)}
 			<BlogGrid>
 				{posts.map((post) => (
 					<Link href={`/blog/${post.slug}`} key={post.id} passHref>

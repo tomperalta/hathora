@@ -44,11 +44,7 @@ const Blog = ({ posts, author, tags }) => (
 		/>
 
 		<Nav tags={tags} />
-		<AuthorHero
-			title={author.name}
-			subtitle={`Articles by ${author.name}`}
-			author={author}
-		/>
+		<AuthorHero author={author} />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>
