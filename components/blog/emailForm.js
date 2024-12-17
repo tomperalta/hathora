@@ -4,9 +4,14 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 
+const EmailFormContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`
+
 const EmailForm = styled.div`
 	display: flex;
-	margin: 32px auto 0;
 	max-width: 420px;
 `
 
@@ -88,8 +93,7 @@ const ThankYouMessage = styled.div`
 	padding: 12px 24px;
 	text-align: center;
 	font-size: 15px;
-	margin: 32px auto 0;
-	max-width: 420px;
+	min-width: 320px;
 	position: relative;
 
 	&::after {
@@ -118,7 +122,7 @@ const Hero = () => {
 	}
 
 	return (
-		<div>
+		<EmailFormContainer>
 			{!isSubmitted ? (
 				<form onSubmit={handleSubmit}>
 					<EmailForm>
@@ -137,7 +141,7 @@ const Hero = () => {
 			) : (
 				<ThankYouMessage>Thank you!</ThankYouMessage>
 			)}
-		</div>
+		</EmailFormContainer>
 	)
 }
 
