@@ -21,6 +21,8 @@ const StyledFooter = styled.footer`
 	position: relative;
 	padding: 48px 0;
 	overflow: hidden;
+	z-index: 10;
+	background: ${colors.grey__700};
 
 	${breakpoint.medium`
     padding: 96px 0 32px 0;
