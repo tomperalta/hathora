@@ -66,7 +66,7 @@ export default function Nav({ tags }) {
 								href={`/blog/tags/${tag.tag.slug}`}
 								style={{ textDecoration: "none" }}
 							>
-								<CategoryBadge className="d-none d-sm-flex">
+								<CategoryBadge>
 									<svg
 										width="4"
 										height="4"

@@ -39,13 +39,14 @@ const Subtitle = styled.p`
 	line-height: 28px;
 	font-weight: 400;
 	margin-bottom: 32px;
-	margin-top: 24px;
 `
 
 const StyledStarOne = styled.svg`
 	position: absolute;
-	right: 30px;
-	top: 0;
+	right: 45px;
+	top: 10px;
+	width: 9px;
+	height: 9px;
 	transition: transform 0.2s ease;
 	&:hover {
 		transform: scale(1.2);
@@ -55,14 +56,18 @@ const StyledStarOne = styled.svg`
     position: absolute;
     right: -10px;
     top: -5px;
+    width: 18px;
+    height: 18px;
   `}
 `
 
 const StyledStarTwo = styled.svg`
 	transition: transform 0.2s ease;
 	position: absolute;
-	left: 30px;
+	left: 50px;
 	bottom: 30px;
+	width: 9px;
+	height: 9px;
 	&:hover {
 		transform: scale(1.2);
 	}
@@ -71,6 +76,8 @@ const StyledStarTwo = styled.svg`
     position: absolute;
     left: -10px;
     bottom: 25px;
+    width: 18px;
+    height: 18px;
   `}
 `
 
