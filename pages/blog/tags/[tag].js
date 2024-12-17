@@ -117,27 +117,11 @@ export const getStaticProps = async ({ params }) => {
 			.filter((tag) => tag.count?.posts > 0)
 			.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
 
-		// Fetch posts for navigation
-		const taggedPostsMap = await Promise.all(
-			activeTags.map(async (tag) => {
-				const posts = await api.posts.browse({
-					filter: `tag:${tag.slug}`,
-					include: "tags,authors",
-					limit: "3",
-				})
-
-				return {
-					tag,
-					posts,
-				}
-			})
-		)
-
 		return {
 			props: {
 				posts,
 				categoryName: tag.name,
-				tags: taggedPostsMap,
+				tags: activeTags,
 			},
 			// revalidate: 3600, // Revalidate every hour
 		}
