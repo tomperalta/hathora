@@ -229,9 +229,9 @@ const AuthorInfo = styled.div`
 		${breakpoint.medium`
       padding: 0 24px;
       font-size: 16px;
-		  font-style: normal;
-		  font-weight: 400;
-		  line-height: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
     `}
 	}
 `
@@ -327,8 +327,8 @@ const BlogPost = ({ post }) => {
 						<Image
 							src={post.primary_author?.profile_image}
 							alt={post.primary_author?.name}
-							width={60}
-							height={60}
+							width={64}
+							height={56}
 						/>
 						<div>
 							<p>{post.primary_author?.name}</p>
