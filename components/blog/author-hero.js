@@ -12,7 +12,7 @@ import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
 
 const HeroContainer = styled(Container)`
-	padding: 160px 24px;
+	padding: 160px 24px 0;
 
 	h4 {
 		text-align: center;

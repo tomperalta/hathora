@@ -32,7 +32,10 @@ const StyledBlog = styled.main`
 `
 
 const DividerContainer = styled.div`
-	margin: 24px 0;
+	margin: 0px 0 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 // eslint-disable-next-line react/prop-types
