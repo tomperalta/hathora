@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import GhostContentAPI from "@tryghost/content-api"
 import styled from "styled-components"
 import LayoutPrimary from "layouts/layout-primary"
@@ -324,12 +325,14 @@ const BlogPost = ({ post }) => {
 
 				<AuthorInfoContainer>
 					<AuthorInfo>
-						<Image
-							src={post.primary_author?.profile_image}
-							alt={post.primary_author?.name}
-							width={64}
-							height={56}
-						/>
+						<Link href={`/blog/author/${post.primary_author?.slug}`} passHref>
+							<Image
+								src={post.primary_author?.profile_image}
+								alt={post.primary_author?.name}
+								width={64}
+								height={56}
+							/>
+						</Link>
 						<div>
 							<p>{post.primary_author?.name}</p>
 							<span>{formatDate(post.updated_at)}</span>
