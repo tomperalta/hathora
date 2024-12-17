@@ -17,7 +17,7 @@ import Divider from "components/divider"
 import SubscribeBanner from "components/blog/subscribeBanner"
 
 // Sections
-import Hero from "components/blog/hero"
+import AuthorHero from "components/blog/author-hero"
 import Category from "components/blog/category"
 import Nav from "components/blog/nav"
 
@@ -44,7 +44,11 @@ const Blog = ({ posts, author, tags }) => (
 		/>
 
 		<Nav tags={tags} />
-		<Hero title={author.name} subtitle={`Articles by ${author.name}`} />
+		<AuthorHero
+			title={author.name}
+			subtitle={`Articles by ${author.name}`}
+			author={author}
+		/>
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
 		</DividerContainer>
