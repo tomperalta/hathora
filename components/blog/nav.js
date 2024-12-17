@@ -2,6 +2,8 @@ import React from "react"
 import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
+import { useRouter } from "next/router"
+import Link from "next/link"
 
 const StyledNav = styled.div`
 	border-top: 1px solid var(--nav-border);
@@ -41,44 +43,77 @@ const TagsContainer = styled.div`
 
 // eslint-disable-next-line react/prop-types
 export default function Nav({ tags }) {
+	const router = useRouter()
+	const isTagsPage = router.pathname === "/blog/tags/[tag]"
+
 	return (
 		<StyledNav>
 			<NavContainer>
 				<TagsContainer>
 					{/* eslint-disable-next-line react/prop-types */}
-					{tags?.map((tag) => (
-						<button
-							type="button"
-							key={tag.tag.id}
-							style={{ textDecoration: "none" }}
-							onClick={(e) => {
-								e.preventDefault()
-								document.getElementById(`tag-${tag.tag.slug}`)?.scrollIntoView({
-									behavior: "smooth",
-									block: "start",
-								})
-							}}
-						>
-							<CategoryBadge className="d-none d-sm-flex">
-								<svg
-									width="4"
-									height="4"
-									viewBox="0 0 4 4"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<rect
+					{tags?.map((tag) =>
+						isTagsPage ? (
+							<Link
+								passHref
+								key={tag.tag.id}
+								href={`/blog/tags/${tag.tag.slug}`}
+								style={{ textDecoration: "none" }}
+							>
+								<CategoryBadge className="d-none d-sm-flex">
+									<svg
 										width="4"
 										height="4"
-										rx="2"
-										fill="var(--nav-badge-circle)"
-									/>
-								</svg>
+										viewBox="0 0 4 4"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<rect
+											width="4"
+											height="4"
+											rx="2"
+											fill="var(--nav-badge-circle)"
+										/>
+									</svg>
 
-								<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
-							</CategoryBadge>
-						</button>
-					))}
+									<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
+								</CategoryBadge>
+							</Link>
+						) : (
+							<button
+								type="button"
+								key={tag.tag.id}
+								style={{ textDecoration: "none" }}
+								onClick={(e) => {
+									e.preventDefault()
+									document
+										.getElementById(`tag-${tag.tag.slug}`)
+										?.scrollIntoView({
+											behavior: "smooth",
+											block: "start",
+										})
+								}}
+							>
+								<CategoryBadge className="d-none d-sm-flex">
+									<svg
+										width="4"
+										height="4"
+										viewBox="0 0 4 4"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<rect
+											width="4"
+											height="4"
+											rx="2"
+											fill="var(--nav-badge-circle)"
+										/>
+									</svg>
+
+									<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
+								</CategoryBadge>
+							</button>
+						)
+					)}
 				</TagsContainer>
 				<ThemeToggle />
 			</NavContainer>
