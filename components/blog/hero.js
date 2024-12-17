@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Link from "next/link"
 
 // Components
 import Container from "components/container/"
@@ -137,7 +138,26 @@ const Hero = ({ title, subtitle }) => (
 			<Star />
 			<HeroHeading>{title}</HeroHeading>
 			<Star2 />
-			<Subtitle>{subtitle}</Subtitle>
+			<Subtitle>
+				<Link href="/blog">Blog</Link>
+				<span style={{ margin: "0 24px" }}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="8"
+						height="13"
+						viewBox="0 0 8 13"
+						fill="none"
+					>
+						<path
+							d="M1 1.5L6 6.5L1 11.5"
+							stroke="#E6E6F2"
+							strokeWidth="2"
+							strokeLinecap="round"
+						/>
+					</svg>
+				</span>
+				{subtitle}
+			</Subtitle>
 		</HeroHeadingContainer>
 		<EmailForm />
 	</HeroContainer>
