@@ -62,8 +62,8 @@ export default function Nav({ tags }) {
 						isTagsPage ? (
 							<Link
 								passHref
-								key={tag.tag.id}
-								href={`/blog/tags/${tag.tag.slug}`}
+								key={tag.id}
+								href={`/blog/tags/${tag.slug}`}
 								style={{ textDecoration: "none" }}
 							>
 								<CategoryBadge>
@@ -82,22 +82,20 @@ export default function Nav({ tags }) {
 										/>
 									</svg>
 
-									<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
+									<CategoryBadgeName>{tag.name}</CategoryBadgeName>
 								</CategoryBadge>
 							</Link>
 						) : (
 							<button
 								type="button"
-								key={tag.tag.id}
+								key={tag.id}
 								style={{ textDecoration: "none" }}
 								onClick={(e) => {
 									e.preventDefault()
-									document
-										.getElementById(`tag-${tag.tag.slug}`)
-										?.scrollIntoView({
-											behavior: "smooth",
-											block: "start",
-										})
+									document.getElementById(`tag-${tag.slug}`)?.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									})
 								}}
 							>
 								<CategoryBadge>
@@ -116,7 +114,7 @@ export default function Nav({ tags }) {
 										/>
 									</svg>
 
-									<CategoryBadgeName>{tag.tag.name}</CategoryBadgeName>
+									<CategoryBadgeName>{tag.name}</CategoryBadgeName>
 								</CategoryBadge>
 							</button>
 						)

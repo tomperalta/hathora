@@ -54,12 +54,12 @@ const Blog = ({ tags }) => (
 		</DividerContainer>
 		{/* eslint-disable-next-line react/prop-types */}
 		{tags.map((category, index) => (
-			<React.Fragment key={category.tag.id}>
+			<React.Fragment key={category.id}>
 				<Category
-					key={category.tag.id}
+					key={category.id}
 					posts={category.posts}
-					tagName={category.tag.name}
-					tagSlug={category.tag.slug}
+					tagName={category.name}
+					tagSlug={category.slug}
 				/>
 				{index === 1 && <SubscribeBanner />}
 				<DividerContainer>
@@ -91,7 +91,7 @@ export const getStaticProps = async () => {
 			.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
 
 		// Fetch posts for each tag
-		const categorizedPosts = await Promise.all(
+		const tagsWithPosts = await Promise.all(
 			activeTags.map(async (tag) => {
 				const posts = await api.posts.browse({
 					filter: `tag:${tag.slug}`,
@@ -100,7 +100,7 @@ export const getStaticProps = async () => {
 				})
 
 				return {
-					tag,
+					...tag,
 					posts,
 				}
 			})
@@ -108,9 +108,9 @@ export const getStaticProps = async () => {
 
 		return {
 			props: {
-				tags: categorizedPosts || [],
+				tags: tagsWithPosts,
 			},
-			// revalidate: 3600, // Revalidate every hour
+			revalidate: 10,
 		}
 	} catch (error) {
 		console.error("Error fetching blog posts:", error)

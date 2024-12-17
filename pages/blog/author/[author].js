@@ -19,7 +19,7 @@ import SubscribeBanner from "components/blog/subscribeBanner"
 // Sections
 import Hero from "components/blog/hero"
 import Category from "components/blog/category"
-// import Nav from "components/blog/nav"
+import Nav from "components/blog/nav"
 
 const StyledBlog = styled.main`
 	> section {
@@ -36,14 +36,14 @@ const DividerContainer = styled.div`
 `
 
 // eslint-disable-next-line react/prop-types
-const Blog = ({ posts, author }) => (
+const Blog = ({ posts, author, tags }) => (
 	<StyledBlog>
 		<SEO
 			title={`${author.name} | Hathora Blog`}
 			description={`Articles by ${author.name} from Hathora`}
 		/>
 
-		{/* <Nav tags={tags} /> */}
+		<Nav tags={tags} />
 		<Hero title={author.name} subtitle={`Articles by ${author.name}`} />
 		<DividerContainer className="d-none d-md-block text-center">
 			<Divider />
@@ -66,6 +66,12 @@ Blog.propTypes = {
 	author: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 	}).isRequired,
+	tags: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			slug: PropTypes.string.isRequired,
+		})
+	).isRequired,
 }
 
 export const getStaticPaths = async () => {
