@@ -10,11 +10,12 @@ const DividerContainer = styled.div`
 `
 
 const SubscribeContainer = styled(Container)`
-	padding: 50px 24px;
+	padding: 114px 24px;
 	overflow: hidden;
 	position: relative;
 
 	${breakpoint.medium`
+  padding: 50px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,6 +31,7 @@ const SubscribeHeading = styled.div`
 	font-weight: 500;
 	line-height: 44px;
 	position: relative;
+	text-align: center;
 `
 
 const SubscribeHeadingSpan = styled.span`
@@ -45,6 +47,8 @@ const Subtitle = styled.p`
 	font-size: 20px;
 	line-height: 28px;
 	font-weight: 400;
+	margin-bottom: 24px;
+	text-align: center;
 `
 
 const TopShadow = styled.div`
@@ -78,7 +82,7 @@ const BottomShadow = styled.div`
 export default function SubscribeBanner() {
 	return (
 		<>
-			<DividerContainer className="d-none d-md-block text-center">
+			<DividerContainer className="text-center">
 				<Divider />
 			</DividerContainer>
 			<SubscribeContainer>
