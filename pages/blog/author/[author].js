@@ -48,7 +48,7 @@ const Blog = ({ posts, author, tags }) => (
 
 		<Nav tags={tags} />
 		<AuthorHero author={author} />
-		<DividerContainer className="d-none d-md-block text-center">
+		<DividerContainer>
 			<Divider />
 		</DividerContainer>
 		<Category posts={posts} />
