@@ -161,10 +161,14 @@ const SocialShareContainer = styled.div`
 	line-height: 24px;
 
 	p {
-		margin-top: -5px;
 		color: ${colors.grey__300};
 		font-size: 1rem;
 		font-weight: 700;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
 	}
 
 	svg {
