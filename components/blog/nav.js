@@ -5,6 +5,9 @@ import styled from "styled-components"
 import { useRouter } from "next/router"
 import Link from "next/link"
 
+// Utils
+import breakpoint from "utils/breakpoints/"
+
 const StyledNav = styled.div`
 	border-top: 1px solid var(--nav-border);
 	border-bottom: 1px solid var(--nav-border);
@@ -16,7 +19,11 @@ const NavContainer = styled(Container)`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 16px 0;
+	padding: 16px 24px;
+
+	${breakpoint.medium`
+    padding: 16px 0;
+  `}
 `
 
 const CategoryBadge = styled.span`
@@ -93,7 +100,7 @@ export default function Nav({ tags }) {
 										})
 								}}
 							>
-								<CategoryBadge className="d-none d-sm-flex">
+								<CategoryBadge>
 									<svg
 										width="4"
 										height="4"

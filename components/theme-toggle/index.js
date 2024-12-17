@@ -62,6 +62,7 @@ export default function ThemeToggle() {
 			type="button"
 			onClick={() => setTheme(otherTheme)}
 			resolvedTheme={resolvedTheme}
+			className="d-none d-md-block"
 		>
 			<ToggleText resolvedTheme={resolvedTheme}>
 				{resolvedTheme === "dark" ? "Dark" : "Light"}
