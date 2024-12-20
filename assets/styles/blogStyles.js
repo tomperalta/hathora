@@ -60,6 +60,8 @@ export default createGlobalStyle`
     --theme-toggle-color: ${colors.grey__700};
     --theme-toggle-knob: ${colors.grey__700};
     --continue-reading-text: ${colors.purple__400};
+    --share-article-bg: ${colors.grey__600};
+    --share-article-text: ${colors.grey__300};
   }
 
   [data-theme='light'] {
@@ -106,6 +108,8 @@ export default createGlobalStyle`
     --theme-toggle-color: ${blogColors.white};
     --theme-toggle-knob: ${colors.grey__200};
     --continue-reading-text: ${colors.purple__600};
+    --share-article-bg: ${colors.grey__200};
+    --share-article-text: ${colors.grey__700};
   }
 
   .no-scroll {

@@ -1,4 +1,5 @@
 import React from "react"
+import { useTheme } from "next-themes"
 import Image from "next/image"
 import Link from "next/link"
 import GhostContentAPI from "@tryghost/content-api"
@@ -12,9 +13,12 @@ import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
 import {
 	TwitterIcon,
+	TwitterIconLight,
 	LinkedInIcon,
+	LinkedInIconLight,
 	ScrollToTopIcon,
 	ReadingTimeIcon,
+	ScrollToTopIconLight,
 } from "components/blog/icons"
 import { readingTime } from "@tryghost/helpers"
 
@@ -157,7 +161,7 @@ const SocialShareContainer = styled.div`
 
 	padding: 0 24px;
 	border-radius: 24px;
-	background: var(--neutrals-neutrals-grey-600, #151521);
+	background: var(--share-article-bg);
 	height: 52px;
 	font-size: 1rem;
 	font-style: normal;
@@ -165,7 +169,7 @@ const SocialShareContainer = styled.div`
 	line-height: 24px;
 
 	p {
-		color: ${colors.grey__300};
+		color: var(--share-article-text);
 		font-size: 1rem;
 		font-weight: 700;
 	}
@@ -316,6 +320,8 @@ const formatDate = (dateString) => {
 
 // eslint-disable-next-line react/prop-types
 const BlogPost = ({ post, tags }) => {
+	const { resolvedTheme } = useTheme()
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -413,7 +419,7 @@ const BlogPost = ({ post, tags }) => {
 						rel="noopener noreferrer"
 						aria-label="Share on Twitter"
 					>
-						<TwitterIcon />
+						{resolvedTheme === "dark" ? <TwitterIcon /> : <TwitterIconLight />}
 					</a>
 					<a
 						href={`https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(
@@ -423,11 +429,19 @@ const BlogPost = ({ post, tags }) => {
 						rel="noopener noreferrer"
 						aria-label="Share on LinkedIn"
 					>
-						<LinkedInIcon />
+						{resolvedTheme === "dark" ? (
+							<LinkedInIcon />
+						) : (
+							<LinkedInIconLight />
+						)}
 					</a>
 				</SocialShareContainer>
 				<ScrollToTopButton onClick={scrollToTop} aria-label="Scroll to top">
-					<ScrollToTopIcon />
+					{resolvedTheme === "dark" ? (
+						<ScrollToTopIcon />
+					) : (
+						<ScrollToTopIconLight />
+					)}
 				</ScrollToTopButton>
 			</ScrollToTopContainer>
 		</StyledBlogPost>
