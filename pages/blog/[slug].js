@@ -21,6 +21,7 @@ import {
 	ScrollToTopIconLight,
 } from "components/blog/icons"
 import { readingTime } from "@tryghost/helpers"
+import SubscribeBanner from "components/blog/subscribeBanner"
 
 const StyledBlogPost = styled.div`
 	padding: 120px 24px 0;
@@ -405,6 +406,8 @@ const BlogPost = ({ post, tags }) => {
 					/>
 				</CategoryContainer>
 			))}
+
+			<SubscribeBanner />
 
 			<ScrollToTopContainer className="d-none d-lg-flex">
 				<SocialShareContainer>
