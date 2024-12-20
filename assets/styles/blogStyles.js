@@ -11,105 +11,130 @@ import IconDottedSeparator from "assets/icons/icon-dotted-separator.svg"
 
 export default createGlobalStyle`
   :root {
+    // Import all base colors
     ${Object.entries(colors).map(
 			([name, color]) => css`
       --${name}: ${color};
     `
 		)}
 
-    --menu-text-active: ${colors.green__500};
+    // Global Colors
+    --text-primary: ${colors.grey__200};
+    --text-secondary: ${colors.grey__400};
     --text-hover: ${colors.green__500};
+    --link-color: ${colors.green__500};
+    --background-primary: ${colors.grey__700};
 
-    --fundraiser-banner-border: ${colors.green__500};
+    // Navigation & Header
+    --menu-text-active: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
     --nav-badge: ${blogColors.grey__350};
     --nav-badge-circle: ${colors.purple__500};
+    --hamburger-menu-color: ${colors.grey__200};
+    --logo-color: ${colors.white};
+
+    // Hero Section
     --hero-sub-heading: ${colors.grey__300};
     --hero-subscribe-btn: ${colors.green__500};
     --hero-subscribe-text: black;
+
+    // Category & Tags
     --category-title: ${colors.purple__400};
-    --category-background:  ${colors.grey__550};
+    --category-background: ${colors.grey__550};
     --category-badge-color: ${colors.white};
-    --footer-email: ${colors.green__500};
-    --footer-privacy-link: ${colors.grey__300};
-    --blog-date: ${colors.purple__400};
-    --hamburger-menu-color: ${colors.grey__200};
-    --footer-address: ${colors.grey__300};
-    --footer-background: ${colors.grey__700};
     --category-chevron: ${colors.grey__200};
     --tag-color: ${colors.green__500};
+    --tag-color-hover: ${colors.grey__700};
 
-
-
-    // Refactored Var Names
-    --text-primary: ${colors.grey__200};
-    --text-secondary: ${colors.grey__400};
-    --background-primary: ${colors.grey__700};
-    --banner-text-color: ${colors.green__500};
-    --banner-border: ${colors.green__500};
-    --logo-color: ${colors.white};
-    --button-login: ${colors.green__500};
+    // Blog Cards & Articles
     --blog-card-background: ${blogColors.grey__600};
     --blog-card-border: none;
     --blog-card-reading-time: ${colors.grey__400};
-    --show-all-text-hover: ${colors.grey__700};
+    --blog-date: ${colors.purple__400};
     --article-text-color: ${colors.grey__300};
     --article-reading-time-bg: ${blogColors.grey__600};
-    --link-color: ${colors.green__500};
-    --theme-toggle-bg: ${colors.grey__200};
-    --theme-toggle-color: ${colors.grey__700};
-    --theme-toggle-knob: ${colors.grey__700};
     --continue-reading-text: ${colors.purple__400};
     --share-article-bg: ${colors.grey__600};
     --share-article-text: ${colors.grey__300};
+
+    // Footer
+    --footer-email: ${colors.green__500};
+    --footer-privacy-link: ${colors.grey__300};
+    --footer-address: ${colors.grey__300};
+    --footer-background: ${colors.grey__700};
+
+    // Login Button
+    --button-login: ${colors.green__500};
+
+    // Theme Toggle
+    --theme-toggle-bg: ${colors.grey__200};
+    --theme-toggle-color: ${colors.grey__700};
+    --theme-toggle-knob: ${colors.grey__700};
+
+    // Banner
+    --banner-text-color: ${colors.green__500};
+    --banner-border: ${colors.green__500};
+    --fundraiser-banner-border: ${colors.green__500};
   }
 
   [data-theme='light'] {
-    --menu-text-active: ${colors.purple__600};
+    // Global Colors
+    --text-primary: ${colors.grey__700};
+    --text-secondary: ${blogColors.grey__600};
     --text-hover: ${colors.purple__600};
+    --link-color: ${colors.purple__500};
+    --background-primary: #f8fafc;
 
+    // Navigation & Header
+    --menu-text-active: ${colors.purple__600};
     --nav-border: rgba(94, 94, 125, 0.30);
     --nav-badge: ${blogColors.grey__600};
     --nav-badge-circle: ${colors.purple__500};
+    --hamburger-menu-color: ${blogColors.grey__600};
+    --logo-color: var(--text-primary);
+
+    // Hero Section
     --hero-sub-heading: ${blogColors.grey__600};
     --hero-subscribe-btn: ${colors.purple__600};
     --hero-subscribe-text: ${colors.grey__200};
+
+    // Category & Tags
     --category-title: ${colors.grey__700};
-    --category-background:  invisible;
+    --category-background: invisible;
     --category-badge-color: ${colors.grey__700};
-    --footer-email: ${colors.grey__700};
-    --footer-privacy-link: ${colors.grey__500};
-    --footer-background: #F5F5FC;
-    --blog-date: ${colors.purple__600};
-    --hamburger-menu-color: ${blogColors.grey__600};
-    --footer-address: ${colors.grey__400};
     --category-chevron: ${colors.grey__200};
     --tag-color: ${colors.purple__600};
+    --tag-color-hover: ${blogColors.white};
 
-
-
-    // Refactored Var Names
-    --text-primary: ${colors.grey__700};
-    --text-secondary: ${blogColors.grey__600};
-    --background-primary: #f8fafc;
-    --banner-text-color: ${blogColors.grey__600};
-    --banner-border: rgba(94, 94, 125, 0.30);
-    --logo-color: var(--text-primary);
-    --button-login: ${colors.grey__700};
+    // Blog Cards & Articles
     --blog-card-background: ${blogColors.white};
     --blog-card-border: rgba(0, 0, 0, 0.25);
     --blog-card-reading-time: ${colors.grey__700};
+    --blog-date: ${colors.purple__600};
     --blog-article-font: "Lora", Georgia, Times, serif;
-    --show-all-text-hover: ${blogColors.white};
     --article-text-color: ${colors.grey__700};
     --article-reading-time-bg: ${colors.grey__200};
-    --link-color: ${colors.purple__500};
-    --theme-toggle-bg: ${colors.grey__500};
-    --theme-toggle-color: ${blogColors.white};
-    --theme-toggle-knob: ${colors.grey__200};
     --continue-reading-text: ${colors.purple__600};
     --share-article-bg: ${colors.grey__200};
     --share-article-text: ${colors.grey__700};
+
+    // Footer
+    --footer-email: ${colors.grey__700};
+    --footer-privacy-link: ${colors.grey__500};
+    --footer-address: ${colors.grey__400};
+    --footer-background: #F5F5FC;
+
+    // Login Button
+    --button-login: ${colors.grey__700};
+
+    // Theme Toggle
+    --theme-toggle-bg: ${colors.grey__500};
+    --theme-toggle-color: ${blogColors.white};
+    --theme-toggle-knob: ${colors.grey__200};
+
+    // Fundraiser Banner
+    --banner-text-color: ${blogColors.grey__600};
+    --banner-border: rgba(94, 94, 125, 0.30);
   }
 
   .no-scroll {

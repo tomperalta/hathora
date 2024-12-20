@@ -43,7 +43,7 @@ const ShowAllButton = styled.button`
 	&:hover {
 		cursor: pointer;
 		background: var(--tag-color);
-		color: var(--show-all-text-hover);
+		color: var(--tag-color-hover);
 	}
 `
 
@@ -141,7 +141,7 @@ const StyledArrowIcon = styled.svg`
 	}
 
 	${ShowAllButton}:hover & path {
-		fill: var(--show-all-text-hover);
+		fill: var(--tag-color-hover);
 	}
 `
 
