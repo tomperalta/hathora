@@ -23,7 +23,7 @@ export default createGlobalStyle`
     --fundraiser-banner-border: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
     --nav-badge: ${blogColors.grey__350};
-    --nav-badge-circle: ${colors.green__500};
+    --nav-badge-circle: ${colors.purple__500};
     --hero-sub-heading: ${colors.grey__300};
     --hero-subscribe-btn: ${colors.green__500};
     --hero-subscribe-text: black;
@@ -36,7 +36,7 @@ export default createGlobalStyle`
     --hamburger-menu-color: ${colors.grey__200};
     --footer-address: ${colors.grey__300};
     --category-chevron: ${colors.grey__200};
-    --category-show-all-text: ${colors.green__500};
+    --tag-color: ${colors.green__500};
 
 
 
@@ -79,7 +79,7 @@ export default createGlobalStyle`
     --hamburger-menu-color: ${blogColors.grey__600};
     --footer-address: ${colors.grey__400};
     --category-chevron: ${colors.grey__200};
-    --category-show-all-text: ${colors.purple__600};
+    --tag-color: ${colors.purple__600};
 
 
 

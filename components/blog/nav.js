@@ -29,13 +29,18 @@ const NavContainer = styled(Container)`
 const CategoryBadge = styled.span`
 	border-radius: 8px;
 	padding: 4px 8px;
-	color: var(--nav-badge);
-	border: 1px solid var(--nav-badge);
+	color: var(--tag-color);
+	border: 1px solid var(--tag-color);
 	font-size: 14px;
 	font-weight: 400;
 	line-height: normal;
 	display: flex;
-	cursor: pointer;
+
+	&:hover {
+		cursor: pointer;
+		background: var(--tag-color);
+		color: var(--show-all-text-hover);
+	}
 `
 
 const CategoryBadgeName = styled.div`
