@@ -52,6 +52,7 @@ export default createGlobalStyle`
     --blog-card-reading-time: ${colors.grey__400};
     --blog-date: ${colors.purple__400};
     --article-text-color: ${colors.grey__300};
+    --article-reading-time-color: ${colors.grey__400};
     --article-reading-time-bg: ${blogColors.grey__600};
     --continue-reading-text: ${colors.purple__400};
     --share-article-bg: ${colors.grey__600};
@@ -113,6 +114,7 @@ export default createGlobalStyle`
     --blog-date: ${colors.purple__600};
     --blog-article-font: "Lora", Georgia, Times, serif;
     --article-text-color: ${colors.grey__700};
+    --article-reading-time-color: ${colors.grey__700};
     --article-reading-time-bg: ${colors.grey__200};
     --continue-reading-text: ${colors.purple__600};
     --share-article-bg: ${colors.grey__200};

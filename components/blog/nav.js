@@ -39,7 +39,7 @@ const CategoryBadge = styled.span`
 	&:hover {
 		cursor: pointer;
 		background: var(--tag-color);
-		color: var(--show-all-text-hover);
+		color: var(--tag-color-hover);
 	}
 `
 
