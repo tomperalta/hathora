@@ -367,7 +367,11 @@ const BlogPost = ({ post, tags }) => {
 			/>
 
 			<ArticleHeader>
-				<p>{post.primary_tag?.name}</p>
+				<p>
+					<Link href={`/blog/tags/${post.primary_tag?.slug}`} passHref>
+						{post.primary_tag?.name}
+					</Link>
+				</p>
 				<h1>{post.title}</h1>
 
 				<AuthorInfoContainer>
