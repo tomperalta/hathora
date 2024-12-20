@@ -22,7 +22,7 @@ const StyledFooter = styled.footer`
 	padding: 48px 0;
 	overflow: hidden;
 	z-index: 10;
-	background: ${colors.grey__700};
+	background: var(--footer-background);
 
 	${breakpoint.medium`
     padding: 96px 0 32px 0;

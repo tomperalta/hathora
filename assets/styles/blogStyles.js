@@ -35,6 +35,7 @@ export default createGlobalStyle`
     --blog-date: ${colors.purple__400};
     --hamburger-menu-color: ${colors.grey__200};
     --footer-address: ${colors.grey__300};
+    --footer-background: ${colors.grey__700};
     --category-chevron: ${colors.grey__200};
     --tag-color: ${colors.green__500};
 
@@ -75,6 +76,7 @@ export default createGlobalStyle`
     --category-badge-color: ${colors.grey__700};
     --footer-email: ${colors.grey__700};
     --footer-privacy-link: ${colors.grey__500};
+    --footer-background: invisible;
     --blog-date: ${colors.purple__600};
     --hamburger-menu-color: ${blogColors.grey__600};
     --footer-address: ${colors.grey__400};
