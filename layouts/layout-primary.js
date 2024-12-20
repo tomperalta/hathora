@@ -36,8 +36,7 @@ const PrimaryLayout = ({ children }) => {
 	const useBlogStyles = router.pathname.includes("/blog")
 	return useLayout ? (
 		<>
-			{!useBlogStyles && <GlobalStyles />}
-			{useBlogStyles && <BlogStyles />}
+			{useBlogStyles ? <BlogStyles /> : <GlobalStyles />}
 			<FundraiseBanner />
 			<Menu />
 			<main>{children}</main>
@@ -46,8 +45,7 @@ const PrimaryLayout = ({ children }) => {
 		</>
 	) : (
 		<>
-			{!useBlogStyles && <GlobalStyles />}
-			{useBlogStyles && <BlogStyles />}
+			{useBlogStyles ? <BlogStyles /> : <GlobalStyles />}
 			<main>{children}</main>
 		</>
 	)
