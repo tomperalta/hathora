@@ -31,7 +31,7 @@ const StyledBlog = styled.main`
 `
 
 const DividerContainer = styled.div`
-	margin: 24px 0;
+	margin: 40px 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
