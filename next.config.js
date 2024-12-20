@@ -7,7 +7,6 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "assets/styles")],
 	},
-	// Todo: Delete images before production
 	images: {
 		domains: [
 			"blog.hathora.dev",
