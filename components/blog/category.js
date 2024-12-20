@@ -29,8 +29,8 @@ const CategoryTitle = styled.h2`
 `
 
 const ShowAllButton = styled.button`
-	color: var(--category-title);
-	border: 1px solid var(--category-title);
+	color: var(--category-show-all-text);
+	border: 1px solid var(--category-show-all-text);
 	border-radius: 6px;
 	padding: 4px 8px;
 	font-size: 14px;
@@ -42,7 +42,7 @@ const ShowAllButton = styled.button`
 
 	&:hover {
 		cursor: pointer;
-		background: var(--category-title);
+		background: var(--category-show-all-text);
 		color: var(--show-all-text-hover);
 	}
 `
@@ -136,7 +136,7 @@ const PostDate = styled.span`
 const StyledArrowIcon = styled.svg`
 	margin-left: 8px;
 	path {
-		fill: var(--category-title);
+		fill: var(--category-show-all-text);
 		transition: fill 0.1s ease-in-out;
 	}
 

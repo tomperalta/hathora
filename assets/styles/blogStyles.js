@@ -36,6 +36,7 @@ export default createGlobalStyle`
     --hamburger-menu-color: ${colors.grey__200};
     --footer-address: ${colors.grey__300};
     --category-chevron: ${colors.grey__200};
+    --category-show-all-text: ${colors.green__500};
 
 
 
@@ -78,6 +79,7 @@ export default createGlobalStyle`
     --hamburger-menu-color: ${blogColors.grey__600};
     --footer-address: ${colors.grey__400};
     --category-chevron: ${colors.grey__200};
+    --category-show-all-text: ${colors.purple__600};
 
 
 
