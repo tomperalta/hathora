@@ -137,11 +137,23 @@ const ArticleContent = styled.article`
 	img {
 		max-width: 100%;
 		height: auto;
-		margin: 24px auto;
+		margin: 24px auto 10px;
 		border-radius: 4px;
 		display: block;
 		width: 100%;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+	}
+
+	figcaption {
+		text-align: center;
+	}
+
+	figcaption span {
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+		color: ${colors.grey__400};
 	}
 `
 
