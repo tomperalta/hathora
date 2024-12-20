@@ -329,8 +329,8 @@ const BlogPost = ({ post }) => {
 							<Image
 								src={post.primary_author?.profile_image}
 								alt={post.primary_author?.name}
-								width={64}
-								height={56}
+								width={60}
+								height={60}
 							/>
 						</Link>
 						<div>
