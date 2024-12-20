@@ -238,7 +238,7 @@ const AuthorInfo = styled.div`
 `
 
 const ReadingTime = styled.span`
-	color: ${colors.grey__400};
+	color: ${colors.grey__700};
 	background: var(--article-reading-time-bg);
 	display: flex;
 	align-items: center;
