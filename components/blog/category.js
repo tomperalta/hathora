@@ -48,7 +48,7 @@ const ShowAllButton = styled.button`
 `
 
 const ReadingTime = styled.span`
-	color: var(--blog-card-reading-time);
+	color: ${colors.grey__400};
 	display: flex;
 	align-items: center;
 	font-size: 14px;
@@ -103,9 +103,11 @@ const CardTitle = styled.h3`
 const CardDescription = styled.p`
 	color: var(--text-primary);
 	margin: 0;
-	font-size: 1rem;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
+	font-family: var(--blog-article-font);
+	line-height: 24px;
 `
 
 const CardFooter = styled.div`

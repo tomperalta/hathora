@@ -92,7 +92,7 @@ export default createGlobalStyle`
     --blog-card-background: ${blogColors.white};
     --blog-card-border: rgba(0, 0, 0, 0.25);
     --blog-card-reading-time: ${colors.grey__700};
-    --blog-article-font: font-family: "Lora", Georgia, Times, serif;
+    --blog-article-font: "Lora", Georgia, Times, serif;
     --show-all-text-hover: ${blogColors.white};
     --article-text-color: ${colors.grey__700};
     --article-reading-time-bg: ${colors.grey__200};
