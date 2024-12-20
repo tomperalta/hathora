@@ -502,11 +502,6 @@ export const getStaticProps = async ({ params }) => {
 			  })
 			: []
 
-		// Randomly select 3 posts from the same tag
-		const randomTaggedPosts = taggedPosts
-			.sort(() => Math.random() - 0.5)
-			.slice(0, 3)
-
 		// Format the tag with random posts from same category
 		const tags = primaryTag
 			? [
@@ -514,7 +509,7 @@ export const getStaticProps = async ({ params }) => {
 						id: post.primary_tag.id,
 						name: post.primary_tag.name,
 						slug: primaryTag,
-						posts: randomTaggedPosts,
+						posts: taggedPosts.slice(0, 3),
 					},
 			  ]
 			: []
