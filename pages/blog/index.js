@@ -52,6 +52,7 @@ const Blog = ({ tags }) => (
 		<DividerContainer className="d-none d-md-flex">
 			<Divider />
 		</DividerContainer>
+
 		{/* eslint-disable-next-line react/prop-types */}
 		{tags.map((category, index) => (
 			<React.Fragment key={category.id}>

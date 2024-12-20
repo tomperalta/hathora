@@ -5,6 +5,8 @@ import GhostContentAPI from "@tryghost/content-api"
 import styled from "styled-components"
 import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
+import Divider from "components/divider"
+import Category from "components/blog/category"
 import PropTypes from "prop-types"
 import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
@@ -248,6 +250,30 @@ const ReadingTime = styled.span`
 	border-radius: 50px;
 `
 
+const ContinueReadingContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--continue-reading-text);
+
+	h2 {
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 32px;
+	}
+`
+const DividerContainer = styled.div`
+	margin: 40px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
+const CategoryContainer = styled.div`
+	margin: 24px 0;
+`
+
 const VerticalDivider = () => (
 	<svg
 		width="2"
@@ -288,7 +314,8 @@ const formatDate = (dateString) => {
 	})
 }
 
-const BlogPost = ({ post }) => {
+// eslint-disable-next-line react/prop-types
+const BlogPost = ({ post, tags }) => {
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -352,6 +379,27 @@ const BlogPost = ({ post }) => {
 
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
+
+			<DividerContainer>
+				<Divider />
+			</DividerContainer>
+
+			<ContinueReadingContainer>
+				<h2>Continue Reading</h2>
+			</ContinueReadingContainer>
+
+			{/* eslint-disable-next-line react/prop-types */}
+			{tags.map((category) => (
+				<CategoryContainer key={category.id}>
+					<Category
+						key={category.id}
+						posts={category.posts}
+						tagName={category.name}
+						tagSlug={category.slug}
+					/>
+				</CategoryContainer>
+			))}
+
 			<ScrollToTopContainer className="d-none d-lg-flex">
 				<SocialShareContainer>
 					<p>Share Article:</p>
@@ -423,11 +471,37 @@ export const getStaticProps = async ({ params }) => {
 			include: "tags,authors",
 		})
 
+		// Get only the primary tag of the current post
+		const primaryTag = post.primary_tag?.slug
+
+		// Only fetch posts with the same primary tag
+		const relatedPosts = primaryTag
+			? await api.posts.browse({
+					filter: `tag:${primaryTag}`,
+					include: "tags,authors",
+					limit: "3",
+					exclude: `slug:${params.slug}`, // Exclude current post
+			  })
+			: []
+
+		// Format the tag with its related posts
+		const tags = primaryTag
+			? [
+					{
+						id: post.primary_tag.id,
+						name: post.primary_tag.name,
+						slug: primaryTag,
+						posts: relatedPosts,
+					},
+			  ]
+			: []
+
 		return {
 			props: {
 				post,
+				tags,
 			},
-			revalidate: 3600, // Revalidate every hour
+			revalidate: 3600,
 		}
 	} catch (error) {
 		console.error("Error fetching blog post:", error)

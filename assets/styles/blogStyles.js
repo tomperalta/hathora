@@ -59,6 +59,7 @@ export default createGlobalStyle`
     --theme-toggle-bg: ${colors.grey__200};
     --theme-toggle-color: ${colors.grey__700};
     --theme-toggle-knob: ${colors.grey__700};
+    --continue-reading-text: ${colors.purple__400};
   }
 
   [data-theme='light'] {
@@ -76,7 +77,7 @@ export default createGlobalStyle`
     --category-badge-color: ${colors.grey__700};
     --footer-email: ${colors.grey__700};
     --footer-privacy-link: ${colors.grey__500};
-    --footer-background: invisible;
+    --footer-background: #F5F5FC;
     --blog-date: ${colors.purple__600};
     --hamburger-menu-color: ${blogColors.grey__600};
     --footer-address: ${colors.grey__400};
@@ -104,6 +105,7 @@ export default createGlobalStyle`
     --theme-toggle-bg: ${colors.grey__500};
     --theme-toggle-color: ${blogColors.white};
     --theme-toggle-knob: ${colors.grey__200};
+    --continue-reading-text: ${colors.purple__600};
   }
 
   .no-scroll {
