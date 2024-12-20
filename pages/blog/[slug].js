@@ -474,24 +474,29 @@ export const getStaticProps = async ({ params }) => {
 		// Get only the primary tag of the current post
 		const primaryTag = post.primary_tag?.slug
 
-		// Only fetch posts with the same primary tag
-		const relatedPosts = primaryTag
+		// Fetch all posts with the same primary tag (excluding current post)
+		const taggedPosts = primaryTag
 			? await api.posts.browse({
 					filter: `tag:${primaryTag}`,
 					include: "tags,authors",
-					limit: "3",
+					limit: "all", // Get all posts with this tag
 					exclude: `slug:${params.slug}`, // Exclude current post
 			  })
 			: []
 
-		// Format the tag with its related posts
+		// Randomly select 3 posts from the same tag
+		const randomTaggedPosts = taggedPosts
+			.sort(() => Math.random() - 0.5)
+			.slice(0, 3)
+
+		// Format the tag with random posts from same category
 		const tags = primaryTag
 			? [
 					{
 						id: post.primary_tag.id,
 						name: post.primary_tag.name,
 						slug: primaryTag,
-						posts: relatedPosts,
+						posts: randomTaggedPosts,
 					},
 			  ]
 			: []
@@ -506,7 +511,7 @@ export const getStaticProps = async ({ params }) => {
 	} catch (error) {
 		console.error("Error fetching blog post:", error)
 		return {
-			notFound: true, // This will show a 404 page
+			notFound: true,
 			revalidate: 3600,
 		}
 	}
