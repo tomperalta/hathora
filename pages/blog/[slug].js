@@ -348,14 +348,40 @@ const BlogPost = ({ post, tags }) => {
 	BlogPost.propTypes = {
 		post: PropTypes.shape({
 			slug: PropTypes.string.isRequired,
-			primary_tag: PropTypes.string,
-			primary_author: PropTypes.string,
+			primary_tag: PropTypes.shape({
+				name: PropTypes.string,
+				slug: PropTypes.string,
+			}),
+			primary_author: PropTypes.shape({
+				name: PropTypes.string,
+				slug: PropTypes.string,
+				profile_image: PropTypes.string,
+			}),
 			updated_at: PropTypes.string,
 			title: PropTypes.string.isRequired,
 			excerpt: PropTypes.string,
 			feature_image: PropTypes.string,
 			html: PropTypes.string.isRequired,
 		}).isRequired,
+		tags: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.string,
+				name: PropTypes.string,
+				slug: PropTypes.string,
+				posts: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						slug: PropTypes.string,
+						feature_image: PropTypes.string,
+						excerpt: PropTypes.string,
+					})
+				),
+			})
+		),
+	}
+
+	BlogPost.defaultProps = {
+		tags: [],
 	}
 
 	return (
@@ -376,13 +402,18 @@ const BlogPost = ({ post, tags }) => {
 
 				<AuthorInfoContainer>
 					<AuthorInfo>
-						<Link href={`/blog/author/${post.primary_author?.slug}`} passHref>
-							<Image
-								src={post.primary_author?.profile_image}
-								alt={post.primary_author?.name}
-								width={60}
-								height={60}
-							/>
+						<Link
+							href={`/blog/author/${post.primary_author?.slug}`}
+							legacyBehavior
+						>
+							<a>
+								<Image
+									src={post.primary_author?.profile_image}
+									alt={post.primary_author?.name}
+									width={60}
+									height={60}
+								/>
+							</a>
 						</Link>
 						<div>
 							<p>{post.primary_author?.name}</p>
