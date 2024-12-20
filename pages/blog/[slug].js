@@ -394,8 +394,8 @@ const BlogPost = ({ post, tags }) => {
 
 			<ArticleHeader>
 				<p>
-					<Link href={`/blog/tags/${post.primary_tag?.slug}`} passHref>
-						{post.primary_tag?.name}
+					<Link href={`/blog/tags/${post.primary_tag?.slug}`} legacyBehavior>
+						<a>{post.primary_tag?.name}</a>
 					</Link>
 				</p>
 				<h1>{post.title}</h1>
