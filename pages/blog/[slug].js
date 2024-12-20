@@ -388,6 +388,8 @@ const BlogPost = ({ post, tags }) => {
 			{/* eslint-disable-next-line react/no-danger */}
 			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
 
+			<SubscribeBanner />
+
 			<DividerContainer>
 				<Divider />
 			</DividerContainer>
@@ -407,8 +409,6 @@ const BlogPost = ({ post, tags }) => {
 					/>
 				</CategoryContainer>
 			))}
-
-			<SubscribeBanner />
 
 			<ScrollToTopContainer className="d-none d-lg-flex">
 				<SocialShareContainer>

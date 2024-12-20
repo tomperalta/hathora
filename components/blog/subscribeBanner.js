@@ -31,7 +31,7 @@ const SubscribeHeading = styled.div`
 	font-weight: 500;
 	line-height: 44px;
 	position: relative;
-	text-align: center;
+	text-align: left;
 `
 
 const SubscribeHeadingSpan = styled.span`
@@ -48,7 +48,7 @@ const Subtitle = styled.p`
 	line-height: 28px;
 	font-weight: 400;
 	margin-bottom: 24px;
-	text-align: center;
+	text-align: left;
 `
 
 const TopShadow = styled.div`
@@ -89,9 +89,10 @@ export default function SubscribeBanner() {
 				<SubscribeHeadingContainer>
 					<SubscribeHeading>
 						<TopShadow />
-						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to our blog
+						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to Hathora
+						Writes
 					</SubscribeHeading>
-					<Subtitle>Learn more about the gaming industry</Subtitle>
+					<Subtitle>Topics on the edge of infrastructure</Subtitle>
 				</SubscribeHeadingContainer>
 				<EmailForm />
 				<BottomShadow />
