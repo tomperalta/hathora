@@ -33,7 +33,10 @@ const SubscribeButton = styled.button`
 	background-color: var(--hero-subscribe-btn);
 	color: var(--hero-subscribe-text);
 	border: none;
-	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 4px;
 	padding: 10px 12px;
 	display: flex;
 	align-items: center;
