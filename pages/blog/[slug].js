@@ -63,7 +63,7 @@ const ArticleContent = styled.article`
 	h4,
 	h5,
 	h6 {
-		margin-bottom: 12px;
+		margin: 24px 0;
 		font-weight: 600;
 		line-height: 1.3;
 	}
