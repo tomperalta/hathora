@@ -141,6 +141,7 @@ const ArticleContent = styled.article`
 		border-radius: 4px;
 		display: block;
 		width: 100%;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 	}
 `
 
