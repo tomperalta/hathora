@@ -118,7 +118,9 @@ const CardFooter = styled.div`
 `
 
 const PostAuthor = styled.span`
-	color: ${colors.purple__500};
+	color: var(--blog-date);
+	font-size: 1rem;
+	line-height: 15px;
 `
 
 const PostDate = styled.span`
@@ -220,7 +222,7 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 									})}
 								</ReadingTime>
 								<CardFooter>
-									<PostAuthor className="text--s font-weight--700">
+									<PostAuthor>
 										{post.primary_author?.name || "Anonymous"}
 									</PostAuthor>
 									<PostDate>{formatDate(post.published_at)}</PostDate>
