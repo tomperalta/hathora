@@ -29,7 +29,8 @@ export default createGlobalStyle`
     --menu-text-active: ${colors.green__500};
     --nav-border: rgba(94, 94, 125, 0.30);
     --nav-badge: ${blogColors.grey__350};
-    --nav-badge-circle: ${colors.purple__500};
+    --nav-badge-circle: ${colors.green__500};
+    --nav-badge-circle-hover: ${colors.grey__700};
     --hamburger-menu-color: ${colors.grey__200};
     --logo-color: ${colors.white};
 
@@ -90,7 +91,8 @@ export default createGlobalStyle`
     --menu-text-active: ${colors.purple__600};
     --nav-border: rgba(94, 94, 125, 0.30);
     --nav-badge: ${blogColors.grey__600};
-    --nav-badge-circle: ${colors.purple__500};
+    --nav-badge-circle: ${colors.purple__600};
+    --nav-badge-circle-hover: ${colors.white};
     --hamburger-menu-color: ${blogColors.grey__600};
     --logo-color: var(--text-primary);
 

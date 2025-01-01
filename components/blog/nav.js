@@ -40,6 +40,10 @@ const CategoryBadge = styled.span`
 		cursor: pointer;
 		background: var(--tag-color);
 		color: var(--tag-color-hover);
+
+		svg rect {
+			fill: var(--nav-badge-circle-hover);
+		}
 	}
 `
 
