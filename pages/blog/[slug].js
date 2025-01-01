@@ -425,9 +425,8 @@ const BlogPost = ({ post, tags }) => {
 						<ReadingTimeIcon />
 						{readingTime(post, {
 							minute: "1 min",
-							minutes: "% min",
+							minutes: "% mins",
 						})}{" "}
-						Read
 					</ReadingTime>
 				</AuthorInfoContainer>
 			</ArticleHeader>
