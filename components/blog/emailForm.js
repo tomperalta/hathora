@@ -27,6 +27,11 @@ const EmailInput = styled.input`
 	flex-grow: 1;
 	font-size: 14px;
 	max-width: 90%;
+	transition: border-color 0.2s ease-in-out;
+
+	&:hover {
+		border-color: var(--hero-subscribe-btn);
+	}
 `
 
 const SubscribeButton = styled.button`
