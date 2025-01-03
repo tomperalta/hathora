@@ -77,34 +77,7 @@ Blog.propTypes = {
 	).isRequired,
 }
 
-export const getStaticPaths = async () => {
-	const api = new GhostContentAPI({
-		url: process.env.GHOST_URL,
-		key: process.env.GHOST_CONTENT_API_KEY,
-		version: "v5.0",
-	})
-
-	// Get all authors
-	const authors = await api.authors.browse({
-		limit: "all",
-		include: "count.posts",
-	})
-
-	// Filter out authors with no posts
-	const activeAuthors = authors.filter((author) => author.count?.posts > 0)
-
-	// Create paths for each author
-	const paths = activeAuthors.map((author) => ({
-		params: { author: author.slug },
-	}))
-
-	return {
-		paths,
-		fallback: false,
-	}
-}
-
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -143,7 +116,6 @@ export const getStaticProps = async ({ params }) => {
 				author,
 				tags: tags.filter((tag) => tag.count?.posts > 0),
 			},
-			revalidate: 60,
 		}
 	} catch (error) {
 		console.error("Error fetching author data:", error)

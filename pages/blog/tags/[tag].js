@@ -51,35 +51,7 @@ const Blog = ({ posts, categoryName, tags }) => (
 	</StyledBlog>
 )
 
-export const getStaticPaths = async () => {
-	const api = new GhostContentAPI({
-		url: process.env.GHOST_URL,
-		key: process.env.GHOST_CONTENT_API_KEY,
-		version: "v5.0",
-	})
-
-	// Get all tags
-	const tags = await api.tags.browse({
-		limit: "all",
-		include: "count.posts",
-		filter: "visibility:public",
-	})
-
-	// Filter out tags with no posts
-	const activeTags = tags.filter((tag) => tag.count?.posts > 0)
-
-	// Create paths for each tag
-	const paths = activeTags.map((tag) => ({
-		params: { tag: tag.slug },
-	}))
-
-	return {
-		paths,
-		fallback: false,
-	}
-}
-
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -123,7 +95,6 @@ export const getStaticProps = async ({ params }) => {
 				categoryName: tag.name,
 				tags: activeTags,
 			},
-			// revalidate: 3600, // Revalidate every hour
 		}
 	} catch (error) {
 		console.error("Error fetching category posts:", error)

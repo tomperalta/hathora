@@ -71,7 +71,7 @@ const Blog = ({ tags }) => (
 	</StyledBlog>
 )
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	try {
 		const api = new GhostContentAPI({
 			url: process.env.GHOST_URL,
@@ -99,7 +99,6 @@ export const getStaticProps = async () => {
 					include: "tags,authors",
 					limit: "3",
 				})
-
 				return {
 					...tag,
 					posts,
@@ -111,15 +110,13 @@ export const getStaticProps = async () => {
 			props: {
 				tags: tagsWithPosts,
 			},
-			revalidate: 10,
 		}
 	} catch (error) {
-		console.error("Error fetching blog posts:", error)
+		console.error("Error fetching blog data:", error)
 		return {
 			props: {
 				tags: [],
 			},
-			revalidate: 3600,
 		}
 	}
 }
