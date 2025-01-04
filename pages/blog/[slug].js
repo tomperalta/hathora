@@ -31,6 +31,7 @@ const StyledBlogPost = styled.div`
 		height: auto;
 	}
 `
+
 const ArticleHeader = styled.div`
 	padding: 80px 0 64px;
 
@@ -156,25 +157,34 @@ const ArticleContent = styled.article`
 		color: ${colors.grey__400};
 	}
 
+	.table-wrapper {
+		max-width: 100%;
+		overflow-x: auto;
+		margin: 24px 0;
+	}
+
 	table {
 		width: 100%;
-		margin: 24px 0;
 		border-collapse: collapse;
 		font-family: inherit;
+		min-width: 100%;
 	}
 
 	th {
 		text-align: left;
-		padding: 12px;
+		padding: 6px 12px;
 		border: 1px solid var(--banner-border);
 		color: var(--article-text-color);
 		font-weight: 600;
+		white-space: nowrap;
 	}
 
 	td {
-		padding: 12px;
+		padding: 6px 12px;
 		border: 1px solid var(--banner-border);
 		color: var(--article-text-color);
+		font-size: 18px;
+		line-height: 28px;
 	}
 `
 
@@ -364,6 +374,13 @@ const BlogPost = ({ post, tags }) => {
 		})
 	}
 
+	const transformContent = (content) => {
+		if (!content) return content
+		return content
+			.replace(/<table/g, '<div class="table-wrapper"><table')
+			.replace(/<\/table>/g, "</table></div>")
+	}
+
 	if (!post) return null
 
 	BlogPost.propTypes = {
@@ -452,8 +469,13 @@ const BlogPost = ({ post, tags }) => {
 				</AuthorInfoContainer>
 			</ArticleHeader>
 
-			{/* eslint-disable-next-line react/no-danger */}
-			<ArticleContent dangerouslySetInnerHTML={{ __html: post.html }} />
+			<ArticleContent>
+				<div
+					dangerouslySetInnerHTML={{
+						__html: transformContent(post.html),
+					}}
+				/>
+			</ArticleContent>
 
 			<SubscribeBanner />
 
