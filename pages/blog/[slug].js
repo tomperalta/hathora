@@ -155,6 +155,27 @@ const ArticleContent = styled.article`
 		line-height: 20px;
 		color: ${colors.grey__400};
 	}
+
+	table {
+		width: 100%;
+		margin: 24px 0;
+		border-collapse: collapse;
+		font-family: inherit;
+	}
+
+	th {
+		text-align: left;
+		padding: 12px;
+		border: 1px solid var(--banner-border);
+		color: var(--article-text-color);
+		font-weight: 600;
+	}
+
+	td {
+		padding: 12px;
+		border: 1px solid var(--banner-border);
+		color: var(--article-text-color);
+	}
 `
 
 const ScrollToTopContainer = styled.div`
