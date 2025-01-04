@@ -173,7 +173,7 @@ const ArticleContent = styled.article`
 	th {
 		text-align: left;
 		padding: 6px 12px;
-		border: 1px solid var(--banner-border);
+		border: 1px solid var(--article-text-color);
 		color: var(--article-text-color);
 		font-weight: 600;
 		white-space: nowrap;
@@ -181,10 +181,22 @@ const ArticleContent = styled.article`
 
 	td {
 		padding: 6px 12px;
-		border: 1px solid var(--banner-border);
+		border: 1px solid var(--article-text-color);
 		color: var(--article-text-color);
 		font-size: 18px;
 		line-height: 28px;
+	}
+`
+
+const HeroImage = styled.div`
+	margin: 0 auto 24px;
+	max-width: 540px;
+
+	img {
+		border-radius: 4px;
+		width: 100%;
+		height: auto;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 	}
 `
 
@@ -469,8 +481,20 @@ const BlogPost = ({ post, tags }) => {
 				</AuthorInfoContainer>
 			</ArticleHeader>
 
+			{post.feature_image && (
+				<HeroImage>
+					<Image
+						src={post.feature_image}
+						alt={post.title}
+						width={1280}
+						height={800}
+					/>
+				</HeroImage>
+			)}
+
 			<ArticleContent>
 				<div
+					// eslint-disable-next-line react/no-danger
 					dangerouslySetInnerHTML={{
 						__html: transformContent(post.html),
 					}}
