@@ -220,7 +220,7 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 									<ReadingTimeIcon />
 									{readingTime(post, {
 										minute: "1 min",
-										minutes: "% mins",
+										minutes: "% min",
 									})}
 								</ReadingTime>
 								<CardFooter>
