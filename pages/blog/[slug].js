@@ -90,6 +90,7 @@ const ArticleContent = styled.article`
 	h2 {
 		font-size: 20px;
 		font-weight: 700;
+		margin-top: 50px;
 
 		${breakpoint.medium`
       font-size: 32px;
