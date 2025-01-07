@@ -33,7 +33,7 @@ const StyledBlogPost = styled.div`
 `
 
 const ArticleHeader = styled.div`
-	padding: 80px 0 64px;
+	padding: 80px 0 40px;
 
 	p {
 		margin: 0 auto;
@@ -53,9 +53,61 @@ const ArticleHeader = styled.div`
 		${breakpoint.medium`
       margin: 0 auto;
       text-align: center;
-      line-height: 64px;
+      line-height: 48px;
       max-width: 736px;
-      font-size: 48px;
+      font-size: 44px;
+    `}
+	}
+`
+
+const AuthorInfoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 32px;
+`
+
+const AuthorInfo = styled.div`
+	display: flex;
+	align-items: center;
+
+	img {
+		border-radius: 50%;
+	}
+
+	p {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+		color: var(--text-primary);
+		padding: 0 12px;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+    `}
+	}
+
+	span {
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+		padding: 0 12px;
+		color: ${colors.grey__400};
+		display: flex;
+		align-items: center;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
     `}
 	}
 `
@@ -260,59 +312,6 @@ const ScrollToTopButton = styled.button`
 	height: 48px;
 `
 
-const AuthorInfoContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 24px 0;
-	margin-top: 32px;
-`
-
-const AuthorInfo = styled.div`
-	display: flex;
-	align-items: center;
-
-	img {
-		border-radius: 50%;
-	}
-
-	p {
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 32px;
-		color: var(--text-primary);
-		padding: 0 12px;
-
-		${breakpoint.medium`
-      padding: 0 24px;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 32px;
-    `}
-	}
-
-	span {
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 24px;
-		padding: 0 12px;
-		color: ${colors.grey__400};
-		display: flex;
-		align-items: center;
-
-		${breakpoint.medium`
-      padding: 0 24px;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px;
-    `}
-	}
-`
-
 const ReadingTime = styled.span`
 	color: var(--article-reading-time-color);
 	background: var(--article-reading-time-bg);
@@ -473,8 +472,8 @@ const BlogPost = ({ post, tags }) => {
 								<Image
 									src={post.primary_author?.profile_image}
 									alt={post.primary_author?.name}
-									width={60}
-									height={60}
+									width={50}
+									height={50}
 								/>
 							</a>
 						</Link>
