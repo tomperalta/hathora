@@ -190,10 +190,6 @@ const ArticleContent = styled.article`
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
 		transition: border-color 0.2s ease;
-
-		&:hover {
-			border-bottom-color: #4a90e2;
-		}
 	}
 
 	span {
