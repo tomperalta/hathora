@@ -142,7 +142,7 @@ const ArticleContent = styled.article`
 		border-radius: 4px;
 		display: block;
 		width: 100%;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 6px;
 	}
 
 	figcaption {
@@ -150,11 +150,11 @@ const ArticleContent = styled.article`
 	}
 
 	figcaption span {
-		font-size: 14px;
+		font-size: 1rem;
+		line-height: 1rem;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 20px;
-		color: ${colors.grey__400};
+		color: var(--image-caption);
 	}
 
 	.table-wrapper {

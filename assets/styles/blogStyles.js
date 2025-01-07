@@ -58,6 +58,7 @@ export default createGlobalStyle`
     --continue-reading-text: ${colors.purple__400};
     --share-article-bg: ${colors.grey__600};
     --share-article-text: ${colors.grey__300};
+    --image-caption: ${colors.grey__400};
 
     // Footer
     --footer-email: ${colors.green__500};
@@ -121,6 +122,7 @@ export default createGlobalStyle`
     --continue-reading-text: ${colors.purple__600};
     --share-article-bg: ${colors.grey__200};
     --share-article-text: ${colors.grey__700};
+    --image-caption: ${colors.grey__500};
 
     // Footer
     --footer-email: ${colors.grey__700};
