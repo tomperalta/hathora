@@ -102,6 +102,7 @@ const ArticleContent = styled.article`
 
 	h3 {
 		font-size: 1.75rem;
+		margin-top: 38px;
 	}
 
 	h4 {
