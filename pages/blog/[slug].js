@@ -62,7 +62,7 @@ const ArticleHeader = styled.div`
 
 const ArticleContent = styled.article`
 	margin: 0 auto 2rem;
-	max-width: 540px;
+	max-width: 700px;
 	font-family: "Lora", Georgia, Times, serif;
 
 	h1,
@@ -111,10 +111,12 @@ const ArticleContent = styled.article`
 
 	ul {
 		list-style-type: disc;
+		padding-left: 2.8rem;
 	}
 
-	li {
+	ol {
 		list-style-type: number;
+		padding-left: 2.8rem;
 	}
 
 	p,
