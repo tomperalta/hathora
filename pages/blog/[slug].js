@@ -109,6 +109,14 @@ const ArticleContent = styled.article`
 		font-size: 1.5rem;
 	}
 
+	ul {
+		list-style-type: disc;
+	}
+
+	li {
+		list-style-type: number;
+	}
+
 	p,
 	li,
 	ul,
