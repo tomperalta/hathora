@@ -206,7 +206,7 @@ const ArticleContent = styled.article`
 	img {
 		max-width: 100%;
 		height: auto;
-		margin: 24px auto 10px;
+		margin: 24px auto 36px;
 		border-radius: 4px;
 		display: block;
 		width: 100%;
@@ -215,6 +215,8 @@ const ArticleContent = styled.article`
 
 	figcaption {
 		text-align: center;
+		margin-top: -26px;
+		margin-bottom: 36px;
 	}
 
 	figcaption span,
