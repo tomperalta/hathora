@@ -89,8 +89,8 @@ export default function SubscribeBanner() {
 				<SubscribeHeadingContainer>
 					<SubscribeHeading>
 						<TopShadow />
-						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to Hathora
-						Writes
+						<SubscribeHeadingSpan>Subscribe</SubscribeHeadingSpan> to the
+						Hathora Blog
 					</SubscribeHeading>
 					<Subtitle>Topics on the edge of infrastructure</Subtitle>
 				</SubscribeHeadingContainer>

@@ -46,7 +46,7 @@ const Blog = ({ tags }) => (
 		/>
 		<Nav tags={tags} />
 		<Hero
-			title="Hathora Writes"
+			title="The Hathora Blog"
 			subtitle="Topics on the edge of infrastructure"
 		/>
 		<DividerContainer className="d-none d-md-flex">
