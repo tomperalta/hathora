@@ -38,9 +38,13 @@ const ArticleHeader = styled.div`
 	p {
 		margin: 0 auto;
 		text-align: center;
-		font-size: 24px;
+		font-size: 16px;
 		line-height: 32px;
 		color: ${colors.purple__500};
+
+		a {
+			text-transform: uppercase;
+		}
 	}
 
 	h1 {
