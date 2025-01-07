@@ -149,7 +149,8 @@ const ArticleContent = styled.article`
 		text-align: center;
 	}
 
-	figcaption span {
+	figcaption span,
+	figcaption i {
 		font-size: 1rem;
 		line-height: 1rem;
 		font-style: normal;
