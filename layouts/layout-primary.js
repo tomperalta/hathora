@@ -7,6 +7,7 @@ import AOS from "aos"
 
 // Styles
 import GlobalStyles from "assets/styles/globalStyles"
+import BlogStyles from "assets/styles/blogStyles"
 
 // Components
 import Menu from "components/menu"
@@ -32,9 +33,10 @@ const PrimaryLayout = ({ children }) => {
 		"/splitgate",
 	]
 	const useLayout = !noLayoutPages.includes(router.pathname)
+	const useBlogStyles = router.pathname.includes("/blog")
 	return useLayout ? (
 		<>
-			<GlobalStyles />
+			{useBlogStyles ? <BlogStyles /> : <GlobalStyles />}
 			<FundraiseBanner />
 			<Menu />
 			<main>{children}</main>
@@ -43,7 +45,7 @@ const PrimaryLayout = ({ children }) => {
 		</>
 	) : (
 		<>
-			<GlobalStyles />
+			{useBlogStyles ? <BlogStyles /> : <GlobalStyles />}
 			<main>{children}</main>
 		</>
 	)

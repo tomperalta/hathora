@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 
 // Libraries
 import styled from "styled-components"
@@ -111,9 +111,9 @@ const SignUpModal = () => {
 	/**
 	 * Closes modal
 	 */
-	const closeModal = () => {
+	const closeModal = useCallback(() => {
 		dispatch(closeSignUpModal())
-	}
+	}, [dispatch])
 
 	/**
 	 * Logs event listeners for `Esc` keypress
@@ -128,7 +128,7 @@ const SignUpModal = () => {
 		document.addEventListener("keydown", handleEscKeypress)
 
 		return () => document.removeEventListener("keydown", handleEscKeypress)
-	}, [])
+	}, [closeModal])
 
 	/**
 	 * Locks scroll when opened

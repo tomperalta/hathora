@@ -16,6 +16,17 @@ export default createGlobalStyle`
       --${name}: ${color};
     `
 		)}
+
+    --text-primary: ${colors.grey__200};
+    --text-secondary: ${colors.grey__400};
+    --background-primary: ${colors.grey__700};
+    --banner-text-color: ${colors.green__500};
+    --banner-border: ${colors.green__500};
+    --logo-color: ${colors.white};
+    --button-login: ${colors.green__500};
+    --footer-email: ${colors.green__500};
+    --footer-privacy-link: ${colors.grey__300};
+    --footer-address: ${colors.grey__300};
   }
 
   .no-scroll {

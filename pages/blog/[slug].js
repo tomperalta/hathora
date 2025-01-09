@@ -1,0 +1,636 @@
+import React from "react"
+import { useTheme } from "next-themes"
+import Image from "next/image"
+import Link from "next/link"
+import GhostContentAPI from "@tryghost/content-api"
+import styled from "styled-components"
+import LayoutPrimary from "layouts/layout-primary"
+import SEO from "components/seo"
+import Divider from "components/divider"
+import Category from "components/blog/category"
+import PropTypes from "prop-types"
+import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
+import {
+	TwitterIcon,
+	TwitterIconLight,
+	LinkedInIcon,
+	LinkedInIconLight,
+	ScrollToTopIcon,
+	ReadingTimeIcon,
+	ScrollToTopIconLight,
+} from "components/blog/icons"
+import { readingTime } from "@tryghost/helpers"
+import SubscribeBanner from "components/blog/subscribeBanner"
+
+const StyledBlogPost = styled.div`
+	padding: 120px 24px 0;
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+`
+
+const ArticleHeader = styled.div`
+	padding: 80px 0 40px;
+
+	p {
+		margin: 0 auto;
+		text-align: center;
+		font-size: 16px;
+		line-height: 32px;
+		color: ${colors.purple__500};
+
+		a {
+			text-transform: uppercase;
+		}
+	}
+
+	h1 {
+		margin: 0 auto;
+
+		text-align: center;
+		line-height: 44px;
+		font-size: 32px;
+
+		${breakpoint.medium`
+      margin: 0 auto;
+      text-align: center;
+      line-height: 48px;
+      max-width: 736px;
+      font-size: 44px;
+    `}
+	}
+`
+
+const AuthorInfoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 32px;
+`
+
+const AuthorInfo = styled.div`
+	display: flex;
+	align-items: center;
+
+	img {
+		border-radius: 50%;
+	}
+
+	p {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+		color: var(--text-primary);
+		padding: 0 12px;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+    `}
+	}
+
+	span {
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+		padding: 0 12px;
+		color: ${colors.grey__400};
+		display: flex;
+		align-items: center;
+
+		${breakpoint.medium`
+      padding: 0 24px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    `}
+	}
+`
+
+const ArticleContent = styled.article`
+	margin: 0 auto 2rem;
+	max-width: 700px;
+	font-family: "Lora", Georgia, Times, serif;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 24px 0;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+
+		${breakpoint.medium`
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 64px;
+    `}
+	}
+
+	h2 {
+		font-size: 20px;
+		font-weight: 700;
+		margin-top: 50px;
+
+		${breakpoint.medium`
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 44px;
+    `}
+	}
+
+	h3 {
+		font-size: 1.75rem;
+		margin-top: 38px;
+	}
+
+	h4 {
+		font-size: 1.5rem;
+	}
+
+	ul {
+		list-style-type: disc;
+		padding-left: 2.8rem;
+	}
+
+	ol {
+		list-style-type: number;
+		padding-left: 2.8rem;
+	}
+
+	p,
+	li,
+	ul,
+	ol {
+		color: var(--article-text-color);
+		font-size: 18px;
+		line-height: 28px;
+		margin: 12px 0;
+	}
+
+	a {
+		color: var(--link-color);
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color 0.2s ease;
+	}
+
+	span {
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 28px;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		margin: 24px auto 36px;
+		border-radius: 4px;
+		display: block;
+		width: 100%;
+		box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 6px;
+	}
+
+	figcaption {
+		text-align: center;
+		margin-top: -26px;
+		margin-bottom: 36px;
+	}
+
+	figcaption span,
+	figcaption i {
+		font-size: 1rem;
+		line-height: 1rem;
+		font-style: normal;
+		font-weight: 400;
+		color: var(--image-caption);
+	}
+
+	.table-wrapper {
+		max-width: 100%;
+		overflow-x: auto;
+		margin: 24px 0;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-family: inherit;
+		min-width: 100%;
+	}
+
+	th {
+		text-align: left;
+		padding: 6px 12px;
+		border: 1px solid var(--article-text-color);
+		color: var(--article-text-color);
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	td {
+		padding: 6px 12px;
+		border: 1px solid var(--article-text-color);
+		color: var(--article-text-color);
+		font-size: 18px;
+		line-height: 28px;
+	}
+`
+
+const HeroImage = styled.div`
+	margin: 0 auto 24px;
+	max-width: 540px;
+
+	img {
+		border-radius: 4px;
+		width: 100%;
+		height: auto;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+	}
+`
+
+const ScrollToTopContainer = styled.div`
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	z-index: 1;
+`
+
+const SocialShareContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0 24px;
+	border-radius: 24px;
+	background: var(--share-article-bg);
+	height: 52px;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+
+	p {
+		color: var(--share-article-text);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+	}
+
+	svg {
+		margin: 0 6px;
+	}
+`
+
+const ScrollToTopButton = styled.button`
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+`
+
+const ReadingTime = styled.span`
+	color: var(--article-reading-time-color);
+	background: var(--article-reading-time-bg);
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	margin-left: 24px;
+	padding: 4px 8px;
+	border-radius: 50px;
+`
+
+const ContinueReadingContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--continue-reading-text);
+
+	h2 {
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 32px;
+	}
+`
+const DividerContainer = styled.div`
+	margin: 40px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
+const CategoryContainer = styled.div`
+	margin: 24px 0;
+`
+
+const VerticalDivider = () => (
+	<svg
+		width="2"
+		height="60"
+		viewBox="0 0 2 60"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<rect
+			x="0.549805"
+			width="0.5"
+			height="60"
+			rx="0.25"
+			fill="url(#paint0_linear_1466_7073)"
+		/>
+		<defs>
+			<linearGradient
+				id="paint0_linear_1466_7073"
+				x1="2.03525"
+				y1="44.8637"
+				x2="-2.76567"
+				y2="44.4874"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stopColor="#2AFC61" />
+				<stop offset="1" stopColor="#AE69EB" />
+			</linearGradient>
+		</defs>
+	</svg>
+)
+
+const formatDate = (dateString) => {
+	const date = new Date(dateString)
+	return date.toLocaleDateString("en-US", {
+		month: "short",
+		day: "numeric",
+		year: "numeric",
+	})
+}
+
+// eslint-disable-next-line react/prop-types
+const BlogPost = ({ post, tags }) => {
+	const { resolvedTheme } = useTheme()
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		})
+	}
+
+	const transformContent = (content) => {
+		if (!content) return content
+		return content
+			.replace(/<table/g, '<div class="table-wrapper"><table')
+			.replace(/<\/table>/g, "</table></div>")
+	}
+
+	if (!post) return null
+
+	BlogPost.propTypes = {
+		post: PropTypes.shape({
+			slug: PropTypes.string.isRequired,
+			primary_tag: PropTypes.shape({
+				name: PropTypes.string,
+				slug: PropTypes.string,
+			}),
+			primary_author: PropTypes.shape({
+				name: PropTypes.string,
+				slug: PropTypes.string,
+				profile_image: PropTypes.string,
+			}),
+			updated_at: PropTypes.string,
+			title: PropTypes.string.isRequired,
+			excerpt: PropTypes.string,
+			feature_image: PropTypes.string,
+			html: PropTypes.string.isRequired,
+		}).isRequired,
+		tags: PropTypes.arrayOf(
+			PropTypes.shape({
+				id: PropTypes.string,
+				name: PropTypes.string,
+				slug: PropTypes.string,
+				posts: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						slug: PropTypes.string,
+						feature_image: PropTypes.string,
+						excerpt: PropTypes.string,
+					})
+				),
+			})
+		),
+	}
+
+	BlogPost.defaultProps = {
+		tags: [],
+	}
+
+	return (
+		<StyledBlogPost>
+			<SEO
+				title={`${post.title} | Hathora Blog`}
+				description={post.excerpt}
+				image={post.feature_image}
+			/>
+
+			<ArticleHeader>
+				<p>
+					<Link href={`/blog/tags/${post.primary_tag?.slug}`} legacyBehavior>
+						<a>{post.primary_tag?.name}</a>
+					</Link>
+				</p>
+				<h1>{post.title}</h1>
+
+				<AuthorInfoContainer>
+					<AuthorInfo>
+						<Link
+							href={`/blog/author/${post.primary_author?.slug}`}
+							legacyBehavior
+						>
+							<a>
+								<Image
+									src={post.primary_author?.profile_image}
+									alt={post.primary_author?.name}
+									width={50}
+									height={50}
+								/>
+							</a>
+						</Link>
+						<div>
+							<p>{post.primary_author?.name}</p>
+							<span>{formatDate(post.updated_at)}</span>
+						</div>
+					</AuthorInfo>
+					<VerticalDivider />
+					<ReadingTime>
+						<ReadingTimeIcon />
+						{readingTime(post, {
+							minute: "1 min",
+							minutes: "% min",
+						})}{" "}
+					</ReadingTime>
+				</AuthorInfoContainer>
+			</ArticleHeader>
+
+			{post.feature_image && (
+				<HeroImage>
+					<Image
+						src={post.feature_image}
+						alt={post.title}
+						width={1280}
+						height={800}
+					/>
+				</HeroImage>
+			)}
+
+			<ArticleContent>
+				<div
+					// eslint-disable-next-line react/no-danger
+					dangerouslySetInnerHTML={{
+						__html: transformContent(post.html),
+					}}
+				/>
+			</ArticleContent>
+
+			<SubscribeBanner />
+
+			<DividerContainer>
+				<Divider />
+			</DividerContainer>
+
+			<ContinueReadingContainer>
+				<h2>Continue Reading</h2>
+			</ContinueReadingContainer>
+
+			{/* eslint-disable-next-line react/prop-types */}
+			{tags.map((category) => (
+				<CategoryContainer key={category.id}>
+					<Category
+						key={category.id}
+						posts={category.posts}
+						tagName={category.name}
+						tagSlug={category.slug}
+					/>
+				</CategoryContainer>
+			))}
+
+			<ScrollToTopContainer className="d-none d-lg-flex">
+				<SocialShareContainer>
+					<p>Share Article:</p>
+					<a
+						href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+							post.title
+						)}&url=${encodeURIComponent(
+							`https://hathora.com/blog/${post.slug}`
+						)}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Share on Twitter"
+					>
+						{resolvedTheme === "dark" ? <TwitterIcon /> : <TwitterIconLight />}
+					</a>
+					<a
+						href={`https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(
+							`https://hathora.com/blog/${post.slug}`
+						)}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Share on LinkedIn"
+					>
+						{resolvedTheme === "dark" ? (
+							<LinkedInIcon />
+						) : (
+							<LinkedInIconLight />
+						)}
+					</a>
+				</SocialShareContainer>
+				<ScrollToTopButton onClick={scrollToTop} aria-label="Scroll to top">
+					{resolvedTheme === "dark" ? (
+						<ScrollToTopIcon />
+					) : (
+						<ScrollToTopIconLight />
+					)}
+				</ScrollToTopButton>
+			</ScrollToTopContainer>
+		</StyledBlogPost>
+	)
+}
+
+export const getServerSideProps = async ({ params }) => {
+	try {
+		const api = new GhostContentAPI({
+			url: process.env.GHOST_URL,
+			key: process.env.GHOST_CONTENT_API_KEY,
+			version: "v5.0",
+		})
+
+		const post = await api.posts.read({
+			slug: params.slug,
+			include: "tags,authors",
+		})
+
+		// Get only the primary tag of the current post
+		const primaryTag = post.primary_tag?.slug
+
+		// Fetch all posts with the same primary tag (excluding current post)
+		const taggedPosts = primaryTag
+			? await api.posts.browse({
+					filter: `tag:${primaryTag}`,
+					include: "tags,authors",
+					limit: "all", // Get all posts with this tag
+					exclude: `slug:${params.slug}`, // Exclude current post
+			  })
+			: []
+
+		// Format the tag with random posts from same category
+		const tags = primaryTag
+			? [
+					{
+						id: post.primary_tag.id,
+						name: post.primary_tag.name,
+						slug: primaryTag,
+						posts: taggedPosts.slice(0, 3),
+					},
+			  ]
+			: []
+
+		return {
+			props: {
+				post,
+				tags,
+			},
+		}
+	} catch (error) {
+		console.error("Error fetching blog post:", error)
+		return {
+			notFound: true,
+		}
+	}
+}
+
+BlogPost.getLayout = (page) => <LayoutPrimary>{page}</LayoutPrimary>
+
+export default BlogPost

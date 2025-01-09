@@ -7,6 +7,13 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "assets/styles")],
 	},
+	images: {
+		domains: [
+			"blog.hathora.dev",
+			"hathora.com",
+			"lh7-rt.googleusercontent.com",
+		],
+	},
 	async rewrites() {
 		return [
 			{

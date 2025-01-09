@@ -1,0 +1,241 @@
+import React from "react"
+import styled from "styled-components"
+import Container from "components/container/"
+import { colors } from "utils/variables"
+import Divider from "components/divider"
+import Image from "next/image"
+import { readingTime } from "@tryghost/helpers"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { ReadingTimeIcon } from "components/blog/icons"
+
+const CategoryContainer = styled(Container)`
+	padding: 0 1.5rem;
+`
+
+const CategoryHeader = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+`
+
+const CategoryTitle = styled.h2`
+	color: var(--category-title);
+	margin: 0;
+	border-left: 2px solid var(--category-title);
+	padding-left: 10px;
+	font-weight: 700;
+`
+
+const ShowAllButton = styled.button`
+	color: var(--tag-color);
+	border: 1px solid var(--tag-color);
+	border-radius: 6px;
+	padding: 4px 8px;
+	font-size: 14px;
+	line-height: 20px;
+	display: flex;
+	align-items: center;
+	transition: background 0.1s ease-in-out;
+	background: transparent;
+
+	&:hover {
+		cursor: pointer;
+		background: var(--tag-color);
+		color: var(--tag-color-hover);
+	}
+`
+
+const ReadingTime = styled.span`
+	color: ${colors.grey__400};
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	padding-top: 12px;
+`
+
+const BlogGrid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1.5rem;
+`
+
+const BlogCard = styled.div`
+	background: var(--blog-card-background);
+	overflow: hidden;
+	transition: transform 0.2s;
+	cursor: pointer;
+	padding: 1.5rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	border-radius: 24px;
+	border: 0.25px solid var(--blog-card-border);
+
+	&:hover {
+		transform: translateY(-4px);
+	}
+`
+
+const ImageContainer = styled.div`
+	position: relative;
+	width: 100%;
+	height: 180px;
+	border-radius: 10px;
+	overflow: hidden;
+`
+
+const CardContent = styled.div`
+	padding-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-between;
+`
+
+const CardTitle = styled.h3`
+	color: var(--category-badge-color);
+	font-size: 1.5rem;
+	margin: 0 0 1.5rem 0;
+`
+
+const CardDescription = styled.p`
+	color: var(--text-primary);
+	margin: 0;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	font-family: var(--blog-article-font);
+	line-height: 24px;
+`
+
+const CardFooter = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: ${colors.purple__500};
+	font-size: 0.875rem;
+	margin-top: 1.5rem;
+`
+
+const PostAuthor = styled.span`
+	color: var(--blog-date);
+	font-size: 1rem;
+	line-height: 15px;
+`
+
+const PostDate = styled.span`
+	color: var(--blog-date);
+	border-left: 2px solid var(--blog-date);
+	padding-left: 10px;
+	font-size: 1rem;
+	line-height: 15px;
+`
+
+const StyledArrowIcon = styled.svg`
+	margin-left: 8px;
+	path {
+		fill: var(--tag-color);
+		transition: fill 0.1s ease-in-out;
+	}
+
+	${ShowAllButton}:hover & path {
+		fill: var(--tag-color-hover);
+	}
+`
+
+const ShowAllButtonIcon = () => (
+	<StyledArrowIcon
+		xmlns="http://www.w3.org/2000/svg"
+		width="19"
+		height="12"
+		viewBox="0 0 19 12"
+		fill="none"
+	>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M12.2231 0.417513C12.4458 0.194888 12.7478 0.0698242 13.0627 0.0698242C13.3776 0.0698242 13.6796 0.194888 13.9022 0.417513L18.6523 5.16758C18.8749 5.39027 19 5.69226 19 6.00715C19 6.32204 18.8749 6.62403 18.6523 6.84672L13.9022 11.5968C13.6783 11.8131 13.3783 11.9328 13.0669 11.9301C12.7556 11.9274 12.4577 11.8025 12.2376 11.5823C12.0174 11.3621 11.8925 11.0643 11.8898 10.7529C11.8871 10.4416 12.0068 10.1416 12.2231 9.91764L14.9461 7.19467H1.18752C0.872567 7.19467 0.570518 7.06955 0.347815 6.84685C0.125113 6.62415 0 6.3221 0 6.00715C0 5.6922 0.125113 5.39015 0.347815 5.16745C0.570518 4.94475 0.872567 4.81963 1.18752 4.81963H14.9461L12.2231 2.09666C12.0005 1.87397 11.8754 1.57197 11.8754 1.25709C11.8754 0.9422 12.0005 0.640205 12.2231 0.417513Z"
+		/>
+	</StyledArrowIcon>
+)
+
+const trimExcerpt = (text, maxLength = 90) => {
+	if (!text) return ""
+	if (text.length <= maxLength) return text
+	return `${text.slice(0, maxLength).trim()}...`
+}
+
+// eslint-disable-next-line react/prop-types
+const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
+	const router = useRouter()
+	const isMainBlogPage = router.pathname === "/blog"
+
+	// Function to format date
+	const formatDate = (dateString) => {
+		const date = new Date(dateString)
+		return date.toLocaleDateString("en-US", { month: "long", year: "numeric" })
+	}
+
+	// Don't render the category if there are no posts
+	if (posts.length === 0) return null
+
+	return (
+		<CategoryContainer id={`tag-${tagSlug}`}>
+			<div className="d-none">
+				<Divider />
+			</div>
+			{isMainBlogPage && (
+				<CategoryHeader>
+					<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
+					<Link href={`/blog/tags/${tagSlug}`} passHref>
+						<ShowAllButton>
+							Show all <ShowAllButtonIcon />
+						</ShowAllButton>
+					</Link>
+				</CategoryHeader>
+			)}
+			<BlogGrid>
+				{posts.map((post) => (
+					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
+						<BlogCard>
+							{post.feature_image && (
+								<ImageContainer>
+									<Image
+										src={post.feature_image}
+										alt={post.title}
+										layout="fill"
+										objectFit="cover"
+									/>
+								</ImageContainer>
+							)}
+
+							<CardContent>
+								<CardTitle>{post.title}</CardTitle>
+								<CardDescription className="d-none d-sm-block">
+									{trimExcerpt(post.excerpt || post.custom_excerpt)}
+								</CardDescription>
+								<ReadingTime>
+									<ReadingTimeIcon />
+									{readingTime(post, {
+										minute: "1 min",
+										minutes: "% min",
+									})}
+								</ReadingTime>
+								<CardFooter>
+									<PostAuthor>
+										{post.primary_author?.name || "Anonymous"}
+									</PostAuthor>
+									<PostDate>{formatDate(post.published_at)}</PostDate>
+								</CardFooter>
+							</CardContent>
+						</BlogCard>
+					</Link>
+				))}
+			</BlogGrid>
+		</CategoryContainer>
+	)
+}
+
+export default Category
