@@ -12,8 +12,9 @@ import Image from "next/image"
 // import { openSignUpModal } from "redux/slices/sign-up-modal"
 
 // Components
-import Container from "components/container/"
+import Container from "components/container"
 import Button from "components/button"
+import Logo from "components/logo"
 
 // Utils
 import { colors } from "utils/variables"
@@ -99,7 +100,7 @@ const StyledMenu = styled.nav`
 			height: 100%;
 			padding: 32px 28px 32px 48px;
 			margin-left: auto;
-			background-color: ${colors.grey__700};
+			background-color: var(--background-primary);
 			transform: translateX(100%);
 			transition: all 0.2s ease 0.1s;
 
@@ -182,9 +183,9 @@ const StyledMenu = styled.nav`
 			position: relative;
 			display: inline-flex;
 			align-items: center;
-			color: ${colors.grey__400};
+			color: var(--text-secondary);
 			font-size: 1.25rem;
-			font-weight: 600;
+			font-weight: 500;
 			line-height: 1.4em;
 			transition: all 0.2s ease;
 
@@ -195,17 +196,17 @@ const StyledMenu = styled.nav`
 
 			&:focus-visible,
 			&:hover {
-				color: ${colors.green__500};
+				color: var(--text-hover);
 
 				.svg--stroke {
 					* {
-						stroke: ${colors.green__500};
+						stroke: var(--text-hover);
 					}
 				}
 
 				.svg--fill {
 					* {
-						fill: ${colors.green__500};
+						fill: var(--text-hover);
 					}
 				}
 			}
@@ -215,7 +216,7 @@ const StyledMenu = styled.nav`
 			}
 
 			&--active {
-				color: ${colors.green__500};
+				color: var(--menu-text-active);
 			}
 
 			svg {
@@ -242,7 +243,7 @@ const StyledMenu = styled.nav`
         border-radius: 8px;
         box-shadow: 0px 134px 124px rgba(0, 0, 0, 0.25);
         opacity: 0;
-        transform: translateY(24px);     
+        transform: translateY(24px);
         transition: all 0.2s ease;
         visibility: hidden;
         z-index: 9001;
@@ -289,7 +290,7 @@ const StyledMenu = styled.nav`
 				width: 100%;
 				height: 2px;
 				margin-bottom: 3px;
-				background-color: ${colors.grey__200};
+				background-color: var(--hamburger-menu-color);
 				border-radius: 4px;
 
 				&:last-child {
@@ -406,8 +407,7 @@ const Menu = () => {
 		},
 		{
 			label: "Blog",
-			url: "https://blog.hathora.dev/",
-			external: true,
+			url: "/blog",
 		},
 	]
 
@@ -453,13 +453,7 @@ const Menu = () => {
 			>
 				<Link href="/">
 					<a className="menu__logo d-flex" title="Logo">
-						<Image
-							src={IconLogo}
-							className="logo"
-							width="230"
-							height="40"
-							alt=""
-						/>
+						<Logo />
 					</a>
 				</Link>
 
