@@ -79,21 +79,30 @@ export const getServerSideProps = async () => {
 			version: "v5.0",
 		})
 
+		// Define the exact order of tags we want
+		const tagOrder = [
+			"changelogs",
+			"blog",
+			"news",
+			"cloud-gaming",
+			"multiplayer-infra-101",
+		]
+
 		// Get all tags
 		const tags = await api.tags.browse({
 			limit: "all",
 			include: "count.posts",
-			filter: "visibility:public", // Only get public tags
+			filter: `visibility:public+slug:[${tagOrder.join(",")}]`, // Only get public tags in our specified order
 		})
 
-		// Filter out tags with no posts and sort by post count
-		const activeTags = tags
+		// Reorder tags to match our exact order
+		const orderedTags = tags
+			.sort((a, b) => tagOrder.indexOf(a.slug) - tagOrder.indexOf(b.slug))
 			.filter((tag) => tag.count?.posts > 0)
-			.sort((a, b) => (b.count?.posts || 0) - (a.count?.posts || 0))
 
 		// Fetch posts for each tag
 		const tagsWithPosts = await Promise.all(
-			activeTags.map(async (tag) => {
+			orderedTags.map(async (tag) => {
 				const posts = await api.posts.browse({
 					filter: `tag:${tag.slug}`,
 					include: "tags,authors",
