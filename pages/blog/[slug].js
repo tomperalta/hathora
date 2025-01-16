@@ -145,19 +145,19 @@ const ArticleContent = styled.article`
 
 	h2 {
 		font-size: 20px;
-		font-weight: 700;
+		font-weight: 600;
 		margin-top: 50px;
 
 		${breakpoint.medium`
       font-size: 32px;
       font-style: normal;
-      font-weight: 500;
       line-height: 44px;
     `}
 	}
 
 	h3 {
 		font-size: 1.75rem;
+		font-weight: 500;
 		margin-top: 38px;
 	}
 
