@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import ThemeToggle from "components/theme-toggle"
 import Container from "components/container/"
 import styled from "styled-components"
@@ -57,7 +58,6 @@ const TagsContainer = styled.div`
 	flex-wrap: wrap;
 `
 
-// eslint-disable-next-line react/prop-types
 export default function Nav({ tags }) {
 	const router = useRouter()
 	const isTagsPage = router.pathname === "/blog/tags/[tag]"
@@ -66,71 +66,86 @@ export default function Nav({ tags }) {
 		<StyledNav>
 			<NavContainer>
 				<TagsContainer>
-					{/* eslint-disable-next-line react/prop-types */}
-					{tags?.map((tag) =>
-						isTagsPage ? (
-							<Link
-								passHref
-								key={tag.id}
-								href={`/blog/tags/${tag.slug}`}
-								style={{ textDecoration: "none" }}
-							>
-								<CategoryBadge>
-									<svg
-										width="4"
-										height="4"
-										viewBox="0 0 4 4"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<rect
+					{tags
+						?.filter((tag) => tag.slug !== "multiplayer-infra-101")
+						.map((tag) =>
+							isTagsPage ? (
+								<Link
+									passHref
+									key={tag.id}
+									href={`/blog/tags/${tag.slug}`}
+									style={{ textDecoration: "none" }}
+								>
+									<CategoryBadge>
+										<svg
 											width="4"
 											height="4"
-											rx="2"
-											fill="var(--nav-badge-circle)"
-										/>
-									</svg>
+											viewBox="0 0 4 4"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<rect
+												width="4"
+												height="4"
+												rx="2"
+												fill="var(--nav-badge-circle)"
+											/>
+										</svg>
 
-									<CategoryBadgeName>{tag.name}</CategoryBadgeName>
-								</CategoryBadge>
-							</Link>
-						) : (
-							<button
-								type="button"
-								key={tag.id}
-								style={{ textDecoration: "none" }}
-								onClick={(e) => {
-									e.preventDefault()
-									document.getElementById(`tag-${tag.slug}`)?.scrollIntoView({
-										behavior: "smooth",
-										block: "start",
-									})
-								}}
-							>
-								<CategoryBadge>
-									<svg
-										width="4"
-										height="4"
-										viewBox="0 0 4 4"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<rect
+										<CategoryBadgeName>{tag.name}</CategoryBadgeName>
+									</CategoryBadge>
+								</Link>
+							) : (
+								<button
+									type="button"
+									key={tag.id}
+									style={{ textDecoration: "none" }}
+									onClick={(e) => {
+										e.preventDefault()
+										document.getElementById(`tag-${tag.slug}`)?.scrollIntoView({
+											behavior: "smooth",
+											block: "start",
+										})
+									}}
+								>
+									<CategoryBadge>
+										<svg
 											width="4"
 											height="4"
-											rx="2"
-											fill="var(--nav-badge-circle)"
-										/>
-									</svg>
+											viewBox="0 0 4 4"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<rect
+												width="4"
+												height="4"
+												rx="2"
+												fill="var(--nav-badge-circle)"
+											/>
+										</svg>
 
-									<CategoryBadgeName>{tag.name}</CategoryBadgeName>
-								</CategoryBadge>
-							</button>
-						)
-					)}
+										<CategoryBadgeName>{tag.name}</CategoryBadgeName>
+									</CategoryBadge>
+								</button>
+							)
+						)}
 				</TagsContainer>
 				<ThemeToggle />
 			</NavContainer>
 		</StyledNav>
 	)
+}
+
+Nav.propTypes = {
+	tags: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string.isRequired,
+			slug: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired,
+		})
+	),
+}
+
+Nav.defaultProps = {
+	tags: [],
 }
