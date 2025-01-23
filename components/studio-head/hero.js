@@ -2,17 +2,15 @@ import React from "react"
 
 // Libraries
 import styled, { keyframes } from "styled-components"
-import Image from "next/image"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
 
 // Components
 import Container from "components/container"
+import CaseStudyForm from "components/studio-head/case-study-form"
 
 // Icons
-import { ReactComponent as IconChevronDown } from "assets/icons/about-us/icon-chevron-down.svg"
-import IconHero from "assets/icons/about-us/high-five.svg"
 import { colors } from "utils/variables"
 
 const animation = keyframes`
@@ -79,50 +77,29 @@ const StyledHero = styled.section`
 	}
 `
 
-const Hero = () => {
-	const handleClick = () => {
-		const missionSection = document.getElementById("our-team")
-
-		if (missionSection) {
-			missionSection.scrollIntoView({
-				behavior: "smooth",
-			})
-		}
-	}
-
-	return (
-		<StyledHero className="about__hero">
-			<Container>
-				<div className="row align-items-center">
-					<div className="col-none col-md-6">
-						<div className="text-center">
-							<h1 className="heading--l font-weight--500">
-								Meet the team that powers the most ambitious games
-							</h1>
-						</div>
-					</div>
-
-					<div
-						className="hero__icon col-12 col-md-6 text-center"
-						data-aos="zoom-in-up"
-						data-aos-anchor=".about__hero"
-					>
-						<Image src={IconHero} width="700" height="700" />
+const Hero = () => (
+	<StyledHero className="about__hero">
+		<Container>
+			<div className="row align-items-center">
+				<div className="col-none col-md-6">
+					<div className="text-center">
+						<h1 className="heading--l font-weight--500">
+							Revolutionize your game development experience while saving ~50%
+							on gaming infrastructure
+						</h1>
 					</div>
 				</div>
 
-				<button
-					type="button"
-					className="hero__scroll-down-button"
-					onClick={handleClick}
+				<div
+					className="hero__icon col-12 col-md-6 text-center"
+					data-aos="zoom-in-up"
+					data-aos-anchor=".about__hero"
 				>
-					<IconChevronDown />
-					<IconChevronDown />
-					<IconChevronDown />
-				</button>
-			</Container>
-		</StyledHero>
-	)
-}
+					<CaseStudyForm />
+				</div>
+			</div>
+		</Container>
+	</StyledHero>
+)
 
 export default Hero
