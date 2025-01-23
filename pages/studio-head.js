@@ -15,6 +15,7 @@ import SEO from "components/seo"
 // Sections
 import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
+import Testimonial from "components/studio-head/testimonial"
 import OurTeam from "components/studio-head/our-team"
 import TeamGrid from "components/studio-head/team-grid"
 import OurCommitment from "components/studio-head/our-commitment"
@@ -39,6 +40,7 @@ const StudioHead = () => (
 		/>
 		<Header />
 		<Hero />
+		<Testimonial />
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
