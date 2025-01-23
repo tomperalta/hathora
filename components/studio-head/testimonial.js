@@ -6,9 +6,10 @@ const TestimonialContainer = styled.div`
 	padding: 2rem;
 	background: rgba(13, 12, 34, 0.8);
 	backdrop-filter: blur(10px);
-	border-radius: 1rem;
-	max-width: 800px;
-	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `
 
 const Quote = styled.p`
@@ -54,9 +55,9 @@ const Title = styled.p`
 const Testimonial = () => (
 	<TestimonialContainer>
 		<Quote>
-			"Hathora continues to be the bedrock of Spectre Divide's server
+			&ldquo;Hathora continues to be the bedrock of Spectre Divide's server
 			orchestration and hosting. From development through launch, the platform
-			enabled us to deliver an outstanding experience for players."
+			enabled us to deliver an outstanding experience for players.&rdquo;
 		</Quote>
 		<ProfileSection>
 			<ProfileImage src="/path-to-profile-image.jpg" alt="Nate Mitchell" />
