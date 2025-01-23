@@ -18,6 +18,7 @@ import Hero from "components/studio-head/hero"
 import Testimonial from "components/studio-head/testimonial"
 import Powering from "components/studio-head/powering"
 import CuttingEdge from "components/studio-head/cutting-edge"
+import LearnMoreNow from "components/studio-head/learn-more-now"
 
 // Sections
 const StyledStudioHead = styled.main`
@@ -53,6 +54,7 @@ const StudioHead = () => (
 		</TestimonialBackground>
 		<Powering />
 		<CuttingEdge />
+		<LearnMoreNow />
 	</StyledStudioHead>
 )
 
