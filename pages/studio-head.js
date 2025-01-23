@@ -16,6 +16,7 @@ import SEO from "components/seo"
 import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
 import Testimonial from "components/studio-head/testimonial"
+import Powering from "components/studio-head/powering"
 
 // Sections
 const StyledStudioHead = styled.main`
@@ -41,14 +42,15 @@ const TestimonialBackground = styled.div`
 const StudioHead = () => (
 	<StyledStudioHead>
 		<SEO
-			title="Studio Head | Serverless Cloud Platform for Multiplayer Games"
-			description="Revolutionize your game development experience while saving 50% on gaming infrastructure"
+			title="Studio Head | Hathora"
+			description="Hathora Cloud - The cloud platform built for game developers"
 		/>
 		<Header />
 		<Hero />
 		<TestimonialBackground>
 			<Testimonial />
 		</TestimonialBackground>
+		<Powering />
 	</StyledStudioHead>
 )
 
