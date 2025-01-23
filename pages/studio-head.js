@@ -13,6 +13,7 @@ import breakpoint from "utils/breakpoints/"
 import SEO from "components/seo"
 
 // Sections
+import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
 import OurTeam from "components/studio-head/our-team"
 import TeamGrid from "components/studio-head/team-grid"
@@ -20,7 +21,7 @@ import OurCommitment from "components/studio-head/our-commitment"
 import BackedBy from "components/studio-head/backed-by"
 
 // Sections
-const StyledAboutUs = styled.main`
+const StyledStudioHead = styled.main`
 	> section {
 		padding: 156px 0 96px 0;
 
@@ -30,20 +31,21 @@ const StyledAboutUs = styled.main`
 	}
 `
 
-const AboutUs = () => (
-	<StyledAboutUs>
+const StudioHead = () => (
+	<StyledStudioHead>
 		<SEO
 			title="Studio Head | Serverless Cloud Platform for Multiplayer Games"
 			description="Revolutionize your game development experience while saving 50% on gaming infrastructure"
 		/>
+		<Header />
 		<Hero />
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
 		<BackedBy />
-	</StyledAboutUs>
+	</StyledStudioHead>
 )
 
-export default AboutUs
+export default StudioHead
 
-AboutUs.getLayout = (page) => <LayoutPrimary>{page}</LayoutPrimary>
+StudioHead.getLayout = (page) => <LayoutPrimary>{page}</LayoutPrimary>
