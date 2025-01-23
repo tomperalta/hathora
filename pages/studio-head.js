@@ -16,10 +16,6 @@ import SEO from "components/seo"
 import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
 import Testimonial from "components/studio-head/testimonial"
-import OurTeam from "components/studio-head/our-team"
-import TeamGrid from "components/studio-head/team-grid"
-import OurCommitment from "components/studio-head/our-commitment"
-import BackedBy from "components/studio-head/backed-by"
 
 // Sections
 const StyledStudioHead = styled.main`
@@ -53,10 +49,6 @@ const StudioHead = () => (
 		<TestimonialBackground>
 			<Testimonial />
 		</TestimonialBackground>
-		<OurTeam />
-		<TeamGrid />
-		<OurCommitment />
-		<BackedBy />
 	</StyledStudioHead>
 )
 
