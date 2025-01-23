@@ -32,6 +32,16 @@ const StyledStudioHead = styled.main`
 	}
 `
 
+const TestimonialBackground = styled.div`
+	position: relative;
+	width: 100%;
+	padding: 8rem 0;
+	background-image: url("/studio-head/earth.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+`
+
 const StudioHead = () => (
 	<StyledStudioHead>
 		<SEO
@@ -40,7 +50,9 @@ const StudioHead = () => (
 		/>
 		<Header />
 		<Hero />
-		<Testimonial />
+		<TestimonialBackground>
+			<Testimonial />
+		</TestimonialBackground>
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
