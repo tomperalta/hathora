@@ -25,13 +25,11 @@ const LogoContainer = styled.div`
 	align-items: center;
 	gap: 4rem;
 	width: 100%;
-	max-width: 1200px;
 	padding: 0 2rem;
 `
 
 const LogoWrapper = styled.div`
 	height: 60px;
-	position: relative;
 	display: flex;
 	align-items: center;
 `
@@ -42,29 +40,32 @@ const Powering = () => (
 		<LogoContainer>
 			<LogoWrapper>
 				<Image
-					src="/path-to-splitgate2-logo.png"
+					src="/studio-head/splitgate2_logo.svg"
 					alt="Splitgate 2"
-					width={200}
+					width={180}
 					height={60}
 					style={{ objectFit: "contain" }}
+					priority
 				/>
 			</LogoWrapper>
 			<LogoWrapper>
 				<Image
-					src="/path-to-spectre-logo.png"
+					src="/studio-head/spectre_logo.png"
 					alt="Spectre"
-					width={200}
+					width={180}
 					height={60}
 					style={{ objectFit: "contain" }}
+					priority
 				/>
 			</LogoWrapper>
 			<LogoWrapper>
 				<Image
-					src="/path-to-stormgate-logo.png"
+					src="/studio-head/stormgate_logo.svg"
 					alt="Stormgate"
-					width={200}
+					width={180}
 					height={60}
 					style={{ objectFit: "contain" }}
+					priority
 				/>
 			</LogoWrapper>
 		</LogoContainer>
