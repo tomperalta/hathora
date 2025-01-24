@@ -1,97 +1,56 @@
 import React from "react"
-
-// Libraries
-import styled, { keyframes } from "styled-components"
-
-// Components
-import Container from "components/container"
+import styled from "styled-components"
 import CaseStudyForm from "components/studio-head/case-study-form"
-
-// Icons
 import { colors } from "utils/variables"
-
-const animation = keyframes`
-  0% {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-
-	50% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-		transform: translateY(0);
-	}
-`
 
 const StyledHero = styled.section`
 	position: relative;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	max-width: 1120px;
+	margin: 160px auto;
+	padding: 0 20px;
+`
 
-	.hero__scroll-down-button {
-		width: 24px;
-		height: 40px;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		margin: auto;
+const ContentWrapper = styled.div`
+	max-width: 600px;
+`
 
-		svg {
-			position: relative;
-			animation: ${animation} 2s infinite;
+const Heading = styled.h1`
+	font-size: 45px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: ${colors.white};
 
-			&:nth-child(1) {
-				opacity: 0.3;
-
-				* {
-					fill: ${colors.purple__500};
-				}
-			}
-
-			&:nth-child(2) {
-				top: -20px;
-				opacity: 0.5;
-				animation-delay: -0.2s;
-
-				* {
-					fill: ${colors.green__400};
-				}
-			}
-
-			&:nth-child(3) {
-				top: -40px;
-				animation-delay: -0.4s;
-			}
-		}
+	span {
+		background: linear-gradient(271deg, #2afc61 29.39%, #ae69eb 81.67%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
+`
+
+const FormWrapper = styled.div`
+	max-width: 400px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 8px;
+	padding: 24px;
 `
 
 const Hero = () => (
 	<StyledHero>
-		<Container>
-			<div className="row align-items-center">
-				<div className="col-none col-md-6">
-					<div className="text-center">
-						<h1 className="heading--l font-weight--500">
-							Revolutionize your game development experience while saving ~50%
-							on gaming infrastructure
-						</h1>
-					</div>
-				</div>
+		<ContentWrapper>
+			<Heading>
+				<span>Revolutionize</span> your game development experience while saving
+				~50% on gaming infrastructure
+			</Heading>
+		</ContentWrapper>
 
-				<div
-					className="hero__icon col-12 col-md-6 text-center"
-					data-aos="zoom-in-up"
-					data-aos-anchor=".about__hero"
-				>
-					<CaseStudyForm />
-				</div>
-			</div>
-		</Container>
+		<FormWrapper>
+			<CaseStudyForm />
+		</FormWrapper>
 	</StyledHero>
 )
 
