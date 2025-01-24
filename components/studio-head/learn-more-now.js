@@ -2,6 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 
+import { ReactComponent as LeftLines } from "public/studio-head/left-lines.svg"
+import { ReactComponent as RightLines } from "public/studio-head/right-lines.svg"
+
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -11,7 +14,8 @@ const Container = styled.div`
 	padding: 40px 0;
 	position: relative;
 	overflow: hidden;
-	margin-top: 138px;
+	margin-top: 24px;
+	height: 500px;
 `
 
 const Title = styled.h2`
@@ -30,6 +34,8 @@ const Button = styled.a`
 	text-decoration: none;
 	font-weight: 500;
 	transition: all 0.2s ease-in-out;
+	margin-top: 16px;
+	min-width: 327px;
 
 	&:hover {
 		transform: translateY(-2px);
@@ -37,13 +43,9 @@ const Button = styled.a`
 	}
 `
 
-const SvgLine = styled.img`
+const SvgLine = styled.div`
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	height: 100%;
-	max-height: 300px;
-	pointer-events: none;
+	top: -100;
 
 	&.left {
 		left: 0;
@@ -54,20 +56,22 @@ const SvgLine = styled.img`
 	}
 `
 
+const ContentWrapper = styled.div`
+	text-align: center;
+`
+
 const LearnMoreNow = () => (
 	<Container>
-		<SvgLine
-			className="left"
-			src="/studio-head/learn-more-now-left-lines.svg"
-			alt=""
-		/>
-		<Title>Learn more now</Title>
-		<Button href="#">Get the case study today!</Button>
-		<SvgLine
-			className="right"
-			src="/studio-head/learn-more-now-right-lines.svg"
-			alt=""
-		/>
+		<SvgLine className="left">
+			<LeftLines />
+		</SvgLine>
+		<ContentWrapper>
+			<Title>Learn more now</Title>
+			<Button href="#">Get the case study today!</Button>
+		</ContentWrapper>
+		<SvgLine className="right">
+			<RightLines />
+		</SvgLine>
 	</Container>
 )
 
