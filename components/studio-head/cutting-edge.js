@@ -2,23 +2,29 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.div`
+	color: var(--text-primary);
+	margin-top: 70px;
+`
+
+const TitleWrapper = styled.div`
+	max-width: 723px;
+	margin: 0 auto;
 	text-align: center;
-	padding: 4rem 2rem;
-	background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
-	color: white;
 `
 
 const Title = styled.h2`
-	font-size: 3rem;
-	font-weight: 700;
-	margin-bottom: 1.5rem;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
 `
 
 const Subtitle = styled.p`
-	font-size: 1.25rem;
-	color: #a0a0b0;
-	max-width: 800px;
-	margin: 0 auto 4rem;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+	margin-top: 27px;
 `
 
 const FeatureGrid = styled.div`
@@ -26,32 +32,53 @@ const FeatureGrid = styled.div`
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 2rem;
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 64px auto 0;
 `
 
 const FeatureCard = styled.div`
-	background: rgba(255, 255, 255, 0.05);
-	border-radius: 1rem;
-	padding: 2rem;
-	text-align: left;
+	border-radius: 24px;
+	border: 0.25px solid #af64ee;
+	background: linear-gradient(
+			312deg,
+			rgba(72, 46, 173, 0.1) -6.24%,
+			rgba(72, 11, 119, 0) 59.13%
+		),
+		rgba(17, 17, 30, 0.8);
+	display: flex;
+	padding: 48px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 24px;
 `
 
 const FeatureNumber = styled.div`
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: #8b5cf6;
-	margin-bottom: 1rem;
+	font-size: 72px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 0.6;
+	padding: 0.1em 0;
+	background: linear-gradient(
+		321deg,
+		#af64ee -8.11%,
+		rgba(210, 157, 255, 0) 198.47%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 `
 
 const FeatureTitle = styled.h3`
-	font-size: 1.5rem;
-	font-weight: 600;
-	margin-bottom: 1rem;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 44px;
 `
 
 const FeatureDescription = styled.p`
-	color: #a0a0b0;
-	line-height: 1.6;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 28px;
 `
 
 const features = [
@@ -77,11 +104,13 @@ const features = [
 
 const CuttingEdge = () => (
 	<Container>
-		<Title>Bring your studio to the cutting edge</Title>
-		<Subtitle>
-			Our dedicated server platform will improve player experience, reduce
-			server costs, and accelerate game development
-		</Subtitle>
+		<TitleWrapper>
+			<Title>Bring your studio to the cutting edge</Title>
+			<Subtitle>
+				Our dedicated server platform will improve player experience, reduce
+				server costs, and accelerate game development
+			</Subtitle>
+		</TitleWrapper>
 		<FeatureGrid>
 			{features.map((feature) => (
 				<FeatureCard key={feature.number}>
