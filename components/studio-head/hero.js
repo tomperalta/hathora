@@ -3,9 +3,6 @@ import React from "react"
 // Libraries
 import styled, { keyframes } from "styled-components"
 
-// Utils
-import breakpoint from "utils/breakpoints/"
-
 // Components
 import Container from "components/container"
 import CaseStudyForm from "components/studio-head/case-study-form"
@@ -33,10 +30,6 @@ const StyledHero = styled.section`
 	position: relative;
 	display: flex;
 	align-items: center;
-
-	${breakpoint.medium`
-    min-height: 100vh;
-  `}
 
 	.hero__scroll-down-button {
 		width: 24px;
@@ -78,7 +71,7 @@ const StyledHero = styled.section`
 `
 
 const Hero = () => (
-	<StyledHero className="about__hero">
+	<StyledHero>
 		<Container>
 			<div className="row align-items-center">
 				<div className="col-none col-md-6">
