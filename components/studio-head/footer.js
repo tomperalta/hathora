@@ -1,23 +1,21 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "components/logo"
+import { colors } from "utils/variables"
 
 const FooterContainer = styled.footer`
 	width: 100%;
-	background: #0a0a19;
-	padding: 1rem;
+	height: 104px;
+	background: ${colors.grey__700};
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
-	margin-top: 250px;
+	padding: 0 160px;
 `
 
 const LogoWrapper = styled.div`
-	svg {
-		width: 120px;
-		height: auto;
-	}
+	width: 230px;
+	height: 40px;
 `
 
 const Footer = () => (
