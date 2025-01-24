@@ -1,13 +1,11 @@
 import React from "react"
+import Image from "next/image"
 
 // Libraries
 import styled from "styled-components"
 
 // Layout
 import LayoutPrimary from "layouts/layout-primary"
-
-// Utils
-import breakpoint from "utils/breakpoints/"
 
 // Components
 import SEO from "components/seo"
@@ -21,16 +19,9 @@ import CuttingEdge from "components/studio-head/cutting-edge"
 import LearnMoreNow from "components/studio-head/learn-more-now"
 import Footer from "components/studio-head/footer"
 
-// Sections
-const StyledStudioHead = styled.main`
-	> section {
-		padding: 156px 0 96px 0;
+import Globe from "public/studio-head/globe.webp"
 
-		${breakpoint.medium`
-      padding: 100px 0;
-    `}
-	}
-`
+// Sections
 
 const TestimonialBackground = styled.div`
 	position: relative;
@@ -43,13 +34,14 @@ const TestimonialBackground = styled.div`
 `
 
 const StudioHead = () => (
-	<StyledStudioHead>
+	<section>
 		<SEO
 			title="Studio Head | Hathora"
 			description="Hathora Cloud - The cloud platform built for game developers"
 		/>
 		<Header />
 		<Hero />
+		<Image src={Globe} alt="Globe illustration" priority />
 		<TestimonialBackground>
 			<Testimonial />
 		</TestimonialBackground>
@@ -57,7 +49,7 @@ const StudioHead = () => (
 		<CuttingEdge />
 		<LearnMoreNow />
 		<Footer />
-	</StyledStudioHead>
+	</section>
 )
 
 export default StudioHead

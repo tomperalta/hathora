@@ -1,29 +1,36 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { colors, blogColors } from "utils/variables"
 
 const FormContainer = styled.div`
-	background: #0f0f13;
-	padding: 2rem;
-	border-radius: 12px;
-	max-width: 400px;
+	background: ${blogColors.grey__600};
+	padding: 24px;
+	border-radius: 24px;
+	max-width: 340px;
 `
 
 const Title = styled.h2`
-	color: #fff;
-	font-size: 1.5rem;
-	margin-bottom: 1.5rem;
-	line-height: 1.3;
+	color: ${colors.white};
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+	margin-bottom: 16px;
 `
 
 const Input = styled.input`
 	width: 100%;
 	padding: 12px;
-	margin-bottom: 1rem;
-	background: rgba(255, 255, 255, 0.1);
-	border: none;
-	border-radius: 6px;
-	color: #fff;
-	font-size: 1rem;
+	margin-bottom: 12px;
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.05);
+	color: ${colors.white};
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: -0.15px;
 
 	&::placeholder {
 		color: rgba(255, 255, 255, 0.6);
@@ -31,24 +38,35 @@ const Input = styled.input`
 
 	&:focus {
 		outline: none;
-		box-shadow: 0 0 0 2px rgba(0, 255, 128, 0.5);
+		box-shadow: 0 0 0 1px rgba(42, 252, 97, 0.5);
 	}
 `
 
 const SubmitButton = styled.button`
 	width: 100%;
 	padding: 12px;
-	background: #00ff80;
-	border: none;
-	border-radius: 6px;
+	border-radius: 5px;
+	background: ${colors.green__500};
 	color: #000;
-	font-size: 1rem;
+	font-size: 16px;
 	font-weight: 500;
 	cursor: pointer;
 	transition: background-color 0.2s;
+	color: #1e1e1e;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: -0.15px;
+	display: flex;
+	padding: 12px 10px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	align-self: stretch;
 
 	&:hover {
-		background: #00e673;
+		background: rgb(38, 227, 87);
 	}
 `
 

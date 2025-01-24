@@ -9,7 +9,7 @@ const StyledHero = styled.section`
 	align-items: center;
 	justify-content: space-between;
 	max-width: 1120px;
-	margin: 160px auto;
+	margin: 160px auto 0;
 	padding: 0 20px;
 `
 
@@ -32,13 +32,6 @@ const Heading = styled.h1`
 	}
 `
 
-const FormWrapper = styled.div`
-	max-width: 400px;
-	background: rgba(255, 255, 255, 0.05);
-	border-radius: 8px;
-	padding: 24px;
-`
-
 const Hero = () => (
 	<StyledHero>
 		<ContentWrapper>
@@ -48,9 +41,7 @@ const Hero = () => (
 			</Heading>
 		</ContentWrapper>
 
-		<FormWrapper>
-			<CaseStudyForm />
-		</FormWrapper>
+		<CaseStudyForm />
 	</StyledHero>
 )
 
