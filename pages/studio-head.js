@@ -36,8 +36,8 @@ const TestimonialBackground = styled.div`
 const StudioHead = () => (
 	<section>
 		<SEO
-			title="Studio Head | Hathora"
-			description="Hathora Cloud - The cloud platform built for game developers"
+			title="Revolutionize your game development experience | Hathora"
+			description="Revolutionize your  game development experience while saving ~50% on gaming infrastructure"
 		/>
 		<Header />
 		<Hero />
