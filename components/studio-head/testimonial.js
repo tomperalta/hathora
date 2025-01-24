@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { colors } from "utils/variables"
 
 const TestimonialContainer = styled.div`
 	position: relative;
@@ -10,10 +11,11 @@ const TestimonialContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border: 1px solid red;
 `
 
 const Quote = styled.p`
-	color: white;
+	color: ${colors.white};
 	font-size: 1.5rem;
 	line-height: 1.6;
 	text-align: center;
@@ -46,7 +48,7 @@ const Name = styled.h3`
 `
 
 const Title = styled.p`
-	color: white;
+	color: ${colors.white};
 	margin: 0;
 	font-size: 1rem;
 	opacity: 0.9;

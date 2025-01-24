@@ -23,14 +23,36 @@ import Globe from "public/studio-head/globe.webp"
 
 // Sections
 
-const TestimonialBackground = styled.div`
+const ImageWrapper = styled.div`
 	position: relative;
 	width: 100%;
-	padding: 8rem 0;
-	background-image: url("/studio-head/earth.jpg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	height: auto;
+	margin-bottom: -200px;
+	text-align: center;
+`
+
+const TestimonialWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: auto;
+	text-align: center;
+`
+
+const TestimonialBackground = styled.div`
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	height: 620px;
+	display: flex;
+	padding: 95px 268px 149px 269px;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(
+		180deg,
+		rgba(21, 21, 33, 0.6) 0%,
+		rgba(20, 21, 36, 0) 100%
+	);
+	backdrop-filter: blur(22px);
 `
 
 const StudioHead = () => (
@@ -41,10 +63,19 @@ const StudioHead = () => (
 		/>
 		<Header />
 		<Hero />
-		<Image src={Globe} alt="Globe illustration" priority />
-		<TestimonialBackground>
-			<Testimonial />
-		</TestimonialBackground>
+		<TestimonialWrapper>
+			<ImageWrapper>
+				<Image
+					src={Globe}
+					alt="Globe illustration"
+					priority
+					style={{ width: "100%", height: "auto" }}
+				/>
+			</ImageWrapper>
+			<TestimonialBackground>
+				<Testimonial />
+			</TestimonialBackground>
+		</TestimonialWrapper>
 		<Powering />
 		<CuttingEdge />
 		<LearnMoreNow />
