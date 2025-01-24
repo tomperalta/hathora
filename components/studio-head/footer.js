@@ -10,6 +10,7 @@ const FooterContainer = styled.footer`
 	justify-content: center;
 	align-items: center;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top: 250px;
 `
 
 const LogoWrapper = styled.div`

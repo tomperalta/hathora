@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { colors } from "utils/variables"
 
 const Container = styled.div`
 	display: flex;
@@ -10,20 +11,21 @@ const Container = styled.div`
 	padding: 40px 0;
 	position: relative;
 	overflow: hidden;
+	margin-top: 138px;
 `
 
 const Title = styled.h2`
 	font-size: 48px;
-	font-weight: 600;
-	color: #ffffff;
-	margin: 0;
-	text-align: center;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
+	color: ${colors.white};
 `
 
 const Button = styled.a`
-	background: #00ff94;
-	color: #000000;
-	padding: 12px 24px;
+	background: ${colors.green__500};
+	color: #1e1e1e;
+	padding: 12px 10px;
 	border-radius: 8px;
 	text-decoration: none;
 	font-weight: 500;
