@@ -23,6 +23,7 @@ const Container = styled.div`
 		filter: blur(70.6396px);
 		transform: matrix(-0.86, -0.49, 0.51, -0.87, 0, 0);
 		z-index: -1;
+		border: 1px solid red;
 
 		${breakpoint.medium`
       right: auto;
@@ -196,7 +197,7 @@ const features = [
 ]
 
 const CuttingEdge = () => (
-	<Container className="glow__shadow">
+	<Container>
 		<TitleWrapper>
 			<Title>Bring your studio to the cutting edge</Title>
 			<Subtitle>

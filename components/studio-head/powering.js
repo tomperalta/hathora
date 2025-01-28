@@ -6,10 +6,11 @@ import breakpoint from "utils/breakpoints/"
 const PoweringSection = styled.section`
 	position: relative;
 	max-width: 200px;
-	margin: 0 auto;
+	margin: 24px auto;
 
 	${breakpoint.medium`
     max-width: 1120px;
+		margin: 0 auto;
   `}
 `
 
