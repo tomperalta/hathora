@@ -53,8 +53,13 @@ const FeatureGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 2rem;
-	max-width: 1200px;
-	margin: 64px auto 0;
+	padding: 32px 24px 0;
+
+	${breakpoint.medium`
+		padding: 0;
+		max-width: 1200px;
+		margin: 64px auto 0;
+	`}
 `
 
 const FeatureCard = styled.div`
@@ -67,17 +72,21 @@ const FeatureCard = styled.div`
 		),
 		rgba(17, 17, 30, 0.8);
 	display: flex;
-	padding: 48px;
+	padding: 32px;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
+
+	${breakpoint.medium`
+		padding: 48px;
+	`}
 `
 
 const FeatureNumber = styled.div`
-	font-size: 72px;
+	font-size: 64px;
 	font-style: normal;
 	font-weight: 300;
-	line-height: 0.6;
+	line-height: 44px;
 	padding: 0.1em 0;
 	background: linear-gradient(
 		321deg,
@@ -87,20 +96,41 @@ const FeatureNumber = styled.div`
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	${breakpoint.medium`
+		font-size: 72px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 0.6;
+	`}
 `
 
 const FeatureTitle = styled.h3`
-	font-size: 32px;
+	font-size: 20px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 44px;
+	font-weight: 600;
+	line-height: 28px;
+
+	${breakpoint.medium`
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 44px;
+	`}
 `
 
 const FeatureDescription = styled.p`
-	font-size: 20px;
+	font-size: 16px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 28px;
+	font-weight: 400;
+	line-height: 24px;
+
+	${breakpoint.medium`
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 28px;
+	`}
 `
 
 const features = [
