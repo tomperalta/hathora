@@ -1,16 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "components/logo"
+import breakpoint from "utils/breakpoints/"
 import { colors } from "utils/variables"
 
 const HeaderContainer = styled.header`
 	width: 100%;
-	height: 104px;
+	max-width: 1120px;
+	margin: 0 auto;
 	background: ${colors.grey__700};
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 160px;
+	margin-top: 32px;
+
+	${breakpoint.medium`
+    height: 104px;
+    margin-top: 0;
+  `}
 `
 
 const LogoWrapper = styled.div`
