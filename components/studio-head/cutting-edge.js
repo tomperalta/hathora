@@ -63,8 +63,8 @@ const FeatureGrid = styled.div`
 `
 
 const FeatureCard = styled.div`
+	position: relative;
 	border-radius: 24px;
-	border: 0.25px solid #af64ee;
 	background: linear-gradient(
 			312deg,
 			rgba(72, 46, 173, 0.1) -6.24%,
@@ -76,6 +76,27 @@ const FeatureCard = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 24px;
+		padding: 1px;
+		background: linear-gradient(
+			180deg,
+			rgba(175, 100, 238, 0.8) 0%,
+			rgba(175, 100, 238, 0) 100%
+		);
+		-webkit-mask: linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+	}
 
 	${breakpoint.medium`
 		padding: 48px;
