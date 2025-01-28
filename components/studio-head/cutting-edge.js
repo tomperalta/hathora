@@ -1,9 +1,14 @@
 import React from "react"
 import styled from "styled-components"
+import breakpoint from "utils/breakpoints/"
 
 const Container = styled.div`
 	color: var(--text-primary);
-	margin-top: 70px;
+	margin-top: 96px;
+
+	${breakpoint.medium`
+		margin-top: 70px;
+	`}
 `
 
 const TitleWrapper = styled.div`
@@ -13,18 +18,35 @@ const TitleWrapper = styled.div`
 `
 
 const Title = styled.h2`
-	font-size: 48px;
+	font-size: 20px;
 	font-style: normal;
-	font-weight: 500;
-	line-height: 64px;
+	font-weight: 600;
+	line-height: 28px;
+	padding: 0 40px;
+
+	${breakpoint.medium`
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 64px;
+		padding: 0;
+	`}
 `
 
 const Subtitle = styled.p`
-	font-size: 24px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 32px;
-	margin-top: 27px;
+	line-height: 24px;
+	padding: 12px 40px 0;
+
+	${breakpoint.medium`
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 64px;
+		padding: 0;
+	`}
 `
 
 const FeatureGrid = styled.div`
