@@ -10,10 +10,10 @@ import SEO from "components/seo"
 import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
 import Testimonial from "components/studio-head/testimonial"
-// import Powering from "components/studio-head/powering"
-// import CuttingEdge from "components/studio-head/cutting-edge"
-// import LearnMoreNow from "components/studio-head/learn-more-now"
-// import Footer from "components/studio-head/footer"
+import Powering from "components/studio-head/powering"
+import CuttingEdge from "components/studio-head/cutting-edge"
+import LearnMoreNow from "components/studio-head/learn-more-now"
+import Footer from "components/studio-head/footer"
 
 const StudioHead = () => (
 	<section>
@@ -24,10 +24,10 @@ const StudioHead = () => (
 		<Header />
 		<Hero />
 		<Testimonial />
-		{/* <Powering /> */}
-		{/* <CuttingEdge /> */}
-		{/* <LearnMoreNow /> */}
-		{/* <Footer /> */}
+		<Powering />
+		<CuttingEdge />
+		<LearnMoreNow />
+		<Footer />
 	</section>
 )
 
