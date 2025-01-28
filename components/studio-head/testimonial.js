@@ -1,6 +1,41 @@
 import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
+import Image from "next/image"
+
+import Globe from "public/studio-head/globe.webp"
+
+const ImageWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin-bottom: -200px;
+	text-align: center;
+`
+
+const TestimonialWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: auto;
+	text-align: center;
+`
+
+const TestimonialBackground = styled.div`
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	height: 620px;
+	display: flex;
+	padding: 95px 268px 149px 269px;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(
+		180deg,
+		rgba(21, 21, 33, 0.6) 0%,
+		rgba(20, 21, 36, 0) 100%
+	);
+	backdrop-filter: blur(22px);
+`
 
 const TestimonialContainer = styled.div`
 	position: relative;
@@ -52,21 +87,37 @@ const Title = styled.p`
 `
 
 const Testimonial = () => (
-	<TestimonialContainer>
-		<Quote>
-			&ldquo;Hathora continues to be the bedrock of Spectre Divide's server
-			orchestration and hosting. From development through launch, the platform
-			enabled us to deliver an outstanding experience for players.&rdquo;
-		</Quote>
-		<ProfileSection>
-			<ProfileImage src="/studio-head/nate-mitchell.jpg" alt="Nate Mitchell" />
-			<ProfileInfo>
-				<Name>Nate Mitchell</Name>
-				<Title>Founder & CEO</Title>
-				<Title>Mountaintop Studios</Title>
-			</ProfileInfo>
-		</ProfileSection>
-	</TestimonialContainer>
+	<TestimonialWrapper>
+		<ImageWrapper>
+			<Image
+				src={Globe}
+				alt="Globe illustration"
+				priority
+				style={{ width: "100%", height: "auto" }}
+			/>
+		</ImageWrapper>
+		<TestimonialBackground>
+			<TestimonialContainer>
+				<Quote>
+					&ldquo;Hathora continues to be the bedrock of Spectre Divide's server
+					orchestration and hosting. From development through launch, the
+					platform enabled us to deliver an outstanding experience for
+					players.&rdquo;
+				</Quote>
+				<ProfileSection>
+					<ProfileImage
+						src="/studio-head/nate-mitchell.jpg"
+						alt="Nate Mitchell"
+					/>
+					<ProfileInfo>
+						<Name>Nate Mitchell</Name>
+						<Title>Founder & CEO</Title>
+						<Title>Mountaintop Studios</Title>
+					</ProfileInfo>
+				</ProfileSection>
+			</TestimonialContainer>
+		</TestimonialBackground>
+	</TestimonialWrapper>
 )
 
 export default Testimonial
