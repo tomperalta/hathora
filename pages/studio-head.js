@@ -8,12 +8,12 @@ import SEO from "components/seo"
 
 // Sections
 import Header from "components/studio-head/header"
-import Hero from "components/studio-head/hero"
-import Testimonial from "components/studio-head/testimonial"
-import Powering from "components/studio-head/powering"
-import CuttingEdge from "components/studio-head/cutting-edge"
-import LearnMoreNow from "components/studio-head/learn-more-now"
-import Footer from "components/studio-head/footer"
+// import Hero from "components/studio-head/hero"
+// import Testimonial from "components/studio-head/testimonial"
+// import Powering from "components/studio-head/powering"
+// import CuttingEdge from "components/studio-head/cutting-edge"
+// import LearnMoreNow from "components/studio-head/learn-more-now"
+// import Footer from "components/studio-head/footer"
 
 const StudioHead = () => (
 	<section>
@@ -22,12 +22,12 @@ const StudioHead = () => (
 			description="Revolutionize your  game development experience while saving ~50% on gaming infrastructure"
 		/>
 		<Header />
-		<Hero />
+		{/* <Hero />
 		<Testimonial />
 		<Powering />
 		<CuttingEdge />
 		<LearnMoreNow />
-		<Footer />
+		<Footer /> */}
 	</section>
 )
 
