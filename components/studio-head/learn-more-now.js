@@ -49,10 +49,14 @@ const Button = styled.a`
     padding: 12px 10px;
 		border-radius: 8px;
 		text-decoration: none;
-		font-weight: 500;
 		margin-top: 16px;
 		min-width: 327px;
-  `}
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: -0.15px;
+	`}
 `
 
 const SvgLine = styled.div`

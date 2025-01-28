@@ -8,10 +8,6 @@ const FormContainer = styled.div`
 	padding: 24px;
 	border-radius: 24px;
 	max-width: 340px;
-
-	${breakpoint.medium`
-		margin-top: 48px;
-  `}
 `
 
 const Title = styled.h2`
