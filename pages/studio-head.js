@@ -9,7 +9,7 @@ import SEO from "components/seo"
 // Sections
 import Header from "components/studio-head/header"
 import Hero from "components/studio-head/hero"
-// import Testimonial from "components/studio-head/testimonial"
+import Testimonial from "components/studio-head/testimonial"
 // import Powering from "components/studio-head/powering"
 // import CuttingEdge from "components/studio-head/cutting-edge"
 // import LearnMoreNow from "components/studio-head/learn-more-now"
@@ -23,7 +23,7 @@ const StudioHead = () => (
 		/>
 		<Header />
 		<Hero />
-		{/* <Testimonial /> */}
+		<Testimonial />
 		{/* <Powering /> */}
 		{/* <CuttingEdge /> */}
 		{/* <LearnMoreNow /> */}

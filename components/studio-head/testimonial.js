@@ -2,39 +2,39 @@ import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
 import Image from "next/image"
-
 import Globe from "public/studio-head/globe.webp"
-
-const ImageWrapper = styled.div`
-	position: relative;
-	width: 100%;
-	height: auto;
-	margin-bottom: -200px;
-	text-align: center;
-`
+import breakpoint from "utils/breakpoints/"
 
 const TestimonialWrapper = styled.div`
 	position: relative;
-	width: 100%;
-	height: auto;
 	text-align: center;
+`
+
+const ImageWrapper = styled.div`
+	position: relative;
+
+	${breakpoint.medium`
+    margin-bottom: -200px;
+  `}
 `
 
 const TestimonialBackground = styled.div`
 	position: absolute;
 	top: 25%;
 	width: 100%;
-	height: 620px;
-	display: flex;
-	padding: 95px 268px 149px 269px;
-	justify-content: center;
-	align-items: center;
+	padding: 44px 36px;
 	background: linear-gradient(
 		180deg,
 		rgba(21, 21, 33, 0.6) 0%,
 		rgba(20, 21, 36, 0) 100%
 	);
 	backdrop-filter: blur(22px);
+
+	${breakpoint.medium`
+    margin-bottom: -200px;
+		height: 620px;
+		padding: 95px 268px 149px 269px;
+  `}
 `
 
 const TestimonialContainer = styled.div`
@@ -44,25 +44,41 @@ const TestimonialContainer = styled.div`
 
 const Quote = styled.p`
 	color: var(--text-primary);
-	margin-bottom: 2rem;
-	font-size: 32px;
+	font-size: 16px;
 	font-style: normal;
-	font-weight: 500;
-	line-height: 44px;
+	font-weight: 700;
+	line-height: 24px;
+
+	${breakpoint.medium`
+    margin-bottom: 2rem;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 44px;
+  `}
 `
 
 const ProfileSection = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 57px;
+	margin-top: 24px;
+
+	${breakpoint.medium`
+    margin-top: 57px;
+  `}
 `
 
 const ProfileImage = styled.img`
-	width: 143px;
-	height: 143px;
-	border-radius: 61.733px;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
 	object-fit: cover;
+
+	${breakpoint.medium`
+    width: 143px;
+		height: 143px;
+  `}
 `
 
 const ProfileInfo = styled.div`
@@ -72,18 +88,32 @@ const ProfileInfo = styled.div`
 
 const Name = styled.h3`
 	color: ${colors.purple__400};
-	font-size: 32px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 39.509px;
+	line-height: 18.971px;
+
+	${breakpoint.medium`
+    font-size: 32px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 39.509px;
+  `}
 `
 
 const Title = styled.p`
 	color: ${colors.grey__300};
-	font-size: 23.75px;
+	font-size: 12px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 29.632px;
+	line-height: 14.228px;
+
+	${breakpoint.medium`
+    font-size: 23.75px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 29.632px;
+  `}
 `
 
 const Testimonial = () => (
