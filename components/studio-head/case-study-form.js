@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { colors, blogColors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 const FormContainer = styled.div`
 	background: ${blogColors.grey__600};
@@ -15,7 +16,11 @@ const Title = styled.h2`
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px;
-	margin-bottom: 16px;
+	margin-bottom: 12px;
+
+	${breakpoint.medium`
+    margin-bottom: 16px;
+  `}
 `
 
 const Input = styled.input`
@@ -92,7 +97,10 @@ const CaseStudyForm = () => {
 
 	return (
 		<FormContainer>
-			<Title>See how we helped Mountaintop Studios achieve these savings</Title>
+			<Title className="d-none d-md-block">
+				See how we helped Mountaintop Studios achieve these savings
+			</Title>
+			<Title className="d-md-none">See how you can too!</Title>
 			<form onSubmit={handleSubmit}>
 				<Input
 					type="text"

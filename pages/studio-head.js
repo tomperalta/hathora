@@ -8,7 +8,7 @@ import SEO from "components/seo"
 
 // Sections
 import Header from "components/studio-head/header"
-// import Hero from "components/studio-head/hero"
+import Hero from "components/studio-head/hero"
 // import Testimonial from "components/studio-head/testimonial"
 // import Powering from "components/studio-head/powering"
 // import CuttingEdge from "components/studio-head/cutting-edge"
@@ -22,12 +22,12 @@ const StudioHead = () => (
 			description="Revolutionize your  game development experience while saving ~50% on gaming infrastructure"
 		/>
 		<Header />
-		{/* <Hero />
-		<Testimonial />
-		<Powering />
-		<CuttingEdge />
-		<LearnMoreNow />
-		<Footer /> */}
+		<Hero />
+		{/* <Testimonial /> */}
+		{/* <Powering /> */}
+		{/* <CuttingEdge /> */}
+		{/* <LearnMoreNow /> */}
+		{/* <Footer /> */}
 	</section>
 )
 
