@@ -7,8 +7,28 @@ const Container = styled.div`
 	margin-top: 96px;
 
 	${breakpoint.medium`
-		margin-top: 70px;
+		margin-top: 130px;
 	`}
+
+	.glow__shadow {
+		width: 250px;
+		height: 250px;
+		position: absolute;
+		right: -125px;
+		bottom: -125px;
+		border-radius: 50%;
+		background: #af64ee;
+		mix-blend-mode: hard-light;
+		opacity: 0.4;
+		filter: blur(70.6396px);
+		transform: matrix(-0.86, -0.49, 0.51, -0.87, 0, 0);
+		z-index: -1;
+
+		${breakpoint.medium`
+      right: auto;
+      left: -125px;
+    `}
+	}
 `
 
 const TitleWrapper = styled.div`
@@ -176,7 +196,7 @@ const features = [
 ]
 
 const CuttingEdge = () => (
-	<Container>
+	<Container className="glow__shadow">
 		<TitleWrapper>
 			<Title>Bring your studio to the cutting edge</Title>
 			<Subtitle>

@@ -8,6 +8,7 @@ import breakpoint from "utils/breakpoints/"
 const TestimonialWrapper = styled.div`
 	position: relative;
 	text-align: center;
+	overflow: hidden;
 `
 
 const ImageWrapper = styled.div`
