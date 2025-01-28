@@ -1,13 +1,18 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { colors, blogColors } from "utils/variables"
-import breakpoint from "utils/breakpoints/"
+import breakpoint from "utils/breakpoints"
 
 const FormContainer = styled.div`
 	background: ${blogColors.grey__600};
 	padding: 24px;
 	border-radius: 24px;
 	max-width: 340px;
+	margin-top: 48px;
+
+	${breakpoint.medium`
+    margin-top: 0;
+  `}
 `
 
 const Title = styled.h2`
