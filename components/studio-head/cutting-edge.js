@@ -41,10 +41,10 @@ const Subtitle = styled.p`
 	padding: 12px 40px 0;
 
 	${breakpoint.medium`
-		font-size: 48px;
+		font-size: 24px;
 		font-style: normal;
-		font-weight: 500;
-		line-height: 64px;
+		font-weight: 400;
+		line-height: 32px;
 		padding: 0;
 	`}
 `
