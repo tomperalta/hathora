@@ -10,7 +10,7 @@ const StyledHero = styled.section`
 	justify-content: space-between;
 	max-width: 1120px;
 	margin: 160px auto 0;
-	padding: 0 20px;
+	padding: 0;
 `
 
 const ContentWrapper = styled.div`
