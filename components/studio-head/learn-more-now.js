@@ -7,17 +7,16 @@ import { ReactComponent as LeftLines } from "public/studio-head/left-lines.svg"
 import { ReactComponent as RightLines } from "public/studio-head/right-lines.svg"
 
 const Container = styled.div`
+	margin-top: 48px;
+
 	${breakpoint.medium`
     display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 24px;
-		padding: 40px 0;
 		position: relative;
-		overflow: hidden;
 		margin-top: 24px;
-		height: 500px;
+		min-height: 500px;
   `}
 `
 
@@ -27,7 +26,6 @@ const Title = styled.h2`
 	font-style: normal;
 	font-weight: 500;
 	line-height: 18.323px;
-	margin-top: 48px;
 
 	${breakpoint.medium`
     font-size: 48px;
@@ -40,23 +38,26 @@ const Title = styled.h2`
 const Button = styled.a`
 	background: ${colors.green__500};
 	color: #1e1e1e;
-	padding: 12px 10px;
-	border-radius: 8px;
-	text-decoration: none;
-	font-weight: 500;
-	transition: all 0.2s ease-in-out;
-	margin-top: 16px;
-	min-width: 327px;
+	border-radius: 3px;
+	padding: 4px 8px;
+	font-size: 10.689px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 15.269px;
 
-	&:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(0, 255, 148, 0.2);
-	}
+	${breakpoint.medium`
+    padding: 12px 10px;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 500;
+		margin-top: 16px;
+		min-width: 327px;
+  `}
 `
 
 const SvgLine = styled.div`
 	position: absolute;
-	top: -100;
+	display: none;
 
 	&.left {
 		left: 0;
@@ -65,6 +66,10 @@ const SvgLine = styled.div`
 	&.right {
 		right: 0;
 	}
+
+	${breakpoint.medium`
+    display: block;
+  `}
 `
 
 const ContentWrapper = styled.div`

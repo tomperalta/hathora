@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Logo from "components/logo"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 const FooterContainer = styled.footer`
 	width: 100%;
@@ -10,12 +11,16 @@ const FooterContainer = styled.footer`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 160px;
 `
 
 const LogoWrapper = styled.div`
-	width: 230px;
-	height: 40px;
+	width: 120px;
+	height: 20px;
+
+	${breakpoint.medium`
+    width: 230px;
+		height: 40px;
+  `}
 `
 
 const Footer = () => (
