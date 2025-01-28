@@ -1,29 +1,40 @@
 import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 import { ReactComponent as LeftLines } from "public/studio-head/left-lines.svg"
 import { ReactComponent as RightLines } from "public/studio-head/right-lines.svg"
 
 const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 24px;
-	padding: 40px 0;
-	position: relative;
-	overflow: hidden;
-	margin-top: 24px;
-	height: 500px;
+	${breakpoint.medium`
+    display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 24px;
+		padding: 40px 0;
+		position: relative;
+		overflow: hidden;
+		margin-top: 24px;
+		height: 500px;
+  `}
 `
 
 const Title = styled.h2`
-	font-size: 48px;
+	color: ${colors.white};
+	font-size: 12.216px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 64px;
-	color: ${colors.white};
+	line-height: 18.323px;
+	margin-top: 48px;
+
+	${breakpoint.medium`
+    font-size: 48px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 64px;
+  `}
 `
 
 const Button = styled.a`
