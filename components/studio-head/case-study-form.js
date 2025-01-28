@@ -8,10 +8,9 @@ const FormContainer = styled.div`
 	padding: 24px;
 	border-radius: 24px;
 	max-width: 340px;
-	margin-top: 48px;
 
 	${breakpoint.medium`
-    margin-top: 0;
+		margin-top: 48px;
   `}
 `
 
