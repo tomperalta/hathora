@@ -6,11 +6,13 @@ import breakpoint from "utils/breakpoints/"
 
 const FooterContainer = styled.footer`
 	width: 100%;
-	height: 104px;
+	height: 50px;
 	background: ${colors.grey__700};
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 64px;
+	padding-bottom: 24px;
 `
 
 const LogoWrapper = styled.div`

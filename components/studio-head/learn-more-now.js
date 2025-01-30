@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
 	color: ${colors.white};
-	font-size: 12.216px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 18.323px;
@@ -39,8 +39,8 @@ const Button = styled.a`
 	background: ${colors.green__500};
 	color: #1e1e1e;
 	border-radius: 3px;
-	padding: 4px 8px;
-	font-size: 10.689px;
+	padding: 4px 12px;
+	font-size: 12px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 15.269px;
