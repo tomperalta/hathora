@@ -93,6 +93,16 @@ const FeatureCard = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
+	transition: background 0.3s ease;
+
+	&:hover {
+		background: linear-gradient(
+				312deg,
+				rgba(72, 46, 173, 0.2) -6.24%,
+				rgba(72, 11, 119, 0.1) 59.13%
+			),
+			rgba(17, 17, 30, 0.9);
+	}
 
 	&:before {
 		content: "";
