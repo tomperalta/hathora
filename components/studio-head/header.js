@@ -86,7 +86,7 @@ const Header = () => (
 		</LogoWrapper>
 		<NavLinks>
 			<ContactLink href="/contact">Contact Us</ContactLink>
-			<CaseStudyButton href="/case-study">Get the case study</CaseStudyButton>
+			<CaseStudyButton href="#form">Get the case study</CaseStudyButton>
 		</NavLinks>
 	</HeaderContainer>
 )

@@ -4,7 +4,9 @@ import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 import { ReactComponent as LeftLines } from "public/studio-head/left-lines.svg"
+import { ReactComponent as LeftLinesMobile } from "public/studio-head/left-lines-mobile.svg"
 import { ReactComponent as RightLines } from "public/studio-head/right-lines.svg"
+import { ReactComponent as RightLinesMobile } from "public/studio-head/right-lines-mobile.svg"
 
 const Container = styled.div`
 	margin-top: 48px;
@@ -85,6 +87,7 @@ const LearnMoreNow = () => (
 	<Container>
 		<SvgLine className="left">
 			<LeftLines />
+			<LeftLinesMobile />
 		</SvgLine>
 		<ContentWrapper>
 			<Title>Learn more now</Title>
@@ -92,6 +95,7 @@ const LearnMoreNow = () => (
 		</ContentWrapper>
 		<SvgLine className="right">
 			<RightLines />
+			<RightLinesMobile />
 		</SvgLine>
 	</Container>
 )
