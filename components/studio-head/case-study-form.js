@@ -51,7 +51,7 @@ const SubmitButton = styled.button`
 	width: 100%;
 	padding: 12px;
 	border-radius: 5px;
-	background: ${colors.green__500};
+	background: ${(props) => (props.isSubmitted ? "#AE69EB" : colors.green__500)};
 	color: #000;
 	font-size: 16px;
 	font-weight: 500;
@@ -60,6 +60,7 @@ const SubmitButton = styled.button`
 	padding: 10px 12px;
 	position: relative;
 	overflow: hidden;
+	// transition: background 0.3s ease;
 
 	&::after {
 		content: "";
@@ -70,8 +71,10 @@ const SubmitButton = styled.button`
 		height: 100%;
 		opacity: 1;
 		border-radius: 4px;
-		background: linear-gradient(111deg, transparent 36.01%, #af64ee 106.99%);
-		transition: all 0.2s ease-in-out;
+		background: ${(props) =>
+			props.isSubmitted
+				? "linear-gradient(111deg, transparent 36.01%, #66B9A0 106.99%)"
+				: "linear-gradient(111deg, transparent 36.01%, #af64ee 106.99%)"};
 	}
 `
 
@@ -81,6 +84,7 @@ const CaseStudyForm = () => {
 		email: "",
 		company: "",
 	})
+	const [isSubmitted, setIsSubmitted] = useState(false)
 
 	const handleChange = (e) => {
 		setFormData({
@@ -91,6 +95,7 @@ const CaseStudyForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		setIsSubmitted(true)
 		// Handle form submission here
 		console.log("Form submitted:", formData)
 	}
@@ -123,7 +128,9 @@ const CaseStudyForm = () => {
 					value={formData.company}
 					onChange={handleChange}
 				/>
-				<SubmitButton type="submit">Get the case study</SubmitButton>
+				<SubmitButton type="submit" isSubmitted={isSubmitted}>
+					{isSubmitted ? "Thank you!" : "Get the case study"}
+				</SubmitButton>
 			</form>
 		</FormContainer>
 	)
