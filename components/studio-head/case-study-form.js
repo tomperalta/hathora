@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { colors, blogColors } from "utils/variables"
 import breakpoint from "utils/breakpoints"
@@ -23,77 +23,30 @@ const Title = styled.h2`
   `}
 `
 
-const Input = styled.input`
-	width: 100%;
-	padding: 12px;
-	margin-bottom: 12px;
-	border-radius: 5px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	background: rgba(255, 255, 255, 0.05);
-	color: ${colors.white};
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	letter-spacing: -0.15px;
-
-	&::placeholder {
-		color: rgba(255, 255, 255, 0.6);
-	}
-
-	&:focus {
-		outline: none;
-		box-shadow: 0 0 0 1px rgba(42, 252, 97, 0.5);
-	}
-`
-
-const SubmitButton = styled.button`
-	width: 100%;
-	padding: 12px;
-	border-radius: 5px;
-	background: ${colors.green__500};
-	color: #000;
-	font-size: 16px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: background-color 0.2s;
-	color: #1e1e1e;
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-	letter-spacing: -0.15px;
-	display: flex;
-	padding: 12px 10px;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	align-self: stretch;
-
-	&:hover {
-		background: rgb(38, 227, 87);
-	}
-`
-
 const CaseStudyForm = () => {
-	const [formData, setFormData] = useState({
-		firstName: "",
-		email: "",
-		company: "",
-	})
+	useEffect(() => {
+		// Load HubSpot form script
+		const script = document.createElement("script")
+		script.src = "//js.hsforms.net/forms/embed/v2.js"
+		script.charset = "utf-8"
+		script.type = "text/javascript"
+		document.head.appendChild(script)
 
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
+		script.addEventListener("load", () => {
+			if (window.hbspt) {
+				window.hbspt.forms.create({
+					portalId: "22776178",
+					formId: "5f1e2e8f-0ddd-4951-a34a-dd2525d588de",
+					target: "#hubspot-form-container",
+				})
+			}
 		})
-	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		// Handle form submission here
-		console.log("Form submitted:", formData)
-	}
+		return () => {
+			// Cleanup script when component unmounts
+			document.head.removeChild(script)
+		}
+	}, [])
 
 	return (
 		<FormContainer>
@@ -101,30 +54,7 @@ const CaseStudyForm = () => {
 				See how we helped Mountaintop Studios achieve these savings
 			</Title>
 			<Title className="d-md-none">See how you can too!</Title>
-			<form onSubmit={handleSubmit}>
-				<Input
-					type="text"
-					name="firstName"
-					placeholder="First Name"
-					value={formData.firstName}
-					onChange={handleChange}
-				/>
-				<Input
-					type="email"
-					name="email"
-					placeholder="Email"
-					value={formData.email}
-					onChange={handleChange}
-				/>
-				<Input
-					type="text"
-					name="company"
-					placeholder="Company"
-					value={formData.company}
-					onChange={handleChange}
-				/>
-				<SubmitButton type="submit">Get the case study</SubmitButton>
-			</form>
+			<div id="hubspot-form-container" />
 		</FormContainer>
 	)
 }
