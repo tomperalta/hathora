@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
 
 const TestimonialBackground = styled.div`
 	position: absolute;
-	top: 35%;
+	top: 30%;
 	width: 100%;
 	padding: 44px 36px;
 	background: linear-gradient(
@@ -32,7 +32,8 @@ const TestimonialBackground = styled.div`
 	backdrop-filter: blur(22px);
 
 	${breakpoint.medium`
-    margin-bottom: -200px;
+		top: 35%;
+		margin-bottom: -200px;
 		height: 620px;
 		padding: 95px 268px 149px 269px;
   `}
