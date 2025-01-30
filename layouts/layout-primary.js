@@ -31,7 +31,7 @@ const PrimaryLayout = ({ children }) => {
 		"/spectre-divide",
 		"/stormgate",
 		"/splitgate",
-		"/studio-head",
+		"/case-study-hs",
 	]
 	const useLayout = !noLayoutPages.includes(router.pathname)
 	const useBlogStyles = router.pathname.includes("/blog")
