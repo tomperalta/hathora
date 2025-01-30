@@ -10,13 +10,13 @@ import { ReactComponent as RightLinesMobile } from "public/studio-head/right-lin
 
 const Container = styled.div`
 	margin-top: 48px;
+	position: relative;
 
 	${breakpoint.medium`
     display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		position: relative;
 		margin-top: 24px;
 		min-height: 500px;
   `}
@@ -63,20 +63,27 @@ const Button = styled.a`
 
 const SvgLine = styled.div`
 	position: absolute;
-	display: none;
 	z-index: -1;
 
 	&.left {
 		left: 0;
+		top: -10px;
+
+		${breakpoint.medium`
+    left: 0;
+		top: 0;
+	`}
 	}
 
 	&.right {
 		right: 0;
-	}
+		top: -10px;
 
-	${breakpoint.medium`
-    display: block;
-  `}
+		${breakpoint.medium`
+    right: 0;
+		top: 0;
+	`}
+	}
 `
 
 const ContentWrapper = styled.div`
@@ -86,16 +93,16 @@ const ContentWrapper = styled.div`
 const LearnMoreNow = () => (
 	<Container>
 		<SvgLine className="left">
-			<LeftLines />
-			<LeftLinesMobile />
+			<LeftLines className="d-none d-md-block" />
+			<LeftLinesMobile className="d-md-none mobile" />
 		</SvgLine>
 		<ContentWrapper>
 			<Title>Learn more now</Title>
 			<Button href="#header">Get the case study today!</Button>
 		</ContentWrapper>
 		<SvgLine className="right">
-			<RightLines />
-			<RightLinesMobile />
+			<RightLines className="d-none d-md-block" />
+			<RightLinesMobile className="d-md-none mobile" />
 		</SvgLine>
 	</Container>
 )
