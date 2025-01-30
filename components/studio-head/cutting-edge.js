@@ -6,10 +6,6 @@ const Container = styled.div`
 	color: var(--text-primary);
 	margin-top: 96px;
 
-	${breakpoint.medium`
-		margin-top: 130px;
-	`}
-
 	.glow__shadow {
 		width: 250px;
 		height: 250px;

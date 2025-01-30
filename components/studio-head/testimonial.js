@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
 
 const TestimonialBackground = styled.div`
 	position: absolute;
-	top: 25%;
+	top: 35%;
 	width: 100%;
 	padding: 44px 36px;
 	background: linear-gradient(
