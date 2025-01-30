@@ -56,22 +56,22 @@ const SubmitButton = styled.button`
 	font-size: 16px;
 	font-weight: 500;
 	cursor: pointer;
-	transition: background-color 0.2s;
-	color: #1e1e1e;
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-	letter-spacing: -0.15px;
-	display: flex;
-	padding: 12px 10px;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	align-self: stretch;
+	text-align: center;
+	padding: 10px 12px;
+	position: relative;
+	overflow: hidden;
 
-	&:hover {
-		background: rgb(38, 227, 87);
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: -23px;
+		width: 80%;
+		height: 100%;
+		opacity: 1;
+		border-radius: 4px;
+		background: linear-gradient(111deg, transparent 36.01%, #af64ee 106.99%);
+		transition: all 0.2s ease-in-out;
 	}
 `
 
