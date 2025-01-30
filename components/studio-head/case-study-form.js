@@ -96,7 +96,7 @@ const CaseStudyForm = () => {
 	}
 
 	return (
-		<FormContainer>
+		<FormContainer id="case-study-form">
 			<Title className="d-none d-md-block">
 				See how we helped Mountaintop Studios achieve these savings
 			</Title>

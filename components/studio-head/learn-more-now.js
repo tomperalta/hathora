@@ -62,6 +62,7 @@ const Button = styled.a`
 const SvgLine = styled.div`
 	position: absolute;
 	display: none;
+	z-index: -1;
 
 	&.left {
 		left: 0;
@@ -87,7 +88,7 @@ const LearnMoreNow = () => (
 		</SvgLine>
 		<ContentWrapper>
 			<Title>Learn more now</Title>
-			<Button href="#">Get the case study today!</Button>
+			<Button href="#header">Get the case study today!</Button>
 		</ContentWrapper>
 		<SvgLine className="right">
 			<RightLines />

@@ -80,7 +80,7 @@ const CaseStudyButton = styled.a`
 `
 
 const Header = () => (
-	<HeaderContainer>
+	<HeaderContainer id="header">
 		<LogoWrapper>
 			<Logo />
 		</LogoWrapper>
