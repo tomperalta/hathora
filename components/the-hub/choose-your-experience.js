@@ -28,17 +28,36 @@ const BenefitsSection = styled.div`
 const BenefitsTitle = styled.h2`
 	color: #a78bfa;
 	margin-bottom: 2rem;
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: 0.05em;
 `
 
-const BenefitsList = styled.ul`
+const BenefitsList = styled.ol`
 	list-style: none;
 	padding: 0;
+	counter-reset: benefits-counter;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 800px;
+	margin: 0 auto;
+
+	li {
+		counter-increment: benefits-counter;
+
+		&:before {
+			content: counter(benefits-counter) ". ";
+		}
+	}
 `
 
 const MembershipsGrid = styled.div`
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	gap: 2rem;
+	max-width: 900px;
+	margin: 0 auto;
 `
 
 const ChooseYourExperience = () => {
@@ -66,6 +85,28 @@ const ChooseYourExperience = () => {
 		},
 	]
 
+	const patronFeatures = [
+		{
+			title: "Meeting Space",
+			description:
+				"Schedule time to host your meetings in our shared conference room and private suites.",
+		},
+		{
+			title: "Host Status",
+			description:
+				"Invite your guests to come for free and benefit from the general lounge.",
+		},
+		{
+			title: "Targeted Networking",
+			description: "Connect with the people who matter most to your business.",
+		},
+		{
+			title: "Exposure",
+			description:
+				"Be included in Hub marketing materials, and custom promotional assets to raise your brand and awareness.",
+		},
+	]
+
 	return (
 		<Container>
 			<MainTitle>
@@ -76,7 +117,7 @@ const ChooseYourExperience = () => {
 				<BenefitsTitle>ALL MEMBERS BENEFIT FROM</BenefitsTitle>
 				<BenefitsList>
 					{commonBenefits.map((benefit) => (
-						<li key={benefit.title}>{benefit}</li>
+						<li key={benefit}>{benefit}</li>
 					))}
 				</BenefitsList>
 			</BenefitsSection>
@@ -90,6 +131,16 @@ const ChooseYourExperience = () => {
 						original: 250,
 						discounted: 100,
 						discountLabel: "Early bird discount $150 OFF:",
+					}}
+				/>
+				<MembershipCard
+					title="PATRON Membership"
+					description="For CEOs, founders, and vendors looking to elevate their professional presence, and enhance the quality of their meetings."
+					features={patronFeatures}
+					pricing={{
+						original: 1500,
+						discounted: 1000,
+						discountLabel: "Early bird discount $500 OFF:",
 					}}
 				/>
 			</MembershipsGrid>

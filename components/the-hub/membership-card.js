@@ -6,7 +6,7 @@ const Card = styled.div`
 	background-color: #1e1f2e;
 	border-radius: 2rem;
 	padding: 3rem;
-	max-width: 900px;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 2rem;
@@ -20,7 +20,8 @@ const CardTitle = styled.h2`
 	margin: 0 0 1rem 0;
 	font-size: 2.5rem;
 	color: white;
-	font-weight: 600;
+	font-weight: 500;
+	font-family: "Space Grotesk", sans-serif;
 `
 
 const CardDescription = styled.p`
@@ -28,6 +29,7 @@ const CardDescription = styled.p`
 	margin: 0;
 	font-size: 1.125rem;
 	line-height: 1.6;
+	margin-bottom: 2rem;
 `
 
 const PricingSection = styled.div`
@@ -35,7 +37,6 @@ const PricingSection = styled.div`
 	border-radius: 2rem;
 	padding: 1.5rem 2rem;
 	display: inline-block;
-	margin: 2rem 0;
 `
 
 const DiscountLabel = styled.p`
@@ -48,11 +49,13 @@ const Price = styled.p`
 	margin: 0;
 	font-size: 1.25rem;
 	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 `
 
 const OriginalPrice = styled.span`
 	text-decoration: line-through;
-	margin-right: 1rem;
 	color: #9ca3af;
 `
 
@@ -63,7 +66,7 @@ const DiscountedPrice = styled.span`
 const FeaturesList = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1.5rem;
 	grid-column: 2;
 `
 
@@ -91,9 +94,10 @@ const FeatureContent = styled.div`
 
 const FeatureTitle = styled.h3`
 	margin: 0;
-	font-weight: 600;
+	font-weight: 500;
 	color: white;
 	font-size: 1rem;
+	text-decoration: underline;
 `
 
 const FeatureDescription = styled.p`
