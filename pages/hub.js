@@ -13,11 +13,12 @@ import breakpoint from "utils/breakpoints/"
 import SEO from "components/seo"
 
 // Sections
-import Hero from "components/about-us/hero"
-import OurTeam from "components/about-us/our-team"
-import TeamGrid from "components/about-us/team-grid"
-import OurCommitment from "components/about-us/our-commitment"
-import BackedBy from "components/about-us/backed-by"
+import Hero from "components/the-hub/hero"
+import Logos from "components/the-hub/logos"
+import OurTeam from "components/the-hub/our-team"
+import TeamGrid from "components/the-hub/team-grid"
+import OurCommitment from "components/the-hub/our-commitment"
+import BackedBy from "components/the-hub/backed-by"
 
 // Sections
 
@@ -38,6 +39,7 @@ const AboutUs = () => (
 			description="Your exclusive space to network, host meetings, and escape steps away from GDC and the Moscone Center."
 		/>
 		<Hero />
+		<Logos />
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
