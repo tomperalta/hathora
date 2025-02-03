@@ -34,8 +34,8 @@ const StyledAboutUs = styled.main`
 const AboutUs = () => (
 	<StyledAboutUs>
 		<SEO
-			title="About Us | Serverless Cloud Platform for Multiplayer Games"
-			description="Read our story and meet the Hathora team, a group of infrastructure and SaaS experts bringing their knowledge to the gaming world."
+			title="The Hub | Serverless Cloud Platform for Multiplayer Games"
+			description="Your exclusive space to network, host meetings, and escape steps away from GDC and the Moscone Center."
 		/>
 		<Hero />
 		<OurTeam />
