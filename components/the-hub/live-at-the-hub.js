@@ -1,13 +1,36 @@
 import React from "react"
 import styled from "styled-components"
 import Slider from "react-slick"
-// import "slick-carousel/slick/slick.css"
-// import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const StyledSection = styled.section`
 	background: #0d0e12;
 	padding: 80px 0;
 	text-align: center;
+
+	.slick-prev,
+	.slick-next {
+		z-index: 1;
+		&:before {
+			font-size: 24px;
+		}
+	}
+
+	.slick-prev {
+		left: 25px;
+	}
+
+	.slick-next {
+		right: 25px;
+	}
+
+	.slick-dots {
+		bottom: -40px;
+		li button:before {
+			color: white;
+		}
+	}
 `
 
 const Title = styled.h2`
@@ -45,6 +68,15 @@ const LiveAtTheHub = () => {
 		autoplay: true,
 		autoplaySpeed: 5000,
 		arrows: true,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	}
 
 	const slides = [
@@ -52,7 +84,10 @@ const LiveAtTheHub = () => {
 			image: "/the-hub/slides/slide-1.webp",
 			alt: "Alexandra Takei - NAAVIK Podcast Host",
 		},
-		// Add more slides as needed
+		{
+			image: "/the-hub/slides/slide-1.webp", // Added duplicate for testing
+			alt: "Alexandra Takei - NAAVIK Podcast Host 2",
+		},
 	]
 
 	return (
@@ -64,11 +99,15 @@ const LiveAtTheHub = () => {
 				Catch these folks during live podcast recordings and events at the Hub.
 			</Subtitle>
 
-			<Slider {...settings}>
-				{slides.map((slide) => (
-					<SlideImage key={slide.alt} src={slide.image} alt={slide.alt} />
-				))}
-			</Slider>
+			<div style={{ margin: "0 auto", maxWidth: "1200px" }}>
+				<Slider {...settings}>
+					{slides.map((slide) => (
+						<div key={slide.alt}>
+							<SlideImage src={slide.image} alt={slide.alt} />
+						</div>
+					))}
+				</Slider>
+			</div>
 		</StyledSection>
 	)
 }
