@@ -20,6 +20,7 @@ import OurTeam from "components/the-hub/our-team"
 import TeamGrid from "components/the-hub/team-grid"
 import OurCommitment from "components/the-hub/our-commitment"
 import BackedBy from "components/the-hub/backed-by"
+import VenueStrip from "components/the-hub/venue-strip"
 
 // Sections
 
@@ -42,6 +43,7 @@ const AboutUs = () => (
 		<Hero />
 		<Logos />
 		<MeetMeMap />
+		<VenueStrip />
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
