@@ -1,58 +1,219 @@
 import React from "react"
-
-// Layout
 import Container from "components/container"
 import styled from "styled-components"
-import Line from "components/about-us/divider"
-
-// Utils
 import breakpoint from "utils/breakpoints/"
+import Image from "next/image"
 
-const StyledH2 = styled.h2`
-	padding-top: 24px;
+const LogoSection = styled.section`
+	text-align: center;
+	padding: 64px 0;
+	background-color: #14161f; // Dark background from the screenshot
 `
 
-const LaunchingGamesAtScale = styled.div`
-	margin: 64px 0;
+const LogoGrid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 48px;
+	align-items: center;
+	justify-items: center;
+	margin-top: 48px;
 
 	${breakpoint.large`
-		margin: 0;
+		gap: 64px;
 	`}
 `
 
-const StyledP = styled.p`
-	margin-top: 8px;
+const LogoWrapper = styled.div`
+	position: relative;
+	width: 130px;
+	height: 50px;
+
+	img {
+		filter: brightness(0) invert(1); // Makes logos white
+		object-fit: contain;
+	}
 `
 
-const OurTeam = () => (
-	<Container className="mt-5 my-lg-5" id="our-team">
-		<div>
-			<div className="text-center d-lg-none">
-				<Line />
-			</div>
+const Heading = styled.h2`
+	color: white;
+	font-size: 32px;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 48px;
+`
 
-			<div className="container">
-				<div className="row">
-					<StyledH2 className="heading--m text-center font-weight--500 col-lg-3 d-lg-flex align-items-center">
-						Our Team
-					</StyledH2>
-					<LaunchingGamesAtScale className="col-lg-9">
-						<h3 className="heading--s font-weight--500">
-							Launching Games at Scale
-						</h3>
-						<StyledP className="text--s">
-							Hathora has enabled millions of players to join live games like
-							Spectre Divide, Splitgate 2, and Stormgate. Improving the
-							operational experience with our marquee orchestration product,
-							game studios save years of engineering time and millions of
-							dollars on building and maintaining their dedicated server
-							infrastructure.
-						</StyledP>
-					</LaunchingGamesAtScale>
-				</div>
-			</div>
-		</div>
-	</Container>
+const Logos = () => (
+	<LogoSection>
+		<Container>
+			<Heading>Join us alongside these companies and many more!</Heading>
+			<LogoGrid>
+				{/* First Row */}
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Wildcard"
+						width={130}
+						height={50}
+						priority
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Mountaintop"
+						width={130}
+						height={50}
+						priority
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Loftia"
+						width={130}
+						height={50}
+						priority
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Naavik"
+						width={130}
+						height={50}
+						priority
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Gambit"
+						width={130}
+						height={50}
+						priority
+					/>
+				</LogoWrapper>
+
+				{/* Second Row */}
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="1047 Games"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="i3D.net"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Night Street"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Frost Giant"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Upfront Ventures"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+
+				{/* Third Row */}
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Internet Game"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="PlaySide"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="GameMakers"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Omeda Studios"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Floren Tech"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+
+				{/* Fourth Row */}
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Core Loop"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Pragma"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="A167 Games"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/splitgate2_logo.svg"
+						alt="Omdia"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+			</LogoGrid>
+		</Container>
+	</LogoSection>
 )
 
-export default OurTeam
+export default Logos
