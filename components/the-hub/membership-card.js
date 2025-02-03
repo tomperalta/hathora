@@ -107,7 +107,49 @@ const FeatureDescription = styled.p`
 	line-height: 1.5;
 `
 
-const MembershipCard = ({ title, description, features, pricing }) => (
+const ImagesContainer = styled.div`
+	grid-column: 1 / -1;
+	display: flex;
+	gap: 1rem;
+	margin-top: 2rem;
+
+	img {
+		width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+	}
+`
+
+const ContactSection = styled.div`
+	grid-column: 1 / -1;
+	border: 1px solid #4ade80;
+	border-radius: 2rem;
+	padding: 1.5rem 2rem;
+	display: inline-block;
+	text-align: center;
+`
+
+const ContactLabel = styled.p`
+	margin: 0;
+	color: #4ade80;
+	font-size: 0.875rem;
+	margin-bottom: 0.5rem;
+`
+
+const ContactEmail = styled.p`
+	margin: 0;
+	color: #4ade80;
+	font-size: 1rem;
+`
+
+const MembershipCard = ({
+	title,
+	description,
+	features,
+	pricing,
+	images,
+	contact,
+}) => (
 	<Card>
 		<CardHeader>
 			<CardTitle>{title}</CardTitle>
@@ -121,6 +163,12 @@ const MembershipCard = ({ title, description, features, pricing }) => (
 					</Price>
 				</PricingSection>
 			)}
+			{contact && (
+				<ContactSection>
+					<ContactLabel>{contact.label}</ContactLabel>
+					<ContactEmail>{contact.email}</ContactEmail>
+				</ContactSection>
+			)}
 		</CardHeader>
 		<FeaturesList>
 			{features.map((feature) => (
@@ -133,6 +181,18 @@ const MembershipCard = ({ title, description, features, pricing }) => (
 				</FeatureItem>
 			))}
 		</FeaturesList>
+		{images && (
+			<ImagesContainer>
+				{images.map((image) => (
+					<img
+						key={image}
+						src={image}
+						alt="Suite view"
+						style={{ width: "100%" }}
+					/>
+				))}
+			</ImagesContainer>
+		)}
 	</Card>
 )
 
@@ -150,10 +210,17 @@ MembershipCard.propTypes = {
 		original: PropTypes.number.isRequired,
 		discounted: PropTypes.number.isRequired,
 	}),
+	images: PropTypes.arrayOf(PropTypes.string),
+	contact: PropTypes.shape({
+		label: PropTypes.string.isRequired,
+		email: PropTypes.string.isRequired,
+	}),
 }
 
 MembershipCard.defaultProps = {
 	pricing: null,
+	images: null,
+	contact: null,
 }
 
 export default MembershipCard

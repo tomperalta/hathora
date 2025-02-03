@@ -107,6 +107,24 @@ const ChooseYourExperience = () => {
 		},
 	]
 
+	const partnerFeatures = [
+		{
+			title: "Private Meeting Space",
+			description:
+				"Enjoy a fully private and custom-branded suite for your clients, team members, and guests to hang out and meet just a few minutes walk from Moscone Center.",
+		},
+		{
+			title: "Brand Visibility",
+			description:
+				"Showcase your company's brand with your logo prominently displayed throughout the Hathora Hub and included in all Hub content.",
+		},
+		{
+			title: "Present and Demo",
+			description:
+				"Access to the HubStage crew and equipment to invite and host your own session or demo.",
+		},
+	]
+
 	return (
 		<Container>
 			<MainTitle>
@@ -142,6 +160,16 @@ const ChooseYourExperience = () => {
 						discounted: 1000,
 						discountLabel: "Early bird discount $500 OFF:",
 					}}
+				/>
+				<MembershipCard
+					title="PARTNER Membership"
+					description="For teams looking to establish their presence with their own, fully customized and branded, suite."
+					features={partnerFeatures}
+					contact={{
+						label: "ONLY 2 SUITES LEFT!",
+						email: "To reserve contact hub@hathora.dev",
+					}}
+					images={["/the-hub/partner-membership-images.webp"]}
 				/>
 			</MembershipsGrid>
 		</Container>
