@@ -15,6 +15,7 @@ import SEO from "components/seo"
 // Sections
 import Hero from "components/the-hub/hero"
 import Logos from "components/the-hub/logos"
+import MeetMeMap from "components/the-hub/meet-me-map"
 import OurTeam from "components/the-hub/our-team"
 import TeamGrid from "components/the-hub/team-grid"
 import OurCommitment from "components/the-hub/our-commitment"
@@ -40,6 +41,7 @@ const AboutUs = () => (
 		/>
 		<Hero />
 		<Logos />
+		<MeetMeMap />
 		<OurTeam />
 		<TeamGrid />
 		<OurCommitment />
