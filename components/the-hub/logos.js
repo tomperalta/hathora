@@ -3,16 +3,16 @@ import Container from "components/container"
 import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
 import Image from "next/image"
+import { colors, blogColors } from "utils/variables"
 
 const LogoSection = styled.section`
 	text-align: center;
-	padding: 64px 0;
-	background-color: #14161f; // Dark background from the screenshot
+	background: ${blogColors.grey__600};
 `
 
 const LogoGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(5, 1fr);
 	gap: 48px;
 	align-items: center;
 	justify-items: center;
@@ -35,11 +35,11 @@ const LogoWrapper = styled.div`
 `
 
 const Heading = styled.h2`
-	color: white;
-	font-size: 32px;
-	font-weight: 500;
-	text-align: center;
-	margin-bottom: 48px;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+	color: ${colors.grey__200};
 `
 
 const Logos = () => (
@@ -50,7 +50,7 @@ const Logos = () => (
 				{/* First Row */}
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/wildcard.svg"
 						alt="Wildcard"
 						width={130}
 						height={50}
@@ -59,7 +59,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/mountaintop.svg"
 						alt="Mountaintop"
 						width={130}
 						height={50}
@@ -68,7 +68,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/loftia.svg"
 						alt="Loftia"
 						width={130}
 						height={50}
@@ -77,7 +77,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/naavik.svg"
 						alt="Naavik"
 						width={130}
 						height={50}
@@ -86,7 +86,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/gambit.svg"
 						alt="Gambit"
 						width={130}
 						height={50}
@@ -95,17 +95,10 @@ const Logos = () => (
 				</LogoWrapper>
 
 				{/* Second Row */}
+
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
-						alt="1047 Games"
-						width={130}
-						height={50}
-					/>
-				</LogoWrapper>
-				<LogoWrapper>
-					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/1047.svg"
 						alt="i3D.net"
 						width={130}
 						height={50}
@@ -113,7 +106,15 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/i3D.svg"
+						alt="i3D.net"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/nightstreet.svg"
 						alt="Night Street"
 						width={130}
 						height={50}
@@ -121,7 +122,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/frost-giant.png"
 						alt="Frost Giant"
 						width={130}
 						height={50}
@@ -129,7 +130,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/Upfront.png"
 						alt="Upfront Ventures"
 						width={130}
 						height={50}
@@ -139,7 +140,7 @@ const Logos = () => (
 				{/* Third Row */}
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/internet-game.svg"
 						alt="Internet Game"
 						width={130}
 						height={50}
@@ -147,7 +148,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/Playside.svg"
 						alt="PlaySide"
 						width={130}
 						height={50}
@@ -155,7 +156,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/GameMakers.svg"
 						alt="GameMakers"
 						width={130}
 						height={50}
@@ -163,7 +164,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/OMEDA.svg"
 						alt="Omeda Studios"
 						width={130}
 						height={50}
@@ -171,7 +172,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/FLOREN.svg"
 						alt="Floren Tech"
 						width={130}
 						height={50}
@@ -181,7 +182,7 @@ const Logos = () => (
 				{/* Fourth Row */}
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/Coreloop.svg"
 						alt="Core Loop"
 						width={130}
 						height={50}
@@ -189,7 +190,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/pragma.png"
 						alt="Pragma"
 						width={130}
 						height={50}
@@ -197,7 +198,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/A16Z.svg"
 						alt="A167 Games"
 						width={130}
 						height={50}
@@ -205,8 +206,16 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/splitgate2_logo.svg"
+						src="/the-hub/logos/OMDIA.svg"
 						alt="Omdia"
+						width={130}
+						height={50}
+					/>
+				</LogoWrapper>
+				<LogoWrapper>
+					<Image
+						src="/the-hub/logos/invokation.svg"
+						alt="Invokation Games"
 						width={130}
 						height={50}
 					/>
