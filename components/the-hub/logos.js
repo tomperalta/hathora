@@ -12,13 +12,19 @@ const LogoSection = styled.section`
 
 const LogoGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 48px;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
 	align-items: center;
 	justify-items: center;
 	margin-top: 48px;
 
+	${breakpoint.medium`
+		grid-template-columns: repeat(4, 1fr);
+		gap: 48px;
+	`}
+
 	${breakpoint.large`
+		grid-template-columns: repeat(5, 1fr);
 		gap: 64px;
 	`}
 `
