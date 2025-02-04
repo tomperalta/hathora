@@ -25,6 +25,7 @@ import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 
 const StyledAboutUs = styled.main`
 	background: ${blogColors.grey__600};
+	padding-bottom: 96px;
 
 	> section {
 		padding: 156px 0 96px 0;

@@ -6,7 +6,6 @@ import MembershipCard from "./membership-card"
 const Container = styled.div`
 	padding: 2rem;
 	color: white;
-	background-color: #1a1a2e;
 `
 
 const MainTitle = styled.h1`

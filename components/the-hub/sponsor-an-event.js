@@ -6,17 +6,8 @@ const Container = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
 	width: 836px;
-	margin: 0 auto 96px;
+	margin: 0 auto;
 	padding: 32px;
-
-	background: linear-gradient(
-			224deg,
-			rgba(255, 255, 255, 0.09) -2.39%,
-			rgba(0, 0, 0, 0) 75.56%
-		),
-		rgba(2, 254, 87, 0);
-
-	backdrop-filter: blur(42px);
 `
 
 const Content = styled.div`
