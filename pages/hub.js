@@ -8,6 +8,7 @@ import LayoutPrimary from "layouts/layout-primary"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
+import { blogColors } from "utils/variables"
 
 // Components
 import SEO from "components/seo"
@@ -23,6 +24,8 @@ import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 // Sections
 
 const StyledAboutUs = styled.main`
+	background: ${blogColors.grey__600};
+
 	> section {
 		padding: 156px 0 96px 0;
 

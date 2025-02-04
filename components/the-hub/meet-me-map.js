@@ -1,35 +1,61 @@
 import React from "react"
 import Container from "components/container"
 import styled from "styled-components"
-import { colors } from "utils/variables"
+import { colors, blogColors } from "utils/variables"
+import Image from "next/image"
+import Line from "components/the-hub/divider"
+
+const DividerContainer = styled.div`
+	padding-top: 64px;
+`
 
 const StyledSection = styled.div`
-	display: flex;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	gap: 64px;
 	padding: 80px 0;
+	align-items: center;
+	background: ${blogColors.grey__600};
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
 `
 
 const MapContainer = styled.div`
-	flex: 1;
-	// You'll add your map image here
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1/1;
+	border-radius: 12px;
+	overflow: hidden;
 `
 
 const ContentContainer = styled.div`
-	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 `
 
 const Description = styled.p`
 	color: ${colors.grey__200};
-	font-size: 20px;
-	line-height: 1.6;
-	margin-bottom: 24px;
+	text-align: justify;
+	font-family: "Space Grotesk";
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
 `
 
 const MeetMeMap = () => (
 	<Container>
+		<DividerContainer className="text-center">
+			<Line />
+		</DividerContainer>
 		<StyledSection>
-			<MapContainer>{/* You'll add your map image here */}</MapContainer>
+			<MapContainer>
+				<Image src="/the-hub/map-desktop.webp" layout="fill" alt="Map" />
+			</MapContainer>
 			<ContentContainer>
 				<Description>
 					As the gaming world converges on San Francisco, take your experience
