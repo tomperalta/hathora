@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 import MembershipCard from "./membership-card"
 
 const Container = styled.div`
@@ -10,12 +11,19 @@ const Container = styled.div`
 
 const MainTitle = styled.h1`
 	text-align: center;
-	font-size: 58px;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: normal;
-	text-transform: uppercase;
-	margin-bottom: 3rem;
+	line-height: 32px;
+
+	${breakpoint.medium`
+		font-size: 58px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+		margin-bottom: 3rem;
+	`}
 `
 
 const GradientText = styled.span`
@@ -136,7 +144,7 @@ const ChooseYourExperience = () => {
 	return (
 		<Container>
 			<MainTitle>
-				CHOOSE YOU <GradientText>HUB</GradientText> EXPERIENCE
+				CHOOSE YOUR <GradientText>HUB</GradientText> EXPERIENCE
 			</MainTitle>
 
 			<BenefitsSection>

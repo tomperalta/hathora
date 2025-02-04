@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 const Card = styled.div`
 	border-radius: 24px;
@@ -14,9 +15,12 @@ const Card = styled.div`
 		#232337;
 	padding: 24px;
 	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 2rem;
+
+	${breakpoint.medium`
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	`}
 `
 
 const CardHeader = styled.div`
