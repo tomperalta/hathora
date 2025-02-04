@@ -1,11 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { colors } from "utils/variables"
 
 const Card = styled.div`
-	background-color: #1e1f2e;
-	border-radius: 2rem;
-	padding: 3rem;
+	border-radius: 24px;
+	border: 1px solid #2f2f2f;
+	background: linear-gradient(
+			224deg,
+			rgba(255, 255, 255, 0.06) -2.39%,
+			rgba(0, 0, 0, 0) 75.56%
+		),
+		#232337;
+	padding: 24px;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -17,32 +24,39 @@ const CardHeader = styled.div`
 `
 
 const CardTitle = styled.h2`
-	margin: 0 0 1rem 0;
-	font-size: 2.5rem;
-	color: white;
+	color: #fff;
+	text-shadow: 0px 0px 24px rgba(175, 100, 238, 0.58);
+	-webkit-text-stroke-width: 0.5;
+	-webkit-text-stroke-color: #000;
+	font-family: "Space Grotesk";
+	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
-	font-family: "Space Grotesk", sans-serif;
+	line-height: 44px;
 `
 
 const CardDescription = styled.p`
-	color: #9ca3af;
-	margin: 0;
-	font-size: 1.125rem;
-	line-height: 1.6;
-	margin-bottom: 2rem;
+	color: var(--neutrals-neutrals-grey-300, #b8b8cf);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px;
+	margin: 24px 0;
 `
 
 const PricingSection = styled.div`
-	border: 1px solid #4ade80;
-	border-radius: 2rem;
+	border-radius: 45px;
+	border: 1px solid ${colors.green__500};
 	padding: 1.5rem 2rem;
 	display: inline-block;
 `
 
 const DiscountLabel = styled.p`
-	margin: 0 0 0.5rem 0;
-	color: #4ade80;
-	font-size: 0.875rem;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	color: ${colors.green__500};
 `
 
 const Price = styled.p`
@@ -52,11 +66,12 @@ const Price = styled.p`
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+	color: ${colors.green__500};
 `
 
 const OriginalPrice = styled.span`
 	text-decoration: line-through;
-	color: #9ca3af;
+	color: ${colors.green__400};
 `
 
 const DiscountedPrice = styled.span`
@@ -93,18 +108,23 @@ const FeatureContent = styled.div`
 `
 
 const FeatureTitle = styled.h3`
-	margin: 0;
-	font-weight: 500;
-	color: white;
-	font-size: 1rem;
-	text-decoration: underline;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-skip-ink: auto;
+	text-decoration-thickness: auto;
+	text-underline-offset: auto;
+	text-underline-position: from-font;
 `
 
 const FeatureDescription = styled.p`
-	margin: 0.25rem 0 0 0;
-	color: #9ca3af;
-	font-size: 0.875rem;
-	line-height: 1.5;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
 `
 
 const ImagesContainer = styled.div`

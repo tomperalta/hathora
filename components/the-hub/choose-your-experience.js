@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { colors } from "utils/variables"
 import MembershipCard from "./membership-card"
 
 const Container = styled.div`
@@ -10,7 +11,11 @@ const Container = styled.div`
 
 const MainTitle = styled.h1`
 	text-align: center;
-	font-size: 3rem;
+	font-size: 58px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-transform: uppercase;
 	margin-bottom: 3rem;
 `
 
@@ -22,15 +27,14 @@ const GradientText = styled.span`
 
 const BenefitsSection = styled.div`
 	text-align: center;
-	margin-bottom: 4rem;
 `
 
 const BenefitsTitle = styled.h2`
-	color: #a78bfa;
-	margin-bottom: 2rem;
-	text-transform: uppercase;
-	font-size: 1rem;
-	letter-spacing: 0.05em;
+	color: ${colors.purple__500};
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
 `
 
 const BenefitsList = styled.ol`
@@ -42,6 +46,11 @@ const BenefitsList = styled.ol`
 	gap: 0.5rem;
 	max-width: 800px;
 	margin: 0 auto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	margin-top: 12px;
 
 	li {
 		counter-increment: benefits-counter;
@@ -55,9 +64,9 @@ const BenefitsList = styled.ol`
 const MembershipsGrid = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 64px;
 	max-width: 900px;
-	margin: 0 auto;
+	margin: 32px auto;
 `
 
 const ChooseYourExperience = () => {
