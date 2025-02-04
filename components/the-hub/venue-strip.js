@@ -17,7 +17,7 @@ const StripContainer = styled.div`
 		content: "";
 		position: absolute;
 		top: 0;
-		height: 100%;
+		height: 83%;
 		width: 200px;
 		z-index: 1;
 	}

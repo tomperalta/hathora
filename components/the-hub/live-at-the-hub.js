@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 const StyledSection = styled.section`
-	background: #0d0e12;
-	padding: 80px 0;
+	padding-top: 64px !important;
 	text-align: center;
 
 	.slick-prev,
@@ -36,7 +35,9 @@ const StyledSection = styled.section`
 const Title = styled.h2`
 	color: white;
 	font-size: 48px;
-	margin-bottom: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 64px;
 
 	span {
 		background: linear-gradient(90deg, #8b5cf6, #4fd1c5);
@@ -46,9 +47,11 @@ const Title = styled.h2`
 `
 
 const Subtitle = styled.p`
-	color: #9ca3af;
-	font-size: 20px;
-	margin-bottom: 48px;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+	margin-bottom: 32px;
 `
 
 const SlideImage = styled.img`

@@ -6,14 +6,14 @@ import Image from "next/image"
 import Line from "components/the-hub/divider"
 
 const DividerContainer = styled.div`
-	padding-top: 64px;
+	padding-top: 0;
 `
 
 const StyledSection = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 64px;
-	padding: 80px 0;
+	padding: 64px 0 48px;
 	align-items: center;
 	background: ${blogColors.grey__600};
 
