@@ -8,7 +8,7 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/the-hub/hero"
-// import Logos from "components/the-hub/logos"
+import Logos from "components/the-hub/logos"
 import MeetMeMap from "components/the-hub/meet-me-map"
 import VenueStrip from "components/the-hub/venue-strip"
 import LiveAtTheHub from "components/the-hub/live-at-the-hub"
@@ -29,7 +29,7 @@ const AboutUs = () => (
 			description="Your exclusive space to network, host meetings, and escape steps away from GDC and the Moscone Center."
 		/>
 		<Hero />
-		{/* <Logos /> */}
+		<Logos />
 		<MeetMeMap />
 		<VenueStrip />
 		<LiveAtTheHub />

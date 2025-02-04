@@ -31,8 +31,6 @@ const LogoGrid = styled.div`
 
 const LogoWrapper = styled.div`
 	position: relative;
-	width: 130px;
-	height: 50px;
 
 	img {
 		filter: brightness(0) invert(1); // Makes logos white
@@ -41,11 +39,19 @@ const LogoWrapper = styled.div`
 `
 
 const Heading = styled.h2`
-	font-size: 24px;
+	color: ${colors.grey__200};
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 32px;
-	color: ${colors.grey__200};
+	line-height: 28px;
+	margin-top: 64px;
+
+	${breakpoint.medium`
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+	`}
 `
 
 const Logos = () => (
