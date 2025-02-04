@@ -12,7 +12,7 @@ import Logos from "components/the-hub/logos"
 import MeetMeMap from "components/the-hub/meet-me-map"
 import VenueStrip from "components/the-hub/venue-strip"
 import LiveAtTheHub from "components/the-hub/live-at-the-hub"
-// import ChooseYourExperience from "components/the-hub/choose-your-experience"
+import ChooseYourExperience from "components/the-hub/choose-your-experience"
 import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 // Sections
 
@@ -33,7 +33,7 @@ const AboutUs = () => (
 		<MeetMeMap />
 		<VenueStrip />
 		<LiveAtTheHub />
-		{/* <ChooseYourExperience /> */}
+		<ChooseYourExperience />
 		<SponsorAnEvent />
 	</StyledAboutUs>
 )

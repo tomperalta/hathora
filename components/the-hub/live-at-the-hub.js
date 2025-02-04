@@ -1,12 +1,19 @@
 import React from "react"
 import styled from "styled-components"
 import Slider from "react-slick"
+import breakpoint from "utils/breakpoints/"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 const StyledSection = styled.section`
-	padding-top: 64px !important;
 	text-align: center;
+
+	${breakpoint.medium`
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 64px;
+	`}
 
 	.slick-prev,
 	.slick-next {
@@ -34,10 +41,17 @@ const StyledSection = styled.section`
 
 const Title = styled.h2`
 	color: white;
-	font-size: 48px;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 64px;
+	line-height: 32px;
+
+	${breakpoint.medium`
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 64px;
+	`}
 
 	span {
 		background: linear-gradient(90deg, #8b5cf6, #4fd1c5);
@@ -47,11 +61,18 @@ const Title = styled.h2`
 `
 
 const Subtitle = styled.p`
-	font-size: 24px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 32px;
-	margin-bottom: 32px;
+	line-height: 24px;
+
+	${breakpoint.medium`
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 32px;
+		margin-bottom: 32px;
+	`}
 `
 
 const SlideImage = styled.img`
@@ -102,7 +123,7 @@ const LiveAtTheHub = () => {
 				Catch these folks during live podcast recordings and events at the Hub.
 			</Subtitle>
 
-			<div style={{ margin: "0 auto", maxWidth: "1200px" }}>
+			<div style={{ margin: "24px auto", maxWidth: "1200px" }}>
 				<Slider {...settings}>
 					{slides.map((slide) => (
 						<div key={slide.alt}>

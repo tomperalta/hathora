@@ -7,7 +7,10 @@ const StripContainer = styled.div`
 	width: 100%;
 	position: relative;
 	height: 240px;
-	margin: 40px 0;
+
+	${breakpoint.medium`
+		margin: 40px 0;
+	`}
 
 	img {
 		object-fit: cover;
