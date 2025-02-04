@@ -1,13 +1,17 @@
 import React from "react"
 import styled from "styled-components"
 import { colors } from "utils/variables"
+import breakpoint from "utils/breakpoints/"
 
 const Container = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
 	max-width: 836px;
 	margin: 0 auto;
-	padding: 32px;
+
+	${breakpoint.medium`
+    padding: 32px;
+  `}
 `
 
 const Content = styled.div`
@@ -20,13 +24,14 @@ const Content = styled.div`
 
 const Title = styled.h2`
 	color: #fff;
-	text-align: right;
-	font-family: "Space Grotesk";
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 64px;
-	text-transform: uppercase;
+
+	${breakpoint.medium`
+    font-size: 32px;
+  	font-style: normal;
+  	font-weight: 700;
+  	line-height: 64px;
+  	text-transform: uppercase;
+  `}
 
 	span {
 		background: linear-gradient(89deg, #a05ef6 83.72%, #65cec3 99.13%);
