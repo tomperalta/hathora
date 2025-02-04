@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
 
 const Container = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
 	width: 836px;
-	margin: 85px auto 0;
+	margin: 0 auto 96px;
+	padding: 32px;
 
 	background: linear-gradient(
 			224deg,
@@ -16,10 +17,6 @@ const Container = styled.div`
 		rgba(2, 254, 87, 0);
 
 	backdrop-filter: blur(42px);
-
-	${breakpoint.medium`
-    padding: 64px 32px;
-  `}
 `
 
 const Content = styled.div`
@@ -37,7 +34,7 @@ const Title = styled.h2`
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 64px; /* 200% */
+	line-height: 64px;
 	text-transform: uppercase;
 
 	span {
@@ -59,12 +56,13 @@ const EmailButton = styled.a`
 	justify-content: center;
 	align-items: center;
 	border-radius: 45px;
-	background: var(--primary-primary-green-500, #02fe57);
+	background: ${colors.green__500};
 	color: #0e0e1b;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 24px;
+	margin-top: 12px;
 `
 
 const SponsorAnEvent = () => (
