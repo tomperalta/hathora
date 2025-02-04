@@ -1,9 +1,6 @@
 import React from "react"
-
-// Libraries
 import styled from "styled-components"
-
-// Components
+import breakpoint from "utils/breakpoints/"
 import Container from "components/container"
 import Image from "next/image"
 import { colors, blogColors } from "utils/variables"
@@ -12,24 +9,45 @@ const StyledHero = styled.section`
 	position: relative;
 	display: flex;
 	align-items: center;
-	margin-top: 165px;
+	margin-top: 20px;
 	background: ${blogColors.grey__600};
+	text-align: center;
+	padding-top: 130px;
+
+	${breakpoint.medium`
+    margin-top: 165px;
+		text-align: left;
+  `}
 
 	.hero__title {
 		color: ${colors.grey__200};
-		font-size: 58px;
+		font-size: 32px;
 		font-style: normal;
-		font-weight: 700;
-		line-height: normal;
-		text-transform: uppercase;
+		font-weight: 500;
+		line-height: 44px;
+
+		${breakpoint.medium`
+	    font-size: 58px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			text-transform: uppercase;
+	  `}
 	}
 
 	.hero__subtitle {
-		font-size: 24px;
+		color: ${colors.purple__300};
+		font-size: 20px;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 32px;
-		color: ${colors.purple__300};
+		line-height: 28px;
+
+		${breakpoint.medium`
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 32px;
+		`}
 	}
 
 	.hero__image {
@@ -44,12 +62,18 @@ const GradientText = styled.span`
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	font-family: "Space Grotesk";
-	font-size: 58px;
+	font-size: 32px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	text-transform: uppercase;
+	font-weight: 500;
+	line-height: 44px;
+
+	${breakpoint.medium`
+		font-size: 58px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+	`}
 `
 
 const RegisterButton = styled.button`
@@ -60,12 +84,16 @@ const RegisterButton = styled.button`
 	font-weight: 500;
 	cursor: pointer;
 	transition: opacity 0.2s;
-	margin-top: 48px;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 24px;
 	color: ${blogColors.grey__600};
+	margin: 24px 0;
+
+	${breakpoint.medium`
+		margin: 48px 0;
+	`}
 
 	&:hover {
 		opacity: 0.9;

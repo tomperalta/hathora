@@ -5,7 +5,7 @@ import { colors } from "utils/variables"
 const Container = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
-	width: 836px;
+	max-width: 836px;
 	margin: 0 auto;
 	padding: 32px;
 `

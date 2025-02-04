@@ -1,13 +1,6 @@
 import React from "react"
-
-// Libraries
 import styled from "styled-components"
-
-// Layout
 import LayoutPrimary from "layouts/layout-primary"
-
-// Utils
-import breakpoint from "utils/breakpoints/"
 import { blogColors } from "utils/variables"
 
 // Components
@@ -15,24 +8,17 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/the-hub/hero"
-import Logos from "components/the-hub/logos"
+// import Logos from "components/the-hub/logos"
 import MeetMeMap from "components/the-hub/meet-me-map"
 import VenueStrip from "components/the-hub/venue-strip"
 import LiveAtTheHub from "components/the-hub/live-at-the-hub"
-import ChooseYourExperience from "components/the-hub/choose-your-experience"
-import SponsorAnEvent from "components/the-hub/sponsor-an-event"
+// import ChooseYourExperience from "components/the-hub/choose-your-experience"
+// import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 // Sections
 
 const StyledAboutUs = styled.main`
 	background: ${blogColors.grey__600};
 	padding-bottom: 96px;
-
-	> section {
-		padding: 156px 0 96px 0;
-
-		${breakpoint.medium`
-      padding: 100px 0;
-    `}
 	}
 `
 
@@ -43,12 +29,12 @@ const AboutUs = () => (
 			description="Your exclusive space to network, host meetings, and escape steps away from GDC and the Moscone Center."
 		/>
 		<Hero />
-		<Logos />
+		{/* <Logos /> */}
 		<MeetMeMap />
 		<VenueStrip />
 		<LiveAtTheHub />
-		<ChooseYourExperience />
-		<SponsorAnEvent />
+		{/* <ChooseYourExperience /> */}
+		{/* <SponsorAnEvent /> */}
 	</StyledAboutUs>
 )
 
