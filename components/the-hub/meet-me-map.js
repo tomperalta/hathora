@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { colors, blogColors } from "utils/variables"
 import Image from "next/image"
 import Line from "components/the-hub/divider"
+import breakpoint from "utils/breakpoints/"
 
 const DividerContainer = styled.div`
 	padding-top: 0;
@@ -39,12 +40,18 @@ const ContentContainer = styled.div`
 
 const Description = styled.p`
 	color: ${colors.grey__200};
-	text-align: justify;
-	font-family: "Space Grotesk";
-	font-size: 25px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 32px;
+	line-height: 24px;
+
+	${breakpoint.medium`
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 28px;
+		text-align: justify;
+	`}
 `
 
 const MeetMeMap = () => (
@@ -54,7 +61,18 @@ const MeetMeMap = () => (
 		</DividerContainer>
 		<StyledSection>
 			<MapContainer>
-				<Image src="/the-hub/map-desktop.webp" layout="fill" alt="Map" />
+				<Image
+					src="/the-hub/map-desktop.webp"
+					layout="fill"
+					alt="Map"
+					className="d-none d-md-block"
+				/>
+				<Image
+					src="/the-hub/map-mobile.webp"
+					layout="fill"
+					alt="Map"
+					className="d-block d-md-none"
+				/>
 			</MapContainer>
 			<ContentContainer>
 				<Description>

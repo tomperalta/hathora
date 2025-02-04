@@ -13,7 +13,7 @@ import MeetMeMap from "components/the-hub/meet-me-map"
 import VenueStrip from "components/the-hub/venue-strip"
 import LiveAtTheHub from "components/the-hub/live-at-the-hub"
 // import ChooseYourExperience from "components/the-hub/choose-your-experience"
-// import SponsorAnEvent from "components/the-hub/sponsor-an-event"
+import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 // Sections
 
 const StyledAboutUs = styled.main`
@@ -34,7 +34,7 @@ const AboutUs = () => (
 		<VenueStrip />
 		<LiveAtTheHub />
 		{/* <ChooseYourExperience /> */}
-		{/* <SponsorAnEvent /> */}
+		<SponsorAnEvent />
 	</StyledAboutUs>
 )
 
