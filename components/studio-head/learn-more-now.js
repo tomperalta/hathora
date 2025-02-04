@@ -98,7 +98,16 @@ const LearnMoreNow = () => (
 		</SvgLine>
 		<ContentWrapper>
 			<Title>Learn more now</Title>
-			<Button href="#header">Get the case study today!</Button>
+			<Button
+				href="#header"
+				onClick={(e) => {
+					e.preventDefault()
+					const element = document.querySelector("#header")
+					element?.scrollIntoView({ behavior: "smooth", block: "start" })
+				}}
+			>
+				Get the case study today!
+			</Button>
 		</ContentWrapper>
 		<SvgLine className="right">
 			<RightLines className="d-none d-md-block" />
