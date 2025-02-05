@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import styled from "styled-components"
 import Logo from "components/logo"
 import { colors } from "utils/variables"
@@ -28,7 +29,12 @@ const LogoWrapper = styled.div`
 const Footer = () => (
 	<FooterContainer>
 		<LogoWrapper>
-			<Logo />
+			<Link href="/" passHref>
+				{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+				<a>
+					<Logo />
+				</a>
+			</Link>
 		</LogoWrapper>
 	</FooterContainer>
 )
