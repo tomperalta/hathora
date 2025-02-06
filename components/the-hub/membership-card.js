@@ -71,9 +71,11 @@ const PricingSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 24px;
 
 	${breakpoint.medium`
 		display: inline-block;
+		margin-top: 0;
 	`}
 `
 
