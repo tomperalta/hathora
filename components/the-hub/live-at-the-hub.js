@@ -123,28 +123,28 @@ const LiveAtTheHub = () => {
 
 	const slides = [
 		{
-			desktopImage: "/the-hub/slides/alexandra.webp",
-			mobileImage: "/the-hub/slides/alexandra-mobile.webp",
+			desktopImage: "/the-hub/slides/alexandra.png",
+			mobileImage: "/the-hub/slides/alexandra-mobile.png",
 			alt: "Alexandra at the Hub",
 		},
 		// {
-		// 	desktopImage: "/the-hub/slides/eden.webp",
-		// 	mobileImage: "/the-hub/slides/eden-mobile.webp",
+		// 	desktopImage: "/the-hub/slides/eden.png",
+		// 	mobileImage: "/the-hub/slides/eden-mobile.png",
 		// 	alt: "Eden at the Hub",
 		// },
 		{
-			desktopImage: "/the-hub/slides/joseph.webp",
-			mobileImage: "/the-hub/slides/joseph-mobile.webp",
+			desktopImage: "/the-hub/slides/joseph.png",
+			mobileImage: "/the-hub/slides/joseph-mobile.png",
 			alt: "Joseph at the Hub",
 		},
 		// {
-		// 	desktopImage: "/the-hub/slides/kevin.webp",
-		// 	mobileImage: "/the-hub/slides/kevin-mobile.webp",
+		// 	desktopImage: "/the-hub/slides/kevin.png",
+		// 	mobileImage: "/the-hub/slides/kevin-mobile.png",
 		// 	alt: "Kevin at the Hub",
 		// },
 		{
-			desktopImage: "/the-hub/slides/troy.webp",
-			mobileImage: "/the-hub/slides/troy-mobile.webp",
+			desktopImage: "/the-hub/slides/troy.png",
+			mobileImage: "/the-hub/slides/troy-mobile.png",
 			alt: "Troy at the Hub",
 		},
 	]
