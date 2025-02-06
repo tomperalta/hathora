@@ -395,11 +395,6 @@ const Menu = () => {
 			label: "Documentation",
 			url: "/docs",
 		},
-		// {
-		// 	label: "Community",
-		// 	url: "https://community.hathora.dev",
-		// 	external: true,
-		// },
 		{
 			label: "API Reference",
 			url: "https://hathora.dev/api",
@@ -408,6 +403,10 @@ const Menu = () => {
 		{
 			label: "Blog",
 			url: "/blog",
+		},
+		{
+			label: "Hub",
+			url: "/hub",
 		},
 	]
 
