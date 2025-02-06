@@ -56,7 +56,7 @@ const Description = styled.p`
 
 const MeetMeMap = () => (
 	<Container>
-		<DividerContainer className="text-center">
+		<DividerContainer className="text-center d-none d-md-block">
 			<Line />
 		</DividerContainer>
 		<StyledSection>
