@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import styled from "styled-components"
 import Logo from "components/logo"
 import breakpoint from "utils/breakpoints/"
@@ -82,7 +83,12 @@ const CaseStudyButton = styled.a`
 const Header = () => (
 	<HeaderContainer id="header">
 		<LogoWrapper>
-			<Logo />
+			<Link href="/" passHref>
+				{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+				<a>
+					<Logo />
+				</a>
+			</Link>
 		</LogoWrapper>
 		<NavLinks>
 			<ContactLink href="/contact">Contact Us</ContactLink>
