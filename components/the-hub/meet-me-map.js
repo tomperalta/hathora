@@ -1,10 +1,13 @@
 import React from "react"
-import Container from "components/container"
 import styled from "styled-components"
 import { colors, blogColors } from "utils/variables"
 import Image from "next/image"
 import Line from "components/the-hub/divider"
 import breakpoint from "utils/breakpoints/"
+
+const Container = styled.section`
+	padding-right: 160px;
+`
 
 const DividerContainer = styled.div`
 	padding-top: 0;
