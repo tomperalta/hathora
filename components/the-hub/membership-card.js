@@ -68,7 +68,6 @@ const CardDescription = styled.p`
 `
 
 const PricingSection = styled.div`
-	padding: 1.5rem 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
