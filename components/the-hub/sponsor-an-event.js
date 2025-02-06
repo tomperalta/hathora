@@ -67,7 +67,7 @@ const SponsorAnEvent = () => (
 			<Title>
 				WANT TO SPONSOR AN EVENT AT THE <span>HUB</span>?
 			</Title>
-			<EmailButton href="mailto:contact@hathora.dev">Email us</EmailButton>
+			<EmailButton href="mailto:hub@hathora.dev">Email us</EmailButton>
 		</Content>
 	</Container>
 )

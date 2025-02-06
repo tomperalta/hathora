@@ -218,6 +218,7 @@ const ChooseYourExperience = () => {
 						email: "To reserve contact hub@hathora.dev",
 					}}
 					images={["/the-hub/partner-membership-images.webp"]}
+					url="mailto:hub@hathora.dev"
 				/>
 			</MembershipsGrid>
 		</Container>

@@ -187,7 +187,7 @@ const MembershipCard = ({
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
 			{pricing && (
-				<PricingSection>
+				<PricingSection className="d-none d-md-inline-block">
 					<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
 					<Price>
 						<OriginalPrice>${pricing.original}</OriginalPrice>
@@ -224,6 +224,16 @@ const MembershipCard = ({
 					/>
 				))}
 			</ImagesContainer>
+		)}
+
+		{pricing && (
+			<PricingSection className="d-md-inline-block d-md-none">
+				<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
+				<Price>
+					<OriginalPrice>${pricing.original}</OriginalPrice>
+					<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+				</Price>
+			</PricingSection>
 		)}
 	</Card>
 )
