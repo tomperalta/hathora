@@ -91,7 +91,7 @@ const Header = () => (
 			</Link>
 		</LogoWrapper>
 		<NavLinks>
-			<ContactLink href="/contact">Contact Us</ContactLink>
+			<ContactLink href="mailto:contact@hathora.dev">Contact Us</ContactLink>
 			<CaseStudyButton href="#form">Get the case study</CaseStudyButton>
 		</NavLinks>
 	</HeaderContainer>
