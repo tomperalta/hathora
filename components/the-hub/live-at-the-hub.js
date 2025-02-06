@@ -127,21 +127,21 @@ const LiveAtTheHub = () => {
 			mobileImage: "/the-hub/slides/alexandra-mobile.webp",
 			alt: "Alexandra at the Hub",
 		},
-		{
-			desktopImage: "/the-hub/slides/eden.webp",
-			mobileImage: "/the-hub/slides/eden-mobile.webp",
-			alt: "Eden at the Hub",
-		},
+		// {
+		// 	desktopImage: "/the-hub/slides/eden.webp",
+		// 	mobileImage: "/the-hub/slides/eden-mobile.webp",
+		// 	alt: "Eden at the Hub",
+		// },
 		{
 			desktopImage: "/the-hub/slides/joseph.webp",
 			mobileImage: "/the-hub/slides/joseph-mobile.webp",
 			alt: "Joseph at the Hub",
 		},
-		{
-			desktopImage: "/the-hub/slides/kevin.webp",
-			mobileImage: "/the-hub/slides/kevin-mobile.webp",
-			alt: "Kevin at the Hub",
-		},
+		// {
+		// 	desktopImage: "/the-hub/slides/kevin.webp",
+		// 	mobileImage: "/the-hub/slides/kevin-mobile.webp",
+		// 	alt: "Kevin at the Hub",
+		// },
 		{
 			desktopImage: "/the-hub/slides/troy.webp",
 			mobileImage: "/the-hub/slides/troy-mobile.webp",
