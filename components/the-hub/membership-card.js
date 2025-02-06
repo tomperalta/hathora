@@ -149,27 +149,6 @@ const ImagesContainer = styled.div`
 	}
 `
 
-const ContactSection = styled.div`
-	grid-column: 1 / -1;
-	border: 1px solid #4ade80;
-	border-radius: 2rem;
-	padding: 1.5rem 2rem;
-	display: inline-block;
-	text-align: center;
-`
-
-const ContactLabel = styled.p`
-	margin: 0;
-	color: #4ade80;
-	font-size: 0.875rem;
-	margin-bottom: 0.5rem;
-`
-
-const ContactEmail = styled.p`
-	margin: 0;
-	color: #4ade80;
-	font-size: 1rem;
-`
 const EmailButton = styled.a`
 	display: flex;
 	padding: 16px 40px;
@@ -191,7 +170,6 @@ const MembershipCard = ({
 	features,
 	pricing,
 	images,
-	contact,
 	buttonText,
 	url,
 }) => (
@@ -212,12 +190,6 @@ const MembershipCard = ({
 					</Price>
 					<EmailButton href={url}>{buttonText}</EmailButton>
 				</PricingSection>
-			)}
-			{contact && (
-				<ContactSection>
-					<ContactLabel>{contact.label}</ContactLabel>
-					<ContactEmail>{contact.email}</ContactEmail>
-				</ContactSection>
 			)}
 		</CardHeader>
 		<FeaturesList>
