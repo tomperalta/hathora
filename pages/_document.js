@@ -52,6 +52,13 @@ export default class MyDocument extends Document {
 					href="https://unpkg.com/aos@2.3.1/dist/aos.css"
 					rel="stylesheet"
 				/>
+				<script
+					type="text/javascript"
+					id="hs-script-loader"
+					async
+					defer
+					src="//js.hs-scripts.com/22776178.js"
+				/>
 			</Head>
 			<body>
 				<Main />
