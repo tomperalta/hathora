@@ -83,15 +83,6 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/loftia.svg"
-						alt="Loftia"
-						width={130}
-						height={50}
-						priority
-					/>
-				</LogoWrapper>
-				<LogoWrapper>
-					<Image
 						src="/the-hub/logos/naavik.svg"
 						alt="Naavik"
 						width={130}
@@ -114,7 +105,7 @@ const Logos = () => (
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/1047.svg"
-						alt="i3D.net"
+						alt="1047"
 						width={130}
 						height={50}
 					/>
@@ -153,14 +144,6 @@ const Logos = () => (
 				</LogoWrapper>
 
 				{/* Third Row */}
-				<LogoWrapper>
-					<Image
-						src="/the-hub/logos/internet-game.svg"
-						alt="Internet Game"
-						width={130}
-						height={50}
-					/>
-				</LogoWrapper>
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/Playside.svg"
