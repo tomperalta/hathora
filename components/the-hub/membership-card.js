@@ -104,6 +104,11 @@ const FeaturesList = styled.div`
 	flex-direction: column;
 	gap: 1.5rem;
 	grid-column: 2;
+
+	@media (min-width: 769px) {
+		height: 100%;
+		justify-content: center;
+	}
 `
 
 const FeatureItem = styled.div`
