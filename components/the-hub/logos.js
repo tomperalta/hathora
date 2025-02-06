@@ -112,7 +112,7 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/i3D.svg"
+						src="/the-hub/logos/i3d.svg"
 						alt="i3D.net"
 						width={130}
 						height={50}
