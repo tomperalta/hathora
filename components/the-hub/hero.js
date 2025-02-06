@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
 import Container from "components/container"
-import Image from "next/image"
 import { colors, blogColors } from "utils/variables"
+import Script from "next/script"
 
 const StyledHero = styled.section`
 	position: relative;
@@ -127,12 +127,24 @@ const Hero = () => (
 				</div>
 				<div className="col-12 col-md-4">
 					<div className="hero__image">
-						<Image
-							src="/the-hub/hub-hero.webp"
-							alt="Hathora Hub Space"
-							width={600}
-							height={400}
-							objectFit="cover"
+						<div style={{ padding: "60% 0 0 0", position: "relative" }}>
+							<iframe
+								src="https://player.vimeo.com/video/1054268151?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&background=1&muted=1"
+								frameBorder="0"
+								allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+								style={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+									width: "100%",
+									height: "100%",
+								}}
+								title="Hathora Hub Space"
+							/>
+						</div>
+						<Script
+							src="https://player.vimeo.com/api/player.js"
+							strategy="lazyOnload"
 						/>
 					</div>
 				</div>
