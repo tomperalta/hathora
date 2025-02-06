@@ -105,12 +105,19 @@ const LiveAtTheHub = () => {
 
 	const slides = [
 		{
-			image: "/the-hub/slides/slide-1.webp",
-			alt: "Alexandra Takei - NAAVIK Podcast Host",
+			image: "/the-hub/slides/alexandra.webp",
 		},
 		{
-			image: "/the-hub/slides/slide-1.webp", // Added duplicate for testing
-			alt: "Alexandra Takei - NAAVIK Podcast Host 2",
+			image: "/the-hub/slides/eden.webp",
+		},
+		{
+			image: "/the-hub/slides/joseph.webp",
+		},
+		{
+			image: "/the-hub/slides/kevin.webp",
+		},
+		{
+			image: "/the-hub/slides/troy.webp",
 		},
 	]
 
