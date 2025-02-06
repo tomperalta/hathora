@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
-const Card = styled.a`
+const CardWrapper = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
 	background: linear-gradient(
@@ -15,8 +15,6 @@ const Card = styled.a`
 		#232337;
 	padding: 24px;
 	width: 100%;
-	text-decoration: none;
-	display: block;
 	transition: transform 0.2s ease-in-out;
 
 	&:hover {
@@ -28,6 +26,20 @@ const Card = styled.a`
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
 	`}
+`
+
+const StyledButton = styled.a`
+	display: inline-block;
+	text-decoration: none;
+	padding: 12px 24px;
+	background: ${colors.green__500};
+	border-radius: 45px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	color: #1e1e1e;
+	margin-top: 12px;
 `
 
 const CardHeader = styled.div`
@@ -149,21 +161,6 @@ const ImagesContainer = styled.div`
 	}
 `
 
-const EmailButton = styled.a`
-	display: flex;
-	padding: 16px 40px;
-	justify-content: center;
-	align-items: center;
-	border-radius: 45px;
-	background: ${colors.green__500};
-	color: #0e0e1b;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 24px;
-	margin-top: 12px;
-`
-
 const MembershipCard = ({
 	title,
 	description,
@@ -173,7 +170,7 @@ const MembershipCard = ({
 	buttonText,
 	url,
 }) => (
-	<Card>
+	<CardWrapper>
 		<CardHeader>
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
@@ -188,7 +185,7 @@ const MembershipCard = ({
 							<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
 						)}
 					</Price>
-					<EmailButton href={url}>{buttonText}</EmailButton>
+					<StyledButton href={url}>{buttonText}</StyledButton>
 				</PricingSection>
 			)}
 		</CardHeader>
@@ -227,9 +224,10 @@ const MembershipCard = ({
 						<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
 					)}
 				</Price>
+				<StyledButton href={url}>{buttonText}</StyledButton>
 			</PricingSection>
 		)}
-	</Card>
+	</CardWrapper>
 )
 
 MembershipCard.propTypes = {
