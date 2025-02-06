@@ -10,9 +10,12 @@ const StyledHero = styled.section`
 	display: flex;
 	align-items: center;
 	margin-top: 20px;
-	background: ${blogColors.grey__600};
 	text-align: center;
 	padding-top: 130px;
+	background-image: url("/the-hub/header-circles.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
 
 	${breakpoint.medium`
     margin-top: 165px;
