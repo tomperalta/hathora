@@ -5,8 +5,12 @@ import breakpoint from "utils/breakpoints/"
 import MembershipCard from "./membership-card"
 
 const Container = styled.div`
-	padding: 128px 0 24px;
+	padding: 64px 24px 24px;
 	color: white;
+
+	${breakpoint.medium`
+		padding: 128px 0 24px;
+	`}
 `
 
 const MainTitle = styled.h1`
@@ -27,13 +31,37 @@ const MainTitle = styled.h1`
 `
 
 const GradientText = styled.span`
-	background: linear-gradient(to right, #a78bfa, #93c5fd, #67e8f9);
+	color: white;
+
+	${breakpoint.medium`
+		background: linear-gradient(to right, #a78bfa, #93c5fd, #67e8f9);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	`}
+`
+
+const MobileGradientText = styled.span`
+	background: linear-gradient(86deg, #ab47ff 38.17%, #4dffae 99.37%);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	${breakpoint.medium`
+		background: none;
+		-webkit-background-clip: initial;
+		-webkit-text-fill-color: initial;
+		color: white;
+	`}
 `
 
 const BenefitsSection = styled.div`
-	text-align: center;
+	text-align: left;
+	margin-top: 24px;
+
+	${breakpoint.medium`
+		text-align: center;
+		margin-top: 0;
+	`}
 `
 
 const BenefitsTitle = styled.h2`
@@ -144,7 +172,9 @@ const ChooseYourExperience = () => {
 	return (
 		<Container id="choose-experience">
 			<MainTitle>
-				CHOOSE YOUR <GradientText>HUB</GradientText> EXPERIENCE
+				CHOOSE YOUR <GradientText>HUB</GradientText>
+				<br className="d-md-none" />{" "}
+				<MobileGradientText>EXPERIENCE</MobileGradientText>
 			</MainTitle>
 
 			<BenefitsSection>
