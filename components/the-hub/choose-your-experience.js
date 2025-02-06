@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 import MembershipCard from "./membership-card"
+import PartnerMembershipCard from "./partner-membership-card"
 
 const Container = styled.div`
 	padding: 64px 24px 24px;
@@ -211,7 +212,7 @@ const ChooseYourExperience = () => {
 					buttonText="Get the PATRON"
 					url="https://tally.so/#tally-open=n01p5P&lvl=ptrn&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
 				/>
-				<MembershipCard
+				<PartnerMembershipCard
 					title="PARTNER Membership"
 					description="For teams looking to establish their presence with their own, fully customized and branded, suite."
 					features={partnerFeatures}
