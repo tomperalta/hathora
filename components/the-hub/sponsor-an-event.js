@@ -6,11 +6,13 @@ import breakpoint from "utils/breakpoints/"
 const Container = styled.div`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
-	max-width: 836px;
-	margin: 0 auto;
+	padding: 24px;
+	margin: 0 24px;
 
 	${breakpoint.medium`
     padding: 32px;
+		max-width: 900px;
+		margin: 0 auto;
   `}
 `
 
@@ -20,6 +22,10 @@ const Content = styled.div`
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 `
 
 const Title = styled.h2`
