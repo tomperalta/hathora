@@ -5,7 +5,7 @@ import breakpoint from "utils/breakpoints/"
 import MembershipCard from "./membership-card"
 
 const Container = styled.div`
-	padding: 2rem;
+	padding: 128px 0 24px;
 	color: white;
 `
 
@@ -166,6 +166,7 @@ const ChooseYourExperience = () => {
 						discounted: 100,
 						discountLabel: "Early bird discount $150 OFF:",
 					}}
+					url="https://tally.so/#tally-open=n01p5P&lvl=pss&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
 				/>
 				<MembershipCard
 					title="PATRON Membership"
@@ -176,6 +177,7 @@ const ChooseYourExperience = () => {
 						discounted: 1000,
 						discountLabel: "Early bird discount $500 OFF:",
 					}}
+					url="https://tally.so/#tally-open=n01p5P&lvl=ptrn&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
 				/>
 				<MembershipCard
 					title="PARTNER Membership"

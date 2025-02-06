@@ -14,7 +14,7 @@ const StyledSection = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 64px;
-	padding: 64px 0 48px;
+	padding-bottom: 48px;
 	align-items: center;
 	background: ${blogColors.grey__600};
 

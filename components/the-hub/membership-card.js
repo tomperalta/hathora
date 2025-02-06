@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
-const Card = styled.div`
+const Card = styled.a`
 	border-radius: 24px;
 	border: 1px solid #2f2f2f;
 	background: linear-gradient(
@@ -15,6 +15,13 @@ const Card = styled.div`
 		#232337;
 	padding: 24px;
 	width: 100%;
+	text-decoration: none;
+	display: block;
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translateY(-4px);
+	}
 
 	${breakpoint.medium`
 		display: grid;
@@ -173,8 +180,9 @@ const MembershipCard = ({
 	pricing,
 	images,
 	contact,
+	url,
 }) => (
-	<Card>
+	<Card href={url}>
 		<CardHeader>
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
@@ -239,12 +247,14 @@ MembershipCard.propTypes = {
 		label: PropTypes.string.isRequired,
 		email: PropTypes.string.isRequired,
 	}),
+	url: PropTypes.string,
 }
 
 MembershipCard.defaultProps = {
 	pricing: null,
 	images: null,
 	contact: null,
+	url: "#",
 }
 
 export default MembershipCard
