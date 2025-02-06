@@ -56,8 +56,6 @@ const CardDescription = styled.p`
 `
 
 const PricingSection = styled.div`
-	border-radius: 45px;
-	border: 1px solid ${colors.green__500};
 	padding: 1.5rem 2rem;
 	display: inline-block;
 `
@@ -172,6 +170,20 @@ const ContactEmail = styled.p`
 	color: #4ade80;
 	font-size: 1rem;
 `
+const EmailButton = styled.a`
+	display: flex;
+	padding: 16px 40px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 45px;
+	background: ${colors.green__500};
+	color: #0e0e1b;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	margin-top: 12px;
+`
 
 const MembershipCard = ({
 	title,
@@ -180,9 +192,10 @@ const MembershipCard = ({
 	pricing,
 	images,
 	contact,
+	buttonText,
 	url,
 }) => (
-	<Card href={url}>
+	<Card>
 		<CardHeader>
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
@@ -190,9 +203,14 @@ const MembershipCard = ({
 				<PricingSection className="d-none d-md-inline-block">
 					<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
 					<Price>
-						<OriginalPrice>${pricing.original}</OriginalPrice>
-						<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+						{pricing.original && (
+							<OriginalPrice>${pricing.original}</OriginalPrice>
+						)}
+						{pricing.discounted && (
+							<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+						)}
 					</Price>
+					<EmailButton href={url}>{buttonText}</EmailButton>
 				</PricingSection>
 			)}
 			{contact && (
@@ -230,8 +248,12 @@ const MembershipCard = ({
 			<PricingSection className="d-md-inline-block d-md-none">
 				<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
 				<Price>
-					<OriginalPrice>${pricing.original}</OriginalPrice>
-					<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+					{pricing.original && (
+						<OriginalPrice>${pricing.original}</OriginalPrice>
+					)}
+					{pricing.discounted && (
+						<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+					)}
 				</Price>
 			</PricingSection>
 		)}
@@ -248,15 +270,16 @@ MembershipCard.propTypes = {
 		})
 	).isRequired,
 	pricing: PropTypes.shape({
-		discountLabel: PropTypes.string.isRequired,
-		original: PropTypes.number.isRequired,
-		discounted: PropTypes.number.isRequired,
+		discountLabel: PropTypes.string,
+		original: PropTypes.number,
+		discounted: PropTypes.number,
 	}),
 	images: PropTypes.arrayOf(PropTypes.string),
 	contact: PropTypes.shape({
 		label: PropTypes.string.isRequired,
 		email: PropTypes.string.isRequired,
 	}),
+	buttonText: PropTypes.string,
 	url: PropTypes.string,
 }
 
@@ -265,6 +288,7 @@ MembershipCard.defaultProps = {
 	images: null,
 	contact: null,
 	url: "#",
+	buttonText: "Learn More",
 }
 
 export default MembershipCard

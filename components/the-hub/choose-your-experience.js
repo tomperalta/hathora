@@ -196,6 +196,7 @@ const ChooseYourExperience = () => {
 						discounted: 100,
 						discountLabel: "Early bird discount $150 OFF:",
 					}}
+					buttonText="Get the PASS"
 					url="https://tally.so/#tally-open=n01p5P&lvl=pss&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
 				/>
 				<MembershipCard
@@ -207,18 +208,19 @@ const ChooseYourExperience = () => {
 						discounted: 1000,
 						discountLabel: "Early bird discount $500 OFF:",
 					}}
+					buttonText="Get the PATRON"
 					url="https://tally.so/#tally-open=n01p5P&lvl=ptrn&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
 				/>
 				<MembershipCard
 					title="PARTNER Membership"
 					description="For teams looking to establish their presence with their own, fully customized and branded, suite."
 					features={partnerFeatures}
-					contact={{
-						label: "ONLY 2 SUITES LEFT!",
-						email: "To reserve contact hub@hathora.dev",
+					pricing={{
+						discountLabel: "ONLY 2 SUITES LEFT!",
 					}}
 					images={["/the-hub/partner-membership-images.webp"]}
 					url="mailto:hub@hathora.dev"
+					buttonText="Contact Us"
 				/>
 			</MembershipsGrid>
 		</Container>
