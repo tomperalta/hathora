@@ -126,6 +126,30 @@ const Checkmark = styled.span`
 
 const FeatureContent = styled.div`
 	flex: 1;
+
+	@media (max-width: 768px) {
+		.description {
+			height: 0;
+			overflow: hidden;
+			transition: height 0.3s ease-out;
+		}
+
+		&.expanded .description {
+			height: auto;
+			margin-top: 8px;
+		}
+	}
+`
+
+const ChevronIcon = styled.svg`
+	width: 20px;
+	height: 20px;
+	transition: transform 0.3s ease;
+	transform: ${(props) => (props.$expanded ? "rotate(-180deg)" : "rotate(0)")};
+
+	@media (min-width: 769px) {
+		display: none;
+	}
 `
 
 const FeatureTitle = styled.h3`
@@ -139,6 +163,15 @@ const FeatureTitle = styled.h3`
 	text-decoration-thickness: auto;
 	text-underline-offset: auto;
 	text-underline-position: from-font;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+
+	@media (min-width: 769px) {
+		cursor: default;
+	}
 `
 
 const FeatureDescription = styled.p`
@@ -169,13 +202,84 @@ const MembershipCard = ({
 	images,
 	buttonText,
 	url,
-}) => (
-	<CardWrapper>
-		<CardHeader>
-			<CardTitle>{title}</CardTitle>
-			<CardDescription>{description}</CardDescription>
+}) => {
+	const [expandedFeatures, setExpandedFeatures] = React.useState([])
+
+	const toggleFeature = (index) => {
+		setExpandedFeatures((prev) => {
+			if (prev.includes(index)) {
+				return prev.filter((i) => i !== index)
+			}
+			return [...prev, index]
+		})
+	}
+
+	return (
+		<CardWrapper>
+			<CardHeader>
+				<CardTitle>{title}</CardTitle>
+				<CardDescription>{description}</CardDescription>
+				{pricing && (
+					<PricingSection className="d-none d-md-inline-block">
+						<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
+						<Price>
+							{pricing.original && (
+								<OriginalPrice>${pricing.original}</OriginalPrice>
+							)}
+							{pricing.discounted && (
+								<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
+							)}
+						</Price>
+						<StyledButton href={url}>{buttonText}</StyledButton>
+					</PricingSection>
+				)}
+			</CardHeader>
+			<FeaturesList>
+				{features.map((feature, index) => (
+					<FeatureItem key={feature.title}>
+						<Checkmark>✓</Checkmark>
+						<FeatureContent
+							className={expandedFeatures.includes(index) ? "expanded" : ""}
+						>
+							<FeatureTitle onClick={() => toggleFeature(index)}>
+								{feature.title}
+								<ChevronIcon
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									$expanded={expandedFeatures.includes(index)}
+								>
+									<path
+										d="M6 9L12 15L18 9"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</ChevronIcon>
+							</FeatureTitle>
+							<div className="description">
+								<FeatureDescription>{feature.description}</FeatureDescription>
+							</div>
+						</FeatureContent>
+					</FeatureItem>
+				))}
+			</FeaturesList>
+			{images && (
+				<ImagesContainer>
+					{images.map((image) => (
+						<img
+							key={image}
+							src={image}
+							alt="Suite view"
+							style={{ width: "100%" }}
+						/>
+					))}
+				</ImagesContainer>
+			)}
+
 			{pricing && (
-				<PricingSection className="d-none d-md-inline-block">
+				<PricingSection className="d-md-inline-block d-md-none">
 					<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
 					<Price>
 						{pricing.original && (
@@ -188,47 +292,9 @@ const MembershipCard = ({
 					<StyledButton href={url}>{buttonText}</StyledButton>
 				</PricingSection>
 			)}
-		</CardHeader>
-		<FeaturesList>
-			{features.map((feature) => (
-				<FeatureItem key={feature.title}>
-					<Checkmark>✓</Checkmark>
-					<FeatureContent>
-						<FeatureTitle>{feature.title}</FeatureTitle>
-						<FeatureDescription>{feature.description}</FeatureDescription>
-					</FeatureContent>
-				</FeatureItem>
-			))}
-		</FeaturesList>
-		{images && (
-			<ImagesContainer>
-				{images.map((image) => (
-					<img
-						key={image}
-						src={image}
-						alt="Suite view"
-						style={{ width: "100%" }}
-					/>
-				))}
-			</ImagesContainer>
-		)}
-
-		{pricing && (
-			<PricingSection className="d-md-inline-block d-md-none">
-				<DiscountLabel>{pricing.discountLabel}</DiscountLabel>
-				<Price>
-					{pricing.original && (
-						<OriginalPrice>${pricing.original}</OriginalPrice>
-					)}
-					{pricing.discounted && (
-						<DiscountedPrice>${pricing.discounted}</DiscountedPrice>
-					)}
-				</Price>
-				<StyledButton href={url}>{buttonText}</StyledButton>
-			</PricingSection>
-		)}
-	</CardWrapper>
-)
+		</CardWrapper>
+	)
+}
 
 MembershipCard.propTypes = {
 	title: PropTypes.string.isRequired,
