@@ -6,7 +6,7 @@ import Line from "components/the-hub/divider"
 import breakpoint from "utils/breakpoints/"
 
 const Container = styled.section`
-	padding-right: 160px;
+	max-width: 1200px;
 `
 
 const DividerContainer = styled.div`
@@ -39,6 +39,7 @@ const ContentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	max-width: 700px;
 `
 
 const Description = styled.p`
