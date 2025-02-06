@@ -69,7 +69,13 @@ const CardDescription = styled.p`
 
 const PricingSection = styled.div`
 	padding: 1.5rem 2rem;
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	${breakpoint.medium`
+		display: inline-block;
+	`}
 `
 
 const DiscountLabel = styled.p`
