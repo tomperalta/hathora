@@ -8,6 +8,7 @@ import { colors, blogColors } from "utils/variables"
 const LogoSection = styled.section`
 	text-align: center;
 	background: ${blogColors.grey__600};
+	padding: 100px 0;
 `
 
 const LogoGrid = styled.div`
@@ -44,7 +45,6 @@ const Heading = styled.h2`
 	font-style: normal;
 	font-weight: 700;
 	line-height: 28px;
-	margin-top: 64px;
 
 	${breakpoint.medium`
 		font-size: 24px;

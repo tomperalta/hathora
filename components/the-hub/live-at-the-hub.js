@@ -133,7 +133,7 @@ const LiveAtTheHub = () => {
 			<div style={{ margin: "24px auto", maxWidth: "1200px" }}>
 				<Slider {...settings}>
 					{slides.map((slide) => (
-						<div key={slide.alt}>
+						<div key={slide.image}>
 							<SlideImage src={slide.image} alt={slide.alt} />
 						</div>
 					))}
