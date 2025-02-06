@@ -18,6 +18,10 @@ import SponsorAnEvent from "components/the-hub/sponsor-an-event"
 
 const StyledAboutUs = styled.main`
 	background: ${blogColors.grey__600};
+	background-image: url('/the-hub/footer-circles.png');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
 	padding-bottom: 96px;
 	}
 `

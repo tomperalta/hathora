@@ -4,10 +4,17 @@ import { colors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 const Container = styled.div`
-	border-radius: 24px;
-	border: 1px solid #2f2f2f;
 	padding: 24px;
 	margin: 0 24px;
+	border-radius: 24px;
+	border: 1px solid #2f2f2f;
+	background: linear-gradient(
+			224deg,
+			rgba(255, 255, 255, 0) -2.39%,
+			rgba(0, 0, 0, 0) 75.56%
+		),
+		rgba(2, 254, 87, 0);
+	backdrop-filter: blur(42.5px);
 
 	${breakpoint.medium`
     padding: 32px;
