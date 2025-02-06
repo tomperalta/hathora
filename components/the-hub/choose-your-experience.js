@@ -142,7 +142,7 @@ const ChooseYourExperience = () => {
 	]
 
 	return (
-		<Container>
+		<Container id="choose-experience">
 			<MainTitle>
 				CHOOSE YOUR <GradientText>HUB</GradientText> EXPERIENCE
 			</MainTitle>

@@ -114,7 +114,15 @@ const Hero = () => (
 							Your exclusive space to network, host meetings, and escape steps
 							away from GDC and the Moscone Center.
 						</p>
-						<RegisterButton>Register</RegisterButton>
+						<RegisterButton
+							onClick={() => {
+								document
+									.getElementById("choose-experience")
+									.scrollIntoView({ behavior: "smooth" })
+							}}
+						>
+							Register
+						</RegisterButton>
 					</div>
 				</div>
 				<div className="col-12 col-md-4">
