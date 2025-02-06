@@ -74,9 +74,13 @@ const PricingSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
+	width: 100%;
 
 	${breakpoint.medium`
 		display: inline-block;
+		text-align: left;
+		width: auto;
 	`}
 `
 
