@@ -7,12 +7,15 @@ import "slick-carousel/slick/slick-theme.css"
 
 const StyledSection = styled.section`
 	text-align: center;
+	margin-top: 64px;
+	padding: 0 24px;
 
 	${breakpoint.medium`
 		font-size: 48px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 64px;
+		padding: 0;
 	`}
 
 	.slick-prev,
