@@ -40,6 +40,11 @@ const ContentContainer = styled.div`
 	flex-direction: column;
 	gap: 24px;
 	max-width: 700px;
+	padding: 0 24px;
+
+	${breakpoint.medium`
+		padding: 0;
+	`}
 `
 
 const Description = styled.p`

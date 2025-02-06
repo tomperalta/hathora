@@ -8,6 +8,7 @@ import { colors, blogColors } from "utils/variables"
 const LogoSection = styled.section`
 	text-align: center;
 	background: ${blogColors.grey__600};
+	padding-top: 64px;
 
 	${breakpoint.medium`
 		padding: 100px 0;
