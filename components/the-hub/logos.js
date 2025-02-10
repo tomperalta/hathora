@@ -162,14 +162,6 @@ const Logos = () => (
 				</LogoWrapper>
 				<LogoWrapper>
 					<Image
-						src="/the-hub/logos/OMEDA.svg"
-						alt="Omeda Studios"
-						width={203}
-						height={65}
-					/>
-				</LogoWrapper>
-				<LogoWrapper>
-					<Image
 						src="/the-hub/logos/FLOREN.svg"
 						alt="Floren Tech"
 						width={203}
