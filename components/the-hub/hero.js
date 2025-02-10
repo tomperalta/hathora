@@ -3,7 +3,7 @@ import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
 import Container from "components/container"
 import { colors, blogColors } from "utils/variables"
-import Script from "next/script"
+import Image from "next/image"
 
 const StyledHero = styled.section`
 	position: relative;
@@ -54,9 +54,16 @@ const StyledHero = styled.section`
 	}
 
 	.hero__image {
-		position: relative;
-		width: 100%;
-		height: auto;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 100%;
+			height: auto;
+			max-width: none;
+		}
 	}
 `
 
@@ -130,24 +137,13 @@ const Hero = () => (
 				</div>
 				<div className="col-12 col-md-4">
 					<div className="hero__image">
-						<div style={{ padding: "60% 0 0 0", position: "relative" }}>
-							<iframe
-								src="https://player.vimeo.com/video/1054268151?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&background=1&muted=1"
-								frameBorder="0"
-								allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-								style={{
-									position: "absolute",
-									top: 0,
-									left: 0,
-									width: "100%",
-									height: "100%",
-								}}
-								title="Hathora Hub Space"
-							/>
-						</div>
-						<Script
-							src="https://player.vimeo.com/api/player.js"
-							strategy="lazyOnload"
+						<Image
+							src="/the-hub/hub-hero.webp"
+							alt="Hathora Hub Space"
+							width={600}
+							height={408}
+							style={{ width: "100%", height: "auto" }}
+							priority
 						/>
 					</div>
 				</div>
