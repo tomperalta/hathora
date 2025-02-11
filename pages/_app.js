@@ -76,6 +76,7 @@ const MyApp = ({ Component, pageProps }) => (
 		});
 			heap.load("959692488");`}
 			</Script>
+			<Script strategy="lazyOnload" src="https://tally.so/widgets/embed.js" />
 			<PrimaryLayout>
 				<Component {...pageProps} />
 			</PrimaryLayout>

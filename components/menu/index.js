@@ -17,7 +17,7 @@ import Button from "components/button"
 import Logo from "components/logo"
 
 // Utils
-import { colors } from "utils/variables"
+import { colors, blogColors } from "utils/variables"
 import breakpoint from "utils/breakpoints/"
 
 // Icons
@@ -34,6 +34,8 @@ const StyledMenu = styled.nav`
 	left: 0;
 	box-sizing: border-box;
 	z-index: 9999;
+	background: ${(props) =>
+		props.isHubRoute ? `${blogColors.grey__600}` : "transparent"};
 
 	// Space for banner
 	${breakpoint.medium`
@@ -103,6 +105,8 @@ const StyledMenu = styled.nav`
 			background-color: var(--background-primary);
 			transform: translateX(100%);
 			transition: all 0.2s ease 0.1s;
+			background: ${(props) =>
+				props.isHubRoute ? `${blogColors.grey__600}` : "transparent"};
 
 			${(props) =>
 				props.active &&
@@ -395,11 +399,6 @@ const Menu = () => {
 			label: "Documentation",
 			url: "/docs",
 		},
-		// {
-		// 	label: "Community",
-		// 	url: "https://community.hathora.dev",
-		// 	external: true,
-		// },
 		{
 			label: "API Reference",
 			url: "https://hathora.dev/api",
@@ -408,6 +407,10 @@ const Menu = () => {
 		{
 			label: "Blog",
 			url: "/blog",
+		},
+		{
+			label: "Hub",
+			url: "/hub",
 		},
 	]
 
@@ -444,7 +447,7 @@ const Menu = () => {
 	}
 
 	return (
-		<StyledMenu ref={ref} active={active}>
+		<StyledMenu ref={ref} active={active} isHubRoute={currentRoute === "/hub"}>
 			<Container
 				className="d-flex align-items-center justify-content-between"
 				data-aos="fade-down"
