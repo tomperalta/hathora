@@ -184,31 +184,31 @@ const FeatureDescription = styled.p`
 const features = [
 	{
 		number: "01",
-		title: "Improve player experience",
+		title: "Seamlessly improve server scalability",
 		description:
-			"Reduce your players' lag and increase retention by routing players over Hathora's private edge network.",
+			"Your team will save thousands a month on server costs by leveraging Hathora’s auto-scaler & core platform.",
 	},
 	{
 		number: "02",
-		title: "Save on server costs",
+		title: "Speed up getting players into matches",
 		description:
-			"Save your studio thousands of dollars per month by leveraging Hathora's hybrid bare metal and cloud servers.",
+			"Help players enter their games at an even faster rate by using Hathora’s private edge network. ",
 	},
 	{
 		number: "03",
-		title: "Reclaim developer time",
+		title: "Slash server management time",
 		description:
-			"Enable your developers to work on core game development and leave the dedicated server hosting to Hathora.",
+			"Achieve greater developer productivity with a single-API to unlock Hathora’s hybrid cloud & bare metal servers.",
 	},
 ]
 
 const CuttingEdge = () => (
 	<Container>
 		<TitleWrapper>
-			<Title>Bring your studio to the cutting edge</Title>
+			<Title>Bring cloud-breaking innovation to your studio</Title>
 			<Subtitle>
-				Our dedicated server platform will improve player experience, reduce
-				server costs, and accelerate game development
+				Yes, with Hathora you can reach players with lower latency, lower
+				operational burden, and lower cost
 			</Subtitle>
 		</TitleWrapper>
 		<FeatureGrid>

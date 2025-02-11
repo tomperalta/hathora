@@ -51,8 +51,8 @@ const Hero = () => (
 	<StyledHero>
 		<ContentWrapper>
 			<Heading>
-				<span>Revolutionize</span> your game development experience while saving
-				~50% on gaming infrastructure
+				Mountaintop Studios successfully launched a competitive FPS game to{" "}
+				<span>30,000+ global CCUs</span> across 14 regions
 			</Heading>
 		</ContentWrapper>
 
