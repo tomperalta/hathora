@@ -39,7 +39,7 @@ const StyledMenu = styled.nav`
 
 	// Space for banner
 	${breakpoint.medium`
-    top: 56px;
+		top: ${(props) => (props.isHubRoute ? "62px" : "56px")};
   `}
 
 	${Container} {
