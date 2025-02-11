@@ -18,7 +18,7 @@ const StyledHero = styled.section`
 	background-size: cover;
 
 	${breakpoint.medium`
-    margin-top: 165px;
+    margin-top: 150px;
 		text-align: left;
   `}
 
