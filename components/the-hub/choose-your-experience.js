@@ -195,7 +195,7 @@ const ChooseYourExperience = () => {
 					pricing={{
 						original: 250,
 						discounted: 100,
-						discountLabel: "Use code HTHR-EB to save!",
+						discountLabel: 'Use code "HTHR-EB" to save!',
 					}}
 					buttonText="Get the PASS"
 					url="https://tally.so/#tally-open=n01p5P&lvl=pss&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
@@ -207,7 +207,7 @@ const ChooseYourExperience = () => {
 					pricing={{
 						original: 1500,
 						discounted: 1000,
-						discountLabel: "Use code HTHR-EB to save!",
+						discountLabel: 'Use code "HTHR-EB" to save!',
 					}}
 					buttonText="Get the PATRON"
 					url="https://tally.so/#tally-open=n01p5P&lvl=ptrn&tally-layout=modal&tally-width=800&tally-emoji-animation=none"

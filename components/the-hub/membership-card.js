@@ -51,7 +51,6 @@ const CardTitle = styled.h2`
 	text-shadow: 0px 0px 24px rgba(175, 100, 238, 0.58);
 	-webkit-text-stroke-width: 0.5;
 	-webkit-text-stroke-color: #000;
-	font-family: "Space Grotesk";
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 500;
@@ -59,7 +58,7 @@ const CardTitle = styled.h2`
 `
 
 const CardDescription = styled.p`
-	color: var(--neutrals-neutrals-grey-300, #b8b8cf);
+	color: ${colors.grey__300};
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -99,11 +98,12 @@ const Price = styled.p`
 
 const OriginalPrice = styled.span`
 	text-decoration: line-through;
-	color: ${colors.green__400};
+	color: ${colors.grey__300};
 `
 
 const DiscountedPrice = styled.span`
-	color: #4ade80;
+	color: ${colors.green__500};
+	font-size: 1.6rem;
 `
 
 const FeaturesList = styled.div`
