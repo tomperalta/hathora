@@ -57,7 +57,8 @@ const Title = styled.h2`
 	`}
 
 	span {
-		background: linear-gradient(90deg, #8b5cf6, #4fd1c5);
+		background: linear-gradient(89deg, #ab47ff 47.62%, #4dffae 99.77%);
+		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}

@@ -35,7 +35,8 @@ const GradientText = styled.span`
 	color: white;
 
 	${breakpoint.medium`
-		background: linear-gradient(to right, #a78bfa, #93c5fd, #67e8f9);
+		background: linear-gradient(89deg, #AB47FF 47.62%, #4DFFAE 99.77%);
+		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	`}
