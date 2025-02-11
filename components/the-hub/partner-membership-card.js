@@ -9,11 +9,10 @@ const CardWrapper = styled.div`
 	border: 1px solid #2f2f2f;
 	background: linear-gradient(
 			224deg,
-			rgba(255, 255, 255, 0.09) -2.39%,
+			rgba(255, 255, 255, 0.06) -2.39%,
 			rgba(0, 0, 0, 0) 75.56%
 		),
-		rgba(2, 254, 87, 0);
-	backdrop-filter: blur(17px);
+		#232337;
 	display: flex;
 	padding: 24px 32px;
 	flex-direction: column;
