@@ -7,13 +7,13 @@ import LayoutPrimary from "layouts/layout-primary"
 import SEO from "components/seo"
 
 // Sections
-import Header from "components/studio-head/header"
-import Hero from "components/studio-head/hero"
-import Testimonial from "components/studio-head/testimonial"
-import Powering from "components/studio-head/powering"
-import CuttingEdge from "components/studio-head/cutting-edge"
-import LearnMoreNow from "components/studio-head/learn-more-now"
-import Footer from "components/studio-head/footer"
+import Header from "components/dev-lead/header"
+import Hero from "components/dev-lead/hero"
+import Testimonial from "components/dev-lead/testimonial"
+import Powering from "components/dev-lead/powering"
+import CuttingEdge from "components/dev-lead/cutting-edge"
+import LearnMoreNow from "components/dev-lead/learn-more-now"
+import Footer from "components/dev-lead/footer"
 
 const StudioHead = () => (
 	<section>
