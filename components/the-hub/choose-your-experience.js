@@ -81,13 +81,14 @@ const BenefitsList = styled.ol`
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	max-width: 800px;
+	max-width: 700px;
 	margin: 0 auto;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px;
 	margin-top: 12px;
+	text-align: left;
 
 	li {
 		counter-increment: benefits-counter;
