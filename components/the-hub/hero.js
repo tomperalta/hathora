@@ -3,7 +3,6 @@ import styled from "styled-components"
 import breakpoint from "utils/breakpoints/"
 import Container from "components/container"
 import { colors, blogColors } from "utils/variables"
-import Image from "next/image"
 
 const StyledHero = styled.section`
 	position: relative;
@@ -16,6 +15,7 @@ const StyledHero = styled.section`
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: cover;
+	min-height: 600px;
 
 	${breakpoint.medium`
     margin-top: 150px;
@@ -53,17 +53,31 @@ const StyledHero = styled.section`
 		`}
 	}
 
+	.col-12.col-md-4 {
+		position: relative;
+		height: 100%;
+		min-height: 200px;
+
+		${breakpoint.medium`
+			min-height: 400px;
+		`}
+	}
+
 	.hero__image {
 		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		width: 100%;
+		background-image: url("/the-hub/hub-hero.webp");
+		background-size: cover;
+		background-position: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 8px;
+		overflow: hidden;
 
-		img {
-			width: 100%;
-			height: auto;
-			max-width: none;
-		}
+		${breakpoint.medium`
+			clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+		`}
 	}
 `
 
@@ -136,16 +150,7 @@ const Hero = () => (
 					</div>
 				</div>
 				<div className="col-12 col-md-4">
-					<div className="hero__image">
-						<Image
-							src="/the-hub/hub-hero.webp"
-							alt="Hathora Hub Space"
-							width={600}
-							height={408}
-							style={{ width: "100%", height: "auto" }}
-							priority
-						/>
-					</div>
+					<div className="hero__image" />
 				</div>
 			</div>
 		</Container>
