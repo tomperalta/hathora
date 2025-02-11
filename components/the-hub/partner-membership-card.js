@@ -20,6 +20,7 @@ const CardWrapper = styled.div`
 	align-items: flex-start;
 	gap: 45px;
 	align-self: stretch;
+	transition: transform 0.2s ease-in-out;
 
 	&:hover {
 		transform: translateY(-4px);
