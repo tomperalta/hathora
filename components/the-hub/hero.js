@@ -39,7 +39,7 @@ const StyledHero = styled.section`
 	}
 
 	.hero__subtitle {
-		color: ${colors.purple__300};
+		color: ${colors.grey__200};
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 400;
