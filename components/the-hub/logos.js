@@ -18,19 +18,15 @@ const LogoSection = styled.section`
 const LogoGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 32px;
-	align-items: center;
-	justify-items: center;
 	margin-top: 48px;
-
-	${breakpoint.medium`
-		grid-template-columns: repeat(4, 1fr);
-		gap: 48px;
-	`}
 
 	${breakpoint.large`
 		grid-template-columns: repeat(5, 1fr);
-		gap: 64px;
+
+		&.logo-grid-row-2 {
+			width: 95%;
+			margin: 48px auto;
+		}
 	`}
 `
 
@@ -62,7 +58,7 @@ const Logos = () => (
 	<LogoSection>
 		<Container>
 			<Heading>Join us alongside these companies and many more!</Heading>
-			<LogoGrid>
+			<LogoGrid className="logo-grid-row-1">
 				{/* First Row */}
 				<LogoWrapper>
 					<Image
@@ -100,8 +96,6 @@ const Logos = () => (
 						priority
 					/>
 				</LogoWrapper>
-
-				{/* Second Row */}
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/1047.svg"
@@ -110,6 +104,10 @@ const Logos = () => (
 						height={61}
 					/>
 				</LogoWrapper>
+			</LogoGrid>
+
+			{/* Second Row */}
+			<LogoGrid className="logo-grid-row-2">
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/i3d.svg"
@@ -142,8 +140,6 @@ const Logos = () => (
 						height={61}
 					/>
 				</LogoWrapper>
-
-				{/* Third Row */}
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/Playside.svg"
@@ -152,6 +148,10 @@ const Logos = () => (
 						height={65}
 					/>
 				</LogoWrapper>
+			</LogoGrid>
+
+			{/* Third Row */}
+			<LogoGrid>
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/GameMakers.svg"
@@ -168,8 +168,6 @@ const Logos = () => (
 						height={65}
 					/>
 				</LogoWrapper>
-
-				{/* Fourth Row */}
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/Coreloop.svg"
@@ -194,6 +192,10 @@ const Logos = () => (
 						height={57}
 					/>
 				</LogoWrapper>
+			</LogoGrid>
+
+			{/* Fourth Row */}
+			<LogoGrid>
 				<LogoWrapper>
 					<Image
 						src="/the-hub/logos/OMDIA.svg"
