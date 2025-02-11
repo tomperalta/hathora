@@ -7,6 +7,7 @@ import breakpoint from "utils/breakpoints/"
 
 const Container = styled.section`
 	max-width: 1200px;
+	margin: 0 auto;
 `
 
 const DividerContainer = styled.div`

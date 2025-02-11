@@ -35,7 +35,8 @@ const GradientText = styled.span`
 	color: white;
 
 	${breakpoint.medium`
-		background: linear-gradient(to right, #a78bfa, #93c5fd, #67e8f9);
+		background: linear-gradient(89deg, #AB47FF 47.62%, #4DFFAE 99.77%);
+		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	`}
@@ -80,13 +81,14 @@ const BenefitsList = styled.ol`
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	max-width: 800px;
+	max-width: 700px;
 	margin: 0 auto;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px;
 	margin-top: 12px;
+	text-align: left;
 
 	li {
 		counter-increment: benefits-counter;
@@ -195,7 +197,7 @@ const ChooseYourExperience = () => {
 					pricing={{
 						original: 250,
 						discounted: 100,
-						discountLabel: "Use code HTHR-EB to save!",
+						discountLabel: 'Use code "HTHR-EB" to save!',
 					}}
 					buttonText="Get the PASS"
 					url="https://tally.so/#tally-open=n01p5P&lvl=pss&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
@@ -207,7 +209,7 @@ const ChooseYourExperience = () => {
 					pricing={{
 						original: 1500,
 						discounted: 1000,
-						discountLabel: "Use code HTHR-EB to save!",
+						discountLabel: 'Use code "HTHR-EB" to save!',
 					}}
 					buttonText="Get the PATRON"
 					url="https://tally.so/#tally-open=n01p5P&lvl=ptrn&tally-layout=modal&tally-width=800&tally-emoji-animation=none"
