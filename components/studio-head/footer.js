@@ -29,7 +29,7 @@ const LogoWrapper = styled.div`
 const Footer = () => (
 	<FooterContainer>
 		<LogoWrapper>
-			<Link href="/" passHref>
+			<Link href="/" passHref legacyBehavior>
 				{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
 				<a>
 					<Logo />

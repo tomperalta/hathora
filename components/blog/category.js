@@ -189,7 +189,7 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 			{isMainBlogPage && (
 				<CategoryHeader>
 					<CategoryTitle className="heading--s">{tagName}</CategoryTitle>
-					<Link href={`/blog/tags/${tagSlug}`} passHref>
+					<Link href={`/blog/tags/${tagSlug}`} passHref legacyBehavior>
 						<ShowAllButton>
 							Show all <ShowAllButtonIcon />
 						</ShowAllButton>
@@ -198,7 +198,12 @@ const Category = ({ posts = [], tagName = "Latest Posts", tagSlug }) => {
 			)}
 			<BlogGrid>
 				{posts.map((post) => (
-					<Link href={`/blog/${post.slug}`} key={post.id} passHref>
+					<Link
+						href={`/blog/${post.slug}`}
+						key={post.id}
+						passHref
+						legacyBehavior
+					>
 						<BlogCard>
 							{post.feature_image && (
 								<ImageContainer>

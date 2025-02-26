@@ -1,8 +1,10 @@
+"use client"
+
 import React from "react"
+import dynamic from "next/dynamic"
 
 // Libraries
 import styled from "styled-components"
-import Lottie from "react-lottie"
 
 // Utils
 // import { colors } from "utils/variables"
@@ -19,6 +21,8 @@ import Animation2 from "assets/animations/home/our-platform/our-platform-animati
 
 // Icons
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const StyledModernInfrastructure = styled.section`
 

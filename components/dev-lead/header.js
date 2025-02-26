@@ -83,7 +83,7 @@ const CaseStudyButton = styled.a`
 const Header = () => (
 	<HeaderContainer id="header">
 		<LogoWrapper>
-			<Link href="/" passHref>
+			<Link href="/" passHref legacyBehavior>
 				{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
 				<a>
 					<Logo />

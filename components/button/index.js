@@ -303,7 +303,7 @@ const Button = (props) => {
 	 */
 	if (!external) {
 		return (
-			<Link href={href} passHref>
+			<Link href={href} passHref legacyBehavior>
 				<StyledButtonLink
 					ref={ref}
 					theme={theme}

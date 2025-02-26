@@ -454,7 +454,7 @@ const Menu = () => {
 				data-aos-duration="400"
 				data-aos-delay="400"
 			>
-				<Link href="/">
+				<Link href="/" legacyBehavior>
 					<a className="menu__logo d-flex" title="Logo">
 						<Logo />
 					</a>
@@ -518,7 +518,7 @@ const Menu = () => {
 																		{link.label} (coming soon)
 																	</button>
 																) : !link.external ? (
-																	<Link href={link.url}>
+																	<Link href={link.url} legacyBehavior>
 																		<a
 																			className={
 																				currentRoute === link.label
@@ -546,7 +546,7 @@ const Menu = () => {
 											</>
 										) : !item.external ? (
 											!item.disabled ? (
-												<Link href={item.url}>
+												<Link href={item.url} legacyBehavior>
 													<a
 														href={item.url}
 														className={

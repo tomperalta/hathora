@@ -75,6 +75,7 @@ export default function Nav({ tags }) {
 									key={tag.id}
 									href={`/blog/tags/${tag.slug}`}
 									style={{ textDecoration: "none" }}
+									legacyBehavior
 								>
 									<CategoryBadge>
 										<svg

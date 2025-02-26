@@ -1,8 +1,10 @@
+"use client"
+
 import React, { useState, useEffect, useRef } from "react"
+import dynamic from "next/dynamic"
 
 // Libraries
 import styled, { keyframes } from "styled-components"
-import Lottie from "lottie-react"
 import { useScreenshot } from "use-react-screenshot"
 
 // Components
@@ -19,6 +21,8 @@ import { ReactComponent as IconLoader } from "assets/icons/components/map-locati
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 import { encodePings } from "utils/functions"
 import { PingMapsProps } from "utils/prop-types"
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const PulseAnimation = keyframes`
 	0% {

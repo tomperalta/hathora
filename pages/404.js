@@ -32,7 +32,7 @@ const Page404 = () => (
 
 					<p className="text--l mb-4">
 						Check that your URL is correct or return{" "}
-						<Link href="/" passHref>
+						<Link href="/" passHref legacyBehavior>
 							<a className="color--green__500 color-hover--purple__500 text-decoration-underline">
 								home
 							</a>

@@ -1,9 +1,11 @@
+"use client"
+
 import React, { useEffect, useState, useRef } from "react"
 import { useRouter } from "next/router"
+import dynamic from "next/dynamic"
 
 // Libraries
 import styled, { keyframes } from "styled-components"
-import Lottie from "lottie-react"
 
 // Utils
 import breakpoints from "utils/breakpoints"
@@ -27,6 +29,7 @@ import { ReactComponent as IconLoader } from "assets/icons/components/map-locati
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const PulseAnimation = keyframes`
 	0% {

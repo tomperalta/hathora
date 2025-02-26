@@ -78,7 +78,9 @@ const AuthorHero = ({ author }) => {
 				<Subtitle className="d-md-none">
 					{showBreadcrumb && (
 						<>
-							<Link href="/blog">Blog</Link>
+							<Link href="/blog" legacyBehavior>
+								Blog
+							</Link>
 
 							<span style={{ margin: "0 24px" }}>
 								<RightChevron />

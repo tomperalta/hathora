@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 
 // Libraries
@@ -35,13 +37,6 @@ const StyledHome = styled.main`
     `}
 
 		&:first-child {
-			//padding-top: 120px;
-
-			// ${breakpoint.medium`
-      //   padding-top: 148px;
-      // `}
-
-			// Space for banner
 			padding-top: 176px;
 
 			${breakpoint.medium`

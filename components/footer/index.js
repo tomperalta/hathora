@@ -210,7 +210,7 @@ const Footer = () => {
 				<div className="row justify-content-between">
 					<div className="col-12 col-md-3 mb-5 mb-md-0">
 						<div className="footer__logo">
-							<Link href="/">
+							<Link href="/" legacyBehavior>
 								<a>
 									<Logo />
 								</a>
@@ -252,7 +252,7 @@ const Footer = () => {
 														{link.label} (coming soon)
 													</button>
 												) : !link.external ? (
-													<Link href={link.url}>
+													<Link href={link.url} legacyBehavior>
 														<a>{link.label}</a>
 													</Link>
 												) : (
