@@ -103,9 +103,9 @@ const Clients = () => {
 				<Slider {...settings}>
 					<div className="row justify-content-center">
 						<div className="col-12 mb-5 text-center">
-							<h1 className="heading--m dotted-separator">
+							<h2 className="heading--m dotted-separator">
 								Any <span className="color--green__500">Engine</span>
-							</h1>
+							</h2>
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-3 mb-5 mb-md-0">
@@ -168,9 +168,9 @@ const Clients = () => {
 					{/* Second Slider START */}
 					<div className="row justify-content-center">
 						<div className="col-12 mb-5 text-center">
-							<h1 className="heading--m dotted-separator">
+							<h2 className="heading--m dotted-separator">
 								Any <span className="color--green__500">Platform</span>
-							</h1>
+							</h2>
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-2">
@@ -197,9 +197,9 @@ const Clients = () => {
 					{/* Third Slider START */}
 					<div className="row justify-content-center">
 						<div className="col-12 mb-5 text-center">
-							<h1 className="heading--m dotted-separator">
+							<h2 className="heading--m dotted-separator">
 								Any <span className="color--green__500">Game Type</span>
-							</h1>
+							</h2>
 						</div>
 						<div className="section-brand col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
 							<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">

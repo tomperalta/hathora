@@ -32,7 +32,9 @@ const StyledPowering = styled.section`
 		`}
 	}
 	.logo-wrapper {
+		width: 100%;
 		height: 60px;
+
 		> span {
 			height: 60px;
 		}
@@ -44,7 +46,13 @@ const StyledPowering = styled.section`
 		width: 344px;
 		height: 60px;
 		resize: both;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
+
 	.stormgate-logo {
 		margin-top: -8px;
 		height: 68px !important;
