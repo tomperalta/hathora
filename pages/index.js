@@ -24,6 +24,7 @@ import Testimonials from "components/home/testimonials"
 import Clients from "components/home/clients"
 // import CTACards from "components/home/cta-cards"
 import PoweringLogos from "components/home/powering"
+import EnterpriseReady from "components/enterprise-ready"
 import EnvisionBanner from "components/envision-banner"
 
 // Icons
@@ -59,6 +60,7 @@ const Home = () => (
 		{/* <Deploy /> */}
 		<Clients />
 		{/* <CTACards /> */}
+		<EnterpriseReady />
 		<EnvisionBanner />
 	</StyledHome>
 )
