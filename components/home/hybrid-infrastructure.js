@@ -2,6 +2,7 @@ import React from "react"
 
 // Components
 import Container from "components/container/"
+import Button from "components/button/"
 
 // Icons
 import { ReactComponent as IconHybrid } from "assets/icons/home/hybrid-infrastructure/icon-hybrid-infrastructure.svg"
@@ -20,6 +21,22 @@ const HybridInfrastructure = () => (
 			</div>
 
 			<IconHybrid />
+
+			<div
+				className="text-center"
+				style={{
+					marginTop: 48,
+				}}
+			>
+				<Button
+					theme="fill"
+					type="link"
+					href="https://hathora.dev/docs"
+					external
+				>
+					Get Started
+				</Button>
+			</div>
 		</Container>
 	</section>
 )
