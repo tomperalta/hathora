@@ -46,6 +46,7 @@
 				"aspects": ["invalidHref", "preferButton"]
 			}
 		],
-		"no-nested-ternary": "off"
+		"no-nested-ternary": "off",
+		"import/no-duplicates": "off"
 	}
 }
