@@ -4,9 +4,6 @@ import React from "react"
 import styled from "styled-components"
 import breakpoints from "utils/breakpoints"
 
-// Icons
-import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
-
 // Components
 import Container from "components/container"
 import Button from "components/button"
@@ -14,7 +11,7 @@ import PingMap from "./ping-map"
 
 const StyledHome = styled.section`
 	.title {
-		margin-bottom: 24px;
+		margin-bottom: 16px;
 	}
 
 	.buttons {
@@ -23,10 +20,12 @@ const StyledHome = styled.section`
 		align-items: center;
 		justify-content: center;
 		gap: 24px;
-		margin: 32px 0 16px 0;
+		margin: 32px 0 48px 0;
 
 		${breakpoints.medium`
 			gap: 32px;
+			margin-top: 48px;
+			margin-bottom: 56px;
 		`}
 	}
 `
@@ -35,13 +34,13 @@ const Home = () => (
 	<StyledHome>
 		<Container>
 			<div className="row justify-content-center text-center">
-				<div className="col-12 col-sm-8 col-md-8">
+				<div className="col-12">
 					<h1 className="title heading--l">
 						Server orchestration for multiplayer games
 					</h1>
 
 					<p className="text--l">
-						Confidently deploy and scale your game globally
+						Save up to XX% on your infrastructure bill by using our platform
 					</p>
 
 					<div className="buttons">
@@ -51,17 +50,16 @@ const Home = () => (
 							href="https://hathora.dev/docs"
 							external
 						>
-							Get Started
+							GET STARTED
 						</Button>
 
 						<Button
 							type="link"
 							href="https://calendly.com/dsiddharth/30min"
 							external
-							theme="borderless"
+							theme="outline"
 						>
-							Book a Call
-							<IconArrow />
+							LEARN MORE
 						</Button>
 					</div>
 				</div>
