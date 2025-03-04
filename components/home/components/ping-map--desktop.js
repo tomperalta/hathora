@@ -10,7 +10,7 @@ import { encodePings } from "utils/functions"
 import { colors } from "utils/variables"
 
 // Icons
-import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map.svg"
+import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map-v2.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
 
 // Components
@@ -27,7 +27,7 @@ const StyledPingMap = styled.div`
 		.result {
 			position: absolute;
 			right: 0;
-			bottom: 31.3315926893%;
+			bottom: 25.3315926893%;
 			left: 0;
 		}
 	}
@@ -36,27 +36,44 @@ const StyledPingMap = styled.div`
 const regions = [
 	{
 		region: "Seattle",
-		labelPosition: "left",
+		labelPosition: "right",
 		coords: {
-			y: 25.9438642298,
-			x: 12.5034722222,
+			x: 11.2357142857,
+			y: 49.2954545455,
 		},
 	},
 	{
 		region: "Chicago",
-		labelPosition: "right",
+		labelPosition: "left",
 		coords: {
-			y: 26.8206266319,
-			x: 18.4194444444,
+			y: 36.4166666667,
+			x: 18.9285714286,
 		},
 	},
 	{
 		region: "Los_Angeles",
 		displayName: "LA",
-		labelPosition: "left",
+		labelPosition: "right",
 		coords: {
-			y: 32.9438642298,
-			x: 9.8034722222,
+			y: 55.9772727273,
+			x: 11.4285714286,
+		},
+	},
+	// {
+	// 	region: "Dallas",
+	// 	labelPosition: "right",
+	// 	coords: {
+	// 		y: 35.6438642298,
+	// 		x: 14.0034722222,
+	// 	},
+	// },
+	{
+		region: "Sao_Paulo",
+		displayName: "São Paulo",
+		labelPosition: "right",
+		coords: {
+			y: 49.2954545455,
+			x: 34.7321428571,
 		},
 	},
 	{
@@ -64,89 +81,72 @@ const regions = [
 		displayName: "Washington DC",
 		labelPosition: "right",
 		coords: {
-			y: 31.2498694517,
-			x: 22.8006944444,
-		},
-	},
-	{
-		region: "Dallas",
-		labelPosition: "right",
-		coords: {
-			y: 35.6438642298,
-			x: 14.0034722222,
-		},
-	},
-	{
-		region: "Sao_Paulo",
-		displayName: "São Paulo",
-		labelPosition: "right",
-		coords: {
-			y: 74.5430809399,
-			x: 30.2083333333,
+			x: 21.2035714286,
+			y: 37.7424242424,
 		},
 	},
 	{
 		region: "London",
 		labelPosition: "left",
 		coords: {
-			y: 24.0652741514,
-			x: 44.8444444444,
+			x: 45.2339285714,
+			y: 10.18901515152,
 		},
 	},
 	{
 		region: "Frankfurt",
 		labelPosition: "right",
 		coords: {
-			y: 25.637075718,
-			x: 47.29375,
+			y: 11.5662878788,
+			x: 48.3491071429,
+		},
+	},
+	{
+		region: "Dubai",
+		labelPosition: "left",
+		coords: {
+			x: 61.55357142857,
+			y: 25.4166666667,
 		},
 	},
 	{
 		region: "Mumbai",
 		labelPosition: "left",
 		coords: {
-			y: 45.3315926893,
-			x: 67.2458333333,
+			y: 31.5454545455,
+			x: 68.8035714286,
+		},
+	},
+	{
+		region: "Johannesburg",
+		labelPosition: "right",
+		coords: {
+			y: 46.4393939394,
+			x: 51.8642857143,
 		},
 	},
 	{
 		region: "Singapore",
 		labelPosition: "left",
 		coords: {
-			y: 57.591383812,
-			x: 77.3993055556,
+			y: 47.8287878788,
+			x: 75.4666666667,
 		},
 	},
 	{
 		region: "Tokyo",
 		labelPosition: "right",
 		coords: {
-			y: 34.725848564,
-			x: 85.6944444444,
+			y: 51.3636363636,
+			x: 86.5,
 		},
 	},
 	{
 		region: "Sydney",
 		labelPosition: "left",
 		coords: {
-			y: 80.2506527415,
-			x: 90.6666666667,
-		},
-	},
-	{
-		region: "Dubai",
-		labelPosition: "top",
-		coords: {
-			y: 40.2806527415,
-			x: 60.9666666667,
-		},
-	},
-	{
-		region: "Johannesburg",
-		labelPosition: "bottom",
-		coords: {
-			y: 71.2506527415,
-			x: 52.6666666667,
+			y: 77.1106060606,
+			x: 78.2333333333,
 		},
 	},
 ]

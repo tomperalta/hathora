@@ -9,6 +9,7 @@ import { colors } from "utils/variables"
 
 // Icons
 import { ReactComponent as IconLoader } from "assets/icons/components/map-location/icon-loader.svg"
+import { ReactComponent as IconSatellite } from "assets/icons/home/ping-map/icon-satellite.svg"
 
 const PulseAnimationSmall = keyframes`
 	0% {
@@ -71,6 +72,63 @@ const StyledMapLocation = styled.div`
 	align-items: center;
 
 	.indicator {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: scale(${(props) => (props.loading ? "0" : "1")});
+		transition: transform 0.6s ease-in 0.3s;
+		z-index: 50;
+
+		${(props) =>
+			props.animation &&
+			css`
+				&:before {
+					content: "";
+					width: 60px;
+					height: 60px;
+					position: absolute;
+					top: -20px;
+					left: -20px;
+					background: radial-gradient(
+						circle,
+						var(--gradientColor) 0%,
+						rgba(9, 9, 121, 0) 65%
+					);
+					border-radius: 50%;
+					mix-blend-mode: hard-light;
+					opacity: ${(props) => (props.loading ? "0" : "0.6")};
+					animation: ${PulseAnimationSmall} 4s linear infinite;
+					transition: opacity 1s ease-in 1.2s;
+					z-index: -1;
+
+					${(props) =>
+						props.featured &&
+						css`
+							animation: ${PulseAnimation} 4s linear infinite;
+						`}
+				}
+			`}
+
+		svg {
+			width: 100%;
+			height: auto;
+
+			* {
+							stroke: var(--indicatorColor);
+
+			}
+
+			${(props) =>
+				props.labelPosition === "right" &&
+				css`
+					transform: scaleX(-1);
+				`}
+		}
+	}
+
+	/* .indicator {
 		width: 8px;
 		height: 8px;
 		position: relative;
@@ -129,7 +187,7 @@ const StyledMapLocation = styled.div`
 						`}
 				}
 			`}
-	}
+	} */
 
 	.label {
 		position: absolute;
@@ -151,13 +209,13 @@ const StyledMapLocation = styled.div`
 		${(props) =>
 			props.labelPosition === "left" &&
 			css`
-				right: calc(100% + 16px);
+				right: calc(100% + 4px);
 			`}
 
 		${(props) =>
 			props.labelPosition === "right" &&
 			css`
-				left: calc(100% + 16px);
+				left: calc(100% + 4px);
 			`}
 		
 		${(props) =>
@@ -215,7 +273,7 @@ const StyledMapLocation = styled.div`
 		width: 24px;
 		height: 24px;
 		position: absolute;
-		left: -8px;
+		left: -2px;
 		transform: scale(${(props) => (props.loading ? "1" : "0")});
 		transition: transform 0.3s ease-in;
 	}
@@ -336,7 +394,9 @@ const MapLocation = (props) => {
 			animation={animation}
 			compact={compact}
 		>
-			<div className="indicator" />
+			<div className="indicator">
+				<IconSatellite />
+			</div>
 
 			<span className="label text--s font-weight--700">
 				{displayName || region}
