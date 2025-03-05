@@ -16,6 +16,7 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/home/hero"
+import ClientLogos from "components/home/client-logos"
 import HybridInfrastructure from "components/home/hybrid-infrastructure"
 import Testimonials from "components/home/testimonials"
 import VendorLockin from "components/home/vendor-lockin"
@@ -23,7 +24,7 @@ import Clients from "components/home/clients"
 import EnterpriseReady from "components/enterprise-ready"
 import EnvisionBanner from "components/envision-banner"
 
-const StyledHome = styled.main`
+const StyledHome = styled.div`
 	> section {
 		padding: 60px 0;
 
@@ -45,6 +46,7 @@ const Home = () => (
 	<StyledHome>
 		<SEO />
 		<Hero />
+		<ClientLogos />
 		<HybridInfrastructure />
 		{/* <PoweringLogos /> */}
 		<Testimonials />

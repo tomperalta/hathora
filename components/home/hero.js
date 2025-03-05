@@ -10,6 +10,10 @@ import Button from "components/button"
 import PingMap from "./ping-map"
 
 const StyledHome = styled.section`
+	${breakpoints.medium`
+		padding-bottom: 0 !important;
+	`}
+
 	.title {
 		margin-bottom: 16px;
 	}

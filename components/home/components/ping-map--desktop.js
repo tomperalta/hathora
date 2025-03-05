@@ -18,7 +18,6 @@ import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
 
 const StyledPingMap = styled.div`
-	padding-bottom: 32px;
 	background-color: ${colors.grey__700};
 
 	.map-wrapper {
