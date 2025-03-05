@@ -29,6 +29,7 @@ import { ReactComponent as IconLoader } from "assets/icons/components/map-locati
 
 // Animations
 import MapAnimation from "assets/animations/pings-map/map--mobile.json"
+
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const PulseAnimation = keyframes`
@@ -60,12 +61,6 @@ const StyledPings = styled.main`
 		padding: 60px 0;
 
 		&:first-child {
-			//padding-top: 120px;
-
-			// ${breakpoints.medium`
-      //   padding-top: 148px;
-      // `}
-
 			// Space for banner
 			padding-top: 176px;
 
