@@ -5,14 +5,15 @@ import styled from "styled-components"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
+import { colors } from "utils/variables"
 
 // Components
 import Container from "components/container/"
 import Carousel from "components/carousel"
-import Button from "components/button"
 
 // Icons
 import IconArrowRight from "assets/icons/components/carousel/icon-arrow-right.svg"
+import IconCursor from "assets/images/home/testimonials/cursor.svg"
 
 const StyledTestimonials = styled.section`
 	display: block;
@@ -22,7 +23,6 @@ const StyledTestimonials = styled.section`
 
 		${breakpoint.medium`
       margin: 96px 0 56px 0;
-      padding: 0 64px;
     `}
 
 		.slick-track {
@@ -31,34 +31,67 @@ const StyledTestimonials = styled.section`
 			.slick-slide {
 				height: auto !important;
 
+				&.slick-active {
+					.testimony {
+						opacity: 1;
+						cursor: url(${IconCursor}), auto;
+
+						&::before {
+							display: block;
+						}
+
+						.quote {
+							padding: 16px;
+							background-color: ${colors.purple__600};
+							border-radius: 16px;
+						}
+					}
+				}
+
 				> div {
 					height: 100%;
+					padding: 0 12px;
 				}
 			}
 		}
 
 		.testimony {
-			height: 100%;
+			width: calc(100% - 2px) !important;
+			height: calc(100% - 2px);
 			position: relative;
-			display: flex !important;
-			flex-wrap: wrap;
-			padding: 0 24px;
+			top: 1px;
+			left: 1px;
+			background-color: ${colors.grey__600};
+			border-radius: 16px;
+			padding: 24px !important;
+			/* opacity: 0.4; */
 
 			&::before {
 				content: "";
-				width: 2px;
+				width: calc(100% + 2px);
+				height: calc(100% + 2px);
 				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
+				top: -1px;
+				left: -1px;
+				/* right: 0;
+				bottom: 0; */
 				flex-shrink: 0;
 				display: block;
+				border-radius: 16px;
 				background: linear-gradient(353.93deg, #2afc61 3.86%, #ae69eb 96.71%);
+				/* display: none; */
+				z-index: -1;
 			}
 
 			${breakpoint.medium`
         padding: 0 36px 0 32px;
       `}
+
+			.quote {
+				padding: 16px;
+				background-color: ${colors.purple__600};
+				border-radius: 16px;
+			}
 		}
 
 		.slick-arrow {
@@ -67,6 +100,31 @@ const StyledTestimonials = styled.section`
 			display: flex !important;
 			align-items: center;
 			justify-content: center;
+
+			@media screen and (max-width: 1024px) {
+				top: calc(100% + 32px);
+				left: 0;
+				right: 0;
+				margin: auto;
+
+				&.slick-prev {
+					left: -48px;
+				}
+
+				&.slick-next {
+					left: 48px;
+				}
+			}
+
+			${breakpoint.medium`
+				&.slick-prev {
+					left: -78px;
+				}
+
+				&.slick-next {
+					right: -78px;
+				}
+			`}
 
 			&::before {
 				width: 32px;
@@ -88,27 +146,24 @@ const Testimonials = () => {
 	const data = [
 		{
 			quote:
-				"Hathora’s focus on delivering top-end performance at scale empowers game studios like ours to build multiplayer experiences that meet or exceed the expectations of the modern online player base.",
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
 			author: "Tim Morten",
-			company:
-				"Production Director & CEO @ Frost Giant Studios, Former Production Director @ Blizzard Entertainment",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
 		},
 		{
 			quote:
-				"The team at Hathora knows what it takes to create high quality infrastructure that scales across the globe, and I'm thrilled they're simplifying the path for more multiplayer games to successfully launch world-wide titles.",
-			author: "Brandi House",
-			company: (
-				<>
-					General Manager @ ProbablyMonsters,
-					<br /> Former Director of Product @ Unity
-				</>
-			),
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
+			author: "Tim Morten",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
 		},
 		{
 			quote:
-				"As the gaming industry shifts to ship games faster and with smaller teams, Hathora serves as the much-needed infrastructure partner to accelerate development and allow game studios to focus on the core game design and player experience.",
-			author: "Kevin Zhang",
-			company: "Partner @ Upfront Ventures",
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
+			author: "Tim Morten",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
 		},
 	]
 
@@ -116,14 +171,13 @@ const Testimonials = () => {
 		infinite: true,
 		dots: false,
 		arrows: true,
-		slidesToShow: 2,
+		slidesToShow: 3,
 		responsive: [
 			{
 				breakpoint: 767,
 				settings: {
 					slidesToShow: 1,
-					dots: true,
-					arrows: false,
+					arrows: true,
 				},
 			},
 		],
@@ -135,7 +189,7 @@ const Testimonials = () => {
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8">
 						<h2 className="heading--m font-weight--500 text-center dotted-separator">
-							We handle the infrastructure so you can focus on your game
+							Hear directly from our customers
 						</h2>
 					</div>
 
@@ -146,34 +200,32 @@ const Testimonials = () => {
 						>
 							{data.map((testimony) => (
 								<div className="testimony" key={testimony.author}>
-									<p className="text--m color--grey__200 mb-4">
-										<span className="color--purple__500">“</span>
-										<span className="color--grey__200">{testimony.quote}</span>
-										<span className="color--purple__500">”</span>
-									</p>
-
-									<div className="align-self-end">
-										<p className="text--s color--grey__300 font-weight--600">
+									<div className="mb-2">
+										<p className="text--s color--green__500 font-weight--600">
 											{testimony.author}
 										</p>
-										<p className="text--s color--purple__500 font-weight--600">
+										<p className="text--s color--grey__200 font-weight--500">
+											{testimony.role}
+										</p>
+
+										<p
+											className="text--xs color--grey__200 font-weight--600"
+											style={{ marginTop: 6 }}
+										>
 											{testimony.company}
+										</p>
+									</div>
+
+									<div style={{ marginTop: 32 }}>
+										<p className="quote text--s color--grey__200">
+											<span className="color--grey__200">
+												{testimony.quote}
+											</span>
 										</p>
 									</div>
 								</div>
 							))}
 						</Carousel>
-
-						<div className="d-flex justify-content-center">
-							<Button
-								type="link"
-								theme="outline"
-								href="https://blog.hathora.dev/"
-								external
-							>
-								Subscribe to our Blog
-							</Button>
-						</div>
 					</div>
 				</div>
 			</Container>

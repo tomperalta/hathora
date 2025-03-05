@@ -47,9 +47,9 @@ const Home = () => (
 		<Hero />
 		<ClientLogos />
 		<HybridInfrastructure />
-		<Testimonials />
 		<VendorLockin />
 		<EnterpriseReady />
+		<Testimonials />
 		<EnvisionBanner />
 	</StyledHome>
 )
