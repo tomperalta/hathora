@@ -22,6 +22,13 @@ const StyledVendorLockin = styled.section`
 		padding-bottom: 0 !important;
 	`}
 
+	.highlight {
+		background: linear-gradient(81.2deg, #ab47ff -3.76%, #4dffae 49.24%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
 	.item-wrapper {
 		gap: 64px;
 
@@ -98,7 +105,8 @@ const VendorLockin = () => {
 
 	const data = [
 		{
-			title: "No vendor lockin",
+			title: "No vendor",
+			highlightedWord: "lockin",
 			description: "Deploy your game server with no SDK integration",
 			url: "#",
 			icon: (
@@ -113,19 +121,22 @@ const VendorLockin = () => {
 			),
 		},
 		{
-			title: "1 API call to rule them all",
+			title: "1 API call to rule",
+			highlightedWord: "them all",
 			description: "Request a game server for a match with 1 API call",
 			url: "#",
 			icon: <Icon2 />,
 		},
 		{
-			title: "Lightening fast autoscaler",
+			title: "Lightening fast",
+			highlightedWord: "autoscaler",
 			description: "Spin up servers in <2 minutes to meet unexpected demand",
 			url: "#",
 			icon: <Icon3 />,
 		},
 		{
-			title: "Manage your servers with ease",
+			title: "Manage your servers with",
+			highlightedWord: "ease",
 			description: "Get live metrics and logs for your game servers",
 			url: "#",
 			icon: <Icon4 />,
@@ -182,6 +193,8 @@ const VendorLockin = () => {
 							<div className="content">
 								<h3 className="heading--m font-weight--700 color--purple__500 mb-2">
 									{item.title}
+									<br />
+									<span className="highlight">{item.highlightedWord}</span>
 								</h3>
 								<p className="text--l font-weight--400">{item.description}</p>
 							</div>
@@ -204,6 +217,8 @@ const VendorLockin = () => {
 								<div>
 									<h3 className="heading--m font-weight--700 color--purple__500 mb-2">
 										{item.title}
+										<br />
+										<span className="highlight">{item.highlightedWord}</span>
 									</h3>
 									<p className="text--l font-weight--400">{item.description}</p>
 
