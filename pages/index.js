@@ -20,7 +20,6 @@ import ClientLogos from "components/home/client-logos"
 import HybridInfrastructure from "components/home/hybrid-infrastructure"
 import Testimonials from "components/home/testimonials"
 import VendorLockin from "components/home/vendor-lockin"
-import Clients from "components/home/clients"
 import EnterpriseReady from "components/enterprise-ready"
 import EnvisionBanner from "components/envision-banner"
 
@@ -48,15 +47,8 @@ const Home = () => (
 		<Hero />
 		<ClientLogos />
 		<HybridInfrastructure />
-		{/* <PoweringLogos /> */}
 		<Testimonials />
 		<VendorLockin />
-		{/* <ModernInfrastructure /> */}
-		{/* <OurPlatform /> */}
-		{/* <Features /> */}
-		{/* <Deploy /> */}
-		<Clients />
-		{/* <CTACards /> */}
 		<EnterpriseReady />
 		<EnvisionBanner />
 	</StyledHome>

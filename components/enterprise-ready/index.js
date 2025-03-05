@@ -19,7 +19,7 @@ const StyledEnterpriseReady = styled.div`
 	padding: 40px 0;
 
 	${breakpoint.medium`
-    padding: 80px 0;
+		padding-top: 0;
   `}
 
 	.header {
