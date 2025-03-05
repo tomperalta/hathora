@@ -23,6 +23,10 @@ const StyledEnvisionBanner = styled.section`
 		padding: 80px 0;
 	`}
 
+	${breakpoint.large`
+		padding-bottom: 228px !important;
+	`}
+
 	.banner-wrapper {
 		max-width: 1120px;
 		width: 100%;
