@@ -25,16 +25,26 @@ const StyledTestimonials = styled.section`
       margin: 96px 0 56px 0;
     `}
 
+		.slick-list {
+			margin: 0 -12px !important;
+		}
+
 		.slick-track {
 			display: flex;
 
 			.slick-slide {
+				flex-shrink: 0;
 				height: auto !important;
+				padding: 0 12px;
 
-				&.slick-active {
+				&.slick-center {
 					.testimony {
 						opacity: 1;
 						cursor: url(${IconCursor}), auto;
+
+						${breakpoint.medium`
+							width: 464px !important;
+						`}
 
 						&::before {
 							display: block;
@@ -50,7 +60,6 @@ const StyledTestimonials = styled.section`
 
 				> div {
 					height: 100%;
-					padding: 0 12px;
 				}
 			}
 		}
@@ -64,7 +73,11 @@ const StyledTestimonials = styled.section`
 			background-color: ${colors.grey__600};
 			border-radius: 16px;
 			padding: 24px !important;
-			/* opacity: 0.4; */
+			opacity: 0.4;
+
+			${breakpoint.medium`
+				width: 304px !important;
+			`}
 
 			&::before {
 				content: "";
@@ -79,7 +92,7 @@ const StyledTestimonials = styled.section`
 				display: block;
 				border-radius: 16px;
 				background: linear-gradient(353.93deg, #2afc61 3.86%, #ae69eb 96.71%);
-				/* display: none; */
+				display: none;
 				z-index: -1;
 			}
 
@@ -88,9 +101,9 @@ const StyledTestimonials = styled.section`
       `}
 
 			.quote {
-				padding: 16px;
+				/* padding: 16px;
 				background-color: ${colors.purple__600};
-				border-radius: 16px;
+				border-radius: 16px; */
 			}
 		}
 
@@ -172,12 +185,17 @@ const Testimonials = () => {
 		dots: false,
 		arrows: true,
 		slidesToShow: 3,
+		centerMode: true,
+		centerPadding: "0px",
+		variableWidth: true,
 		responsive: [
 			{
 				breakpoint: 767,
 				settings: {
 					slidesToShow: 1,
 					arrows: true,
+					centerMode: false,
+					variableWidth: false,
 				},
 			},
 		],
