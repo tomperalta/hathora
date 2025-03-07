@@ -15,6 +15,10 @@ import Carousel from "components/carousel"
 import IconArrowRight from "assets/icons/components/carousel/icon-arrow-right.svg"
 
 const StyledTestimonials = styled.div`
+	.slide {
+		height: 100%;
+	}
+
 	.slick-slider {
 		.slick-list {
 			padding-bottom: 2px;
@@ -71,6 +75,7 @@ const StyledTestimonials = styled.div`
 const Testimonial = styled.div`
 	width: calc(100% - 2px) !important;
 	height: calc(100% - 2px);
+	flex-shrink: 0;
 	position: relative;
 	top: 1px;
 	left: 1px;
@@ -92,12 +97,12 @@ const Testimonial = styled.div`
 				padding: 16px;
 				background-color: ${colors.purple__600};
 				border-radius: 16px;
+
+				${breakpoint.medium`
+					font-size: 1rem;
+				`}
 			}
 		`}
-
-	${breakpoint.medium`
-    width: 304px !important;
-  `}
 
 	&::before {
 		content: "";
@@ -158,6 +163,27 @@ const Testimonials = () => {
 			role: "Co-Found and CEO",
 			company: "Mountain Studios",
 		},
+		{
+			quote:
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
+			author: "Tim Morten",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
+		},
+		{
+			quote:
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
+			author: "Tim Morten",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
+		},
+		{
+			quote:
+				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
+			author: "Tim Morten",
+			role: "Co-Found and CEO",
+			company: "Mountain Studios",
+		},
 	]
 
 	console.log(testimonials, activeSlide, setActiveSlide)
@@ -197,6 +223,44 @@ const Testimonials = () => {
 							))}
 						</Carousel>
 						{/* MOBILE:end */}
+
+						{/* DESKTOP:start */}
+						<div className="carousel d-flex overflow-hidden">
+							<div className="d-flex" style={{ gap: 24 }}>
+								{testimonials.map((testimonial, index) => (
+									<div
+										className="slide"
+										style={{ width: activeSlide + 1 === index ? 464 : 304 }}
+										key={testimonial.author}
+									>
+										<Testimonial
+											style={{
+												width: 464,
+											}}
+											active={activeSlide + 1 === index}
+										>
+											<p className="author color--green__500 font-weight--700">
+												{testimonial.author}
+											</p>
+											<p className="role text--s color--grey__200">
+												{testimonial.role}
+											</p>
+											<p
+												className="company text--s color--grey__200"
+												style={{ marginTop: 8 }}
+											>
+												{testimonial.company}
+											</p>
+
+											<p className="quote text--s" style={{ marginTop: 24 }}>
+												{testimonial.quote}
+											</p>
+										</Testimonial>
+									</div>
+								))}
+							</div>
+						</div>
+						{/* DESKTOP:end */}
 					</div>
 				</div>
 			</Container>

@@ -53,6 +53,10 @@ const nextConfig = {
 		})
 		// SVG loader:end
 
+		config.module.rules.push({
+			test: /\.lottie$/,
+			type: "asset/resource",
+		})
 		return config
 	},
 }

@@ -191,7 +191,7 @@ const VendorLockin = () => {
 		<StyledVendorLockin>
 			<Container>
 				<div className="header text-center" style={{ marginBottom: 32 }}>
-					<h2 className="heading--m dotted-separator">No vendor lockin</h2>
+					<h2 className="heading--m">No vendor lockin</h2>
 
 					<p className="text--l">Placeholder for copy</p>
 				</div>
