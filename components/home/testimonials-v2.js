@@ -14,6 +14,9 @@ import Carousel from "components/carousel"
 // Icons
 import IconArrowRight from "assets/icons/components/carousel/icon-arrow-right.svg"
 
+// Images
+import IconCursor from "assets/images/home/testimonials/cursor.svg"
+
 const StyledTestimonials = styled.section`
 	.header {
 		margin-bottom: 32px;
@@ -96,6 +99,7 @@ const Testimonial = styled.div`
 		props.active &&
 		css`
 			opacity: 1;
+			cursor: url(${IconCursor}), auto;
 
 			&::before {
 				display: block !important;
