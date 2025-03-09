@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 // Libraries
 import styled from "styled-components"
@@ -10,8 +11,9 @@ import { encodePings } from "utils/functions"
 import { colors } from "utils/variables"
 
 // Icons
-import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map-v2.svg"
+// import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map-v2.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
+import Map from "assets/images/home/ping-map/map-desktop.png"
 
 // Components
 import Result from "components/ping-map-result"
@@ -21,12 +23,14 @@ const StyledPingMap = styled.div`
 	background-color: ${colors.grey__700};
 
 	.map-wrapper {
+		width: 100%;
+		aspect-ratio: 1 / 0.3173611111;
 		position: relative;
 
 		.result {
 			position: absolute;
 			right: 0;
-			bottom: 25.3315926893%;
+			bottom: 15.3315926893%;
 			left: 0;
 		}
 	}
@@ -35,18 +39,18 @@ const StyledPingMap = styled.div`
 const regions = [
 	{
 		region: "Seattle",
-		labelPosition: "right",
+		labelPosition: "top",
 		coords: {
-			x: 11.2357142857,
-			y: 49.2954545455,
+			y: 24.9772727273,
+			x: 8.5285714286,
 		},
 	},
 	{
 		region: "Chicago",
-		labelPosition: "left",
+		labelPosition: "right",
 		coords: {
-			y: 36.4166666667,
-			x: 18.9285714286,
+			y: 21.4166666667,
+			x: 17.9285714286,
 		},
 	},
 	{
@@ -54,8 +58,8 @@ const regions = [
 		displayName: "LA",
 		labelPosition: "right",
 		coords: {
-			y: 55.9772727273,
-			x: 11.4285714286,
+			y: 32.9772727273,
+			x: 6.7285714286,
 		},
 	},
 	// {
@@ -71,8 +75,8 @@ const regions = [
 		displayName: "São Paulo",
 		labelPosition: "right",
 		coords: {
-			y: 49.2954545455,
-			x: 34.7321428571,
+			y: 53.2954545455,
+			x: 23.7321428571,
 		},
 	},
 	{
@@ -80,72 +84,72 @@ const regions = [
 		displayName: "Washington DC",
 		labelPosition: "right",
 		coords: {
-			x: 21.2035714286,
-			y: 37.7424242424,
+			x: 16.8035714286,
+			y: 26.7424242424,
 		},
 	},
 	{
 		region: "London",
 		labelPosition: "left",
 		coords: {
-			x: 45.2339285714,
-			y: 10.18901515152,
+			x: 41.2339285714,
+			y: 10.58901515152,
 		},
 	},
 	{
 		region: "Frankfurt",
 		labelPosition: "right",
 		coords: {
-			y: 11.5662878788,
-			x: 48.3491071429,
+			y: 13.3662878788,
+			x: 43.3491071429,
 		},
 	},
 	{
 		region: "Dubai",
 		labelPosition: "left",
 		coords: {
-			x: 61.55357142857,
-			y: 25.4166666667,
+			x: 58.55357142857,
+			y: 24.4166666667,
 		},
 	},
 	{
 		region: "Mumbai",
 		labelPosition: "left",
 		coords: {
-			y: 31.5454545455,
-			x: 68.8035714286,
+			y: 29.5454545455,
+			x: 67.8035714286,
 		},
 	},
 	{
 		region: "Johannesburg",
 		labelPosition: "right",
 		coords: {
-			y: 46.4393939394,
-			x: 51.8642857143,
+			y: 52.4393939394,
+			x: 47.8642857143,
 		},
 	},
 	{
 		region: "Singapore",
 		labelPosition: "left",
 		coords: {
-			y: 47.8287878788,
-			x: 75.4666666667,
+			y: 42.8287878788,
+			x: 78.4666666667,
 		},
 	},
 	{
 		region: "Tokyo",
 		labelPosition: "right",
 		coords: {
-			y: 51.3636363636,
-			x: 86.5,
+			y: 30.3636363636,
+			x: 85.5,
 		},
 	},
 	{
 		region: "Sydney",
 		labelPosition: "left",
 		coords: {
-			y: 77.1106060606,
-			x: 78.2333333333,
+			y: 62.1106060606,
+			x: 92.2333333333,
 		},
 	},
 ]
@@ -289,7 +293,8 @@ const DesktopPingMap = (props) => {
 	return (
 		<StyledPingMap ref={mapRef}>
 			<div className="map-wrapper">
-				<Map />
+				<Image src={Map} fill />
+
 				{locations.map((location) => (
 					<MapLocation
 						key={location.region}

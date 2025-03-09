@@ -221,14 +221,14 @@ const StyledMapLocation = styled.div`
 		${(props) =>
 			props.labelPosition === "top" &&
 			css`
-				top: calc(100% - 52px);
+				top: calc(100% - 56px);
 				left: calc(100% - 78px);
 			`}
 		
 		${(props) =>
 			props.labelPosition === "bottom" &&
 			css`
-				bottom: calc(100% - 52px);
+				bottom: calc(100% - 56px);
 				left: calc(100% - 78px);
 			`}
 		
