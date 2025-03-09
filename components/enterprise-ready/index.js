@@ -58,8 +58,13 @@ const StyledEnterpriseReady = styled.div`
 			flex-shrink: 0;
 			gap: 32px;
 
+			@media (max-width: 768px) {
+				width: 180px;
+			}
+
 			${breakpoint.medium`
-				width: auto;
+				width: 352px;
+				padding: 0 !important;
 			`}
 
 			svg {
@@ -108,7 +113,7 @@ const EnterpriseReady = () => {
 						{items.map((item, index) => (
 							<div
 								className={`item row align-items-center ${
-									index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+									index % 2 === 0 ? "flex-row" : "flex-md-row-reverse"
 								}`}
 							>
 								<div className="icon">{item.icon}</div>
