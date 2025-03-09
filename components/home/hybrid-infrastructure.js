@@ -32,7 +32,7 @@ const HybridInfrastructure = () => (
 					href="https://hathora.dev/docs"
 					external
 				>
-					Get Started
+					READY TO LAUNCH?
 				</Button>
 			</div>
 		</Container>

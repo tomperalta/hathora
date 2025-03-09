@@ -48,15 +48,15 @@ const StyledVendorLockin = styled.section`
 	.desktop-wrapper {
 		.content {
 			width: 375px;
-			height: 100vh;
+			height: 80vh;
 			display: flex;
 			align-items: center;
 		}
 
 		.icon-column {
-			height: 100vh;
+			height: 70vh;
 			position: sticky;
-			top: 0;
+			top: 15vh;
 
 			.icon {
 				opacity: 0;
