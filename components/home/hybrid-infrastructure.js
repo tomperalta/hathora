@@ -11,7 +11,7 @@ const HybridInfrastructure = () => (
 	<section>
 		<Container>
 			<div className="header text-center mb-8">
-				<h2 className="heading--m">We handle it all, and fast</h2>
+				<h2 className="heading--l">We handle it all, and fast</h2>
 
 				<p className="text--l">
 					Leverage hybrid cloud to optimize your infrastructure spend

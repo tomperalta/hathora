@@ -96,7 +96,7 @@ const EnterpriseReady = () => {
 		<StyledEnterpriseReady>
 			<Container>
 				<div className="header text-center mb-16 mb-md-32">
-					<h2 className="heading--m mb-4">Enterprise Ready</h2>
+					<h2 className="heading--l mb-4">Enterprise Ready</h2>
 
 					<p className="text--l">
 						Leverage hybrid cloud to optimize your infrastructure spend

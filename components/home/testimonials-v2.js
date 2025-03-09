@@ -14,7 +14,7 @@ import Carousel from "components/carousel"
 // Icons
 import IconArrowRight from "assets/icons/components/carousel/icon-arrow-right.svg"
 
-const StyledTestimonials = styled.div`
+const StyledTestimonials = styled.section`
 	.slide {
 		height: 100%;
 	}
@@ -193,7 +193,7 @@ const Testimonials = () => {
 			<Container>
 				<div className="row justify-content-center">
 					<div className="col-12 col-md-8" style={{ marginBottom: 32 }}>
-						<h2 className="heading--m font-weight--500 text-center dotted-separator">
+						<h2 className="heading--l font-weight--500 text-center">
 							Hear directly from our customers
 						</h2>
 					</div>
