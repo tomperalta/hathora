@@ -142,6 +142,10 @@ const Testimonial = styled.div`
 				) !important;
 			}
 
+			.author {
+				color: ${colors.green__500} !important;
+			}
+
 			.quote {
 				padding: 16px;
 				background-color: ${colors.purple__600};
