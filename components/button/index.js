@@ -218,28 +218,19 @@ const Button = (props) => {
 	const ref = useRef()
 
 	useEffect(() => {
+		const button = ref.current
+		if (!button) return
+
 		const handleMouseMove = (event) => {
-			const { pageX, pageY, target } = event
-
-			const x = pageX - target.offsetLeft
-			const y = pageY - target.offsetTop
-
-			target.style.setProperty("--x", `${x}px`)
-			target.style.setProperty("--y", `${y}px`)
+			const { offsetX, offsetY, target } = event
+			target.style.setProperty("--x", `${offsetX}px`)
+			target.style.setProperty("--y", `${offsetY}px`)
 		}
 
-		document
-			.querySelectorAll('[data-theme="gradient"]')
-			.forEach((button) =>
-				button.addEventListener("mousemove", handleMouseMove, { passive: true })
-			)
+		button.addEventListener("mousemove", handleMouseMove)
 
-		return () =>
-			document
-				.querySelectorAll('[data-theme="gradient"]')
-				.forEach((button) =>
-					button.removeEventListener("mousemove", handleMouseMove)
-				)
+		// eslint-disable-next-line consistent-return
+		return () => button.removeEventListener("mousemove", handleMouseMove)
 	}, [])
 
 	/**

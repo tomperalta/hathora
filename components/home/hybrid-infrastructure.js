@@ -52,7 +52,7 @@ const HybridInfrastructure = () => (
 
 			<div className="text-center">
 				<Button
-					theme="fill"
+					theme="gradient"
 					type="link"
 					href="https://hathora.dev/docs"
 					external
