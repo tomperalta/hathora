@@ -9,9 +9,15 @@ import breakpoint from "utils/breakpoints"
 // Components
 import Container from "components/container/"
 import Button from "components/button/"
+import ObservableLottie from "components/observable-lottie"
 
 // Icons
-import { ReactComponent as IconHybrid } from "assets/icons/home/hybrid-infrastructure/icon-hybrid-infrastructure.svg"
+
+// import { ReactComponent as IconHybrid } from "assets/icons/home/hybrid-infrastructure/icon-hybrid-infrastructure.svg"
+
+// Animations
+import AnimationMobile from "assets/animations/home/hybrid-infrastructure/bare-metal-mobile.json"
+import AnimationDesktop from "assets/animations/home/hybrid-infrastructure/bare-metal-desktop.json"
 
 const StyledHybridInfrastructure = styled.section`
 	.lottie {
@@ -35,7 +41,13 @@ const HybridInfrastructure = () => (
 			</div>
 
 			<div className="lottie">
-				<IconHybrid />
+				<div className="d-flex d-md-none justify-content-center">
+					<ObservableLottie animationData={AnimationMobile} />
+				</div>
+
+				<div className="d-none d-md-flex justify-content-center">
+					<ObservableLottie animationData={AnimationDesktop} />
+				</div>
 			</div>
 
 			<div className="text-center">
