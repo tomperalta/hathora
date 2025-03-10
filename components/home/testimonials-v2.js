@@ -12,7 +12,7 @@ import Container from "components/container"
 import Carousel from "components/carousel"
 
 // Icons
-import IconArrowRight from "assets/icons/components/carousel/icon-arrow-right.svg"
+import { ReactComponent as IconArrowRight } from "assets/icons/components/carousel/icon-arrow-right.svg"
 
 // Images
 import IconCursor from "assets/images/home/testimonials/cursor.svg"
@@ -28,6 +28,7 @@ const StyledTestimonials = styled.section`
 
 	.slide {
 		height: 100%;
+		transition: all 1s ease;
 	}
 
 	.slick-slider {
@@ -81,6 +82,38 @@ const StyledTestimonials = styled.section`
 			}
 		}
 	}
+
+	.carousel {
+		position: relative;
+
+		.arrow {
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top: calc((100% - 40px) / 2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				background-color: ${colors.grey__600};
+			}
+
+			&--next {
+				right: -80px;
+			}
+
+			&--prev {
+				left: -80px;
+
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
 `
 
 const Testimonial = styled.div`
@@ -93,16 +126,20 @@ const Testimonial = styled.div`
 	background-color: ${colors.grey__600};
 	border-radius: 16px;
 	padding: 24px !important;
-	opacity: 0.4;
+	transition: all 1s ease;
 
 	${(props) =>
 		props.active &&
 		css`
-			opacity: 1;
 			cursor: url(${IconCursor}), auto;
 
 			&::before {
 				display: block !important;
+				background: linear-gradient(
+					353.93deg,
+					#2afc61 3.86%,
+					#ae69eb 96.71%
+				) !important;
 			}
 
 			.quote {
@@ -128,8 +165,8 @@ const Testimonial = styled.div`
 		flex-shrink: 0;
 		display: block;
 		border-radius: 16px;
-		background: linear-gradient(353.93deg, #2afc61 3.86%, #ae69eb 96.71%);
-		display: none;
+		background: linear-gradient(82.86deg, #0e0e1b 67.85%, #807e7e 104%);
+		transition: background 1s ease;
 		z-index: -1;
 	}
 
@@ -137,10 +174,10 @@ const Testimonial = styled.div`
     padding: 0 36px 0 32px;
   `}
 
-	.quote {
-		/* padding: 16px;
-    background-color: ${colors.purple__600};
-    border-radius: 16px; */
+	.author,
+	.role,
+	.company {
+		color: ${colors.grey__200};
 	}
 `
 
@@ -156,47 +193,66 @@ const Testimonials = () => {
 	const testimonials = [
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“This platform has been the foundation of our digital transformation from day one. It provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our users. Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with this technology by our side.”",
+			author: "Samantha Carter",
+			role: "CTO",
+			company: "Orion Tech",
 		},
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“We've relied on this service for all our cloud infrastructure needs, and it has never let us down. The performance, flexibility, and reliability are unmatched. The support team is always available to ensure we get the best possible experience. Their continuous improvements and customer-first approach make them an essential part of our success. We look forward to many more years of collaboration.”",
+			author: "Jonathan Mitchell",
+			role: "Head of Operations",
+			company: "Nova Solutions",
 		},
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“From the very beginning, this platform has played a crucial role in our success. Its powerful automation tools have streamlined our workflows, saving us countless hours of manual work. The ability to scale effortlessly as our needs grow has made a significant impact. We couldn’t have asked for a better solution, and we’re excited to see what’s next.”",
+			author: "Michael Reynolds",
+			role: "Founder & CEO",
+			company: "Vertex Labs",
 		},
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“We were searching for a solution that could match our vision for seamless integration and high performance. This platform not only met but exceeded our expectations. The level of customization and security provided ensures our operations run smoothly. Their commitment to excellence makes them a vital part of our business strategy, and we can’t imagine working without them.”",
+			author: "Linda Chen",
+			role: "Product Manager",
+			company: "Skyline Enterprises",
 		},
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“Security and efficiency were our top priorities, and this platform delivered beyond expectations. We’ve seen a tremendous improvement in our operational processes, and the results speak for themselves. Their proactive support and dedication to performance make them an industry leader. We’re grateful for their partnership and excited for the future.”",
+			author: "Carlos Rivera",
+			role: "Security Lead",
+			company: "Fortress Cyber",
 		},
 		{
 			quote:
-				"“Hathora has been the bedrock of Spectre Divide’s server orchestration and hosting from day one. Their platform provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our players, from initial development to a successful launch.  Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with Hathora by our side.”",
-			author: "Tim Morten",
-			role: "Co-Found and CEO",
-			company: "Mountain Studios",
+				"“As a fast-growing startup, we needed a solution that could keep up with our rapid expansion. This platform has been a game-changer, allowing us to scale efficiently without compromising on quality. Their ability to anticipate our needs and continuously innovate ensures we stay ahead in a competitive market. We’re looking forward to pushing new boundaries together.”",
+			author: "Emma Thompson",
+			role: "COO",
+			company: "Pioneer AI",
 		},
 	]
+
+	/**
+	 * HANDLERS
+	 */
+	const handlePrevSlide = () => {
+		if (activeSlide > 0) {
+			setActiveSlide(activeSlide - 1)
+		} else {
+			setActiveSlide(testimonials.length - 1)
+		}
+	}
+
+	const handleNextSlide = () => {
+		if (activeSlide < testimonials.length - 1) {
+			setActiveSlide(activeSlide + 1)
+		} else {
+			setActiveSlide(0)
+		}
+	}
 
 	console.log(testimonials, activeSlide, setActiveSlide)
 
@@ -237,39 +293,125 @@ const Testimonials = () => {
 						{/* MOBILE:end */}
 
 						{/* DESKTOP:start */}
-						<div className="carousel d-flex overflow-hidden">
-							<div className="d-flex" style={{ gap: 24 }}>
-								{testimonials.map((testimonial, index) => (
+						<div className="carousel d-none d-md-flex">
+							<button
+								type="button"
+								className="arrow arrow--next"
+								onClick={handleNextSlide}
+							>
+								<IconArrowRight />
+							</button>
+
+							<button
+								type="button"
+								className="arrow arrow--prev"
+								onClick={handlePrevSlide}
+							>
+								<IconArrowRight />
+							</button>
+
+							<div className="d-flex overflow-hidden">
+								<div
+									className="d-flex"
+									style={{
+										gap: 24,
+										transform: `translateX(-${
+											activeSlide * 304 + 24 * activeSlide
+										}px)`,
+										transition: "transform 1s ease",
+									}}
+								>
+									{/* FIRST ITEM:START */}
 									<div
 										className="slide"
-										style={{ width: activeSlide + 1 === index ? 464 : 304 }}
-										key={testimonial.author}
+										style={{
+											maxWidth: 304,
+											flexShrink: 0,
+											opacity: 0.4,
+										}}
 									>
-										<Testimonial
-											style={{
-												width: 464,
-											}}
-											active={activeSlide + 1 === index}
-										>
+										<Testimonial>
 											<p className="author color--green__500 font-weight--700">
-												{testimonial.author}
+												{testimonials[testimonials.length - 1].author}
 											</p>
 											<p className="role text--s color--grey__200">
-												{testimonial.role}
+												{testimonials[testimonials.length - 1].role}
 											</p>
 											<p
 												className="company text--s color--grey__200"
 												style={{ marginTop: 8 }}
 											>
-												{testimonial.company}
+												{testimonials[testimonials.length - 1].company}
 											</p>
 
 											<p className="quote text--s" style={{ marginTop: 24 }}>
-												{testimonial.quote}
+												{testimonials[testimonials.length - 1].quote}
 											</p>
 										</Testimonial>
 									</div>
-								))}
+									{/* FIRST ITEM:END */}
+
+									{testimonials.map((testimonial, index) => (
+										<div
+											className="slide"
+											style={{
+												maxWidth: activeSlide === index ? 464 : 304,
+												flexShrink: 0,
+												opacity: activeSlide === index ? 1 : 0.4,
+											}}
+											key={testimonial.author}
+										>
+											<Testimonial active={activeSlide === index}>
+												<p className="author color--green__500 font-weight--700">
+													{testimonial.author}
+												</p>
+												<p className="role text--s color--grey__200">
+													{testimonial.role}
+												</p>
+												<p
+													className="company text--s color--grey__200"
+													style={{ marginTop: 8 }}
+												>
+													{testimonial.company}
+												</p>
+
+												<p className="quote text--s" style={{ marginTop: 24 }}>
+													{testimonial.quote}
+												</p>
+											</Testimonial>
+										</div>
+									))}
+
+									{/* LAST ITEM:START */}
+									<div
+										className="slide"
+										style={{
+											maxWidth: 304,
+											flexShrink: 0,
+											opacity: 0.4,
+										}}
+									>
+										<Testimonial>
+											<p className="author color--green__500 font-weight--700">
+												{testimonials[0].author}
+											</p>
+											<p className="role text--s color--grey__200">
+												{testimonials[0].role}
+											</p>
+											<p
+												className="company text--s color--grey__200"
+												style={{ marginTop: 8 }}
+											>
+												{testimonials[0].company}
+											</p>
+
+											<p className="quote text--s" style={{ marginTop: 24 }}>
+												{testimonials[0].quote}
+											</p>
+										</Testimonial>
+									</div>
+									{/* LAST ITEM:END */}
+								</div>
 							</div>
 						</div>
 						{/* DESKTOP:end */}
