@@ -12,10 +12,14 @@ import breakpoint from "utils/breakpoints/"
 
 // Icons
 import { ReactComponent as Icon1 } from "assets/icons/home/vendor-lockin/icon-1.svg"
-import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
+// import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
 import { ReactComponent as Icon3 } from "assets/icons/home/vendor-lockin/icon-3.svg"
 import { ReactComponent as Icon4 } from "assets/icons/home/vendor-lockin/icon-4.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+
+// Animations
+import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
+import ObservableLottie from "components/observable-lottie"
 
 const StyledVendorLockin = styled.section`
 	${breakpoint.medium`
@@ -93,7 +97,16 @@ const StyledVendorLockin = styled.section`
       `}
 		}
 
+		.heading--m {
+			@media screen and (max-width: 767px) {
+				font-size: 2rem;
+				line-height: 1em;
+			}
+		}
+
 		.icon {
+			width: 100%;
+
 			${breakpoint.medium`
 				height: 100%;
 				position: sticky;
@@ -127,6 +140,7 @@ const VendorLockin = () => {
 			icon: (
 				<div
 					style={{
+						width: "100%",
 						position: "relative",
 						top: -40,
 					}}
@@ -140,7 +154,7 @@ const VendorLockin = () => {
 			highlightedWord: "them all",
 			description: "Request a game server for a match with 1 API call",
 			url: "#",
-			icon: <Icon2 />,
+			icon: <ObservableLottie animationData={NoVendorLockin} />,
 		},
 		{
 			title: "Lightening fast",
