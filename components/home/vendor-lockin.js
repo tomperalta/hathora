@@ -12,15 +12,26 @@ import breakpoint from "utils/breakpoints/"
 
 // Icons
 import { ReactComponent as Icon1 } from "assets/icons/home/vendor-lockin/icon-1.svg"
-import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
+// import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
 import { ReactComponent as Icon3 } from "assets/icons/home/vendor-lockin/icon-3.svg"
 import { ReactComponent as Icon4 } from "assets/icons/home/vendor-lockin/icon-4.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
+
+// Animations
+import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
+import ObservableLottie from "components/observable-lottie"
 
 const StyledVendorLockin = styled.section`
 	${breakpoint.medium`
 		padding-bottom: 0 !important;
 	`}
+
+	.highlight {
+		background: linear-gradient(81.2deg, #ab47ff -3.76%, #4dffae 49.24%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 
 	.item-wrapper {
 		gap: 64px;
@@ -41,15 +52,15 @@ const StyledVendorLockin = styled.section`
 	.desktop-wrapper {
 		.content {
 			width: 375px;
-			height: 100vh;
+			height: 80vh;
 			display: flex;
 			align-items: center;
 		}
 
 		.icon-column {
-			height: 100vh;
+			height: 70vh;
 			position: sticky;
-			top: 0;
+			top: 15vh;
 
 			.icon {
 				opacity: 0;
@@ -62,6 +73,16 @@ const StyledVendorLockin = styled.section`
 
 				&.visible {
 					opacity: 1;
+				}
+
+				svg {
+					width: 100%;
+					height: auto;
+
+					${breakpoint.medium`
+						width: 640px;
+						height: auto;
+					`}
 				}
 			}
 		}
@@ -76,7 +97,15 @@ const StyledVendorLockin = styled.section`
       `}
 		}
 
+		.heading--m {
+			@media screen and (max-width: 767px) {
+				font-size: 2rem;
+			}
+		}
+
 		.icon {
+			width: 100%;
+
 			${breakpoint.medium`
 				height: 100%;
 				position: sticky;
@@ -85,6 +114,11 @@ const StyledVendorLockin = styled.section`
 				align-items: center;
 				background: red;
 			`}
+
+			svg {
+				width: 100%;
+				height: auto;
+			}
 		}
 	}
 `
@@ -98,12 +132,14 @@ const VendorLockin = () => {
 
 	const data = [
 		{
-			title: "No vendor lockin",
+			title: "No vendor",
+			highlightedWord: "lockin",
 			description: "Deploy your game server with no SDK integration",
 			url: "#",
 			icon: (
 				<div
 					style={{
+						width: "100%",
 						position: "relative",
 						top: -40,
 					}}
@@ -113,19 +149,22 @@ const VendorLockin = () => {
 			),
 		},
 		{
-			title: "1 API call to rule them all",
+			title: "1 API call to rule",
+			highlightedWord: "them all",
 			description: "Request a game server for a match with 1 API call",
 			url: "#",
-			icon: <Icon2 />,
+			icon: <ObservableLottie animationData={NoVendorLockin} />,
 		},
 		{
-			title: "Lightening fast autoscaler",
+			title: "Lightening fast",
+			highlightedWord: "autoscaler",
 			description: "Spin up servers in <2 minutes to meet unexpected demand",
 			url: "#",
 			icon: <Icon3 />,
 		},
 		{
-			title: "Manage your servers with ease",
+			title: "Manage your servers with",
+			highlightedWord: "ease",
 			description: "Get live metrics and logs for your game servers",
 			url: "#",
 			icon: <Icon4 />,
@@ -164,8 +203,8 @@ const VendorLockin = () => {
 	return (
 		<StyledVendorLockin>
 			<Container>
-				<div className="header text-center">
-					<h2 className="heading--m dotted-separator">No vendor lockin</h2>
+				<div className="header text-center" style={{ marginBottom: 32 }}>
+					<h2 className="heading--l">No vendor lockin</h2>
 
 					<p className="text--l">Placeholder for copy</p>
 				</div>
@@ -175,13 +214,15 @@ const VendorLockin = () => {
 					{data.map((item) => (
 						<div
 							key={item.title}
-							className="item d-flex align-items-center justify-content-between"
+							className="item d-flex flex-column align-items-center justify-content-between"
 						>
-							<div className="icon">{item.icon}</div>
+							<div className="icon d-flex">{item.icon}</div>
 
 							<div className="content">
 								<h3 className="heading--m font-weight--700 color--purple__500 mb-2">
 									{item.title}
+									<br />
+									<span className="highlight">{item.highlightedWord}</span>
 								</h3>
 								<p className="text--l font-weight--400">{item.description}</p>
 							</div>
@@ -204,6 +245,8 @@ const VendorLockin = () => {
 								<div>
 									<h3 className="heading--m font-weight--700 color--purple__500 mb-2">
 										{item.title}
+										<br />
+										<span className="highlight">{item.highlightedWord}</span>
 									</h3>
 									<p className="text--l font-weight--400">{item.description}</p>
 
