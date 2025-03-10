@@ -1,5 +1,11 @@
 import React from "react"
 
+// Libs
+import styled from "styled-components"
+
+// Utils
+import breakpoint from "utils/breakpoints"
+
 // Components
 import Container from "components/container/"
 import Button from "components/button/"
@@ -7,8 +13,18 @@ import Button from "components/button/"
 // Icons
 import { ReactComponent as IconHybrid } from "assets/icons/home/hybrid-infrastructure/icon-hybrid-infrastructure.svg"
 
+const StyledHybridInfrastructure = styled.section`
+	.lottie {
+		margin: 32px 0;
+
+		${breakpoint.medium`
+			margin: 64px 0 48px 0;
+		`}
+	}
+`
+
 const HybridInfrastructure = () => (
-	<section>
+	<StyledHybridInfrastructure>
 		<Container>
 			<div className="header text-center mb-8">
 				<h2 className="heading--l">We handle it all, and fast</h2>
@@ -18,14 +34,11 @@ const HybridInfrastructure = () => (
 				</p>
 			</div>
 
-			<IconHybrid />
+			<div className="lottie">
+				<IconHybrid />
+			</div>
 
-			<div
-				className="text-center"
-				style={{
-					marginTop: 48,
-				}}
-			>
+			<div className="text-center">
 				<Button
 					theme="fill"
 					type="link"
@@ -36,7 +49,7 @@ const HybridInfrastructure = () => (
 				</Button>
 			</div>
 		</Container>
-	</section>
+	</StyledHybridInfrastructure>
 )
 
 export default HybridInfrastructure
