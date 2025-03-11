@@ -12,6 +12,7 @@ import Container from "components/container"
 import Carousel from "components/carousel"
 
 // Icons
+import IconArrowRightSource from "assets/icons/components/carousel/icon-arrow-right.svg"
 import { ReactComponent as IconArrowRight } from "assets/icons/components/carousel/icon-arrow-right.svg"
 
 // Images
@@ -71,7 +72,7 @@ const StyledTestimonials = styled.section`
 			&::before {
 				width: 32px;
 				height: 32px;
-				content: url(${IconArrowRight});
+				content: url(${IconArrowRightSource}) !important;
 				opacity: 1;
 			}
 
