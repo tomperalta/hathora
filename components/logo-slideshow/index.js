@@ -1,14 +1,22 @@
+/* eslint-disable */
 import React from "react"
+import styled, { keyframes, css } from "styled-components"
 
-// Libs
-import styled, { keyframes } from "styled-components"
-
-const slide = keyframes`
+const slideLeft = keyframes`
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-51.5%);
+  }
+`
+
+const slideRight = keyframes`
+  from {
+    transform: translateX(-51.5%);
+  }
+  to {
+    transform: translateX(0);
   }
 `
 
@@ -22,14 +30,24 @@ const LogosWrapper = styled.div`
 	align-items: center;
 	gap: 48px;
 	width: max-content;
-	animation: ${slide} 10s linear infinite;
+	animation: ${({ direction }) =>
+		direction === "right"
+			? css`
+					${slideRight} 20s linear infinite
+			  `
+			: css`
+					${slideLeft} 20s linear infinite
+			  `};
 `
 
-// eslint-disable-next-line
-const LogoSlideshow = ({ logos }) => {
+const LogoSlideshow = ({ logos, direction = "left" }) => {
 	return (
 		<SlideshowContainer>
-			<LogosWrapper>{[...logos, ...logos].map((logo) => logo)}</LogosWrapper>
+			<LogosWrapper direction={direction}>
+				{[...logos, ...logos].map((logo, index) => (
+					<React.Fragment key={index}>{logo}</React.Fragment>
+				))}
+			</LogosWrapper>
 		</SlideshowContainer>
 	)
 }
