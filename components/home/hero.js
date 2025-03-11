@@ -43,9 +43,7 @@ const Home = () => (
 						Server orchestration for multiplayer games
 					</h1>
 
-					<p className="text--l">
-						Save up to XX% on your infrastructure bill by using our platform
-					</p>
+					<p className="text--l">Enterprise grade scalable infrastructure</p>
 
 					<div className="buttons">
 						<Button
@@ -63,7 +61,7 @@ const Home = () => (
 							external
 							theme="outline"
 						>
-							LEARN MORE
+							BOOK A CALL
 						</Button>
 					</div>
 				</div>

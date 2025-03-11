@@ -132,9 +132,9 @@ const VendorLockin = () => {
 
 	const data = [
 		{
-			title: "No vendor",
-			highlightedWord: "lockin",
-			description: "Deploy your game server with no SDK integration",
+			title: "Streamlined",
+			highlightedWord: "architecture",
+			description: "Avoid vendor lock-in with our container-first platform",
 			url: "#",
 			icon: (
 				<div
@@ -149,16 +149,16 @@ const VendorLockin = () => {
 			),
 		},
 		{
-			title: "1 API call to rule",
-			highlightedWord: "them all",
-			description: "Request a game server for a match with 1 API call",
+			title: "Spin up servers with",
+			highlightedWord: "a single API call",
+			description: "Request game servers from your matchmaker",
 			url: "#",
 			icon: <ObservableLottie animationData={NoVendorLockin} />,
 		},
 		{
 			title: "Lightening fast",
 			highlightedWord: "autoscaler",
-			description: "Spin up servers in <2 minutes to meet unexpected demand",
+			description: "Spin up servers in seconds to meet player demand",
 			url: "#",
 			icon: <Icon3 />,
 		},
@@ -204,7 +204,7 @@ const VendorLockin = () => {
 		<StyledVendorLockin>
 			<Container>
 				<div className="header text-center" style={{ marginBottom: 32 }}>
-					<h2 className="heading--l">No vendor lockin</h2>
+					<h2 className="heading--l">Manage your game servers effortlessly</h2>
 
 					<p className="text--l">Placeholder for copy</p>
 				</div>

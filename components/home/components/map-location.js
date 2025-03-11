@@ -393,6 +393,7 @@ const MapLocation = (props) => {
 			}}
 			animation={animation}
 			compact={compact}
+			className="location"
 		>
 			<div className="indicator">
 				<IconSatellite />

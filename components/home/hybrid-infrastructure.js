@@ -33,10 +33,11 @@ const HybridInfrastructure = () => (
 	<StyledHybridInfrastructure>
 		<Container>
 			<div className="header text-center mb-8">
-				<h2 className="heading--l">We handle it all, and fast</h2>
+				<h2 className="heading--l">Bare metal meets Cloud</h2>
 
 				<p className="text--l">
-					Leverage hybrid cloud to optimize your infrastructure spend
+					Blend cost-effective bare metal with cloud elasticity, scaling
+					effortlessly to match player demand
 				</p>
 			</div>
 

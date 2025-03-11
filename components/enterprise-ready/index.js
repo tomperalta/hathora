@@ -81,17 +81,18 @@ const EnterpriseReady = () => {
 	 */
 	const items = [
 		{
-			title: "Title",
+			title: "Business hour and 24/7 support",
 			subtitle: "Support",
-			description: "We provide business hour and 24/7 support",
+			description:
+				"We offer best-in-class support with 24/7 access to our on-call. Reach us via phone, email, and Slack.",
 			url: "#",
 			icon: <IconBenefits />,
 		},
 		{
-			title: "Secure",
-			subtitle: "DDos",
+			title: "DDos Protection",
+			subtitle: "Security",
 			description:
-				"Single command deployment, global coverage, automatic Blue-Green updates, and built-in analytics.",
+				"Ensure game servers remain secure and stable while maintaining optimal performance even during attacks.",
 			url: "#",
 			icon: <IconSecure />,
 		},
@@ -104,7 +105,7 @@ const EnterpriseReady = () => {
 					<h2 className="heading--l mb-4">Enterprise Ready</h2>
 
 					<p className="text--l">
-						Leverage hybrid cloud to optimize your infrastructure spend
+						Everything you need to power the biggest games
 					</p>
 				</div>
 
@@ -128,7 +129,7 @@ const EnterpriseReady = () => {
 										{item.subtitle}
 									</p>
 									<h3
-										className="heading--s text-uppercase mb-2"
+										className="heading--s mb-2"
 										style={{
 											fontWeight: 500,
 										}}

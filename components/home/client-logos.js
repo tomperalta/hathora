@@ -28,6 +28,12 @@ const ClientLogos = () => {
 
 	return (
 		<section className="p-0">
+			<Container>
+				<p className="text-l text-center" style={{ marginBottom: 16 }}>
+					Powering leading studios
+				</p>
+			</Container>
+
 			<div className="d-md-none">
 				<LogoSlideshow logos={logos} />
 			</div>
