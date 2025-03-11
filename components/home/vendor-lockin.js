@@ -203,10 +203,14 @@ const VendorLockin = () => {
 	return (
 		<StyledVendorLockin>
 			<Container>
-				<div className="header text-center" style={{ marginBottom: 32 }}>
-					<h2 className="heading--l">Manage your game servers effortlessly</h2>
-
-					<p className="text--l">Placeholder for copy</p>
+				<div className="row justify-content-center">
+					<div className="col-12 col-md-8">
+						<div className="header text-center" style={{ marginBottom: 32 }}>
+							<h2 className="heading--l">
+								Manage your game servers effortlessly
+							</h2>
+						</div>
+					</div>
 				</div>
 
 				{/* MOBILE:start */}
