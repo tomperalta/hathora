@@ -6,6 +6,7 @@ import styled from "styled-components"
 // Components
 import Container from "components/container"
 import Button from "components/button"
+import ObservableLottie from "components/observable-lottie"
 
 // Utils
 import breakpoint from "utils/breakpoints/"
@@ -14,12 +15,13 @@ import breakpoint from "utils/breakpoints/"
 import { ReactComponent as Icon1 } from "assets/icons/home/vendor-lockin/icon-1.svg"
 // import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
 import { ReactComponent as Icon3 } from "assets/icons/home/vendor-lockin/icon-3.svg"
-import { ReactComponent as Icon4 } from "assets/icons/home/vendor-lockin/icon-4.svg"
+// import { ReactComponent as Icon4 } from "assets/icons/home/vendor-lockin/icon-4.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 // Animations
-import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
-import ObservableLottie from "components/observable-lottie"
+// import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
+import APICall from "assets/animations/home/vendor-lockin/1-api-call.json"
+import ManageServers from "assets/animations/home/vendor-lockin/manage-servers.json"
 
 const StyledVendorLockin = styled.section`
 	${breakpoint.medium`
@@ -153,7 +155,7 @@ const VendorLockin = () => {
 			highlightedWord: "a single API call",
 			description: "Request game servers from your matchmaker",
 			url: "#",
-			icon: <ObservableLottie animationData={NoVendorLockin} />,
+			icon: <ObservableLottie animationData={APICall} />,
 		},
 		{
 			title: "Lightening fast",
@@ -167,7 +169,7 @@ const VendorLockin = () => {
 			highlightedWord: "ease",
 			description: "Get live metrics and logs for your game servers",
 			url: "#",
-			icon: <Icon4 />,
+			icon: <ObservableLottie animationData={ManageServers} />,
 		},
 	]
 
