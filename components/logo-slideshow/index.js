@@ -33,16 +33,16 @@ const LogosWrapper = styled.div`
 	animation: ${({ direction }) =>
 		direction === "right"
 			? css`
-					${slideRight} 20s linear infinite
+					${slideRight} ${(props) => props.duration || "60s"} linear infinite
 			  `
 			: css`
-					${slideLeft} 20s linear infinite
+					${slideLeft} ${(props) => props.duration || "60s"} linear infinite
 			  `};
 `
 
-const LogoSlideshow = ({ logos, direction = "left" }) => {
+const LogoSlideshow = ({ logos, direction = "left", duration = "60s" }) => {
 	return (
-		<SlideshowContainer>
+		<SlideshowContainer duration={duration}>
 			<LogosWrapper direction={direction}>
 				{[...logos, ...logos].map((logo, index) => (
 					<React.Fragment key={index}>{logo}</React.Fragment>

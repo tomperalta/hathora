@@ -18,6 +18,10 @@ import Map from "assets/images/home/ping-map/map-desktop.png"
 // Components
 import Result from "components/ping-map-result"
 import MapLocation from "./map-location"
+// import Lottie from "components/observable-lottie/"
+
+// Animations
+// import Animation from "assets/animations/home/hero-desktop-animation.json"
 
 const StyledPingMap = styled.div`
 	background-color: ${colors.grey__700};

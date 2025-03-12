@@ -34,10 +34,6 @@ const StyledEnterpriseReady = styled.div`
 		display: flex;
 		flex-direction: column;
 		gap: 64px;
-
-		${breakpoint.medium`
-			gap: 128px;
-		`}
 	}
 
 	.item {
@@ -102,7 +98,9 @@ const EnterpriseReady = () => {
 		<StyledEnterpriseReady>
 			<Container>
 				<div className="header text-center mb-16 mb-md-32">
-					<h2 className="heading--l mb-4">Enterprise Ready</h2>
+					<h2 className="heading--l" style={{ marginBottom: 16 }}>
+						Enterprise Ready
+					</h2>
 
 					<p className="text--l">
 						Everything you need to power the biggest games
