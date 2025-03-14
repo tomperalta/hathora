@@ -10,7 +10,7 @@ export default function ObservableLottie({
 	animationData,
 	className,
 	loop = false,
-	threshold = 0.5,
+	threshold = 0.75,
 	pauseOnClick = false,
 }) {
 	const containerRef = useRef(null)
