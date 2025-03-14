@@ -262,7 +262,7 @@ const DesktopPingMap = (props) => {
 				}, 1000)
 			}, 500)
 		} catch (error) {
-			console.log(`Error while taking the screenshot`, error)
+			console.error(`Error while taking the screenshot`, error)
 			setIsTakingPicture(false)
 		}
 	}

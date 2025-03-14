@@ -224,8 +224,6 @@ const SignUpModal = () => {
 
 			if (response.status === 200) {
 				setShowSuccessMessage(true)
-			} else {
-				console.log(response)
 			}
 
 			setLoading(false)

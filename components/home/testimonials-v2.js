@@ -252,8 +252,6 @@ const Testimonials = () => {
 		}
 	}
 
-	console.log(testimonials, activeSlide, setActiveSlide)
-
 	return (
 		<StyledTestimonials>
 			<Container>

@@ -31,7 +31,11 @@ export default function ObservableLottie({
 
 	useEffect(() => {
 		if (lottieRef.current) {
-			isVisible ? lottieRef.current.play() : lottieRef.current.pause()
+			if (isVisible) {
+				lottieRef.current.play()
+			} else {
+				lottieRef.current.pause()
+			}
 		}
 	}, [isVisible])
 
@@ -48,7 +52,12 @@ export default function ObservableLottie({
 
 	return (
 		<div ref={containerRef} className={className} onClick={handleTogglePlay}>
-			<Lottie lottieRef={lottieRef} animationData={animationData} loop={loop} />
+			<Lottie
+				lottieRef={lottieRef}
+				autoplay={false}
+				animationData={animationData}
+				loop={loop}
+			/>
 		</div>
 	)
 }

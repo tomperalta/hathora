@@ -355,7 +355,7 @@ const MapLocation = (props) => {
 					`wss://${region.toLowerCase().replace("_", "")}.ping.hathora.dev`
 				)
 			} catch (error) {
-				console.log(error)
+				console.error(error)
 			}
 		}
 

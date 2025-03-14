@@ -197,8 +197,6 @@ const VendorLockin = () => {
 		}
 	}, [])
 
-	console.log(setActiveSlide)
-
 	return (
 		<StyledVendorLockin>
 			<Container>
