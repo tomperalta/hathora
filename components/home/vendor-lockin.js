@@ -12,16 +12,13 @@ import ObservableLottie from "components/observable-lottie"
 import breakpoint from "utils/breakpoints/"
 
 // Icons
-import { ReactComponent as Icon1 } from "assets/icons/home/vendor-lockin/icon-1.svg"
-// import { ReactComponent as Icon2 } from "assets/icons/home/vendor-lockin/icon-2.svg"
-import { ReactComponent as Icon3 } from "assets/icons/home/vendor-lockin/icon-3.svg"
-// import { ReactComponent as Icon4 } from "assets/icons/home/vendor-lockin/icon-4.svg"
 import { ReactComponent as IconArrow } from "assets/icons/icon-arrow-right.svg"
 
 // Animations
-// import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
+import NoVendorLockin from "assets/animations/home/vendor-lockin/no-vendor-lockin.json"
 import APICall from "assets/animations/home/vendor-lockin/1-api-call.json"
 import ManageServers from "assets/animations/home/vendor-lockin/manage-servers.json"
+import LighteningFast from "assets/animations/home/vendor-lockin/lightning-fast.json"
 
 const StyledVendorLockin = styled.section`
 	${breakpoint.medium`
@@ -146,7 +143,7 @@ const VendorLockin = () => {
 						top: -40,
 					}}
 				>
-					<Icon1 />
+					<ObservableLottie animationData={NoVendorLockin} />
 				</div>
 			),
 		},
@@ -162,7 +159,7 @@ const VendorLockin = () => {
 			highlightedWord: "autoscaler",
 			description: "Spin up servers in seconds to meet player demand",
 			url: "#",
-			icon: <Icon3 />,
+			icon: <ObservableLottie animationData={LighteningFast} />,
 		},
 		{
 			title: "Manage your servers with",
