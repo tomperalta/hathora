@@ -134,7 +134,7 @@ const VendorLockin = () => {
 			title: "Streamlined",
 			highlightedWord: "architecture",
 			description: "Avoid vendor lock-in with our container-first platform",
-			url: "#",
+			url: "https://hathora.dev/docs/how-hathora-works/architecture",
 			icon: (
 				<div
 					style={{
@@ -151,21 +151,21 @@ const VendorLockin = () => {
 			title: "Spin up servers with",
 			highlightedWord: "a single API call",
 			description: "Request game servers from your matchmaker",
-			url: "#",
+			url: "https://hathora.dev/api#tag/RoomV2/operation/CreateRoom",
 			icon: <ObservableLottie animationData={APICall} />,
 		},
 		{
 			title: "Lightening fast",
 			highlightedWord: "autoscaler",
 			description: "Spin up servers in seconds to meet player demand",
-			url: "#",
+			url: "https://hathora.dev/docs/how-hathora-works/fleets-autoscaling",
 			icon: <ObservableLottie animationData={LighteningFast} />,
 		},
 		{
 			title: "Manage your servers with",
 			highlightedWord: "ease",
 			description: "Get live metrics and logs for your game servers",
-			url: "#",
+			url: "https://hathora.dev/docs/how-hathora-works/telemetry",
 			icon: <ObservableLottie animationData={ManageServers} />,
 		},
 	]
