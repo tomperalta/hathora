@@ -11,10 +11,12 @@ export default function ObservableLottie({
 	className,
 	loop = false,
 	threshold = 0.5,
+	pauseOnClick = false,
 }) {
 	const containerRef = useRef(null)
 	const lottieRef = useRef(null) // Stores the Lottie instance
 	const [isVisible, setIsVisible] = useState(false)
+	const [isPlaying, setIsPlaying] = useState(true)
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -33,8 +35,19 @@ export default function ObservableLottie({
 		}
 	}, [isVisible])
 
+	const handleTogglePlay = () => {
+		if (pauseOnClick && lottieRef.current) {
+			if (isPlaying) {
+				lottieRef.current.pause()
+			} else {
+				lottieRef.current.play()
+			}
+			setIsPlaying(!isPlaying)
+		}
+	}
+
 	return (
-		<div ref={containerRef} className={className}>
+		<div ref={containerRef} className={className} onClick={handleTogglePlay}>
 			<Lottie lottieRef={lottieRef} animationData={animationData} loop={loop} />
 		</div>
 	)
