@@ -198,45 +198,38 @@ const Testimonials = () => {
 	const testimonials = [
 		{
 			quote:
-				"“This platform has been the foundation of our digital transformation from day one. It provided us with the stability, scalability, and performance we needed to deliver an outstanding experience for our users. Their rapid response to our needs and continuous innovation have made them an invaluable partner. We’re excited to continue building on this strong foundation and pushing the boundaries of what’s possible with this technology by our side.”",
-			author: "Samantha Carter",
-			role: "CTO",
-			company: "Orion Tech",
-		},
-		{
-			quote:
-				"“We've relied on this service for all our cloud infrastructure needs, and it has never let us down. The performance, flexibility, and reliability are unmatched. The support team is always available to ensure we get the best possible experience. Their continuous improvements and customer-first approach make them an essential part of our success. We look forward to many more years of collaboration.”",
-			author: "Jonathan Mitchell",
-			role: "Head of Operations",
-			company: "Nova Solutions",
-		},
-		{
-			quote:
-				"“From the very beginning, this platform has played a crucial role in our success. Its powerful automation tools have streamlined our workflows, saving us countless hours of manual work. The ability to scale effortlessly as our needs grow has made a significant impact. We couldn’t have asked for a better solution, and we’re excited to see what’s next.”",
-			author: "Michael Reynolds",
+				"Hathora continues to be the bedrock of Spectre Divide's server orchestration and hosting. From development through launch, the platform enabled us to deliver an outstanding experience for players. We’ve closely collaborated on the roadmap, and they’ve quickly implemented a number of features that help us run Spectre every day. We’re thrilled  to continue building on our partnership and integration with Hathora.",
+			author: "Nate Mitchell",
 			role: "Founder & CEO",
-			company: "Vertex Labs",
+			company: "Mountaintop Studios",
 		},
 		{
 			quote:
-				"“We were searching for a solution that could match our vision for seamless integration and high performance. This platform not only met but exceeded our expectations. The level of customization and security provided ensures our operations run smoothly. Their commitment to excellence makes them a vital part of our business strategy, and we can’t imagine working without them.”",
-			author: "Linda Chen",
-			role: "Product Manager",
-			company: "Skyline Enterprises",
+				"“Our game server hosting costs were by far the largest single infrastructure expense for our studio. With Hathora, our estimated spend was less than half of what we had been paying each month. Comparing bare metal pricing to cloud pricing highlighted a significant cost difference. Hathora’s team provided direct support throughout the transition, making the switch seamless and efficient.",
+			author: "Chitvan Gupta",
+			role: "Engineering Manager",
+			company: "Gambit Games",
 		},
 		{
 			quote:
-				"“Security and efficiency were our top priorities, and this platform delivered beyond expectations. We’ve seen a tremendous improvement in our operational processes, and the results speak for themselves. Their proactive support and dedication to performance make them an industry leader. We’re grateful for their partnership and excited for the future.”",
-			author: "Carlos Rivera",
-			role: "Security Lead",
-			company: "Fortress Cyber",
+				"With just weeks to go before DreamHack Atlanta, we needed a reliable multiplayer infrastructure that could handle live playtesting at our booth—but we had no matchmaking system in place. Hathora made it incredibly easy to spin up dedicated servers on demand, and with their help, we implemented a lightweight matchmaking flow in under a week. Their support and flexible tooling allowed us to focus on showcasing Wildcard instead of fighting infrastructure issues. The result? 60+ hours of smooth gameplay and hundreds of successful matches at the event.",
+			author: "Jeff Smith",
+			role: "VP Engineering",
+			company: "The Wildcard Alliance",
 		},
 		{
 			quote:
-				"“As a fast-growing startup, we needed a solution that could keep up with our rapid expansion. This platform has been a game-changer, allowing us to scale efficiently without compromising on quality. Their ability to anticipate our needs and continuously innovate ensures we stay ahead in a competitive market. We’re looking forward to pushing new boundaries together.”",
-			author: "Emma Thompson",
-			role: "COO",
-			company: "Pioneer AI",
+				"Our game server hosting costs were by far the largest single infrastructure expense for our studio. We found that our estimated spend on Hathora was less than half of what we had been paying each month. Comparing bare metal pricing to cloud pricing highlighted a significant cost difference. Hathora’s team provided direct support throughout the transition, which helped us switch over efficiently.",
+			author: "Steven Meilleur",
+			role: "CTO / Co-Founder",
+			company: "Omeda Studios",
+		},
+		{
+			quote:
+				"We've worked with other providers in the past and had concerns about scaling, but after successfully launching our Open Alpha on Hathora, the experience was seamless. We've been able to scale all our external playtests without any issues, and they've gotten bigger and bigger. This gives us confidence as we move toward launch. Hathora's platform has proven itself to be reliable and ready for full-scale deployment.",
+			author: "Ian Proulx",
+			role: "CEO / Co-Founder",
+			company: "1047 Games",
 		},
 	]
 
@@ -290,7 +283,7 @@ const Testimonials = () => {
 									</p>
 
 									<p className="quote text--xs" style={{ marginTop: 24 }}>
-										{testimonial.quote}
+										“{testimonial.quote}”
 									</p>
 								</Testimonial>
 							))}
@@ -350,7 +343,7 @@ const Testimonials = () => {
 											</p>
 
 											<p className="quote text--s" style={{ marginTop: 24 }}>
-												{testimonials[testimonials.length - 1].quote}
+												“{testimonials[testimonials.length - 1].quote}”
 											</p>
 										</Testimonial>
 									</div>
@@ -381,7 +374,7 @@ const Testimonials = () => {
 												</p>
 
 												<p className="quote text--s" style={{ marginTop: 24 }}>
-													{testimonial.quote}
+													“{testimonial.quote}”
 												</p>
 											</Testimonial>
 										</div>
@@ -411,7 +404,7 @@ const Testimonials = () => {
 											</p>
 
 											<p className="quote text--s" style={{ marginTop: 24 }}>
-												{testimonials[0].quote}
+												“{testimonials[0].quote}”
 											</p>
 										</Testimonial>
 									</div>
