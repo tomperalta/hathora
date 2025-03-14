@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import dynamic from "next/dynamic"
+// import Image from "next/image"
 
 // Libraries
 import styled from "styled-components"
@@ -13,15 +14,17 @@ import { colors } from "utils/variables"
 // Icons
 // import { ReactComponent as Map } from "assets/icons/home/ping-map/icon-map-v2.svg"
 import { ReactComponent as Iso } from "assets/icons/icon-iso.svg"
-import Map from "assets/images/home/ping-map/map-desktop.png"
-
-// Components
-import Result from "components/ping-map-result"
-import MapLocation from "./map-location"
-// import Lottie from "components/observable-lottie/"
+// import Map from "assets/images/home/ping-map/map-desktop.png"
 
 // Animations
-// import Animation from "assets/animations/home/hero-desktop-animation.json"
+import Animation from "assets/animations/home/hero-desktop-animation.json"
+
+// Components
+// import Lottie from "components/observable-lottie/"
+import Result from "components/ping-map-result"
+import MapLocation from "./map-location"
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const StyledPingMap = styled.div`
 	background-color: ${colors.grey__700};
@@ -34,9 +37,16 @@ const StyledPingMap = styled.div`
 		.result {
 			position: absolute;
 			right: 0;
-			bottom: 15.3315926893%;
+			bottom: 10.3315926893%;
 			left: 0;
+			opacity: ${(props) => (props.animationEnded ? 1 : 0)};
+			transition: opacity 1s;
 		}
+	}
+
+	.location {
+		opacity: ${(props) => (props.animationEnded ? 1 : 0)};
+		transition: opacity 1s;
 	}
 `
 
@@ -45,16 +55,8 @@ const regions = [
 		region: "Seattle",
 		labelPosition: "top",
 		coords: {
-			y: 24.9772727273,
-			x: 8.5285714286,
-		},
-	},
-	{
-		region: "Chicago",
-		labelPosition: "right",
-		coords: {
-			y: 21.4166666667,
-			x: 17.9285714286,
+			y: 28.9772727273,
+			x: 6.5285714286,
 		},
 	},
 	{
@@ -62,25 +64,8 @@ const regions = [
 		displayName: "LA",
 		labelPosition: "right",
 		coords: {
-			y: 32.9772727273,
-			x: 6.7285714286,
-		},
-	},
-	// {
-	// 	region: "Dallas",
-	// 	labelPosition: "right",
-	// 	coords: {
-	// 		y: 35.6438642298,
-	// 		x: 14.0034722222,
-	// 	},
-	// },
-	{
-		region: "Sao_Paulo",
-		displayName: "São Paulo",
-		labelPosition: "right",
-		coords: {
-			y: 53.2954545455,
-			x: 23.7321428571,
+			y: 36.9772727273,
+			x: 4.7285714286,
 		},
 	},
 	{
@@ -88,72 +73,89 @@ const regions = [
 		displayName: "Washington DC",
 		labelPosition: "right",
 		coords: {
-			x: 16.8035714286,
-			y: 26.7424242424,
+			y: 32.7424242424,
+			x: 14.8035714286,
+		},
+	},
+	{
+		region: "Chicago",
+		labelPosition: "right",
+		coords: {
+			y: 27.4166666667,
+			x: 15.9285714286,
+		},
+	},
+	{
+		region: "Sao_Paulo",
+		displayName: "São Paulo",
+		labelPosition: "right",
+		coords: {
+			y: 64.2954545455,
+			x: 22.7321428571,
 		},
 	},
 	{
 		region: "London",
 		labelPosition: "left",
 		coords: {
-			x: 41.2339285714,
-			y: 10.58901515152,
+			y: 17.58901515152,
+			x: 41.8339285714,
 		},
 	},
 	{
 		region: "Frankfurt",
 		labelPosition: "right",
 		coords: {
-			y: 13.3662878788,
-			x: 43.3491071429,
+			y: 20.3662878788,
+			x: 44.3491071429,
 		},
 	},
 	{
 		region: "Dubai",
 		labelPosition: "left",
 		coords: {
-			x: 58.55357142857,
-			y: 24.4166666667,
+			x: 60.553571,
+			y: 31.416667,
 		},
 	},
 	{
 		region: "Mumbai",
-		labelPosition: "left",
+		labelPosition: "top",
 		coords: {
-			y: 29.5454545455,
-			x: 67.8035714286,
+			y: 36.5454545455,
+			x: 70.8035714286,
 		},
 	},
 	{
 		region: "Johannesburg",
 		labelPosition: "right",
 		coords: {
-			y: 52.4393939394,
-			x: 47.8642857143,
+			y: 62.4393939394,
+			x: 51.8642857143,
 		},
 	},
 	{
 		region: "Singapore",
 		labelPosition: "left",
 		coords: {
-			y: 42.8287878788,
-			x: 78.4666666667,
+			y: 47.8287878788,
+			x: 81.4666666667,
 		},
 	},
 	{
 		region: "Tokyo",
 		labelPosition: "right",
 		coords: {
-			y: 30.3636363636,
-			x: 85.5,
+			y: 33.3636363636,
+			x: 88.8,
 		},
 	},
 	{
 		region: "Sydney",
 		labelPosition: "left",
 		coords: {
-			y: 62.1106060606,
-			x: 92.2333333333,
+			y: 68.1106060606,
+			x: 96.2333333333,
 		},
 	},
 ]
@@ -178,6 +180,7 @@ const DesktopPingMap = (props) => {
 	const [imageHasBeenCopied, setImageHasBeenCopied] = useState(false)
 	const [timestamp, setTimestamp] = useState(null)
 	const [encodedData, setEncodedData] = useState(null)
+	const [animationEnded, setAnimationEnded] = useState(false)
 
 	/**
 	 * HOOKS
@@ -295,9 +298,17 @@ const DesktopPingMap = (props) => {
 	}, [])
 
 	return (
-		<StyledPingMap ref={mapRef}>
+		<StyledPingMap ref={mapRef} animationEnded={animationEnded}>
 			<div className="map-wrapper">
-				<Image src={Map} fill />
+				{/* <Image src={Map} fill /> */}
+				<Lottie
+					animationData={Animation}
+					loop={false}
+					controls
+					onComplete={() => {
+						setAnimationEnded(true)
+					}}
+				/>
 
 				{locations.map((location) => (
 					<MapLocation
@@ -308,7 +319,7 @@ const DesktopPingMap = (props) => {
 					/>
 				))}
 
-				{fastestRegion && (
+				{fastestRegion && animationEnded && (
 					<Result
 						className="result"
 						region={fastestRegion.displayName || fastestRegion.name}
