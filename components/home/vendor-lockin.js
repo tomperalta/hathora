@@ -226,6 +226,16 @@ const VendorLockin = () => {
 									<span className="highlight">{item.highlightedWord}</span>
 								</h3>
 								<p className="text--l font-weight--400">{item.description}</p>
+
+								<Button
+									type="link"
+									href={item.url}
+									className="d-inline-flex mt-4"
+									theme="borderless"
+								>
+									Read more
+									<IconArrow />
+								</Button>
 							</div>
 						</div>
 					))}
