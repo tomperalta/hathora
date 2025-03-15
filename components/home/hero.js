@@ -45,7 +45,7 @@ const Home = () => (
 
 					<p className="text--l">Enterprise grade scalable infrastructure</p>
 
-					<div className="buttons">
+					<div className="buttons d-none d-md-flex">
 						<Button
 							theme="gradient"
 							type="link"
@@ -69,6 +69,28 @@ const Home = () => (
 		</Container>
 
 		<PingMap />
+
+		<Container>
+			<div className="buttons d-md-none">
+				<Button
+					theme="gradient"
+					type="link"
+					href="https://hathora.dev/docs"
+					external
+				>
+					GET STARTED
+				</Button>
+
+				<Button
+					type="link"
+					href="https://calendly.com/dsiddharth/30min"
+					external
+					theme="outline"
+				>
+					BOOK A CALL
+				</Button>
+			</div>
+		</Container>
 	</StyledHome>
 )
 
