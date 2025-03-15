@@ -81,7 +81,7 @@ const EnterpriseReady = () => {
 			subtitle: "Support",
 			description:
 				"We offer best-in-class support with 24/7 access to our on-call. Reach us via phone, email, and Slack.",
-			url: "#",
+			// url: "#",
 			icon: <IconBenefits />,
 		},
 		{
@@ -89,7 +89,7 @@ const EnterpriseReady = () => {
 			subtitle: "Security",
 			description:
 				"Ensure game servers remain secure and stable while maintaining optimal performance even during attacks.",
-			url: "#",
+			url: "https://hathora.dev/docs/how-hathora-works/security#ddos-protection",
 			icon: <IconSecure />,
 		},
 	]
@@ -136,15 +136,17 @@ const EnterpriseReady = () => {
 									</h3>
 									<p className="text--s mb-2">{item.description}</p>
 
-									<Button
-										type="link"
-										href={item.url}
-										className="d-inline-flex"
-										theme="borderless"
-									>
-										Read more
-										<IconArrow />
-									</Button>
+									{item.url && (
+										<Button
+											type="link"
+											href={item.url}
+											className="d-inline-flex"
+											theme="borderless"
+										>
+											Read more
+											<IconArrow />
+										</Button>
+									)}
 								</div>
 							</div>
 						))}
