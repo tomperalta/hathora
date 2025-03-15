@@ -41,11 +41,15 @@ const HybridInfrastructure = () => (
 
 			<div className="lottie">
 				<div className="d-flex d-md-none justify-content-center">
-					<ObservableLottie animationData={AnimationMobile} pauseOnClick />
+					<ObservableLottie animationData={AnimationMobile} pauseOnClick loop />
 				</div>
 
 				<div className="d-none d-md-flex justify-content-center">
-					<ObservableLottie animationData={AnimationDesktop} pauseOnClick />
+					<ObservableLottie
+						animationData={AnimationDesktop}
+						pauseOnClick
+						loop
+					/>
 				</div>
 			</div>
 
