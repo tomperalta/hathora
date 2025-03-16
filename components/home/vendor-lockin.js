@@ -146,6 +146,7 @@ const VendorLockin = () => {
 					<ObservableLottie animationData={NoVendorLockin} />
 				</div>
 			),
+			animation: NoVendorLockin,
 		},
 		{
 			title: "Spin up servers with",
@@ -153,6 +154,7 @@ const VendorLockin = () => {
 			description: "Request game servers from your matchmaker",
 			url: "https://hathora.dev/api#tag/RoomV2/operation/CreateRoom",
 			icon: <ObservableLottie animationData={APICall} />,
+			animation: APICall,
 		},
 		{
 			title: "Lightening fast",
@@ -160,6 +162,7 @@ const VendorLockin = () => {
 			description: "Spin up servers in seconds to meet player demand",
 			url: "https://hathora.dev/docs/how-hathora-works/fleets-autoscaling",
 			icon: <ObservableLottie animationData={LighteningFast} />,
+			animation: LighteningFast,
 		},
 		{
 			title: "Manage your servers with",
@@ -167,6 +170,7 @@ const VendorLockin = () => {
 			description: "Get live metrics and logs for your game servers",
 			url: "https://hathora.dev/docs/how-hathora-works/telemetry",
 			icon: <ObservableLottie animationData={ManageServers} />,
+			animation: ManageServers,
 		},
 	]
 
@@ -283,7 +287,9 @@ const VendorLockin = () => {
 									activeSlide === index ? "visible" : "hidden"
 								}`}
 							>
-								{item.icon}
+								{activeSlide === index && (
+									<ObservableLottie animationData={item.animation} />
+								)}
 							</div>
 						))}
 					</div>
