@@ -16,7 +16,6 @@ import SEO from "components/seo"
 
 // Sections
 import Hero from "components/home/hero"
-import ClientLogos from "components/home/client-logos"
 import HybridInfrastructure from "components/home/hybrid-infrastructure"
 import Testimonials from "components/home/testimonials-v2"
 import VendorLockin from "components/home/vendor-lockin"
@@ -45,7 +44,6 @@ const Home = () => (
 	<StyledHome>
 		<SEO />
 		<Hero />
-		<ClientLogos />
 		<HybridInfrastructure />
 		<VendorLockin />
 		<EnterpriseReady />
