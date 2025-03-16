@@ -92,8 +92,8 @@ export default createGlobalStyle`
       line-height: 2.75rem;
 
       ${breakpoint.medium`
-        font-size: 3.5rem;
-        line-height: 4.5rem;
+        font-size: 3.2rem;
+        line-height: 4.2rem;
       `}
     }
 

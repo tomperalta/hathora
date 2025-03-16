@@ -134,9 +134,9 @@ const ClientLogos = () => {
 	return (
 		<section className="p-0">
 			<Container>
-				<p className="text-l text-center" style={{ marginBottom: 16 }}>
+				{/* <p className="text-l text-center" style={{ marginBottom: 16 }}>
 					Powering leading studios
-				</p>
+				</p> */}
 			</Container>
 
 			<div className="d-md-none d-flex flex-column" style={{ gap: 16 }}>

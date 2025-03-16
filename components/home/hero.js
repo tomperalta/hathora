@@ -8,6 +8,7 @@ import breakpoints from "utils/breakpoints"
 import Container from "components/container"
 import Button from "components/button"
 import PingMap from "./ping-map"
+import ClientLogos from "./client-logos"
 
 const StyledHome = styled.section`
 	${breakpoints.medium`
@@ -15,7 +16,7 @@ const StyledHome = styled.section`
 	`}
 
 	.title {
-		margin-bottom: 16px;
+		margin-bottom: 8px;
 	}
 
 	.buttons {
@@ -28,7 +29,6 @@ const StyledHome = styled.section`
 
 		${breakpoints.medium`
 			gap: 32px;
-			margin-top: 48px;
 			margin-bottom: 56px;
 		`}
 	}
@@ -38,7 +38,7 @@ const Home = () => (
 	<StyledHome>
 		<Container>
 			<div className="row justify-content-center text-center">
-				<div className="col-12">
+				<div className="col-12" style={{ textWrap: "balance" }}>
 					<h1 className="title heading--l">
 						Server orchestration for multiplayer games
 					</h1>
@@ -67,6 +67,8 @@ const Home = () => (
 				</div>
 			</div>
 		</Container>
+
+		<ClientLogos />
 
 		<PingMap />
 
