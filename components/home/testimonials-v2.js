@@ -14,9 +14,15 @@ import Carousel from "components/carousel"
 // Icons
 import IconArrowRightSource from "assets/icons/components/carousel/icon-arrow-right.svg"
 import { ReactComponent as IconArrowRight } from "assets/icons/components/carousel/icon-arrow-right.svg"
+import IconCursor from "assets/images/home/testimonials/cursor.svg"
 
 // Images
-import IconCursor from "assets/images/home/testimonials/cursor.svg"
+import NateMitchell from "assets/images/home/testimonials/nate-mitchell.png"
+import ChitvanGupta from "assets/images/home/testimonials/chitvan-gupta.png"
+import JeffSmith from "assets/images/home/testimonials/jeff-smith.png"
+import StevenMeilleur from "assets/images/home/testimonials/steven-meilleur.png"
+import IanProulx from "assets/images/home/testimonials/ian-proulx.png"
+import Image from "next/image"
 
 const StyledTestimonials = styled.section`
 	.header {
@@ -202,13 +208,15 @@ const Testimonials = () => {
 			author: "Nate Mitchell",
 			role: "Founder & CEO",
 			company: "Mountaintop Studios",
+			profilePicture: NateMitchell,
 		},
 		{
 			quote:
-				"“Our game server hosting costs were by far the largest single infrastructure expense for our studio. With Hathora, our estimated spend was less than half of what we had been paying each month. Comparing bare metal pricing to cloud pricing highlighted a significant cost difference. Hathora’s team provided direct support throughout the transition, making the switch seamless and efficient.",
+				"Our game server hosting costs were by far the largest single infrastructure expense for our studio. With Hathora, our estimated spend was less than half of what we had been paying each month. Comparing bare metal pricing to cloud pricing highlighted a significant cost difference. Hathora’s team provided direct support throughout the transition, making the switch seamless and efficient.",
 			author: "Chitvan Gupta",
 			role: "Engineering Manager",
 			company: "Gambit Games",
+			profilePicture: ChitvanGupta,
 		},
 		{
 			quote:
@@ -216,6 +224,7 @@ const Testimonials = () => {
 			author: "Jeff Smith",
 			role: "VP Engineering",
 			company: "The Wildcard Alliance",
+			profilePicture: JeffSmith,
 		},
 		{
 			quote:
@@ -223,6 +232,7 @@ const Testimonials = () => {
 			author: "Steven Meilleur",
 			role: "CTO / Co-Founder",
 			company: "Omeda Studios",
+			profilePicture: StevenMeilleur,
 		},
 		{
 			quote:
@@ -230,6 +240,7 @@ const Testimonials = () => {
 			author: "Ian Proulx",
 			role: "CEO / Co-Founder",
 			company: "1047 Games",
+			profilePicture: IanProulx,
 		},
 	]
 
@@ -267,18 +278,29 @@ const Testimonials = () => {
 						<Carousel className="d-md-none">
 							{testimonials.map((testimonial) => (
 								<Testimonial key={testimonial.author} active>
-									<p className="author color--green__500 font-weight--700">
-										{testimonial.author}
-									</p>
-									<p className="role text--s color--grey__200">
-										{testimonial.role}
-									</p>
-									<p
-										className="company text--s color--grey__200"
-										style={{ marginTop: 8 }}
-									>
-										{testimonial.company}
-									</p>
+									<div className="d-flex align-items-center" style={{ gap: 8 }}>
+										<Image
+											src={testimonial.profilePicture}
+											width={78}
+											height={78}
+											alt={testimonial.author}
+										/>
+
+										<div>
+											<p className="author color--green__500 font-weight--700">
+												{testimonial.author}
+											</p>
+											<p className="role text--s color--grey__200">
+												{testimonial.role}
+											</p>
+											<p
+												className="company text--s color--grey__200"
+												style={{ marginTop: 8 }}
+											>
+												{testimonial.company}
+											</p>
+										</div>
+									</div>
 
 									<p className="quote text--xs" style={{ marginTop: 24 }}>
 										“{testimonial.quote}”
@@ -327,18 +349,34 @@ const Testimonials = () => {
 										}}
 									>
 										<Testimonial>
-											<p className="author color--green__500 font-weight--700">
-												{testimonials[testimonials.length - 1].author}
-											</p>
-											<p className="role text--s color--grey__200">
-												{testimonials[testimonials.length - 1].role}
-											</p>
-											<p
-												className="company text--s color--grey__200"
-												style={{ marginTop: 8 }}
+											<div
+												className="d-flex align-items-center"
+												style={{ gap: 8 }}
 											>
-												{testimonials[testimonials.length - 1].company}
-											</p>
+												<Image
+													src={
+														testimonials[testimonials.length - 1].profilePicture
+													}
+													width={78}
+													height={78}
+													alt={testimonials[testimonials.length - 1].author}
+												/>
+
+												<div>
+													<p className="author color--green__500 font-weight--700">
+														{testimonials[testimonials.length - 1].author}
+													</p>
+													<p className="role text--s color--grey__200">
+														{testimonials[testimonials.length - 1].role}
+													</p>
+													<p
+														className="company text--s color--grey__200"
+														style={{ marginTop: 8 }}
+													>
+														{testimonials[testimonials.length - 1].company}
+													</p>
+												</div>
+											</div>
 
 											<p className="quote text--s" style={{ marginTop: 24 }}>
 												“{testimonials[testimonials.length - 1].quote}”
@@ -358,18 +396,32 @@ const Testimonials = () => {
 											key={testimonial.author}
 										>
 											<Testimonial active={activeSlide === index}>
-												<p className="author color--green__500 font-weight--700">
-													{testimonial.author}
-												</p>
-												<p className="role text--s color--grey__200">
-													{testimonial.role}
-												</p>
-												<p
-													className="company text--s color--grey__200"
-													style={{ marginTop: 8 }}
+												<div
+													className="d-flex align-items-center"
+													style={{ gap: 8 }}
 												>
-													{testimonial.company}
-												</p>
+													<Image
+														src={testimonial.profilePicture}
+														width={78}
+														height={78}
+														alt={testimonial.author}
+													/>
+
+													<div>
+														<p className="author color--green__500 font-weight--700">
+															{testimonial.author}
+														</p>
+														<p className="role text--s color--grey__200">
+															{testimonial.role}
+														</p>
+														<p
+															className="company text--s color--grey__200"
+															style={{ marginTop: 8 }}
+														>
+															{testimonial.company}
+														</p>
+													</div>
+												</div>
 
 												<p className="quote text--s" style={{ marginTop: 24 }}>
 													“{testimonial.quote}”
@@ -388,18 +440,32 @@ const Testimonials = () => {
 										}}
 									>
 										<Testimonial>
-											<p className="author color--green__500 font-weight--700">
-												{testimonials[0].author}
-											</p>
-											<p className="role text--s color--grey__200">
-												{testimonials[0].role}
-											</p>
-											<p
-												className="company text--s color--grey__200"
-												style={{ marginTop: 8 }}
+											<div
+												className="d-flex align-items-center"
+												style={{ gap: 8 }}
 											>
-												{testimonials[0].company}
-											</p>
+												<Image
+													src={testimonials[0].profilePicture}
+													width={78}
+													height={78}
+													alt={testimonials[0].author}
+												/>
+
+												<div>
+													<p className="author color--green__500 font-weight--700">
+														{testimonials[0].author}
+													</p>
+													<p className="role text--s color--grey__200">
+														{testimonials[0].role}
+													</p>
+													<p
+														className="company text--s color--grey__200"
+														style={{ marginTop: 8 }}
+													>
+														{testimonials[0].company}
+													</p>
+												</div>
+											</div>
 
 											<p className="quote text--s" style={{ marginTop: 24 }}>
 												“{testimonials[0].quote}”
