@@ -223,7 +223,7 @@ const Testimonials = () => {
 				"With just weeks to go before DreamHack Atlanta, we needed a reliable multiplayer infrastructure that could handle live playtesting at our booth—but we had no matchmaking system in place. Hathora made it incredibly easy to spin up dedicated servers on demand, and with their help, we implemented a lightweight matchmaking flow in under a week. Their support and flexible tooling allowed us to focus on showcasing Wildcard instead of fighting infrastructure issues. The result? 60+ hours of smooth gameplay and hundreds of successful matches at the event.",
 			author: "Jeff Smith",
 			role: "VP Engineering",
-			company: "The Wildcard Alliance",
+			company: "Wildcard Alliance",
 			profilePicture: JeffSmith,
 		},
 		{
