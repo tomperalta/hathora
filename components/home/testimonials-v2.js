@@ -311,7 +311,7 @@ const Testimonials = () => {
 						{/* MOBILE:end */}
 
 						{/* DESKTOP:start */}
-						<div className="carousel d-none d-md-flex">
+						<div className="carousel d-none d-md-flex" style={{ height: 540 }}>
 							<button
 								type="button"
 								className="arrow arrow--next"
