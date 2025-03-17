@@ -22,6 +22,7 @@ import ChitvanGupta from "assets/images/home/testimonials/chitvan-gupta.png"
 import JeffSmith from "assets/images/home/testimonials/jeff-smith.png"
 import StevenMeilleur from "assets/images/home/testimonials/steven-meilleur.png"
 import IanProulx from "assets/images/home/testimonials/ian-proulx.png"
+import TimMorten from "assets/images/home/testimonials/tim-morten.jpg"
 import Image from "next/image"
 
 const StyledTestimonials = styled.section`
@@ -241,6 +242,14 @@ const Testimonials = () => {
 			role: "CEO / Co-Founder",
 			company: "1047 Games",
 			profilePicture: IanProulx,
+		},
+		{
+			quote:
+				"Hathora’s focus on delivering top-end performance at scale empowers game studios like ours to build multiplayer experiences that meet or exceed the expectations of the modern online player base.",
+			author: "Tim Morten",
+			role: "CEO / Production Director",
+			company: "Frost Giant Studios",
+			profilePicture: TimMorten,
 		},
 	]
 
