@@ -357,7 +357,11 @@ const Testimonials = () => {
 											opacity: 0.4,
 										}}
 									>
-										<Testimonial>
+										<Testimonial
+											onClick={() => {
+												setActiveSlide(testimonials.length - 1)
+											}}
+										>
 											<div
 												className="d-flex align-items-center"
 												style={{ gap: 8 }}
@@ -404,7 +408,12 @@ const Testimonials = () => {
 											}}
 											key={testimonial.author}
 										>
-											<Testimonial active={activeSlide === index}>
+											<Testimonial
+												active={activeSlide === index}
+												onClick={() => {
+													setActiveSlide(index)
+												}}
+											>
 												<div
 													className="d-flex align-items-center"
 													style={{ gap: 8 }}
@@ -448,7 +457,11 @@ const Testimonials = () => {
 											opacity: 0.4,
 										}}
 									>
-										<Testimonial>
+										<Testimonial
+											onClick={() => {
+												setActiveSlide(0)
+											}}
+										>
 											<div
 												className="d-flex align-items-center"
 												style={{ gap: 8 }}
